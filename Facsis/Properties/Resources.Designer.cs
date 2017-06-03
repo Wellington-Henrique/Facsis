@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace frm.Properties
-{
-
-
+namespace Facsis.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -22,49 +22,135 @@ namespace frm.Properties
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("frm.Properties.Resources", typeof(Resources).Assembly);
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Facsis.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using System;
+        ///using System.Collections.Generic;
+        ///using System.Linq;
+        ///using System.Text;
+        ///using System.Threading.Tasks;
+        ///
+        ///using System.Data;
+        ///using Npgsql;
+        ///
+        ///namespace TresCamadas.Code.DAL
+        ///{
+        ///    class AcessoBancoDados
+        ///    {
+        ///        private NpgsqlConnection conn;
+        ///        private DataTable data;
+        ///        private NpgsqlDataAdapter da;
+        ///        private NpgsqlDataReader dr;
+        ///        private NpgsqlCommandBuilder cb;
+        ///
+        ///        private String server = &quot;localhost&quot;;
+        ///        private String user = &quot;postgres&quot;;        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string AcessoBancoDados {
+            get {
+                return ResourceManager.GetString("AcessoBancoDados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using System;
+        ///using System.Collections.Generic;
+        ///using System.Linq;
+        ///using System.Text;
+        ///using System.Threading.Tasks;
+        ///
+        ///using TresCamadas.Code.DTO;
+        ///using TresCamadas.Code.DAL;
+        ///using System.Data;
+        ///
+        ///namespace TresCamadas.Code.BLL
+        ///{
+        ///    class ClienteBLL
+        ///    {
+        ///        AcessoBancoDados bd = new AcessoBancoDados();
+        ///
+        ///        public void Inserir(ClienteDTO dto)
+        ///        {
+        ///            try
+        ///            {
+        ///                string nome = dto.Nome.Replace(&quot;&apos;&quot;, &quot;&apos;&apos;&quot;);
+        ///                string cmd = &quot;INSERT INT [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ClienteBLL {
+            get {
+                return ResourceManager.GetString("ClienteBLL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to using System;
+        ///using System.Collections.Generic;
+        ///using System.Linq;
+        ///using System.Text;
+        ///using System.Threading.Tasks;
+        ///
+        ///namespace TresCamadas.Code.DTO
+        ///{
+        ///    class ClienteDTO
+        ///    {
+        ///        private int id;
+        ///        private string nome;
+        ///        private string email;
+        ///
+        ///        public int Id
+        ///        {
+        ///            get { return id; }
+        ///            set { id = value;  }
+        ///        }
+        ///
+        ///        public string Nome
+        ///        {
+        ///            get
+        ///            { return nome; }
+        ///
+        ///            set
+        ///            { nome  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ClienteDTO {
+            get {
+                return ResourceManager.GetString("ClienteDTO", resourceCulture);
             }
         }
     }
