@@ -17,7 +17,11 @@ namespace Facsis
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmCadUsuario());
+
+            frmSplash splash = new frmSplash();
+
+            if (splash.ShowDialog() == DialogResult.OK)
+                Application.Run(new mdiPrincipal());
         }
     }
 }

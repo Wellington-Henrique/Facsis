@@ -55,6 +55,7 @@
     <Compile Include="Controller\Util\DataGridFuncoes.cs" />
     <Compile Include="Controller\Util\FuncoesControles.cs" />
     <Compile Include="Controller\Util\Mensagens.cs" />
+    <Compile Include="Controller\Util\VariaveisGlobais.cs" />
     <Compile Include="Model\BLL\UsuarioBLL.cs" />
     <Compile Include="Model\DAL\AcessoBanco.cs" />
     <Compile Include="Model\DTO\UsuarioDTO.cs" />
@@ -71,6 +72,18 @@
     <Compile Include="View\frmCadUsuario.designer.cs">
       <DependentUpon>frmCadUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\frmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmSplash.designer.cs">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\mdiPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\mdiPrincipal.designer.cs">
+      <DependentUpon>mdiPrincipal.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -78,6 +91,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmCadUsuario.resx">
       <DependentUpon>frmCadUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmSplash.resx">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\mdiPrincipal.resx">
+      <DependentUpon>mdiPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
