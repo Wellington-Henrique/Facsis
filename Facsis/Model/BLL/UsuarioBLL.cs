@@ -5,7 +5,7 @@ using Facsis.Model.DAL;
 using Facsis.Controller.Util;
 using System.Data;
 
-namespace Facsis.Controller.BLL
+namespace Facsis.Model.BLL
 {
     class UsuarioBLL
     {
@@ -18,11 +18,20 @@ namespace Facsis.Controller.BLL
         {
             try
             {
+                // Insere dados na tabela usuario
                 string nome = dto.Nome.Replace("'", "''");
-                string cmd = "INSERT INTO cliente(nome, email) VALUES ('" + nome + "','" + dto.Email + "')";
+                string cmd = "INSERT INTO usuario(" +
+                    "nome, email, telefone, funcao) VALUES ('" +
+                    nome + "','" + dto.Email + "','" + dto.Telefone + "','" + dto.Nivel + "') returning id_usuario";
 
                 bd.Conectar();
+
+                // Insere dados na tabela login <Motivo: Chave estrangeira FK>
+                int id = bd.ExecutarComandoSqlRet(cmd);
+                cmd = "INSERT INTO acesso(id_login, login_usuario, senha) VALUES ('" + id + "','" + dto.Login + "','" + dto.Senha + "')";
                 bd.ExecutarComandoSql(cmd);
+
+                Mensagens.cadastroEfetuado();
             }
             catch (Exception ex)
             {
@@ -41,12 +50,14 @@ namespace Facsis.Controller.BLL
         {
             try
             {
-                string nome = dto.Nome.Replace("'", "''");             
-                string cmd = string.Format("UPDATE cliente set nome = '{0}', email = '{1}' WHERE id_cliente = {2}", nome, dto.Email, dto.Id);
+                string nome = dto.Nome.Replace("'", "''");
+                string cmd = string.Format("UPDATE usuario SET nome = '{0}', email = '{1}', telefone = '{2}', funcao = '{3}' WHERE id_usuario = '{4}'", nome, dto.Email, dto.Telefone, dto.Nivel, dto.Id);
 
                 bd = new AcessoBanco();
                 bd.Conectar();
                 bd.ExecutarComandoSql(cmd);
+
+                Mensagens.cadastroAlterado();
             }
             catch (Exception ex)
             {
@@ -66,10 +77,16 @@ namespace Facsis.Controller.BLL
             try
             {
                 bd = new AcessoBanco();
-                string cmd = string.Format("DELETE FROM cliente WHERE id_cliente = " + id);
 
+                string cmd = "DELETE FROM acesso WHERE id_login = " + id;
                 bd.Conectar();
                 bd.ExecutarComandoSql(cmd);
+
+                cmd = "DELETE FROM usuario WHERE id_usuario = " + id;
+                bd.Conectar();                          
+                bd.ExecutarComandoSql(cmd);
+
+                Mensagens.cadastroExcluido();
             }
             catch (Exception ex)
             {
@@ -84,19 +101,41 @@ namespace Facsis.Controller.BLL
         //======================================================
         //  Seleciona cadastro no banco pelo nome do usuário
         //======================================================
-        public DataTable selecionaCliente(string nome)
+        public DataTable selecionaUsuarioNome(string nome)
         {
             DataTable dt = new DataTable();
 
             try
-            {            
+            {
                 bd = new AcessoBanco();
                 bd.Conectar();
-                dt = bd.RetDataTable("SELECT id_cliente, nome, email FROM cliente WHERE nome = " + nome);
+                dt = bd.RetDataTable(string.Format("SELECT * FROM usuario u JOIN acesso a on u.id_usuario = a.id_login and u.nome = '" + nome + "'"));
             }
             catch (Exception ex)
             {
-                Mensagens.erroConexao(ex);
+                Mensagens.erroBusca(ex);
+            }
+            finally
+            {
+                bd = null;
+            }
+
+            return dt;
+        }
+
+        public DataTable selecionaUsuarioId(int id)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                bd = new AcessoBanco();
+                bd.Conectar();
+                dt = bd.RetDataTable(string.Format("SELECT * FROM usuario u JOIN acesso a on u.id_usuario = a.id_login and u.id_usuario = '" + id + "'"));
+            }
+            catch (Exception ex)
+            {
+                Mensagens.erroBusca(ex);
             }
             finally
             {

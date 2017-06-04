@@ -17,20 +17,22 @@ namespace Facsis.Model.DAL
         private String server = "localhost";
         private String user = "postgres";
         private String password = "postgres";
-        private String database = "bdfacsis";
+        private String database = "dbfacsis";
 
         public void Conectar()
         {
-            conn?.Close();
-
             string connStr = String.Format("server = {0}; user = {1}; password = {2}; database = {3}; pooling = false", server, user, password, database);
-            
+
             try
             {
                 conn = new NpgsqlConnection(connStr);
                 conn.Open();
             }
-            catch(Exception ex)
+            catch(NpgsqlException ex)
+            {
+                Mensagens.erroConexao(ex);
+            }            
+            catch (Exception ex)
             {
                 Mensagens.erroConexao(ex);
             }
@@ -41,6 +43,14 @@ namespace Facsis.Model.DAL
             NpgsqlCommand cmd = new NpgsqlCommand(comando, conn);
             cmd.ExecuteNonQuery();
             conn.Close();
+        }
+
+        public int ExecutarComandoSqlRet(string comando)
+        {
+            NpgsqlCommand cmd = new NpgsqlCommand(comando, conn);
+            int id = Convert.ToInt32(cmd.ExecuteScalar());
+
+            return id;
         }
 
         public DataTable RetDataTable(string sql)
