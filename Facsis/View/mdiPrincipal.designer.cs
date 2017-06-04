@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiPrincipal));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.tsmMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,13 +64,17 @@
             this.tsmJanelaHorizontal = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmJanelaVertical = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.arrangeIconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmFecharJanelas = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tsslblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.calculadoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ferramentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calculadoraToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -83,7 +88,8 @@
             this.tsmConsultar,
             this.tsmRelatorios,
             this.tsmMostrar,
-            this.tsmJanelas});
+            this.tsmJanelas,
+            this.ferramentasToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.MdiWindowListItem = this.tsmJanelas;
             this.menuStrip.Name = "menuStrip";
@@ -104,6 +110,7 @@
             // 
             // exitToolStripMenuItem
             // 
+            this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(193, 24);
             this.exitToolStripMenuItem.Text = "&Trocar de usuário";
@@ -111,6 +118,7 @@
             // 
             // fecharToolStripMenuItem
             // 
+            this.fecharToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fecharToolStripMenuItem.Image")));
             this.fecharToolStripMenuItem.Name = "fecharToolStripMenuItem";
             this.fecharToolStripMenuItem.Size = new System.Drawing.Size(193, 24);
             this.fecharToolStripMenuItem.Text = "&Fechar";
@@ -130,12 +138,14 @@
             this.tsmRegistro.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmNovaVenda,
             this.tsmCancelarVenda});
+            this.tsmRegistro.Image = ((System.Drawing.Image)(resources.GetObject("tsmRegistro.Image")));
             this.tsmRegistro.Name = "tsmRegistro";
             this.tsmRegistro.Size = new System.Drawing.Size(204, 24);
             this.tsmRegistro.Text = "Registro de vendas";
             // 
             // tsmNovaVenda
             // 
+            this.tsmNovaVenda.Image = ((System.Drawing.Image)(resources.GetObject("tsmNovaVenda.Image")));
             this.tsmNovaVenda.Name = "tsmNovaVenda";
             this.tsmNovaVenda.Size = new System.Drawing.Size(202, 24);
             this.tsmNovaVenda.Text = "&Nova venda";
@@ -143,6 +153,7 @@
             // 
             // tsmCancelarVenda
             // 
+            this.tsmCancelarVenda.Image = ((System.Drawing.Image)(resources.GetObject("tsmCancelarVenda.Image")));
             this.tsmCancelarVenda.Name = "tsmCancelarVenda";
             this.tsmCancelarVenda.Size = new System.Drawing.Size(202, 24);
             this.tsmCancelarVenda.Text = "&Cancelar pendente";
@@ -153,6 +164,7 @@
             this.tsmOrcamento.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmNovoOrcamento,
             this.tsmCancelarOrcamento});
+            this.tsmOrcamento.Image = ((System.Drawing.Image)(resources.GetObject("tsmOrcamento.Image")));
             this.tsmOrcamento.Name = "tsmOrcamento";
             this.tsmOrcamento.Size = new System.Drawing.Size(204, 24);
             this.tsmOrcamento.Text = "&Orçamento";
@@ -160,6 +172,7 @@
             // 
             // tsmNovoOrcamento
             // 
+            this.tsmNovoOrcamento.Image = ((System.Drawing.Image)(resources.GetObject("tsmNovoOrcamento.Image")));
             this.tsmNovoOrcamento.Name = "tsmNovoOrcamento";
             this.tsmNovoOrcamento.Size = new System.Drawing.Size(202, 24);
             this.tsmNovoOrcamento.Text = "&Novo orçamento";
@@ -167,6 +180,7 @@
             // 
             // tsmCancelarOrcamento
             // 
+            this.tsmCancelarOrcamento.Image = ((System.Drawing.Image)(resources.GetObject("tsmCancelarOrcamento.Image")));
             this.tsmCancelarOrcamento.Name = "tsmCancelarOrcamento";
             this.tsmCancelarOrcamento.Size = new System.Drawing.Size(202, 24);
             this.tsmCancelarOrcamento.Text = "&Cancelar pendente";
@@ -318,7 +332,6 @@
             this.tsmJanelaHorizontal,
             this.tsmJanelaVertical,
             this.toolStripSeparator1,
-            this.arrangeIconsToolStripMenuItem,
             this.tsmFecharJanelas});
             this.tsmJanelas.Name = "tsmJanelas";
             this.tsmJanelas.Size = new System.Drawing.Size(68, 24);
@@ -326,41 +339,38 @@
             // 
             // tsmJanelaCascata
             // 
+            this.tsmJanelaCascata.Image = ((System.Drawing.Image)(resources.GetObject("tsmJanelaCascata.Image")));
             this.tsmJanelaCascata.Name = "tsmJanelaCascata";
-            this.tsmJanelaCascata.Size = new System.Drawing.Size(169, 24);
+            this.tsmJanelaCascata.Size = new System.Drawing.Size(162, 24);
             this.tsmJanelaCascata.Text = "&Cascata";
             this.tsmJanelaCascata.Click += new System.EventHandler(this.CascadeToolStripMenuItem_Click);
             // 
             // tsmJanelaHorizontal
             // 
+            this.tsmJanelaHorizontal.Image = ((System.Drawing.Image)(resources.GetObject("tsmJanelaHorizontal.Image")));
             this.tsmJanelaHorizontal.Name = "tsmJanelaHorizontal";
-            this.tsmJanelaHorizontal.Size = new System.Drawing.Size(169, 24);
+            this.tsmJanelaHorizontal.Size = new System.Drawing.Size(162, 24);
             this.tsmJanelaHorizontal.Text = "&Horizontal";
             this.tsmJanelaHorizontal.Click += new System.EventHandler(this.TileHorizontalToolStripMenuItem_Click);
             // 
             // tsmJanelaVertical
             // 
+            this.tsmJanelaVertical.Image = ((System.Drawing.Image)(resources.GetObject("tsmJanelaVertical.Image")));
             this.tsmJanelaVertical.Name = "tsmJanelaVertical";
-            this.tsmJanelaVertical.Size = new System.Drawing.Size(169, 24);
+            this.tsmJanelaVertical.Size = new System.Drawing.Size(162, 24);
             this.tsmJanelaVertical.Text = "&Vertical";
             this.tsmJanelaVertical.Click += new System.EventHandler(this.TileVerticalToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(166, 6);
-            // 
-            // arrangeIconsToolStripMenuItem
-            // 
-            this.arrangeIconsToolStripMenuItem.Name = "arrangeIconsToolStripMenuItem";
-            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
-            this.arrangeIconsToolStripMenuItem.Text = "&Arrange Icons";
-            this.arrangeIconsToolStripMenuItem.Click += new System.EventHandler(this.ArrangeIconsToolStripMenuItem_Click);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(159, 6);
             // 
             // tsmFecharJanelas
             // 
+            this.tsmFecharJanelas.Image = ((System.Drawing.Image)(resources.GetObject("tsmFecharJanelas.Image")));
             this.tsmFecharJanelas.Name = "tsmFecharJanelas";
-            this.tsmFecharJanelas.Size = new System.Drawing.Size(169, 24);
+            this.tsmFecharJanelas.Size = new System.Drawing.Size(162, 24);
             this.tsmFecharJanelas.Text = "&Fechar todas";
             this.tsmFecharJanelas.ToolTipText = "Fecha todas as telas abertas.";
             this.tsmFecharJanelas.Click += new System.EventHandler(this.CloseAllToolStripMenuItem_Click);
@@ -382,12 +392,44 @@
             this.tsslblStatus.Size = new System.Drawing.Size(39, 17);
             this.tsslblStatus.Text = "Status";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.calculadoraToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(138, 26);
+            // 
+            // calculadoraToolStripMenuItem
+            // 
+            this.calculadoraToolStripMenuItem.Name = "calculadoraToolStripMenuItem";
+            this.calculadoraToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.calculadoraToolStripMenuItem.Text = "Calculadora";
+            this.calculadoraToolStripMenuItem.Click += new System.EventHandler(this.calculadoraToolStripMenuItem_Click);
+            // 
+            // ferramentasToolStripMenuItem
+            // 
+            this.ferramentasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.calculadoraToolStripMenuItem1});
+            this.ferramentasToolStripMenuItem.Name = "ferramentasToolStripMenuItem";
+            this.ferramentasToolStripMenuItem.Size = new System.Drawing.Size(102, 24);
+            this.ferramentasToolStripMenuItem.Text = "Ferramentas";
+            // 
+            // calculadoraToolStripMenuItem1
+            // 
+            this.calculadoraToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("calculadoraToolStripMenuItem1.Image")));
+            this.calculadoraToolStripMenuItem1.Name = "calculadoraToolStripMenuItem1";
+            this.calculadoraToolStripMenuItem1.Size = new System.Drawing.Size(157, 24);
+            this.calculadoraToolStripMenuItem1.Text = "Calculadora";
+            this.calculadoraToolStripMenuItem1.ToolTipText = "Abrir uma calculadora.";
+            this.calculadoraToolStripMenuItem1.Click += new System.EventHandler(this.calculadoraToolStripMenuItem1_Click);
+            // 
             // mdiPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(896, 651);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -403,6 +445,7 @@
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -422,7 +465,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmJanelaCascata;
         private System.Windows.Forms.ToolStripMenuItem tsmJanelaVertical;
         private System.Windows.Forms.ToolStripMenuItem tsmFecharJanelas;
-        private System.Windows.Forms.ToolStripMenuItem arrangeIconsToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmCadastro;
@@ -449,6 +491,10 @@
         private System.Windows.Forms.ToolStripMenuItem tsmConsFornecedor;
         private System.Windows.Forms.ToolStripMenuItem tsmConsProduto;
         private System.Windows.Forms.ToolStripMenuItem tsmConsUsuario;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem calculadoraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ferramentasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem calculadoraToolStripMenuItem1;
     }
 }
 

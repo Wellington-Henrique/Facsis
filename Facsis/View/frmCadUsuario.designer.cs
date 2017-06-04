@@ -110,7 +110,6 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(520, 27);
             this.txtNome.TabIndex = 0;
-            this.txtNome.Text = "WELLINGTON HENRIQUE LEME CAVALHEIRO";
             this.toolTip.SetToolTip(this.txtNome, "Informe o nome do usuário.");
             // 
             // lblSenha
@@ -366,7 +365,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(332, 27);
             this.txtEmail.TabIndex = 0;
-            this.txtEmail.Text = "wellingtonhlc@gmail.com";
             // 
             // dgvConsulta
             // 

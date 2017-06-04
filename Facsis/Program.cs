@@ -18,10 +18,15 @@ namespace Facsis
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            frmSplash splash = new frmSplash();
+            Form janela = new frmSplash();
 
-            if (splash.ShowDialog() == DialogResult.OK)
-                Application.Run(new mdiPrincipal());
+            if (janela.ShowDialog() == DialogResult.OK)
+            {
+                janela = new frmLogin();
+
+                if (janela.ShowDialog() == DialogResult.OK)
+                    Application.Run(new mdiPrincipal());
+            }
         }
     }
 }

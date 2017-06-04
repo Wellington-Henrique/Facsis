@@ -90,7 +90,9 @@ namespace Facsis.View
             }
             else
             {
-                dgvConsulta.DataSource = bll.selecionaUsuarioNome(txtConsulta.Text);
+                string nome = txtConsulta.Text.Trim();
+
+                dgvConsulta.DataSource = bll.selecionaUsuarioNome(nome.ToLower());
             }
 
             DataGridFuncoes.cabecalhoTabUsuario(dgvConsulta);

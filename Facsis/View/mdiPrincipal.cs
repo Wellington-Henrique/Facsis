@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
+using Facsis.Model.DTO;
+using Facsis.Model.BLL;
 
 namespace Facsis.View
 {
     public partial class mdiPrincipal : Form
     {
-        Form janelas;        
+        Form cadUsuario;
+        Form calculadora;       
 
         public mdiPrincipal()
         {
@@ -52,11 +55,11 @@ namespace Facsis.View
 
         private void tsmCadUsuario_Click(object sender, EventArgs e)
         {
-            janelas?.Close();
-            janelas = new frmCadUsuario();
+            cadUsuario?.Close();
+            cadUsuario = new frmCadUsuario();
 
-            janelas.MdiParent = this;
-            janelas.Show();
+            cadUsuario.MdiParent = this;
+            cadUsuario.Show();
         }
 
         private void tsmCadCliente_Click(object sender, EventArgs e)
@@ -74,7 +77,24 @@ namespace Facsis.View
 
         private void mdiPrincipal_Load(object sender, EventArgs e)
         {
+            this.Text = "Facsis - " + LoginDTO.Nome;
+        }
 
+        private void calculadoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            iniciaCalculadora();
+        }
+
+        private void calculadoraToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            iniciaCalculadora();
+        }
+
+        public void iniciaCalculadora()
+        {
+            calculadora?.Close();
+            calculadora = new frmCalculadora();
+            calculadora.Show();
         }
     }
 }
