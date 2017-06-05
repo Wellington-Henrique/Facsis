@@ -7,9 +7,12 @@ namespace Facsis.View
 {
     public partial class mdiPrincipal : Form
     {
+        Form cadPessoa;
         Form cadProduto;
         Form cadUsuario;
-        Form calculadora;       
+        Form calculadora;
+        Form venda;
+        Form conPessoa;
 
         public mdiPrincipal()
         {
@@ -58,14 +61,13 @@ namespace Facsis.View
         {
             cadUsuario?.Close();
             cadUsuario = new frmCadUsuario();
-
             cadUsuario.MdiParent = this;
             cadUsuario.Show();
         }
 
         private void tsmCadCliente_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Convert.ToString(DateTime.Now.ToShortDateString()));
+            iniciaFomCadPessoa();
         }
 
         private void tsmCadProduto_Click(object sender, EventArgs e)
@@ -91,10 +93,46 @@ namespace Facsis.View
             iniciaCalculadora();
         }
 
+        
+        private void tsmNovaVenda_Click(object sender, EventArgs e)
+        {
+            venda?.Close();
+            venda = new frmVenda();
+            venda.MdiParent = this;
+            venda.Show();
+        }
+
+        private void tsmConsCliente_Click(object sender, EventArgs e)
+        {
+            iniciaFomConPessoa();
+        }
+
+        private void tsmCadFornecedor_Click(object sender, EventArgs e)
+        {
+            iniciaFomCadPessoa();
+        }
+
+        public void iniciaFomConPessoa()
+        {
+            conPessoa?.Close();
+            conPessoa = new frmBuscaPessoa();
+            conPessoa.MdiParent = this;
+            conPessoa.Show();
+        }
+
+        public void iniciaFomCadPessoa()
+        {
+            cadPessoa?.Close();
+            cadPessoa = new frmCadPessoa();
+            cadPessoa.MdiParent = this;
+            cadPessoa.Show();
+        }
+
         public void iniciaCalculadora()
         {
             calculadora?.Close();
             calculadora = new frmCalculadora();
+            calculadora.MdiParent = this;
             calculadora.Show();
         }
     }

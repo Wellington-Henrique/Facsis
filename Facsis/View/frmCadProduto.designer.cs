@@ -78,6 +78,7 @@
             // 
             // pnlCadProduto
             // 
+            this.pnlCadProduto.BackColor = System.Drawing.Color.White;
             this.pnlCadProduto.Controls.Add(this.gbEstoque);
             this.pnlCadProduto.Controls.Add(this.dateTimePicker1);
             this.pnlCadProduto.Controls.Add(this.cbLocacao);
@@ -100,10 +101,10 @@
             this.pnlCadProduto.Controls.Add(this.txtNome);
             this.pnlCadProduto.Controls.Add(this.txtDescricao);
             this.pnlCadProduto.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlCadProduto.Location = new System.Drawing.Point(0, 0);
+            this.pnlCadProduto.Location = new System.Drawing.Point(10, 10);
             this.pnlCadProduto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlCadProduto.Name = "pnlCadProduto";
-            this.pnlCadProduto.Size = new System.Drawing.Size(654, 300);
+            this.pnlCadProduto.Size = new System.Drawing.Size(650, 300);
             this.pnlCadProduto.TabIndex = 0;
             // 
             // gbEstoque
@@ -394,10 +395,10 @@
             // 
             this.dgvConsulta.BackgroundColor = System.Drawing.Color.White;
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvConsulta.Location = new System.Drawing.Point(10, 411);
+            this.dgvConsulta.Location = new System.Drawing.Point(10, 426);
             this.dgvConsulta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvConsulta.Name = "dgvConsulta";
-            this.dgvConsulta.Size = new System.Drawing.Size(631, 159);
+            this.dgvConsulta.Size = new System.Drawing.Size(650, 141);
             this.dgvConsulta.TabIndex = 29;
             this.dgvConsulta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsulta_CellContentClick);
             // 
@@ -405,10 +406,10 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripProgressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 572);
+            this.statusStrip1.Location = new System.Drawing.Point(10, 572);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(654, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(650, 22);
             this.statusStrip1.TabIndex = 30;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -425,10 +426,10 @@
             this.pnlPesquisa.Controls.Add(this.btnConsultar);
             this.pnlPesquisa.Controls.Add(this.txtConsulta);
             this.pnlPesquisa.Controls.Add(this.lblConsultar);
-            this.pnlPesquisa.Location = new System.Drawing.Point(10, 353);
+            this.pnlPesquisa.Location = new System.Drawing.Point(10, 368);
             this.pnlPesquisa.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.pnlPesquisa.Name = "pnlPesquisa";
-            this.pnlPesquisa.Size = new System.Drawing.Size(631, 48);
+            this.pnlPesquisa.Size = new System.Drawing.Size(650, 48);
             this.pnlPesquisa.TabIndex = 32;
             // 
             // btnConsultar
@@ -473,10 +474,10 @@
             this.pnlBotoes.Controls.Add(this.btnExcluir);
             this.pnlBotoes.Controls.Add(this.btnAlterar);
             this.pnlBotoes.Controls.Add(this.btnCadastrar);
-            this.pnlBotoes.Location = new System.Drawing.Point(10, 304);
+            this.pnlBotoes.Location = new System.Drawing.Point(10, 320);
             this.pnlBotoes.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.pnlBotoes.Name = "pnlBotoes";
-            this.pnlBotoes.Size = new System.Drawing.Size(665, 39);
+            this.pnlBotoes.Size = new System.Drawing.Size(650, 39);
             this.pnlBotoes.TabIndex = 31;
             // 
             // btnCancelar
@@ -487,8 +488,8 @@
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Location = new System.Drawing.Point(531, 1);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(0);
+            this.btnCancelar.Location = new System.Drawing.Point(550, 0);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 38);
             this.btnCancelar.TabIndex = 3;
@@ -505,8 +506,8 @@
             this.btnExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluir.Location = new System.Drawing.Point(421, 1);
-            this.btnExcluir.Margin = new System.Windows.Forms.Padding(0);
+            this.btnExcluir.Location = new System.Drawing.Point(440, 1);
+            this.btnExcluir.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 38);
             this.btnExcluir.TabIndex = 2;
@@ -523,8 +524,8 @@
             this.btnAlterar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnAlterar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlterar.Location = new System.Drawing.Point(311, 1);
-            this.btnAlterar.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAlterar.Location = new System.Drawing.Point(330, 1);
+            this.btnAlterar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(100, 38);
             this.btnAlterar.TabIndex = 1;
@@ -540,8 +541,8 @@
             this.btnCadastrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnCadastrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrar.Location = new System.Drawing.Point(201, 1);
-            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(0);
+            this.btnCadastrar.Location = new System.Drawing.Point(220, 1);
+            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(100, 38);
             this.btnCadastrar.TabIndex = 0;
@@ -553,7 +554,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(654, 594);
+            this.ClientSize = new System.Drawing.Size(670, 594);
             this.Controls.Add(this.pnlPesquisa);
             this.Controls.Add(this.pnlBotoes);
             this.Controls.Add(this.statusStrip1);
@@ -562,6 +563,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmCadProduto";
+            this.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cadastro de produto";
             this.Load += new System.EventHandler(this.frmCadProduto_Load);

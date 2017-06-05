@@ -56,9 +56,6 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.dgvConsulta = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.restaurarTamanhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.id_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +63,9 @@
             this.nivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.login_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.senha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.restaurarTamanhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlPesquisa.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -83,7 +83,7 @@
             "Diretor",
             "Vendedor",
             "Estoquista"});
-            this.cbNivel.Location = new System.Drawing.Point(614, 89);
+            this.cbNivel.Location = new System.Drawing.Point(557, 45);
             this.cbNivel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbNivel.Name = "cbNivel";
             this.cbNivel.Size = new System.Drawing.Size(131, 28);
@@ -93,7 +93,7 @@
             // lblNivel
             // 
             this.lblNivel.AutoSize = true;
-            this.lblNivel.Location = new System.Drawing.Point(563, 89);
+            this.lblNivel.Location = new System.Drawing.Point(553, 15);
             this.lblNivel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lblNivel.Name = "lblNivel";
             this.lblNivel.Size = new System.Drawing.Size(43, 20);
@@ -103,7 +103,7 @@
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(167, 15);
+            this.lblNome.Location = new System.Drawing.Point(105, 15);
             this.lblNome.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(50, 20);
@@ -112,17 +112,17 @@
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(225, 15);
+            this.txtNome.Location = new System.Drawing.Point(109, 45);
             this.txtNome.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(520, 27);
+            this.txtNome.Size = new System.Drawing.Size(440, 27);
             this.txtNome.TabIndex = 0;
             this.toolTip.SetToolTip(this.txtNome, "Informe o nome do usuário.");
             // 
             // lblSenha
             // 
             this.lblSenha.AutoSize = true;
-            this.lblSenha.Location = new System.Drawing.Point(293, 89);
+            this.lblSenha.Location = new System.Drawing.Point(237, 149);
             this.lblSenha.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lblSenha.Name = "lblSenha";
             this.lblSenha.Size = new System.Drawing.Size(49, 20);
@@ -132,7 +132,7 @@
             // lblLogin
             // 
             this.lblLogin.AutoSize = true;
-            this.lblLogin.Location = new System.Drawing.Point(26, 89);
+            this.lblLogin.Location = new System.Drawing.Point(20, 149);
             this.lblLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(46, 20);
@@ -141,7 +141,7 @@
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(350, 89);
+            this.txtSenha.Location = new System.Drawing.Point(237, 169);
             this.txtSenha.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(205, 27);
@@ -150,7 +150,7 @@
             // 
             // txtLogin
             // 
-            this.txtLogin.Location = new System.Drawing.Point(80, 89);
+            this.txtLogin.Location = new System.Drawing.Point(24, 169);
             this.txtLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(205, 27);
@@ -165,7 +165,7 @@
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Location = new System.Drawing.Point(665, 1);
+            this.btnCancelar.Location = new System.Drawing.Point(624, 1);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 38);
@@ -184,7 +184,7 @@
             this.btnExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluir.Location = new System.Drawing.Point(555, 1);
+            this.btnExcluir.Location = new System.Drawing.Point(514, 1);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 38);
@@ -202,7 +202,7 @@
             this.btnCadastrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnCadastrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrar.Location = new System.Drawing.Point(445, 1);
+            this.btnCadastrar.Location = new System.Drawing.Point(404, 1);
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(100, 38);
@@ -219,10 +219,10 @@
             this.pnlPesquisa.Controls.Add(this.btnConsultar);
             this.pnlPesquisa.Controls.Add(this.txtConsulta);
             this.pnlPesquisa.Controls.Add(this.lblConsultar);
-            this.pnlPesquisa.Location = new System.Drawing.Point(12, 225);
+            this.pnlPesquisa.Location = new System.Drawing.Point(12, 275);
             this.pnlPesquisa.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.pnlPesquisa.Name = "pnlPesquisa";
-            this.pnlPesquisa.Size = new System.Drawing.Size(765, 48);
+            this.pnlPesquisa.Size = new System.Drawing.Size(724, 48);
             this.pnlPesquisa.TabIndex = 5;
             // 
             // btnConsultar
@@ -267,10 +267,10 @@
             this.pnlBotoes.Controls.Add(this.btnCancelar);
             this.pnlBotoes.Controls.Add(this.btnExcluir);
             this.pnlBotoes.Controls.Add(this.btnCadastrar);
-            this.pnlBotoes.Location = new System.Drawing.Point(12, 166);
+            this.pnlBotoes.Location = new System.Drawing.Point(12, 226);
             this.pnlBotoes.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.pnlBotoes.Name = "pnlBotoes";
-            this.pnlBotoes.Size = new System.Drawing.Size(765, 39);
+            this.pnlBotoes.Size = new System.Drawing.Size(724, 39);
             this.pnlBotoes.TabIndex = 4;
             // 
             // statusStrip1
@@ -281,7 +281,7 @@
             this.statusStrip1.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(769, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(729, 22);
             this.statusStrip1.TabIndex = 29;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -293,6 +293,7 @@
             // 
             // pnlUsuario
             // 
+            this.pnlUsuario.BackColor = System.Drawing.Color.White;
             this.pnlUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlUsuario.Controls.Add(this.txtTelefone);
             this.pnlUsuario.Controls.Add(this.cbNivel);
@@ -312,13 +313,13 @@
             this.pnlUsuario.Margin = new System.Windows.Forms.Padding(5);
             this.pnlUsuario.Name = "pnlUsuario";
             this.pnlUsuario.Padding = new System.Windows.Forms.Padding(10);
-            this.pnlUsuario.Size = new System.Drawing.Size(765, 137);
+            this.pnlUsuario.Size = new System.Drawing.Size(724, 208);
             this.pnlUsuario.TabIndex = 30;
             // 
             // txtTelefone
             // 
             this.txtTelefone.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.txtTelefone.Location = new System.Drawing.Point(619, 52);
+            this.txtTelefone.Location = new System.Drawing.Point(368, 112);
             this.txtTelefone.Mask = "(99) 99999 - 9999";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(126, 27);
@@ -328,7 +329,7 @@
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(14, 15);
+            this.lblId.Location = new System.Drawing.Point(18, 15);
             this.lblId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(58, 20);
@@ -338,7 +339,7 @@
             // lblTelefone
             // 
             this.lblTelefone.AutoSize = true;
-            this.lblTelefone.Location = new System.Drawing.Point(545, 52);
+            this.lblTelefone.Location = new System.Drawing.Point(364, 84);
             this.lblTelefone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lblTelefone.Name = "lblTelefone";
             this.lblTelefone.Size = new System.Drawing.Size(67, 20);
@@ -348,7 +349,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(26, 52);
+            this.lblEmail.Location = new System.Drawing.Point(20, 82);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(46, 20);
@@ -358,7 +359,7 @@
             // txtId
             // 
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(80, 15);
+            this.txtId.Location = new System.Drawing.Point(22, 45);
             this.txtId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(79, 27);
@@ -367,7 +368,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(80, 52);
+            this.txtEmail.Location = new System.Drawing.Point(24, 112);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(332, 27);
@@ -386,33 +387,13 @@
             this.nivel,
             this.login_usuario,
             this.senha});
-            this.dgvConsulta.Location = new System.Drawing.Point(12, 288);
+            this.dgvConsulta.Location = new System.Drawing.Point(12, 330);
             this.dgvConsulta.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.dgvConsulta.Name = "dgvConsulta";
             this.dgvConsulta.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dgvConsulta.Size = new System.Drawing.Size(765, 160);
+            this.dgvConsulta.Size = new System.Drawing.Size(727, 118);
             this.dgvConsulta.TabIndex = 31;
             this.dgvConsulta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsulta_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator1,
-            this.restaurarTamanhoToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 32);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(171, 6);
-            // 
-            // restaurarTamanhoToolStripMenuItem
-            // 
-            this.restaurarTamanhoToolStripMenuItem.Name = "restaurarTamanhoToolStripMenuItem";
-            this.restaurarTamanhoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.restaurarTamanhoToolStripMenuItem.Text = "Restaurar tamanho";
-            this.restaurarTamanhoToolStripMenuItem.Click += new System.EventHandler(this.restaurarTamanhoToolStripMenuItem_Click);
             // 
             // id_usuario
             // 
@@ -449,12 +430,32 @@
             this.senha.HeaderText = "Senha";
             this.senha.Name = "senha";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator1,
+            this.restaurarTamanhoToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 32);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(171, 6);
+            // 
+            // restaurarTamanhoToolStripMenuItem
+            // 
+            this.restaurarTamanhoToolStripMenuItem.Name = "restaurarTamanhoToolStripMenuItem";
+            this.restaurarTamanhoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.restaurarTamanhoToolStripMenuItem.Text = "Restaurar tamanho";
+            this.restaurarTamanhoToolStripMenuItem.Click += new System.EventHandler(this.restaurarTamanhoToolStripMenuItem_Click);
+            // 
             // frmCadUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(789, 482);
+            this.ClientSize = new System.Drawing.Size(749, 482);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.dgvConsulta);
             this.Controls.Add(this.statusStrip1);
