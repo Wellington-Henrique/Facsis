@@ -23,7 +23,7 @@ namespace Facsis.View
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {            
-            dto.Nome = txtNome.Text.Trim().ToUpper();            
+            dto.Nome = txtNome.Text.Trim();            
             dto.Tipo = cbPessoa.Text.Trim();
             dto.Email = txtEmail.Text.Trim().ToLower();
             dto.Telefone = txtTelefone.Text.Trim();

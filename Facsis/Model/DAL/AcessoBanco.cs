@@ -31,10 +31,12 @@ namespace Facsis.Model.DAL
             catch(NpgsqlException ex)
             {
                 Mensagens.erroConexao(ex);
+                conn.Close();
             }            
             catch (Exception ex)
             {
                 Mensagens.erroConexao(ex);
+                conn.Close();
             }
         }
 

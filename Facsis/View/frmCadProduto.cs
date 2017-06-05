@@ -43,5 +43,10 @@ namespace Facsis.View
         {
 
         }
+
+        private void btnCadastrar_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

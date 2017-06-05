@@ -1,11 +1,14 @@
 ﻿using System;
-
 using System.Windows.Forms;
+using Facsis.Model.DTO;
 
 namespace Facsis.View
 {
     public partial class frmVenda : Form
     {
+        Form buscaPessoa = new frmBuscaPessoa();
+        VendaDTO dto = new VendaDTO(); 
+
         public frmVenda()
         {
             InitializeComponent();
@@ -13,23 +16,22 @@ namespace Facsis.View
 
         private void rdBtnCancelar_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdBtnCancelar.Checked == true)
-            {
-                if (MessageBox.Show("Deseja realmente cancelar este pedido?", "Vendas", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                {
-                    Close();
-                }
-            }
-        }
-
-        private void lblLegNomeCli_Click(object sender, EventArgs e)
-        {
 
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnAdicinaCliente_Click(object sender, EventArgs e)
         {
+            buscaPessoa?.Close();
+            buscaPessoa = new frmBuscaPessoa(txtCodCli, txtNome);
+            buscaPessoa.Show();                        
+        }
 
+        public void atualizaFormulario()
+        {
+            txtCodCli.Text = VendaDTO.IdCliente.ToString();
+            txtNome.Text = VendaDTO.NomeCliente;
+
+            MessageBox.Show(VendaDTO.IdCliente.ToString());
         }
     }
 }

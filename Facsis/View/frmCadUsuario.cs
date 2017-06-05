@@ -19,8 +19,8 @@ namespace Facsis.View
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {            
-            dto.Nome = txtNome.Text.Trim().ToUpper();
-            dto.Email = txtEmail.Text.Trim().ToLower();
+            dto.Nome = txtNome.Text.Trim();
+            dto.Email = txtEmail.Text.Trim();
             dto.Telefone = txtTelefone.Text.Trim();
             dto.Nivel = cbNivel.Text.Trim();
             dto.Login = txtLogin.Text.Trim();

@@ -52,6 +52,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnAdicinaCliente = new System.Windows.Forms.Button();
             this.txtNVendedor = new System.Windows.Forms.TextBox();
             this.lblLegDataNota = new System.Windows.Forms.Label();
             this.lblLegNomeCli = new System.Windows.Forms.Label();
@@ -63,20 +64,20 @@
             this.txtCodCli = new System.Windows.Forms.TextBox();
             this.lblCodCli = new System.Windows.Forms.Label();
             this.gbPedido = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCancelarVenda = new System.Windows.Forms.Button();
-            this.btnRegistrar = new System.Windows.Forms.Button();
             this.pnlBotoes = new System.Windows.Forms.Panel();
             this.btnCancelarInsercao = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCancelarVenda = new System.Windows.Forms.Button();
+            this.btnRegistrar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.gbPedido.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -320,6 +321,7 @@
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.dateTimePicker2);
             this.panel3.Controls.Add(this.dateTimePicker1);
+            this.panel3.Controls.Add(this.btnAdicinaCliente);
             this.panel3.Controls.Add(this.txtNVendedor);
             this.panel3.Controls.Add(this.lblLegDataNota);
             this.panel3.Controls.Add(this.lblLegNomeCli);
@@ -350,6 +352,23 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(118, 27);
             this.dateTimePicker1.TabIndex = 43;
+            // 
+            // btnAdicinaCliente
+            // 
+            this.btnAdicinaCliente.BackColor = System.Drawing.Color.DarkGray;
+            this.btnAdicinaCliente.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAdicinaCliente.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnAdicinaCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnAdicinaCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnAdicinaCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdicinaCliente.Location = new System.Drawing.Point(489, 30);
+            this.btnAdicinaCliente.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnAdicinaCliente.Name = "btnAdicinaCliente";
+            this.btnAdicinaCliente.Size = new System.Drawing.Size(34, 33);
+            this.btnAdicinaCliente.TabIndex = 0;
+            this.btnAdicinaCliente.Text = ">";
+            this.btnAdicinaCliente.UseVisualStyleBackColor = false;
+            this.btnAdicinaCliente.Click += new System.EventHandler(this.btnAdicinaCliente_Click);
             // 
             // txtNVendedor
             // 
@@ -425,7 +444,7 @@
             this.txtNome.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNome.MaxLength = 3;
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(409, 27);
+            this.txtNome.Size = new System.Drawing.Size(352, 27);
             this.txtNome.TabIndex = 33;
             // 
             // txtCodCli
@@ -459,51 +478,6 @@
             this.gbPedido.TabIndex = 40;
             this.gbPedido.TabStop = false;
             this.gbPedido.Text = "Itens do pedido";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnCancelarVenda);
-            this.panel1.Controls.Add(this.btnRegistrar);
-            this.panel1.Location = new System.Drawing.Point(537, 360);
-            this.panel1.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(481, 40);
-            this.panel1.TabIndex = 44;
-            // 
-            // btnCancelarVenda
-            // 
-            this.btnCancelarVenda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelarVenda.BackColor = System.Drawing.Color.DarkGray;
-            this.btnCancelarVenda.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnCancelarVenda.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.btnCancelarVenda.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnCancelarVenda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnCancelarVenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarVenda.Location = new System.Drawing.Point(381, 1);
-            this.btnCancelarVenda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnCancelarVenda.Name = "btnCancelarVenda";
-            this.btnCancelarVenda.Size = new System.Drawing.Size(100, 38);
-            this.btnCancelarVenda.TabIndex = 3;
-            this.btnCancelarVenda.Text = "Cancelar";
-            this.btnCancelarVenda.UseVisualStyleBackColor = false;
-            // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRegistrar.BackColor = System.Drawing.Color.DarkGray;
-            this.btnRegistrar.Enabled = false;
-            this.btnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnRegistrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.btnRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrar.Location = new System.Drawing.Point(271, 1);
-            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(100, 38);
-            this.btnRegistrar.TabIndex = 2;
-            this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = false;
             // 
             // pnlBotoes
             // 
@@ -566,6 +540,51 @@
             this.btnCadastrar.Text = "Inserir";
             this.btnCadastrar.UseVisualStyleBackColor = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnCancelarVenda);
+            this.panel1.Controls.Add(this.btnRegistrar);
+            this.panel1.Location = new System.Drawing.Point(537, 360);
+            this.panel1.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(481, 40);
+            this.panel1.TabIndex = 44;
+            // 
+            // btnCancelarVenda
+            // 
+            this.btnCancelarVenda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelarVenda.BackColor = System.Drawing.Color.DarkGray;
+            this.btnCancelarVenda.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCancelarVenda.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnCancelarVenda.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnCancelarVenda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnCancelarVenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarVenda.Location = new System.Drawing.Point(381, 1);
+            this.btnCancelarVenda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnCancelarVenda.Name = "btnCancelarVenda";
+            this.btnCancelarVenda.Size = new System.Drawing.Size(100, 38);
+            this.btnCancelarVenda.TabIndex = 3;
+            this.btnCancelarVenda.Text = "Cancelar";
+            this.btnCancelarVenda.UseVisualStyleBackColor = false;
+            // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRegistrar.BackColor = System.Drawing.Color.DarkGray;
+            this.btnRegistrar.Enabled = false;
+            this.btnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnRegistrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrar.Location = new System.Drawing.Point(271, 1);
+            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(100, 38);
+            this.btnRegistrar.TabIndex = 2;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.UseVisualStyleBackColor = false;
+            // 
             // frmVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -593,8 +612,8 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.gbPedido.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.pnlBotoes.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -643,5 +662,6 @@
         private System.Windows.Forms.Button btnCancelarInsercao;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Button btnAdicinaCliente;
     }
 }

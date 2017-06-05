@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.R4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtCpf_Cnpj = new System.Windows.Forms.MaskedTextBox();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.lblCpfCnpj = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
@@ -37,14 +39,15 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.dgvPessoa = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.inserirClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnRemover = new System.Windows.Forms.Button();
             this.btnInserir = new System.Windows.Forms.Button();
-            this.txtCpf_Cnpj = new System.Windows.Forms.MaskedTextBox();
             this.R4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPessoa)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +79,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(699, 88);
             this.panel2.TabIndex = 10;
+            // 
+            // txtCpf_Cnpj
+            // 
+            this.txtCpf_Cnpj.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtCpf_Cnpj.Location = new System.Drawing.Point(437, 38);
+            this.txtCpf_Cnpj.Mask = "009,999,999,90";
+            this.txtCpf_Cnpj.Name = "txtCpf_Cnpj";
+            this.txtCpf_Cnpj.Size = new System.Drawing.Size(126, 27);
+            this.txtCpf_Cnpj.TabIndex = 26;
+            this.txtCpf_Cnpj.Text = "40494432870";
+            this.txtCpf_Cnpj.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCpf_Cnpj.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // btnConsultar
             // 
@@ -146,16 +161,31 @@
             // 
             this.dgvPessoa.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvPessoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPessoa.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvPessoa.Location = new System.Drawing.Point(117, 9);
             this.dgvPessoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvPessoa.Name = "dgvPessoa";
             this.dgvPessoa.Size = new System.Drawing.Size(699, 290);
             this.dgvPessoa.TabIndex = 3;
+            this.dgvPessoa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPessoa_CellContentClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inserirClienteToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 26);
+            // 
+            // inserirClienteToolStripMenuItem
+            // 
+            this.inserirClienteToolStripMenuItem.Name = "inserirClienteToolStripMenuItem";
+            this.inserirClienteToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.inserirClienteToolStripMenuItem.Text = "Inserir cliente";
+            this.inserirClienteToolStripMenuItem.Click += new System.EventHandler(this.inserirClienteToolStripMenuItem_Click);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnExcluir);
-            this.panel1.Controls.Add(this.btnAlterar);
+            this.panel1.Controls.Add(this.btnRemover);
             this.panel1.Controls.Add(this.btnInserir);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -164,37 +194,22 @@
             this.panel1.Size = new System.Drawing.Size(117, 398);
             this.panel1.TabIndex = 0;
             // 
-            // btnExcluir
+            // btnRemover
             // 
-            this.btnExcluir.BackColor = System.Drawing.Color.DarkGray;
-            this.btnExcluir.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnExcluir.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.btnExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluir.Location = new System.Drawing.Point(8, 104);
-            this.btnExcluir.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(100, 38);
-            this.btnExcluir.TabIndex = 3;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = false;
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.BackColor = System.Drawing.Color.DarkGray;
-            this.btnAlterar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnAlterar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.btnAlterar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnAlterar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlterar.Location = new System.Drawing.Point(8, 57);
-            this.btnAlterar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(100, 38);
-            this.btnAlterar.TabIndex = 2;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnRemover.BackColor = System.Drawing.Color.DarkGray;
+            this.btnRemover.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnRemover.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnRemover.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRemover.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnRemover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemover.Location = new System.Drawing.Point(8, 57);
+            this.btnRemover.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(100, 38);
+            this.btnRemover.TabIndex = 3;
+            this.btnRemover.Text = "Remover";
+            this.btnRemover.UseVisualStyleBackColor = false;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnInserir
             // 
@@ -211,18 +226,7 @@
             this.btnInserir.TabIndex = 1;
             this.btnInserir.Text = "Inserir";
             this.btnInserir.UseVisualStyleBackColor = false;
-            // 
-            // txtCpf_Cnpj
-            // 
-            this.txtCpf_Cnpj.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.txtCpf_Cnpj.Location = new System.Drawing.Point(437, 38);
-            this.txtCpf_Cnpj.Mask = "009,999,999,90";
-            this.txtCpf_Cnpj.Name = "txtCpf_Cnpj";
-            this.txtCpf_Cnpj.Size = new System.Drawing.Size(126, 27);
-            this.txtCpf_Cnpj.TabIndex = 26;
-            this.txtCpf_Cnpj.Text = "40494432870";
-            this.txtCpf_Cnpj.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCpf_Cnpj.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
             // frmBuscaPessoa
             // 
@@ -244,6 +248,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPessoa)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -253,8 +258,7 @@
 
         private System.Windows.Forms.Panel R4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Button btnInserir;
         private System.Windows.Forms.DataGridView dgvPessoa;
         private System.Windows.Forms.Panel panel2;
@@ -265,5 +269,7 @@
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.MaskedTextBox txtCpf_Cnpj;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem inserirClienteToolStripMenuItem;
     }
 }
