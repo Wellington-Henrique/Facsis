@@ -43,7 +43,9 @@
             this.lblVlrBruto = new System.Windows.Forms.Label();
             this.lbItenPedido = new System.Windows.Forms.ListBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.ckbOrcamento = new System.Windows.Forms.RadioButton();
             this.cbFormaPgto = new System.Windows.Forms.ComboBox();
+            this.ckbVenda = new System.Windows.Forms.RadioButton();
             this.lblFormaPgto = new System.Windows.Forms.Label();
             this.txtObs = new System.Windows.Forms.TextBox();
             this.lblObs = new System.Windows.Forms.Label();
@@ -61,34 +63,33 @@
             this.txtCodCli = new System.Windows.Forms.TextBox();
             this.lblCodCli = new System.Windows.Forms.Label();
             this.gbPedido = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCancelarVenda = new System.Windows.Forms.Button();
+            this.btnRegistrar = new System.Windows.Forms.Button();
             this.pnlBotoes = new System.Windows.Forms.Panel();
             this.btnCancelarInsercao = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.ckbOrcamento = new System.Windows.Forms.RadioButton();
-            this.ckbVenda = new System.Windows.Forms.RadioButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCancelarVenda = new System.Windows.Forms.Button();
-            this.btnRegistrar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.gbPedido.SuspendLayout();
-            this.pnlBotoes.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.pnlBotoes.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.rdBtnCancelar);
             this.groupBox2.Controls.Add(this.rdBtnPendente);
             this.groupBox2.Controls.Add(this.rdBtnAtualizar);
-            this.groupBox2.Location = new System.Drawing.Point(537, 415);
+            this.groupBox2.Location = new System.Drawing.Point(537, 184);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Size = new System.Drawing.Size(112, 151);
+            this.groupBox2.Size = new System.Drawing.Size(112, 162);
             this.groupBox2.TabIndex = 38;
             this.groupBox2.TabStop = false;
             // 
@@ -130,6 +131,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.txtVlrDesconto);
@@ -138,11 +140,11 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtVlrBruto);
             this.groupBox1.Controls.Add(this.lblVlrBruto);
-            this.groupBox1.Location = new System.Drawing.Point(657, 415);
+            this.groupBox1.Location = new System.Drawing.Point(657, 184);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(361, 151);
+            this.groupBox1.Size = new System.Drawing.Size(361, 162);
             this.groupBox1.TabIndex = 39;
             this.groupBox1.TabStop = false;
             // 
@@ -224,17 +226,20 @@
             // 
             // lbItenPedido
             // 
+            this.lbItenPedido.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbItenPedido.FormattingEnabled = true;
             this.lbItenPedido.ItemHeight = 20;
-            this.lbItenPedido.Location = new System.Drawing.Point(18, 30);
+            this.lbItenPedido.Location = new System.Drawing.Point(5, 25);
             this.lbItenPedido.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbItenPedido.Name = "lbItenPedido";
             this.lbItenPedido.ScrollAlwaysVisible = true;
-            this.lbItenPedido.Size = new System.Drawing.Size(966, 124);
+            this.lbItenPedido.Size = new System.Drawing.Size(501, 144);
             this.lbItenPedido.TabIndex = 1;
             // 
             // panel5
             // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.ckbOrcamento);
             this.panel5.Controls.Add(this.cbFormaPgto);
             this.panel5.Controls.Add(this.ckbVenda);
@@ -246,6 +251,17 @@
             this.panel5.Size = new System.Drawing.Size(1000, 81);
             this.panel5.TabIndex = 42;
             // 
+            // ckbOrcamento
+            // 
+            this.ckbOrcamento.AutoSize = true;
+            this.ckbOrcamento.Location = new System.Drawing.Point(889, 35);
+            this.ckbOrcamento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ckbOrcamento.Name = "ckbOrcamento";
+            this.ckbOrcamento.Size = new System.Drawing.Size(101, 24);
+            this.ckbOrcamento.TabIndex = 33;
+            this.ckbOrcamento.Text = "Orçamento";
+            this.ckbOrcamento.UseVisualStyleBackColor = true;
+            // 
             // cbFormaPgto
             // 
             this.cbFormaPgto.FormattingEnabled = true;
@@ -254,6 +270,20 @@
             this.cbFormaPgto.Name = "cbFormaPgto";
             this.cbFormaPgto.Size = new System.Drawing.Size(160, 28);
             this.cbFormaPgto.TabIndex = 27;
+            // 
+            // ckbVenda
+            // 
+            this.ckbVenda.AutoSize = true;
+            this.ckbVenda.Checked = true;
+            this.ckbVenda.Location = new System.Drawing.Point(812, 35);
+            this.ckbVenda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ckbVenda.Name = "ckbVenda";
+            this.ckbVenda.Size = new System.Drawing.Size(69, 24);
+            this.ckbVenda.TabIndex = 33;
+            this.ckbVenda.TabStop = true;
+            this.ckbVenda.Text = "Venda";
+            this.ckbVenda.UseMnemonic = false;
+            this.ckbVenda.UseVisualStyleBackColor = true;
             // 
             // lblFormaPgto
             // 
@@ -286,6 +316,8 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.dateTimePicker2);
             this.panel3.Controls.Add(this.dateTimePicker1);
             this.panel3.Controls.Add(this.txtNVendedor);
@@ -417,26 +449,73 @@
             // 
             // gbPedido
             // 
+            this.gbPedido.Controls.Add(this.pnlBotoes);
             this.gbPedido.Controls.Add(this.lbItenPedido);
-            this.gbPedido.Location = new System.Drawing.Point(16, 243);
+            this.gbPedido.Location = new System.Drawing.Point(18, 184);
             this.gbPedido.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbPedido.Name = "gbPedido";
-            this.gbPedido.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbPedido.Size = new System.Drawing.Size(1000, 162);
+            this.gbPedido.Padding = new System.Windows.Forms.Padding(5);
+            this.gbPedido.Size = new System.Drawing.Size(511, 221);
             this.gbPedido.TabIndex = 40;
             this.gbPedido.TabStop = false;
             this.gbPedido.Text = "Itens do pedido";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnCancelarVenda);
+            this.panel1.Controls.Add(this.btnRegistrar);
+            this.panel1.Location = new System.Drawing.Point(537, 360);
+            this.panel1.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(481, 40);
+            this.panel1.TabIndex = 44;
+            // 
+            // btnCancelarVenda
+            // 
+            this.btnCancelarVenda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelarVenda.BackColor = System.Drawing.Color.DarkGray;
+            this.btnCancelarVenda.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCancelarVenda.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnCancelarVenda.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnCancelarVenda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnCancelarVenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarVenda.Location = new System.Drawing.Point(381, 1);
+            this.btnCancelarVenda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnCancelarVenda.Name = "btnCancelarVenda";
+            this.btnCancelarVenda.Size = new System.Drawing.Size(100, 38);
+            this.btnCancelarVenda.TabIndex = 3;
+            this.btnCancelarVenda.Text = "Cancelar";
+            this.btnCancelarVenda.UseVisualStyleBackColor = false;
+            // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRegistrar.BackColor = System.Drawing.Color.DarkGray;
+            this.btnRegistrar.Enabled = false;
+            this.btnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnRegistrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrar.Location = new System.Drawing.Point(271, 1);
+            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(100, 38);
+            this.btnRegistrar.TabIndex = 2;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.UseVisualStyleBackColor = false;
             // 
             // pnlBotoes
             // 
             this.pnlBotoes.Controls.Add(this.btnCancelarInsercao);
             this.pnlBotoes.Controls.Add(this.btnExcluir);
             this.pnlBotoes.Controls.Add(this.btnCadastrar);
-            this.pnlBotoes.Location = new System.Drawing.Point(18, 189);
+            this.pnlBotoes.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlBotoes.Location = new System.Drawing.Point(5, 177);
             this.pnlBotoes.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.pnlBotoes.Name = "pnlBotoes";
-            this.pnlBotoes.Size = new System.Drawing.Size(998, 39);
-            this.pnlBotoes.TabIndex = 43;
+            this.pnlBotoes.Size = new System.Drawing.Size(501, 39);
+            this.pnlBotoes.TabIndex = 45;
             // 
             // btnCancelarInsercao
             // 
@@ -446,7 +525,7 @@
             this.btnCancelarInsercao.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnCancelarInsercao.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnCancelarInsercao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarInsercao.Location = new System.Drawing.Point(898, 1);
+            this.btnCancelarInsercao.Location = new System.Drawing.Point(221, 1);
             this.btnCancelarInsercao.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnCancelarInsercao.Name = "btnCancelarInsercao";
             this.btnCancelarInsercao.Size = new System.Drawing.Size(100, 38);
@@ -463,7 +542,7 @@
             this.btnExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluir.Location = new System.Drawing.Point(788, 1);
+            this.btnExcluir.Location = new System.Drawing.Point(111, 1);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 38);
@@ -479,7 +558,7 @@
             this.btnCadastrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnCadastrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrar.Location = new System.Drawing.Point(678, 1);
+            this.btnCadastrar.Location = new System.Drawing.Point(1, 1);
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(100, 38);
@@ -487,83 +566,14 @@
             this.btnCadastrar.Text = "Inserir";
             this.btnCadastrar.UseVisualStyleBackColor = false;
             // 
-            // ckbOrcamento
-            // 
-            this.ckbOrcamento.AutoSize = true;
-            this.ckbOrcamento.Location = new System.Drawing.Point(889, 35);
-            this.ckbOrcamento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ckbOrcamento.Name = "ckbOrcamento";
-            this.ckbOrcamento.Size = new System.Drawing.Size(101, 24);
-            this.ckbOrcamento.TabIndex = 33;
-            this.ckbOrcamento.Text = "Orçamento";
-            this.ckbOrcamento.UseVisualStyleBackColor = true;
-            // 
-            // ckbVenda
-            // 
-            this.ckbVenda.AutoSize = true;
-            this.ckbVenda.Checked = true;
-            this.ckbVenda.Location = new System.Drawing.Point(812, 35);
-            this.ckbVenda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ckbVenda.Name = "ckbVenda";
-            this.ckbVenda.Size = new System.Drawing.Size(69, 24);
-            this.ckbVenda.TabIndex = 33;
-            this.ckbVenda.TabStop = true;
-            this.ckbVenda.Text = "Venda";
-            this.ckbVenda.UseMnemonic = false;
-            this.ckbVenda.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnCancelarVenda);
-            this.panel1.Controls.Add(this.btnRegistrar);
-            this.panel1.Location = new System.Drawing.Point(18, 581);
-            this.panel1.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(998, 40);
-            this.panel1.TabIndex = 44;
-            // 
-            // btnCancelarVenda
-            // 
-            this.btnCancelarVenda.BackColor = System.Drawing.Color.DarkGray;
-            this.btnCancelarVenda.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnCancelarVenda.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.btnCancelarVenda.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnCancelarVenda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnCancelarVenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarVenda.Location = new System.Drawing.Point(898, 1);
-            this.btnCancelarVenda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnCancelarVenda.Name = "btnCancelarVenda";
-            this.btnCancelarVenda.Size = new System.Drawing.Size(100, 38);
-            this.btnCancelarVenda.TabIndex = 3;
-            this.btnCancelarVenda.Text = "Cancelar";
-            this.btnCancelarVenda.UseVisualStyleBackColor = false;
-            // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.BackColor = System.Drawing.Color.DarkGray;
-            this.btnRegistrar.Enabled = false;
-            this.btnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnRegistrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.btnRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrar.Location = new System.Drawing.Point(788, 1);
-            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(100, 38);
-            this.btnRegistrar.TabIndex = 2;
-            this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = false;
-            // 
             // frmVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1034, 629);
+            this.ClientSize = new System.Drawing.Size(1034, 420);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pnlBotoes);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel5);
@@ -583,8 +593,8 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.gbPedido.ResumeLayout(false);
-            this.pnlBotoes.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.pnlBotoes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -624,14 +634,14 @@
         private System.Windows.Forms.TextBox txtCodCli;
         private System.Windows.Forms.Label lblCodCli;
         private System.Windows.Forms.GroupBox gbPedido;
-        private System.Windows.Forms.Panel pnlBotoes;
-        private System.Windows.Forms.Button btnCancelarInsercao;
-        private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.RadioButton ckbOrcamento;
         private System.Windows.Forms.RadioButton ckbVenda;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCancelarVenda;
         private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.Panel pnlBotoes;
+        private System.Windows.Forms.Button btnCancelarInsercao;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Button btnCadastrar;
     }
 }

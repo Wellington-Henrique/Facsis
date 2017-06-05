@@ -57,9 +57,11 @@
     <Compile Include="Controller\Util\Mensagens.cs" />
     <Compile Include="Controller\Util\VariaveisGlobais.cs" />
     <Compile Include="Model\BLL\LoginBLL.cs" />
+    <Compile Include="Model\BLL\PessoaDLL.cs" />
     <Compile Include="Model\BLL\UsuarioBLL.cs" />
     <Compile Include="Model\DAL\AcessoBanco.cs" />
     <Compile Include="Model\DTO\LoginDTO.cs" />
+    <Compile Include="Model\DTO\PessoaDTO.cs" />
     <Compile Include="Model\DTO\UsuarioDTO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

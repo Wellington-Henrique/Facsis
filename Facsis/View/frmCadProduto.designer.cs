@@ -79,6 +79,7 @@
             // pnlCadProduto
             // 
             this.pnlCadProduto.BackColor = System.Drawing.Color.White;
+            this.pnlCadProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlCadProduto.Controls.Add(this.gbEstoque);
             this.pnlCadProduto.Controls.Add(this.dateTimePicker1);
             this.pnlCadProduto.Controls.Add(this.cbLocacao);
