@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using Facsis.Controller.Util;
 using Facsis.Model.DTO;
 using Facsis.Model.BLL;
-using Facsis.Controller.Util;
+using System.Data;
 
 namespace Facsis.View
 {
@@ -33,6 +33,7 @@ namespace Facsis.View
             }
             else
             {
+                dgvConsulta.Refresh();
                 dto.Id = int.Parse(txtId.Text);
                 bll.Atualizar(dto);
                 btnCadastrar.Text = "Cadastrar";
@@ -41,6 +42,7 @@ namespace Facsis.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            dgvConsulta.Refresh();
             bll.Excluir(txtId.Text);
             FuncoesControles.limpaCampos(this.pnlUsuario);
             btnCadastrar.Text = "Cadastrar";
@@ -54,6 +56,7 @@ namespace Facsis.View
             FuncoesControles.limpaCampos(this.pnlUsuario);
             txtTelefone.Text = "";
             btnExcluir.Enabled = false;
+            btnCadastrar.Text = "Cadastrar";
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
@@ -63,15 +66,15 @@ namespace Facsis.View
 
         private void dgvConsulta_Click(object sender, DataGridViewCellEventArgs e)
         {
-            CarregarGrid();
+            //CarregarGrid();           
 
             txtId.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[0].Value);
             txtNome.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[1].Value);
             txtEmail.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[2].Value);
             txtTelefone.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[3].Value);
             cbNivel.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[4].Value);
-            //txtLogin.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[5].Value);
-            //txtSenha.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[6].Value);
+            txtLogin.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[5].Value);
+            txtSenha.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[6].Value);
             btnExcluir.Enabled = true;
             btnCadastrar.Text = "Atualizar";
         }
@@ -79,7 +82,7 @@ namespace Facsis.View
         private void CarregarGrid()
         {
             int id;
-            dgvConsulta.Refresh();
+            dgvConsulta.Rows.Clear();
             
             if(txtId.Text != "")
                 btnCadastrar.Text = "Atualizar";
@@ -90,12 +93,25 @@ namespace Facsis.View
             }
             else
             {
-                string nome = txtConsulta.Text.Trim();
+                string nome = txtConsulta.Text;
+                DataTable dt = bll.selecionaUsuarioNome(nome.ToUpper());
 
-                dgvConsulta.DataSource = bll.selecionaUsuarioNome(nome.ToLower());
-            }
+                barraProgresso.Visible = true;
 
-            DataGridFuncoes.cabecalhoTabUsuario(dgvConsulta);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    dgvConsulta.Rows.Add(dt.Rows[i]["id_usuario"].ToString(), dt.Rows[i]["nome"].ToString(), dt.Rows[i]["email"].ToString(),
+                                         dt.Rows[i]["telefone"].ToString(), dt.Rows[i]["funcao"].ToString(), dt.Rows[i]["login_usuario"].ToString(),
+                                         dt.Rows[i]["senha"].ToString());
+
+                    barraProgresso.Value = i;
+                }
+
+                barraProgresso.Visible = false;
+
+                //dgvConsulta = DataGridFuncoes.carregaDV(dt, barraProgresso);
+
+            }            
         }      
 
         private void restaurarTamanhoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,6 +119,11 @@ namespace Facsis.View
             this.WindowState = FormWindowState.Normal;
             this.Height = 520;
             this.Width = 805;
+        }
+
+        private void frmCadUsuario_Load(object sender, EventArgs e)
+        {
+            DataGridFuncoes.cabecalhoTabUsuario(dgvConsulta);
         }
     }
 }

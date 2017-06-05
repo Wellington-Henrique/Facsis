@@ -28,6 +28,7 @@ namespace Facsis.Model.BLL
 
                 // Insere dados na tabela login <Motivo: Chave estrangeira FK>
                 int id = bd.ExecutarComandoSqlRet(cmd);
+
                 cmd = "INSERT INTO acesso(id_login, login_usuario, senha) VALUES ('" + id + "','" + dto.Login + "','" + dto.Senha + "')";
                 bd.ExecutarComandoSql(cmd);
 
@@ -56,7 +57,10 @@ namespace Facsis.Model.BLL
                 bd = new AcessoBanco();
                 bd.Conectar();
                 bd.ExecutarComandoSql(cmd);
-
+                
+                cmd = string.Format("UPDATE acesso SET login_usuario = '{0}', senha = '{1}' WHERE id_login = '{4}'", dto.Login, dto.Senha, dto.Id);
+                bd.ExecutarComandoSql(cmd);
+                bd.Conectar();
                 Mensagens.cadastroAlterado();
             }
             catch (Exception ex)

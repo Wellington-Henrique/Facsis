@@ -47,7 +47,7 @@
             this.lblConsultar = new System.Windows.Forms.Label();
             this.pnlBotoes = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.barraProgresso = new System.Windows.Forms.ToolStripProgressBar();
             this.pnlUsuario = new System.Windows.Forms.Panel();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.lblId = new System.Windows.Forms.Label();
@@ -59,6 +59,13 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.restaurarTamanhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.id_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.login_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.senha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlPesquisa.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -269,7 +276,7 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripProgressBar1});
+            this.barraProgresso});
             this.statusStrip1.Location = new System.Drawing.Point(10, 450);
             this.statusStrip1.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
             this.statusStrip1.Name = "statusStrip1";
@@ -278,11 +285,11 @@
             this.statusStrip1.TabIndex = 29;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripProgressBar1
+            // barraProgresso
             // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(133, 25);
-            this.toolStripProgressBar1.Visible = false;
+            this.barraProgresso.Name = "barraProgresso";
+            this.barraProgresso.Size = new System.Drawing.Size(133, 25);
+            this.barraProgresso.Visible = false;
             // 
             // pnlUsuario
             // 
@@ -371,9 +378,18 @@
             this.dgvConsulta.BackgroundColor = System.Drawing.Color.White;
             this.dgvConsulta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConsulta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_usuario,
+            this.nome,
+            this.email,
+            this.telefone,
+            this.nivel,
+            this.login_usuario,
+            this.senha});
             this.dgvConsulta.Location = new System.Drawing.Point(12, 288);
             this.dgvConsulta.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.dgvConsulta.Name = "dgvConsulta";
+            this.dgvConsulta.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dgvConsulta.Size = new System.Drawing.Size(765, 160);
             this.dgvConsulta.TabIndex = 31;
             this.dgvConsulta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsulta_Click);
@@ -398,6 +414,41 @@
             this.restaurarTamanhoToolStripMenuItem.Text = "Restaurar tamanho";
             this.restaurarTamanhoToolStripMenuItem.Click += new System.EventHandler(this.restaurarTamanhoToolStripMenuItem_Click);
             // 
+            // id_usuario
+            // 
+            this.id_usuario.HeaderText = "Código";
+            this.id_usuario.Name = "id_usuario";
+            // 
+            // nome
+            // 
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            // 
+            // email
+            // 
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            // 
+            // telefone
+            // 
+            this.telefone.HeaderText = "Telefone";
+            this.telefone.Name = "telefone";
+            // 
+            // nivel
+            // 
+            this.nivel.HeaderText = "Nível";
+            this.nivel.Name = "nivel";
+            // 
+            // login_usuario
+            // 
+            this.login_usuario.HeaderText = "Login";
+            this.login_usuario.Name = "login_usuario";
+            // 
+            // senha
+            // 
+            this.senha.HeaderText = "Senha";
+            this.senha.Name = "senha";
+            // 
             // frmCadUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -417,6 +468,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cadastro de usuário";
             this.toolTip.SetToolTip(this, "Informe o código ou nome do usuário.");
+            this.Load += new System.EventHandler(this.frmCadUsuario_Load);
             this.pnlPesquisa.ResumeLayout(false);
             this.pnlPesquisa.PerformLayout();
             this.pnlBotoes.ResumeLayout(false);
@@ -450,7 +502,7 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.ToolStripProgressBar barraProgresso;
         private System.Windows.Forms.Panel pnlUsuario;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.TextBox txtId;
@@ -462,5 +514,12 @@
         private System.Windows.Forms.Label lblTelefone;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nivel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn login_usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn senha;
     }
 }

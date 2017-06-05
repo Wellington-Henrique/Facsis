@@ -7,6 +7,7 @@ namespace Facsis.View
 {
     public partial class mdiPrincipal : Form
     {
+        Form cadProduto;
         Form cadUsuario;
         Form calculadora;       
 
@@ -69,10 +70,10 @@ namespace Facsis.View
 
         private void tsmCadProduto_Click(object sender, EventArgs e)
         {
-            //cadProduto?.Close();
-            //cadProduto = new frmCadProduto();
-            //cadProduto.MdiParent = this;
-            //cadProduto.Show();
+            cadProduto?.Close();
+            cadProduto = new frmCadProduto();
+            cadProduto.MdiParent = this;
+            cadProduto.Show();
         }
 
         private void mdiPrincipal_Load(object sender, EventArgs e)

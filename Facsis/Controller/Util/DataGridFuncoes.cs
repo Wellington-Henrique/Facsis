@@ -1,4 +1,6 @@
 ﻿using System.Windows.Forms;
+using System.Data;
+using System;
 
 namespace Facsis.Controller.Util
 {
@@ -17,5 +19,29 @@ namespace Facsis.Controller.Util
                 //x.Columns[6].HeaderText = "Senha";
             }
         }
+
+        //public static DataGridView carregaDV(DataTable dt , ToolStripProgressBar barraProgresso )
+        //{
+        //    barraProgresso.Visible = true;
+        //    int qtdColuna = dt.Columns.Count;
+        //    int qtdLinha = dt.Rows.Count;
+
+        //    DataGridView x = new DataGridView();            
+
+        //    for (int i = 0; i <= qtdLinha; i++)
+        //    {
+        //        //for (int k = 0; k < qtdColuna; k++)
+        //        //{
+        //            x.Rows.Add(1, 2, 3, 4, 5, 6, 7);
+
+        //            //dt.Rows[i][k].ToString();
+        //        //}
+
+        //        barraProgresso.Value = i + 1 / qtdColuna * 100;
+        //    }
+
+        //    barraProgresso.Visible = false;
+        //    return x;
+        //}
     }
 }
