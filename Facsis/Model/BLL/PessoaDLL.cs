@@ -101,15 +101,33 @@ namespace Facsis.Model.BLL
         //======================================================
         //  Seleciona cadastro no banco pelo nome do usuário
         //======================================================
-        public DataTable selecionaPessoa(string nome)
+        public DataTable selecionaPessoa(PessoaDTO dto)
         {
+            string busca = null;
+
+            if (dto.Id > 0)
+                busca = "id_pessoa = '" + dto.Id + "' ";
+            if (dto.Nome != "")
+            {
+                if (dto.Id > 0)
+                    busca += "and ";
+                busca += "nome = '" + dto.Nome + "' ";
+            }
+                           
+            if (dto.CPF_CNPJ != "")
+            {
+                if (dto.Id > 0 || dto.Nome != "")
+                    busca += "and ";
+                busca += "cpf_cnpj = '" + dto.CPF_CNPJ + "'";
+            }
+
             DataTable dt = new DataTable();
 
             try
             {
                 bd = new AcessoBanco();
                 bd.Conectar();
-                dt = bd.RetDataTable(string.Format("SELECT * FROM pessoa WHERE nome = '{0}'", nome));
+                dt = bd.RetDataTable("SELECT * FROM pessoa WHERE " + busca);
             }
             catch (Exception ex)
             {
@@ -117,28 +135,7 @@ namespace Facsis.Model.BLL
             }
             finally
             {
-                bd = null;
-            }
-
-            return dt;
-        }
-
-        public DataTable selecionaPessoaId(int id)
-        {
-            DataTable dt = new DataTable();
-
-            try
-            {
-                bd = new AcessoBanco();
-                bd.Conectar();
-                dt = bd.RetDataTable(string.Format("SELECT * FROM pessoa WHERE id_pessoa = '{0}'", id));
-            }
-            catch (Exception ex)
-            {
-                Mensagens.erroBusca(ex);
-            }
-            finally
-            {
+                busca = null;
                 bd = null;
             }
 

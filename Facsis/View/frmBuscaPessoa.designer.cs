@@ -33,18 +33,18 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.lblCpfCnpj = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
-            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPessoa = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnInserir = new System.Windows.Forms.Button();
+            this.txtCpf_Cnpj = new System.Windows.Forms.MaskedTextBox();
             this.R4.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPessoa)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             // 
             this.R4.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.R4.Controls.Add(this.panel2);
-            this.R4.Controls.Add(this.dataGridView1);
+            this.R4.Controls.Add(this.dgvPessoa);
             this.R4.Controls.Add(this.panel1);
             this.R4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.R4.Location = new System.Drawing.Point(0, 0);
@@ -65,10 +65,10 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txtCpf_Cnpj);
             this.panel2.Controls.Add(this.btnConsultar);
             this.panel2.Controls.Add(this.lblCpfCnpj);
             this.panel2.Controls.Add(this.lblNome);
-            this.panel2.Controls.Add(this.txtDescricao);
             this.panel2.Controls.Add(this.txtNome);
             this.panel2.Controls.Add(this.txtCodigo);
             this.panel2.Controls.Add(this.lblCodigo);
@@ -92,6 +92,7 @@
             this.btnConsultar.TabIndex = 20;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // lblCpfCnpj
             // 
@@ -112,16 +113,6 @@
             this.lblNome.Size = new System.Drawing.Size(50, 20);
             this.lblNome.TabIndex = 24;
             this.lblNome.Text = "Nome";
-            // 
-            // txtDescricao
-            // 
-            this.txtDescricao.Location = new System.Drawing.Point(441, 38);
-            this.txtDescricao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtDescricao.MaxLength = 50;
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(121, 27);
-            this.txtDescricao.TabIndex = 22;
-            this.txtDescricao.Text = "00000000000100";
             // 
             // txtNome
             // 
@@ -151,15 +142,15 @@
             this.lblCodigo.TabIndex = 25;
             this.lblCodigo.Text = "Código";
             // 
-            // dataGridView1
+            // dgvPessoa
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(117, 9);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(699, 290);
-            this.dataGridView1.TabIndex = 3;
+            this.dgvPessoa.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvPessoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPessoa.Location = new System.Drawing.Point(117, 9);
+            this.dgvPessoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvPessoa.Name = "dgvPessoa";
+            this.dgvPessoa.Size = new System.Drawing.Size(699, 290);
+            this.dgvPessoa.TabIndex = 3;
             // 
             // panel1
             // 
@@ -221,6 +212,18 @@
             this.btnInserir.Text = "Inserir";
             this.btnInserir.UseVisualStyleBackColor = false;
             // 
+            // txtCpf_Cnpj
+            // 
+            this.txtCpf_Cnpj.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtCpf_Cnpj.Location = new System.Drawing.Point(437, 38);
+            this.txtCpf_Cnpj.Mask = "009,999,999,90";
+            this.txtCpf_Cnpj.Name = "txtCpf_Cnpj";
+            this.txtCpf_Cnpj.Size = new System.Drawing.Size(126, 27);
+            this.txtCpf_Cnpj.TabIndex = 26;
+            this.txtCpf_Cnpj.Text = "40494432870";
+            this.txtCpf_Cnpj.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCpf_Cnpj.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
             // frmBuscaPessoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -240,7 +243,7 @@
             this.R4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPessoa)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -253,14 +256,14 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnInserir;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPessoa;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Label lblCpfCnpj;
         private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label lblCodigo;
+        private System.Windows.Forms.MaskedTextBox txtCpf_Cnpj;
     }
 }

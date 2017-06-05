@@ -27,7 +27,7 @@ namespace Facsis
             //    if (janela.ShowDialog() == DialogResult.OK)
             //        Application.Run(new mdiPrincipal());
 
-            Application.Run(new frmCadPessoa());
+            Application.Run(new frmBuscaPessoa());
 
             //}     
         }

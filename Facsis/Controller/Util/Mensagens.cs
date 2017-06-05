@@ -41,9 +41,14 @@ namespace Facsis.Controller.Util
             return DialogResult.No;
         }
 
-        public static void campoVazio()
+        public static void campoVazioCadastro()
         {
             MessageBox.Show("Preencha todos os campos!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        public static void campoVazioBusca()
+        {
+            MessageBox.Show("Preencha pelo menos um campo!", "Consulta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         public static void mostraRetorno(string letra)
