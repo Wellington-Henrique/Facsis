@@ -85,7 +85,7 @@
             this.btnSair.Size = new System.Drawing.Size(35, 32);
             this.btnSair.TabIndex = 37;
             this.btnSair.Text = "X";
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click_1);
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // lblMsg
             // 

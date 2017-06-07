@@ -52,17 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Util\DataGridFuncoes.cs" />
     <Compile Include="Controller\Util\FuncoesControles.cs" />
     <Compile Include="Controller\Util\Mensagens.cs" />
     <Compile Include="Model\BLL\LoginBLL.cs" />
-    <Compile Include="Model\BLL\PessoaDLL.cs" />
+    <Compile Include="Model\BLL\PessoaBLL.cs" />
     <Compile Include="Model\BLL\UsuarioBLL.cs" />
     <Compile Include="Model\DAL\AcessoBanco.cs" />
     <Compile Include="Model\DTO\LoginDTO.cs" />
     <Compile Include="Model\DTO\PessoaDTO.cs" />
+    <Compile Include="Model\DTO\ProdutoDTO.cs" />
     <Compile Include="Model\DTO\VendaDTO.cs" />
     <Compile Include="Model\DTO\UsuarioDTO.cs" />
+    <Compile Include="Model\BLL\ProdutoBLL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -70,11 +71,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="View\frmBuscaPessoa.cs">
+    <Compile Include="View\frmConFornecedor .cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmBuscaPessoa.designer.cs">
-      <DependentUpon>frmBuscaPessoa.cs</DependentUpon>
+    <Compile Include="View\frmConFornecedor .designer.cs">
+      <DependentUpon>frmConFornecedor .cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmConPessoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmConPessoa.designer.cs">
+      <DependentUpon>frmConPessoa.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frmCadPessoa.cs">
       <SubType>Form</SubType>
@@ -129,8 +136,11 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmBuscaPessoa.resx">
-      <DependentUpon>frmBuscaPessoa.cs</DependentUpon>
+    <EmbeddedResource Include="View\frmConFornecedor .resx">
+      <DependentUpon>frmConFornecedor .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmConPessoa.resx">
+      <DependentUpon>frmConPessoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmCadPessoa.resx">
       <DependentUpon>frmCadPessoa.cs</DependentUpon>

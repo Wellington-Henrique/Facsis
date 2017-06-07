@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
+
 using Facsis.Model.DTO;
 using Facsis.Model.BLL;
+using Facsis.Controller.Util;
 
 namespace Facsis.View
 {
@@ -18,12 +20,12 @@ namespace Facsis.View
         private void btnCancelar_Click(object sender, EventArgs e)
         {
 
-
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {            
-            dto.Nome = txtNome.Text.Trim();            
+            string nome = txtNome.Text.Trim().ToUpper();
+            dto.Nome = nome;
             dto.Tipo = cbPessoa.Text.Trim();
             dto.Email = txtEmail.Text.Trim().ToLower();
             dto.Telefone = txtTelefone.Text.Trim();
@@ -40,6 +42,8 @@ namespace Facsis.View
             else
             {
                 //bll.Atualizar(dto.Id);
+                FuncoesControles.limpaCampos(this.panel2);
+                FuncoesControles.limpaCampos(this.panel1);
                 btnCadastrar.Text = "Cadastrar";
             }
         }

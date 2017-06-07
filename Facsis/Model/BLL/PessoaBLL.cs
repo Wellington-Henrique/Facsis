@@ -1,22 +1,27 @@
-﻿using System;
+﻿
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 using Facsis.Model.DTO;
 using Facsis.Model.DAL;
 using Facsis.Controller.Util;
-using System.Data;
 using Npgsql;
+
 
 namespace Facsis.Model.BLL
 {
     class PessoaBLL
     {
-        AcessoBanco bd = new AcessoBanco();
+        AcessoBanco bd;
 
         //======================================================
         //  Solicita cadastro no banco
         //======================================================
         public void Inserir(PessoaDTO dto)
         {
+            bd = new AcessoBanco();
+
             try
             {
                 //Insere dados na tabela pessoa
@@ -29,15 +34,11 @@ namespace Facsis.Model.BLL
                 bd.Conectar();
                 bd.ExecutarComandoSqlRet(cmd);
 
-                Mensagens.cadastroEfetuado();
+                Mensagens.cadastroInserir();
             }
-            catch(NpgsqlException ex)
+            catch (NpgsqlException)
             {
-                Mensagens.erroConexao(ex);
-            }
-            catch (Exception ex)
-            {
-                Mensagens.erroConexao(ex);
+                MessageBox.Show("Não foi possível efeturar o cadastro\nVerifique se todos os dados foram digitados corretamente ou se o CPF/CNJP já está cadastrado.", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             finally
             {
@@ -50,6 +51,8 @@ namespace Facsis.Model.BLL
         //======================================================
         public void Atualizar(PessoaDTO dto)
         {
+            bd = new AcessoBanco();
+
             try
             {
                 string nome = dto.Nome.Replace("'", "''");
@@ -57,15 +60,14 @@ namespace Facsis.Model.BLL
                     "nome = '{0}', tipo_pessoa = '{1}', email = '{2}', telefone = '{3}', endereco = '{4}', numero_imovel = '{5}', cidade = '{6}', uf = '{7}', cpf_cnpj = '{8}' WHERE id_pessoa = '{9}'",
                     nome, dto.Tipo, dto.Email, dto.Telefone, dto.Endereco, dto.NImovel, dto.Cidade, dto.UF, dto.CPF_CNPJ, dto.Id);
 
-                bd = new AcessoBanco();
+                
                 bd.Conectar();
                 bd.ExecutarComandoSql(cmd);
-
-                Mensagens.cadastroAlterado();
+                
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Mensagens.erroConexao(ex);
+                Mensagens.cadastroErroAlterar();
             }
             finally
             {
@@ -78,19 +80,19 @@ namespace Facsis.Model.BLL
         //======================================================
         public void Excluir(string id)
         {
+
+            bd = new AcessoBanco();
+
             try
             {
-                bd = new AcessoBanco();
-
                 string cmd = "DELETE FROM pessoa WHERE id_login = " + id;
                 bd.Conectar();
                 bd.ExecutarComandoSql(cmd);
-
-                Mensagens.cadastroExcluido();
+                
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                Mensagens.erroConexao(ex);
+                Mensagens.cadastroErroExcluir();
             }
             finally
             {
@@ -103,7 +105,7 @@ namespace Facsis.Model.BLL
         //======================================================
         public DataTable selecionaPessoa(PessoaDTO dto)
         {
-            string busca = null;
+            string busca = "";
 
             if (dto.Id > 0)
                 busca = "id_pessoa = '" + dto.Id + "' ";
@@ -122,20 +124,19 @@ namespace Facsis.Model.BLL
             }
 
             DataTable dt = new DataTable();
+            bd = new AcessoBanco();
 
             try
-            {
-                bd = new AcessoBanco();
+            {                
                 bd.Conectar();
                 dt = bd.RetDataTable("SELECT * FROM pessoa WHERE " + busca);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Mensagens.erroBusca(ex);
+                Mensagens.BuscaErro();
             }
             finally
             {
-                busca = null;
                 bd = null;
             }
 

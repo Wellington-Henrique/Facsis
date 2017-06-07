@@ -48,12 +48,12 @@
             this.txtNImovel = new System.Windows.Forms.TextBox();
             this.txtRua = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.txtCpf_Cnpj = new System.Windows.Forms.MaskedTextBox();
             this.pnlBotoes = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.txtCpf_Cnpj = new System.Windows.Forms.MaskedTextBox();
-            this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
@@ -282,6 +282,30 @@
             this.panel2.Size = new System.Drawing.Size(600, 205);
             this.panel2.TabIndex = 11;
             // 
+            // txtTelefone
+            // 
+            this.txtTelefone.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtTelefone.Location = new System.Drawing.Point(30, 97);
+            this.txtTelefone.Mask = "(99) 09999 - 9999";
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(126, 27);
+            this.txtTelefone.TabIndex = 19;
+            this.txtTelefone.Text = "99999999999";
+            this.txtTelefone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // txtCpf_Cnpj
+            // 
+            this.txtCpf_Cnpj.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtCpf_Cnpj.Location = new System.Drawing.Point(206, 154);
+            this.txtCpf_Cnpj.Mask = "009,999,999,70";
+            this.txtCpf_Cnpj.Name = "txtCpf_Cnpj";
+            this.txtCpf_Cnpj.Size = new System.Drawing.Size(126, 27);
+            this.txtCpf_Cnpj.TabIndex = 19;
+            this.txtCpf_Cnpj.Text = "123456789";
+            this.txtCpf_Cnpj.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCpf_Cnpj.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
             // pnlBotoes
             // 
             this.pnlBotoes.Controls.Add(this.btnCancelar);
@@ -342,29 +366,6 @@
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
-            // 
-            // txtCpf_Cnpj
-            // 
-            this.txtCpf_Cnpj.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.txtCpf_Cnpj.Location = new System.Drawing.Point(206, 154);
-            this.txtCpf_Cnpj.Name = "txtCpf_Cnpj";
-            this.txtCpf_Cnpj.Size = new System.Drawing.Size(126, 27);
-            this.txtCpf_Cnpj.TabIndex = 19;
-            this.txtCpf_Cnpj.Text = "40494432870";
-            this.txtCpf_Cnpj.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCpf_Cnpj.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            // 
-            // txtTelefone
-            // 
-            this.txtTelefone.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.txtTelefone.Location = new System.Drawing.Point(30, 97);
-            this.txtTelefone.Mask = "(99) 09999 - 9999";
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(126, 27);
-            this.txtTelefone.TabIndex = 19;
-            this.txtTelefone.Text = "15997496695";
-            this.txtTelefone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // frmCadPessoa
             // 

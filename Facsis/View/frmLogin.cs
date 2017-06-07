@@ -18,17 +18,14 @@ namespace Facsis.View
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
+            Mensagens.fechaAplicao();
 
-        private void btnSair_Click_1(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Você deseja realmente sair?", "Facsis",
-                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
-                 == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
+            //if (MessageBox.Show("Você deseja realmente sair?", "Facsis",
+            //     MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+            //     == DialogResult.Yes)
+            //{
+            //    Application.Exit();
+            //}
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)
@@ -40,9 +37,9 @@ namespace Facsis.View
 
             if (dt != null && dt.Rows.Count > 0)
             {
-                //LoginDTO.Id = int.Parse(dt.Rows[0]["id_usuario"].ToString());
+                LoginDTO.Id = int.Parse(dt.Rows[0]["id_usuario"].ToString());
                 LoginDTO.Nome = dt.Rows[0]["nome"].ToString();
-                LoginDTO.Nivel = dt.Rows[0]["login_usuario"].ToString();
+                LoginDTO.Nivel = dt.Rows[0]["nivel"].ToString();
                 LoginDTO.Login = dt.Rows[0]["login_usuario"].ToString();
 
                 DialogResult = DialogResult.OK;

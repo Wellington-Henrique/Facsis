@@ -1,8 +1,8 @@
 ﻿using System;
-
 using System.Data;
+using System.Windows.Forms;
+
 using Npgsql;
-using Facsis.Controller.Util;
 
 namespace Facsis.Model.DAL
 {
@@ -22,21 +22,19 @@ namespace Facsis.Model.DAL
         public void Conectar()
         {
             string connStr = String.Format("server = {0}; user = {1}; password = {2}; database = {3}; pooling = false", server, user, password, database);
+            conn = new NpgsqlConnection(connStr);
 
             try
             {
-                conn = new NpgsqlConnection(connStr);
                 conn.Open();
             }
-            catch(NpgsqlException ex)
+            catch (NpgsqlException)
             {
-                Mensagens.erroConexao(ex);
-                conn.Close();
-            }            
-            catch (Exception ex)
+                MessageBox.Show("Não foi possível se conectar ao banco.\nErro do banco: ", "Erro de conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
             {
-                Mensagens.erroConexao(ex);
-                conn.Close();
+                MessageBox.Show("Não foi possível se conectar ao banco.\nErro do sistema: ", "Erro de conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -49,8 +47,10 @@ namespace Facsis.Model.DAL
 
         public int ExecutarComandoSqlRet(string comando)
         {
+            int id = 0;
+
             NpgsqlCommand cmd = new NpgsqlCommand(comando, conn);
-            int id = Convert.ToInt32(cmd.ExecuteScalar());
+            id = Convert.ToInt32(cmd.ExecuteScalar());
 
             return id;
         }
@@ -70,7 +70,6 @@ namespace Facsis.Model.DAL
             NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
             NpgsqlDataReader dr = cmd.ExecuteReader();
             dr.Read();
-
             return dr;
         }
     }

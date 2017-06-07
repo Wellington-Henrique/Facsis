@@ -10,39 +10,37 @@ using Npgsql;
 
 namespace Facsis.Model.BLL
 {
-    class UsuarioBLL
+    class ProdutoBLL
     {
         AcessoBanco bd;
 
         //======================================================
         //  Solicita cadastro no banco
         //======================================================
-        public void Inserir(UsuarioDTO dto)
+        public void Inserir(ProdutoDTO dto)
         {
             bd = new AcessoBanco();
 
             try
             {
-                // Insere dados na tabela usuario
-                string nome = dto.Nome.Replace("'", "''");
-
-                string cmd = "INSERT INTO usuario(" +
-                    "nome, email, telefone, nivel) VALUES ('" +
-                    nome + "','" + dto.Email + "','" + dto.Telefone + "','" + dto.Nivel + "') returning id_usuario";
+                // Insere dados na tabela produto
+                string cmd = "INSERT INTO produto(" +
+                    "nome, fornecedor, medida, status, ultima_compra, descricao, preco) VALUES ('" +
+                    dto.Nome + "','" + dto.Fornecedor + "','" + dto.Medida +"','" + dto.Status + "','" + dto.CompraAtual + "','" + dto.Descricao + "','" + dto.Preco +"') returning id_produto";
 
                 bd.Conectar();
 
                 // Insere dados na tabela login <Motivo: Chave estrangeira FK>
                 int id = bd.ExecutarComandoSqlRet(cmd);
-
-                cmd = "INSERT INTO acesso(id_login, login_usuario, senha) VALUES ('" + id + "','" + dto.Login + "','" + dto.Senha + "')";
+                bd.Conectar();
+                cmd = "INSERT INTO estoque(id_produto, quantidade, locacao) VALUES ('" + id + "','" + dto.Quantidade + "','" + dto.Locacao + "')";
                 bd.ExecutarComandoSql(cmd);
 
                 Mensagens.cadastroInserir();
             }
             catch (NpgsqlException)
             {
-                MessageBox.Show("Não foi possível efeturar o cadastro\nVerifique se todos os dados foram digitados corretamente ou se o LOGIN já está cadastrado.", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Não foi possível efeturar o cadastro\nVerifique se todos os dados foram digitados corretamente.", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             finally
             {
@@ -53,22 +51,20 @@ namespace Facsis.Model.BLL
         //======================================================
         //  Solicita atualização do cadastro no banco
         //======================================================
-        public void Atualizar(UsuarioDTO dto)
+        public void Atualizar(ProdutoDTO dto)
         {
             bd = new AcessoBanco();
 
             try
             {
-                string nome = dto.Nome.Replace("'", "''");
-                string cmd = string.Format("UPDATE usuario SET nome = '{0}', email = '{1}', telefone = '{2}', nivel = '{3}' WHERE id_usuario = '{4}'", nome, dto.Email, dto.Telefone, dto.Nivel, dto.Id);
+                string cmd = string.Format("produto usuario SET nome = '{0}', fornecedor = '{1}', medida = '{2}', status = '{3}', ultima_compra = '{4}' descricao = '{5}', preco = '{6}' WHERE id_produto = '{4}'", dto.Nome, dto.Fornecedor, dto.Medida, dto.Status, dto.CompraAtual, dto.Descricao, dto.Preco, dto.Id);
 
                 bd.Conectar();
                 bd.ExecutarComandoSql(cmd);
 
                 bd.Conectar();
-                cmd = string.Format("UPDATE acesso SET login_usuario = '{0}', senha = '{1}' WHERE id_login = '{2}'", dto.Login, dto.Senha, dto.Id);
+                cmd = string.Format("UPDATE estoque SET quantidade = '{0}', locacao = '{1}' WHERE id_produto = '{4}'", dto.Quantidade, dto.Locacao, dto.Id);
                 bd.ExecutarComandoSql(cmd);
-
                 Mensagens.cadastroAlterar();
             }
             catch (NpgsqlException)
@@ -90,11 +86,11 @@ namespace Facsis.Model.BLL
 
             try
             {
-                string cmd = "DELETE FROM acesso WHERE id_login = " + id;
+                string cmd = "DELETE FROM estoque WHERE id_produto = " + id;
                 bd.Conectar();
                 bd.ExecutarComandoSql(cmd);
 
-                cmd = "DELETE FROM usuario WHERE id_usuario = " + id;
+                cmd = "DELETE FROM produto WHERE id_produto = " + id;
                 bd.Conectar();
                 bd.ExecutarComandoSql(cmd);
 
@@ -113,7 +109,7 @@ namespace Facsis.Model.BLL
         //======================================================
         //  Seleciona cadastro no banco pelo nome do usuário
         //======================================================
-        public DataTable selecionaUsuario(string nome)
+        public DataTable selecionaProduto(string nome)
         {
             DataTable dt = new DataTable();
             bd = new AcessoBanco();
@@ -121,7 +117,7 @@ namespace Facsis.Model.BLL
             try
             {
                 bd.Conectar();
-                dt = bd.RetDataTable("SELECT * FROM usuario u JOIN acesso a on u.id_usuario = a.id_login and u.nome = '" + nome + "'");
+                dt = bd.RetDataTable("SELECT * FROM produto u JOIN estoque a on u.id_produto = a.id_produto and u.nome = '" + nome + "'");
             }
             catch (NpgsqlException)
             {
@@ -138,7 +134,7 @@ namespace Facsis.Model.BLL
         //======================================================
         //  Seleciona cadastro no banco pelo id do usuário
         //======================================================
-        public DataTable selecionaUsuario(int id)
+        public DataTable selecionaProduto(int id)
         {
             DataTable dt = new DataTable();
             bd = new AcessoBanco();
@@ -146,7 +142,7 @@ namespace Facsis.Model.BLL
             try
             {
                 bd.Conectar();
-                dt = bd.RetDataTable(string.Format("SELECT * FROM usuario u JOIN acesso a on u.id_usuario = a.id_login and u.id_usuario = '" + id + "'"));
+                dt = bd.RetDataTable(string.Format("SELECT * FROM produto u JOIN estoque a on u.id_produto = a.id_produto and u.id_produto = '" + id + "'"));
             }
             catch (NpgsqlException)
             {

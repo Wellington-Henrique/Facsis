@@ -9,7 +9,7 @@ namespace Facsis.Controller.Util
         {
             foreach (Control item in x.Controls)
             {
-                if (item is TextBox && item.Text == String.Empty && item.Enabled == true)
+                if (item is TextBox && item.Text == String.Empty && item.Enabled == true || item is ComboBox && item.Text == String.Empty && item.Enabled == true)
                 {
                     return true;
                 }

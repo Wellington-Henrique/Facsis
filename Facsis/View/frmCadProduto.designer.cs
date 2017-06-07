@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.pnlCadProduto = new System.Windows.Forms.Panel();
             this.gbEstoque = new System.Windows.Forms.GroupBox();
-            this.cbDataCompra = new System.Windows.Forms.DateTimePicker();
+            this.txtDataCompraAtual = new System.Windows.Forms.DateTimePicker();
             this.lblDataCompra = new System.Windows.Forms.Label();
             this.lblQtdCompra = new System.Windows.Forms.Label();
             this.txtQtdeCompra = new System.Windows.Forms.TextBox();
@@ -48,16 +48,16 @@
             this.lblNivel = new System.Windows.Forms.Label();
             this.lblQtdDisponivel = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPreco = new System.Windows.Forms.TextBox();
             this.txtQtdeDisponivel = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.dgvConsulta = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.barraProgresso = new System.Windows.Forms.ToolStripProgressBar();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlPesquisa = new System.Windows.Forms.Panel();
             this.btnConsultar = new System.Windows.Forms.Button();
@@ -66,8 +66,17 @@
             this.pnlBotoes = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
+            this.id_produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ultima_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlCadProduto.SuspendLayout();
             this.gbEstoque.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
@@ -94,11 +103,11 @@
             this.pnlCadProduto.Controls.Add(this.lblNivel);
             this.pnlCadProduto.Controls.Add(this.lblQtdDisponivel);
             this.pnlCadProduto.Controls.Add(this.lblCodigo);
-            this.pnlCadProduto.Controls.Add(this.textBox1);
+            this.pnlCadProduto.Controls.Add(this.txtPreco);
             this.pnlCadProduto.Controls.Add(this.txtQtdeDisponivel);
             this.pnlCadProduto.Controls.Add(this.label4);
             this.pnlCadProduto.Controls.Add(this.lblNome);
-            this.pnlCadProduto.Controls.Add(this.txtCodigo);
+            this.pnlCadProduto.Controls.Add(this.txtId);
             this.pnlCadProduto.Controls.Add(this.txtNome);
             this.pnlCadProduto.Controls.Add(this.txtDescricao);
             this.pnlCadProduto.Dock = System.Windows.Forms.DockStyle.Top;
@@ -110,11 +119,10 @@
             // 
             // gbEstoque
             // 
-            this.gbEstoque.Controls.Add(this.cbDataCompra);
+            this.gbEstoque.Controls.Add(this.txtDataCompraAtual);
             this.gbEstoque.Controls.Add(this.lblDataCompra);
             this.gbEstoque.Controls.Add(this.lblQtdCompra);
             this.gbEstoque.Controls.Add(this.txtQtdeCompra);
-            this.gbEstoque.Enabled = false;
             this.gbEstoque.Location = new System.Drawing.Point(477, 143);
             this.gbEstoque.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbEstoque.Name = "gbEstoque";
@@ -124,17 +132,17 @@
             this.gbEstoque.TabStop = false;
             this.gbEstoque.Text = "Estoque";
             // 
-            // cbDataCompra
+            // txtDataCompraAtual
             // 
-            this.cbDataCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.cbDataCompra.Location = new System.Drawing.Point(16, 98);
-            this.cbDataCompra.Margin = new System.Windows.Forms.Padding(13, 5, 4, 5);
-            this.cbDataCompra.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.cbDataCompra.Name = "cbDataCompra";
-            this.cbDataCompra.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cbDataCompra.Size = new System.Drawing.Size(128, 27);
-            this.cbDataCompra.TabIndex = 32;
-            this.toolTip1.SetToolTip(this.cbDataCompra, "Data da compra atual.");
+            this.txtDataCompraAtual.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtDataCompraAtual.Location = new System.Drawing.Point(16, 98);
+            this.txtDataCompraAtual.Margin = new System.Windows.Forms.Padding(13, 5, 4, 5);
+            this.txtDataCompraAtual.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.txtDataCompraAtual.Name = "txtDataCompraAtual";
+            this.txtDataCompraAtual.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtDataCompraAtual.Size = new System.Drawing.Size(128, 27);
+            this.txtDataCompraAtual.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.txtDataCompraAtual, "Data da compra atual.");
             // 
             // lblDataCompra
             // 
@@ -153,7 +161,7 @@
             this.lblQtdCompra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblQtdCompra.Name = "lblQtdCompra";
             this.lblQtdCompra.Size = new System.Drawing.Size(42, 20);
-            this.lblQtdCompra.TabIndex = 30;
+            this.lblQtdCompra.TabIndex = 0;
             this.lblQtdCompra.Text = "Qtde";
             // 
             // txtQtdeCompra
@@ -162,7 +170,7 @@
             this.txtQtdeCompra.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
             this.txtQtdeCompra.Name = "txtQtdeCompra";
             this.txtQtdeCompra.Size = new System.Drawing.Size(56, 27);
-            this.txtQtdeCompra.TabIndex = 31;
+            this.txtQtdeCompra.TabIndex = 1;
             this.txtQtdeCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.txtQtdeCompra, "Quantidade a ser adicionada ao estoque.");
             // 
@@ -176,7 +184,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dateTimePicker1.Size = new System.Drawing.Size(98, 27);
-            this.dateTimePicker1.TabIndex = 6;
+            this.dateTimePicker1.TabIndex = 3;
             this.toolTip1.SetToolTip(this.dateTimePicker1, "Data da última compra.");
             // 
             // cbLocacao
@@ -197,7 +205,7 @@
             this.cbLocacao.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
             this.cbLocacao.Name = "cbLocacao";
             this.cbLocacao.Size = new System.Drawing.Size(268, 28);
-            this.cbLocacao.TabIndex = 5;
+            this.cbLocacao.TabIndex = 4;
             this.toolTip1.SetToolTip(this.cbLocacao, "Local de armazenamento.");
             // 
             // txtUltimaCompra
@@ -227,7 +235,7 @@
             this.cbStatus.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(67, 28);
-            this.cbStatus.TabIndex = 4;
+            this.cbStatus.TabIndex = 2;
             this.toolTip1.SetToolTip(this.cbStatus, "Disponibilidade em estoque.");
             // 
             // label2
@@ -263,7 +271,7 @@
             this.lblPreco.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPreco.Name = "lblPreco";
             this.lblPreco.Size = new System.Drawing.Size(46, 20);
-            this.lblPreco.TabIndex = 31;
+            this.lblPreco.TabIndex = 7;
             this.lblPreco.Text = "Preço";
             // 
             // lblFornecedor
@@ -290,7 +298,7 @@
             this.cbUnidade.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
             this.cbUnidade.Name = "cbUnidade";
             this.cbUnidade.Size = new System.Drawing.Size(77, 28);
-            this.cbUnidade.TabIndex = 3;
+            this.cbUnidade.TabIndex = 5;
             this.toolTip1.SetToolTip(this.cbUnidade, "Unidade de medida.");
             // 
             // lblNivel
@@ -323,18 +331,19 @@
             this.lblCodigo.TabIndex = 0;
             this.lblCodigo.Text = "Código";
             // 
-            // textBox1
+            // txtPreco
             // 
-            this.textBox1.Location = new System.Drawing.Point(574, 101);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox1.Size = new System.Drawing.Size(67, 27);
-            this.textBox1.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.textBox1, "Preço do produto.");
+            this.txtPreco.Location = new System.Drawing.Point(574, 101);
+            this.txtPreco.Margin = new System.Windows.Forms.Padding(4, 5, 4, 15);
+            this.txtPreco.Name = "txtPreco";
+            this.txtPreco.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtPreco.Size = new System.Drawing.Size(67, 27);
+            this.txtPreco.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.txtPreco, "Preço do produto.");
             // 
             // txtQtdeDisponivel
             // 
+            this.txtQtdeDisponivel.Enabled = false;
             this.txtQtdeDisponivel.Location = new System.Drawing.Point(410, 101);
             this.txtQtdeDisponivel.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
             this.txtQtdeDisponivel.Name = "txtQtdeDisponivel";
@@ -363,16 +372,16 @@
             this.lblNome.TabIndex = 1;
             this.lblNome.Text = "Nome";
             // 
-            // txtCodigo
+            // txtId
             // 
-            this.txtCodigo.Enabled = false;
-            this.txtCodigo.Location = new System.Drawing.Point(10, 34);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(56, 27);
-            this.txtCodigo.TabIndex = 0;
-            this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip1.SetToolTip(this.txtCodigo, "Código do produto.");
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(10, 34);
+            this.txtId.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(56, 27);
+            this.txtId.TabIndex = 0;
+            this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.txtId, "Código do produto.");
             // 
             // txtNome
             // 
@@ -396,17 +405,27 @@
             // 
             this.dgvConsulta.BackgroundColor = System.Drawing.Color.White;
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConsulta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_produto,
+            this.nome,
+            this.fornecedor,
+            this.medida,
+            this.status,
+            this.ultima_compra,
+            this.descricao,
+            this.preco,
+            this.quantidade,
+            this.locacao});
             this.dgvConsulta.Location = new System.Drawing.Point(10, 426);
             this.dgvConsulta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvConsulta.Name = "dgvConsulta";
             this.dgvConsulta.Size = new System.Drawing.Size(650, 141);
             this.dgvConsulta.TabIndex = 29;
-            this.dgvConsulta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsulta_CellContentClick);
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripProgressBar1});
+            this.barraProgresso});
             this.statusStrip1.Location = new System.Drawing.Point(10, 572);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
@@ -414,11 +433,11 @@
             this.statusStrip1.TabIndex = 30;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripProgressBar1
+            // barraProgresso
             // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(133, 25);
-            this.toolStripProgressBar1.Visible = false;
+            this.barraProgresso.Name = "barraProgresso";
+            this.barraProgresso.Size = new System.Drawing.Size(133, 25);
+            this.barraProgresso.Visible = false;
             // 
             // pnlPesquisa
             // 
@@ -448,6 +467,7 @@
             this.btnConsultar.TabIndex = 1;
             this.btnConsultar.Text = ">";
             this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // txtConsulta
             // 
@@ -473,7 +493,6 @@
             // 
             this.pnlBotoes.Controls.Add(this.btnCancelar);
             this.pnlBotoes.Controls.Add(this.btnExcluir);
-            this.pnlBotoes.Controls.Add(this.btnAlterar);
             this.pnlBotoes.Controls.Add(this.btnCadastrar);
             this.pnlBotoes.Location = new System.Drawing.Point(10, 320);
             this.pnlBotoes.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
@@ -496,7 +515,6 @@
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnExcluir
             // 
@@ -514,25 +532,6 @@
             this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.BackColor = System.Drawing.Color.DarkGray;
-            this.btnAlterar.Enabled = false;
-            this.btnAlterar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnAlterar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.btnAlterar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnAlterar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlterar.Location = new System.Drawing.Point(330, 1);
-            this.btnAlterar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(100, 38);
-            this.btnAlterar.TabIndex = 1;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = false;
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnCadastrar
             // 
@@ -542,14 +541,64 @@
             this.btnCadastrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnCadastrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrar.Location = new System.Drawing.Point(220, 1);
+            this.btnCadastrar.Location = new System.Drawing.Point(330, 0);
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(100, 38);
             this.btnCadastrar.TabIndex = 0;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = false;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click_1);
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            // 
+            // id_produto
+            // 
+            this.id_produto.HeaderText = "Código";
+            this.id_produto.Name = "id_produto";
+            // 
+            // nome
+            // 
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            // 
+            // fornecedor
+            // 
+            this.fornecedor.HeaderText = "Fornecedor";
+            this.fornecedor.Name = "fornecedor";
+            // 
+            // medida
+            // 
+            this.medida.HeaderText = "Medida";
+            this.medida.Name = "medida";
+            // 
+            // status
+            // 
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            // 
+            // ultima_compra
+            // 
+            this.ultima_compra.HeaderText = "Última compra";
+            this.ultima_compra.Name = "ultima_compra";
+            // 
+            // descricao
+            // 
+            this.descricao.HeaderText = "Descricão";
+            this.descricao.Name = "descricao";
+            // 
+            // preco
+            // 
+            this.preco.HeaderText = "Preço";
+            this.preco.Name = "preco";
+            // 
+            // quantidade
+            // 
+            this.quantidade.HeaderText = "Quantidade";
+            this.quantidade.Name = "quantidade";
+            // 
+            // locacao
+            // 
+            this.locacao.HeaderText = "Locação";
+            this.locacao.Name = "locacao";
             // 
             // frmCadProduto
             // 
@@ -597,23 +646,23 @@
         private System.Windows.Forms.Label lblNivel;
         private System.Windows.Forms.Label lblQtdDisponivel;
         private System.Windows.Forms.Label lblCodigo;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPreco;
         private System.Windows.Forms.TextBox txtQtdeDisponivel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label txtUltimaCompra;
         private System.Windows.Forms.DataGridView dgvConsulta;
         private System.Windows.Forms.GroupBox gbEstoque;
-        private System.Windows.Forms.DateTimePicker cbDataCompra;
+        private System.Windows.Forms.DateTimePicker txtDataCompraAtual;
         private System.Windows.Forms.Label lblDataCompra;
         private System.Windows.Forms.Label lblQtdCompra;
         private System.Windows.Forms.TextBox txtQtdeCompra;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.ToolStripProgressBar barraProgresso;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Panel pnlPesquisa;
         private System.Windows.Forms.Button btnConsultar;
@@ -622,7 +671,16 @@
         private System.Windows.Forms.Panel pnlBotoes;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_produto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fornecedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn medida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ultima_compra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn preco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn locacao;
     }
 }

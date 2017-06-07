@@ -9,7 +9,7 @@ namespace Facsis.View
 {
     public partial class frmCadUsuario : Form
     {
-        UsuarioBLL bll = new UsuarioBLL();
+        UsuarioBLL bll = new UsuarioBLL();        
         UsuarioDTO dto = new UsuarioDTO();
 
         public frmCadUsuario()
@@ -18,8 +18,8 @@ namespace Facsis.View
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
-        {            
-            dto.Nome = txtNome.Text.Trim();
+        {
+            dto.Nome = txtNome.Text.Trim().ToUpper();
             dto.Email = txtEmail.Text.Trim();
             dto.Telefone = txtTelefone.Text.Trim();
             dto.Nivel = cbNivel.Text.Trim();
@@ -29,7 +29,7 @@ namespace Facsis.View
             if (txtId.Text == "")
             {
                 bll.Inserir(dto);
-                CarregarGrid();
+                //CarregarGrid();
             }
             else
             {
@@ -89,19 +89,19 @@ namespace Facsis.View
 
             if (Int32.TryParse(txtConsulta.Text, out id))
             {
-                dgvConsulta.DataSource = bll.selecionaUsuarioId(Convert.ToInt32(txtConsulta.Text));
+                dgvConsulta.DataSource = bll.selecionaUsuario(Convert.ToInt32(txtConsulta.Text));
             }
             else
             {
                 string nome = txtConsulta.Text;
-                DataTable dt = bll.selecionaUsuarioNome(nome.ToUpper());
+                DataTable dt = bll.selecionaUsuario(nome.ToUpper());
 
                 barraProgresso.Visible = true;
 
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     dgvConsulta.Rows.Add(dt.Rows[i]["id_usuario"].ToString(), dt.Rows[i]["nome"].ToString(), dt.Rows[i]["email"].ToString(),
-                                         dt.Rows[i]["telefone"].ToString(), dt.Rows[i]["funcao"].ToString(), dt.Rows[i]["login_usuario"].ToString(),
+                                         dt.Rows[i]["telefone"].ToString(), dt.Rows[i]["nivel"].ToString(), dt.Rows[i]["login_usuario"].ToString(),
                                          dt.Rows[i]["senha"].ToString());
 
                     barraProgresso.Value = i;
@@ -123,7 +123,13 @@ namespace Facsis.View
 
         private void frmCadUsuario_Load(object sender, EventArgs e)
         {
-            DataGridFuncoes.cabecalhoTabUsuario(dgvConsulta);
+            //dgvConsulta.Columns[0].HeaderText = "Código";
+            //dgvConsulta.Columns[1].HeaderText = "Nome";
+            //dgvConsulta.Columns[2].HeaderText = "Email";
+            //dgvConsulta.Columns[3].HeaderText = "Telefone";
+            //dgvConsulta.Columns[4].HeaderText = "Nível";
+            //dgvConsulta.Columns[5].HeaderText = "Login";
+            //dgvConsulta.Columns[6].HeaderText = "Senha";
         }
     }
 }

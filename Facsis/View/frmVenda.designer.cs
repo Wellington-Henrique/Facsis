@@ -602,7 +602,8 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "frmVenda";
-            this.Text = "frmVenda";
+            this.Text = "Venda";
+            this.Load += new System.EventHandler(this.frmVenda_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);

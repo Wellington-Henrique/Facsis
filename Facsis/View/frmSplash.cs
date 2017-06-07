@@ -22,7 +22,7 @@ namespace Facsis.View
         {
 
             if (barraProgresso.Value < 100)
-                barraProgresso.Value += 2;
+                barraProgresso.Value += 10;
             else
             {
                 this.Close();

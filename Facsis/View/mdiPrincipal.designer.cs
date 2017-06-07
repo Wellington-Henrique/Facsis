@@ -50,7 +50,6 @@
             this.tsmConsCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmConsFornecedor = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmConsProduto = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmConsUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmRelatorios = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmRelatorioVenda = new System.Windows.Forms.ToolStripMenuItem();
             this.efetuadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,9 +71,11 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.calculadoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -115,6 +116,7 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(193, 24);
             this.exitToolStripMenuItem.Text = "&Trocar de usuário";
             this.exitToolStripMenuItem.ToolTipText = "Entrar com outra conta de usuário..";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // fecharToolStripMenuItem
             // 
@@ -123,6 +125,7 @@
             this.fecharToolStripMenuItem.Size = new System.Drawing.Size(193, 24);
             this.fecharToolStripMenuItem.Text = "&Fechar";
             this.fecharToolStripMenuItem.ToolTipText = "Fechar o sistema.";
+            this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
             // 
             // tsmVendas
             // 
@@ -147,8 +150,8 @@
             // 
             this.tsmNovaVenda.Image = ((System.Drawing.Image)(resources.GetObject("tsmNovaVenda.Image")));
             this.tsmNovaVenda.Name = "tsmNovaVenda";
-            this.tsmNovaVenda.Size = new System.Drawing.Size(202, 24);
-            this.tsmNovaVenda.Text = "&Nova venda";
+            this.tsmNovaVenda.Size = new System.Drawing.Size(140, 24);
+            this.tsmNovaVenda.Text = "&Nova";
             this.tsmNovaVenda.ToolTipText = "Registrar nova venda.";
             this.tsmNovaVenda.Click += new System.EventHandler(this.tsmNovaVenda_Click);
             // 
@@ -156,8 +159,8 @@
             // 
             this.tsmCancelarVenda.Image = ((System.Drawing.Image)(resources.GetObject("tsmCancelarVenda.Image")));
             this.tsmCancelarVenda.Name = "tsmCancelarVenda";
-            this.tsmCancelarVenda.Size = new System.Drawing.Size(202, 24);
-            this.tsmCancelarVenda.Text = "&Cancelar pendente";
+            this.tsmCancelarVenda.Size = new System.Drawing.Size(140, 24);
+            this.tsmCancelarVenda.Text = "&Pendente";
             this.tsmCancelarVenda.ToolTipText = "Cancelar venda pendente.";
             // 
             // tsmOrcamento
@@ -175,16 +178,17 @@
             // 
             this.tsmNovoOrcamento.Image = ((System.Drawing.Image)(resources.GetObject("tsmNovoOrcamento.Image")));
             this.tsmNovoOrcamento.Name = "tsmNovoOrcamento";
-            this.tsmNovoOrcamento.Size = new System.Drawing.Size(202, 24);
-            this.tsmNovoOrcamento.Text = "&Novo orçamento";
+            this.tsmNovoOrcamento.Size = new System.Drawing.Size(152, 24);
+            this.tsmNovoOrcamento.Text = "&Novo";
             this.tsmNovoOrcamento.ToolTipText = "Registrar novo orçamento.";
+            this.tsmNovoOrcamento.Click += new System.EventHandler(this.tsmNovoOrcamento_Click);
             // 
             // tsmCancelarOrcamento
             // 
             this.tsmCancelarOrcamento.Image = ((System.Drawing.Image)(resources.GetObject("tsmCancelarOrcamento.Image")));
             this.tsmCancelarOrcamento.Name = "tsmCancelarOrcamento";
-            this.tsmCancelarOrcamento.Size = new System.Drawing.Size(202, 24);
-            this.tsmCancelarOrcamento.Text = "&Cancelar pendente";
+            this.tsmCancelarOrcamento.Size = new System.Drawing.Size(152, 24);
+            this.tsmCancelarOrcamento.Text = "&Pendente";
             this.tsmCancelarOrcamento.ToolTipText = "Cancelar orçamento pendente.";
             // 
             // tsmCadastro
@@ -231,8 +235,7 @@
             this.tsmConsultar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmConsCliente,
             this.tsmConsFornecedor,
-            this.tsmConsProduto,
-            this.tsmConsUsuario});
+            this.tsmConsProduto});
             this.tsmConsultar.Name = "tsmConsultar";
             this.tsmConsultar.Size = new System.Drawing.Size(84, 24);
             this.tsmConsultar.Text = "C&onsultas";
@@ -249,18 +252,13 @@
             this.tsmConsFornecedor.Name = "tsmConsFornecedor";
             this.tsmConsFornecedor.Size = new System.Drawing.Size(153, 24);
             this.tsmConsFornecedor.Text = "&Fornecedor";
+            this.tsmConsFornecedor.Click += new System.EventHandler(this.tsmConsFornecedor_Click);
             // 
             // tsmConsProduto
             // 
             this.tsmConsProduto.Name = "tsmConsProduto";
             this.tsmConsProduto.Size = new System.Drawing.Size(153, 24);
             this.tsmConsProduto.Text = "&Produto";
-            // 
-            // tsmConsUsuario
-            // 
-            this.tsmConsUsuario.Name = "tsmConsUsuario";
-            this.tsmConsUsuario.Size = new System.Drawing.Size(153, 24);
-            this.tsmConsUsuario.Text = "&Usuário";
             // 
             // tsmRelatorios
             // 
@@ -426,8 +424,22 @@
             this.calculadoraToolStripMenuItem.Text = "Calculadora";
             this.calculadoraToolStripMenuItem.Click += new System.EventHandler(this.calculadoraToolStripMenuItem_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(572, 486);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 3, 15, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(300, 123);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // mdiPrincipal
             // 
+            this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
@@ -435,6 +447,7 @@
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
+            this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
@@ -449,6 +462,7 @@
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -491,13 +505,13 @@
         private System.Windows.Forms.ToolStripMenuItem canceladasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmConsultar;
         private System.Windows.Forms.ToolStripMenuItem tsmConsCliente;
-        private System.Windows.Forms.ToolStripMenuItem tsmConsFornecedor;
         private System.Windows.Forms.ToolStripMenuItem tsmConsProduto;
-        private System.Windows.Forms.ToolStripMenuItem tsmConsUsuario;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem calculadoraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ferramentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem calculadoraToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tsmConsFornecedor;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

@@ -1,6 +1,6 @@
 ﻿namespace Facsis.View
 {
-    partial class frmBuscaPessoa
+    partial class frmConFornecedor
     {
         /// <summary>
         /// Required designer variable.
@@ -41,14 +41,10 @@
             this.dgvPessoa = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.inserirClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnRemover = new System.Windows.Forms.Button();
-            this.btnInserir = new System.Windows.Forms.Button();
             this.R4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPessoa)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // R4
@@ -56,12 +52,11 @@
             this.R4.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.R4.Controls.Add(this.panel2);
             this.R4.Controls.Add(this.dgvPessoa);
-            this.R4.Controls.Add(this.panel1);
             this.R4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.R4.Location = new System.Drawing.Point(0, 0);
             this.R4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.R4.Name = "R4";
-            this.R4.Size = new System.Drawing.Size(825, 398);
+            this.R4.Size = new System.Drawing.Size(710, 382);
             this.R4.TabIndex = 9;
             // 
             // panel2
@@ -75,7 +70,7 @@
             this.panel2.Controls.Add(this.txtNome);
             this.panel2.Controls.Add(this.txtCodigo);
             this.panel2.Controls.Add(this.lblCodigo);
-            this.panel2.Location = new System.Drawing.Point(117, 307);
+            this.panel2.Location = new System.Drawing.Point(4, 303);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(699, 88);
             this.panel2.TabIndex = 10;
@@ -88,7 +83,7 @@
             this.txtCpf_Cnpj.Name = "txtCpf_Cnpj";
             this.txtCpf_Cnpj.Size = new System.Drawing.Size(126, 27);
             this.txtCpf_Cnpj.TabIndex = 26;
-            this.txtCpf_Cnpj.Text = "40494432870";
+            this.txtCpf_Cnpj.Text = "12345678587";
             this.txtCpf_Cnpj.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCpf_Cnpj.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
@@ -115,9 +110,9 @@
             this.lblCpfCnpj.Location = new System.Drawing.Point(437, 14);
             this.lblCpfCnpj.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
             this.lblCpfCnpj.Name = "lblCpfCnpj";
-            this.lblCpfCnpj.Size = new System.Drawing.Size(80, 20);
+            this.lblCpfCnpj.Size = new System.Drawing.Size(42, 20);
             this.lblCpfCnpj.TabIndex = 23;
-            this.lblCpfCnpj.Text = "CPF / CNPJ";
+            this.lblCpfCnpj.Text = "CNPJ";
             // 
             // lblNome
             // 
@@ -162,7 +157,7 @@
             this.dgvPessoa.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvPessoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPessoa.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvPessoa.Location = new System.Drawing.Point(117, 9);
+            this.dgvPessoa.Location = new System.Drawing.Point(4, 5);
             this.dgvPessoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvPessoa.Name = "dgvPessoa";
             this.dgvPessoa.Size = new System.Drawing.Size(699, 290);
@@ -183,73 +178,28 @@
             this.inserirClienteToolStripMenuItem.Text = "Inserir cliente";
             this.inserirClienteToolStripMenuItem.Click += new System.EventHandler(this.inserirClienteToolStripMenuItem_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnRemover);
-            this.panel1.Controls.Add(this.btnInserir);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(117, 398);
-            this.panel1.TabIndex = 0;
-            // 
-            // btnRemover
-            // 
-            this.btnRemover.BackColor = System.Drawing.Color.DarkGray;
-            this.btnRemover.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnRemover.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.btnRemover.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnRemover.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnRemover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemover.Location = new System.Drawing.Point(8, 57);
-            this.btnRemover.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(100, 38);
-            this.btnRemover.TabIndex = 3;
-            this.btnRemover.Text = "Remover";
-            this.btnRemover.UseVisualStyleBackColor = false;
-            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
-            // 
-            // btnInserir
-            // 
-            this.btnInserir.BackColor = System.Drawing.Color.DarkGray;
-            this.btnInserir.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnInserir.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.btnInserir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnInserir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInserir.Location = new System.Drawing.Point(8, 9);
-            this.btnInserir.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnInserir.Name = "btnInserir";
-            this.btnInserir.Size = new System.Drawing.Size(100, 38);
-            this.btnInserir.TabIndex = 1;
-            this.btnInserir.Text = "Inserir";
-            this.btnInserir.UseVisualStyleBackColor = false;
-            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
-            // 
-            // frmBuscaPessoa
+            // frmConFornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(825, 408);
+            this.ClientSize = new System.Drawing.Size(710, 408);
             this.Controls.Add(this.R4);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.Name = "frmBuscaPessoa";
+            this.Name = "frmConFornecedor";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Consulta Cliente/Fornecedor";
+            this.Text = "Consulta fornecedor";
+            this.Load += new System.EventHandler(this.frmBuscaPessoa_Load);
             this.R4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPessoa)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -257,9 +207,6 @@
         #endregion
 
         private System.Windows.Forms.Panel R4;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnRemover;
-        private System.Windows.Forms.Button btnInserir;
         private System.Windows.Forms.DataGridView dgvPessoa;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnConsultar;

@@ -1,59 +1,48 @@
-﻿using System;
+﻿
 using System.Windows.Forms;
 
 namespace Facsis.Controller.Util
 {
     class Mensagens
     {
-
-        public static void erroConexao(Exception erro)
-        {           
-            MessageBox.Show("Não foi possível se conectar com o banco: " + erro.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        public static void erroBusca(Exception erro)
+        public static void cadastroInserir()
         {
-            MessageBox.Show("Nenhum cadastro foi encontrado: " + erro.Message, "Busca de cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Cadastro efetuado com sucesso!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public static void cadastroEfetuado()
+        public static void cadastroAlterar()
         {
-            MessageBox.Show("Cadastro efetuado com sucesso!", "Cadastrar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Cadastro alterado com sucesso!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public static void cadastroAlterado()
+        public static void cadastroErroAlterar()
         {
-            MessageBox.Show("Cadastro alterado com sucesso!", "Alterar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Não foi possível alterar o cadastro.", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-
-        public static void cadastroExcluido()
+        
+        public static void cadastroExcluir()
         {
-            MessageBox.Show("Cadastro excluído com sucesso!", "Excluir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("O cadastro foi excluído com sucesso!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public static DialogResult perguntaExcluir()
+        public static void cadastroErroExcluir()
         {
-
-            if (MessageBox.Show("Deseja realmente excluir este cadastro?", "Exclusão", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
-                return DialogResult.Yes;
-
-            return DialogResult.No;
+            MessageBox.Show("Não foi possível excluir o cadastro.", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        public static void campoVazioCadastro()
+        public static void BuscaErro()
         {
-            MessageBox.Show("Preencha todos os campos!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show("Não foi possível efetuar a consulta.", "Consulta de cadastro", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public static void campoVazioBusca()
+        public static void fechaAplicao()
         {
-            MessageBox.Show("Preencha pelo menos um campo!", "Consulta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-        public static void mostraRetorno(string letra)
-        { 
-            MessageBox.Show("retorno: " + letra);
+            if (MessageBox.Show("Você deseja realmente sair?", "Facsis",
+                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+                 == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }

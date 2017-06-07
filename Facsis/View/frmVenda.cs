@@ -6,14 +6,20 @@ namespace Facsis.View
 {
     public partial class frmVenda : Form
     {
-        Form buscaPessoa = new frmBuscaPessoa();
-        VendaDTO dto = new VendaDTO(); 
+        Form buscaPessoa = new frmConPessoa();
+        VendaDTO dto = new VendaDTO();
+        string tipo_op;
 
         public frmVenda()
         {
             InitializeComponent();
         }
 
+        public frmVenda(string tipo_op)
+        {
+            InitializeComponent();
+            this.tipo_op = tipo_op;
+        }
         private void rdBtnCancelar_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -22,7 +28,7 @@ namespace Facsis.View
         private void btnAdicinaCliente_Click(object sender, EventArgs e)
         {
             buscaPessoa?.Close();
-            buscaPessoa = new frmBuscaPessoa(txtCodCli, txtNome);
+            buscaPessoa = new frmConPessoa(txtCodCli, txtNome);
             buscaPessoa.Show();                        
         }
 
@@ -32,6 +38,16 @@ namespace Facsis.View
             txtNome.Text = VendaDTO.NomeCliente;
 
             MessageBox.Show(VendaDTO.IdCliente.ToString());
+        }
+
+        private void frmVenda_Load(object sender, EventArgs e)
+        {
+            if (tipo_op == "Orçamento")
+            {
+                ckbOrcamento.Checked = true;
+                ckbVenda.Enabled = false;
+                this.Text = "Orçamento";
+            }
         }
     }
 }
