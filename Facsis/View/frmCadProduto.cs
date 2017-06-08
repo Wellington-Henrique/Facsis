@@ -129,6 +129,17 @@ namespace Facsis.View
             //dgvConsulta.Columns[8].HeaderText = "Qtde";
             //dgvConsulta.Columns[9].HeaderText = "Locação";
         }
+
+        private void dgvConsulta_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //txtId.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[0].Value);
+            //txtNome.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[1].Value);
+            //txtEmail.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[2].Value);
+            //txtTelefone.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[3].Value);
+            //cbNivel.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[4].Value);
+            //txtLogin.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[5].Value);
+            //txtSenha.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[6].Value);
+        }
     }
 }
 

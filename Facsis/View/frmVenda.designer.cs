@@ -41,7 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtVlrBruto = new System.Windows.Forms.TextBox();
             this.lblVlrBruto = new System.Windows.Forms.Label();
-            this.lbItenPedido = new System.Windows.Forms.ListBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.ckbOrcamento = new System.Windows.Forms.RadioButton();
             this.cbFormaPgto = new System.Windows.Forms.ComboBox();
@@ -64,10 +63,15 @@
             this.txtCodCli = new System.Windows.Forms.TextBox();
             this.lblCodCli = new System.Windows.Forms.Label();
             this.gbPedido = new System.Windows.Forms.GroupBox();
+            this.dvgCarrinho = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBotoes = new System.Windows.Forms.Panel();
-            this.btnCancelarInsercao = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnInserir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancelarVenda = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
@@ -76,6 +80,7 @@
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.gbPedido.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgCarrinho)).BeginInit();
             this.pnlBotoes.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -151,12 +156,14 @@
             // 
             // textBox2
             // 
+            this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(240, 109);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox2.MaxLength = 3;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(105, 27);
             this.textBox2.TabIndex = 0;
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox1
             // 
@@ -169,12 +176,14 @@
             // 
             // txtVlrDesconto
             // 
+            this.txtVlrDesconto.Enabled = false;
             this.txtVlrDesconto.Location = new System.Drawing.Point(240, 69);
             this.txtVlrDesconto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtVlrDesconto.MaxLength = 3;
             this.txtVlrDesconto.Name = "txtVlrDesconto";
             this.txtVlrDesconto.Size = new System.Drawing.Size(105, 27);
             this.txtVlrDesconto.TabIndex = 0;
+            this.txtVlrDesconto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label2
             // 
@@ -208,12 +217,14 @@
             // 
             // txtVlrBruto
             // 
+            this.txtVlrBruto.Enabled = false;
             this.txtVlrBruto.Location = new System.Drawing.Point(240, 29);
             this.txtVlrBruto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtVlrBruto.MaxLength = 3;
             this.txtVlrBruto.Name = "txtVlrBruto";
             this.txtVlrBruto.Size = new System.Drawing.Size(105, 27);
             this.txtVlrBruto.TabIndex = 0;
+            this.txtVlrBruto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblVlrBruto
             // 
@@ -224,18 +235,6 @@
             this.lblVlrBruto.Size = new System.Drawing.Size(84, 20);
             this.lblVlrBruto.TabIndex = 18;
             this.lblVlrBruto.Text = "Valor Bruto";
-            // 
-            // lbItenPedido
-            // 
-            this.lbItenPedido.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbItenPedido.FormattingEnabled = true;
-            this.lbItenPedido.ItemHeight = 20;
-            this.lbItenPedido.Location = new System.Drawing.Point(5, 25);
-            this.lbItenPedido.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.lbItenPedido.Name = "lbItenPedido";
-            this.lbItenPedido.ScrollAlwaysVisible = true;
-            this.lbItenPedido.Size = new System.Drawing.Size(501, 144);
-            this.lbItenPedido.TabIndex = 1;
             // 
             // panel5
             // 
@@ -468,8 +467,8 @@
             // 
             // gbPedido
             // 
+            this.gbPedido.Controls.Add(this.dvgCarrinho);
             this.gbPedido.Controls.Add(this.pnlBotoes);
-            this.gbPedido.Controls.Add(this.lbItenPedido);
             this.gbPedido.Location = new System.Drawing.Point(18, 184);
             this.gbPedido.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbPedido.Name = "gbPedido";
@@ -479,11 +478,52 @@
             this.gbPedido.TabStop = false;
             this.gbPedido.Text = "Itens do pedido";
             // 
+            // dvgCarrinho
+            // 
+            this.dvgCarrinho.BackgroundColor = System.Drawing.Color.White;
+            this.dvgCarrinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgCarrinho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn6});
+            this.dvgCarrinho.Location = new System.Drawing.Point(9, 21);
+            this.dvgCarrinho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dvgCarrinho.Name = "dvgCarrinho";
+            this.dvgCarrinho.Size = new System.Drawing.Size(493, 152);
+            this.dvgCarrinho.TabIndex = 31;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Código";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nome";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Medida";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Qtde";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Preço";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
             // pnlBotoes
             // 
-            this.pnlBotoes.Controls.Add(this.btnCancelarInsercao);
-            this.pnlBotoes.Controls.Add(this.btnExcluir);
-            this.pnlBotoes.Controls.Add(this.btnCadastrar);
+            this.pnlBotoes.Controls.Add(this.btnLimpar);
+            this.pnlBotoes.Controls.Add(this.btnInserir);
             this.pnlBotoes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBotoes.Location = new System.Drawing.Point(5, 177);
             this.pnlBotoes.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
@@ -491,54 +531,39 @@
             this.pnlBotoes.Size = new System.Drawing.Size(501, 39);
             this.pnlBotoes.TabIndex = 45;
             // 
-            // btnCancelarInsercao
+            // btnLimpar
             // 
-            this.btnCancelarInsercao.BackColor = System.Drawing.Color.DarkGray;
-            this.btnCancelarInsercao.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnCancelarInsercao.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.btnCancelarInsercao.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnCancelarInsercao.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnCancelarInsercao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarInsercao.Location = new System.Drawing.Point(221, 1);
-            this.btnCancelarInsercao.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnCancelarInsercao.Name = "btnCancelarInsercao";
-            this.btnCancelarInsercao.Size = new System.Drawing.Size(100, 38);
-            this.btnCancelarInsercao.TabIndex = 3;
-            this.btnCancelarInsercao.Text = "Cancelar";
-            this.btnCancelarInsercao.UseVisualStyleBackColor = false;
+            this.btnLimpar.BackColor = System.Drawing.Color.DarkGray;
+            this.btnLimpar.Enabled = false;
+            this.btnLimpar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnLimpar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnLimpar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnLimpar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpar.Location = new System.Drawing.Point(111, 1);
+            this.btnLimpar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(100, 38);
+            this.btnLimpar.TabIndex = 2;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = false;
             // 
-            // btnExcluir
+            // btnInserir
             // 
-            this.btnExcluir.BackColor = System.Drawing.Color.DarkGray;
-            this.btnExcluir.Enabled = false;
-            this.btnExcluir.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnExcluir.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.btnExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluir.Location = new System.Drawing.Point(111, 1);
-            this.btnExcluir.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(100, 38);
-            this.btnExcluir.TabIndex = 2;
-            this.btnExcluir.Text = "Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = false;
-            // 
-            // btnCadastrar
-            // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.DarkGray;
-            this.btnCadastrar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnCadastrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.btnCadastrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnCadastrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrar.Location = new System.Drawing.Point(1, 1);
-            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(100, 38);
-            this.btnCadastrar.TabIndex = 0;
-            this.btnCadastrar.Text = "Inserir";
-            this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnInserir.BackColor = System.Drawing.Color.DarkGray;
+            this.btnInserir.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnInserir.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnInserir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnInserir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInserir.Location = new System.Drawing.Point(1, 1);
+            this.btnInserir.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnInserir.Name = "btnInserir";
+            this.btnInserir.Size = new System.Drawing.Size(100, 38);
+            this.btnInserir.TabIndex = 0;
+            this.btnInserir.Text = "Inserir";
+            this.btnInserir.UseVisualStyleBackColor = false;
+            this.btnInserir.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // panel1
             // 
@@ -613,6 +638,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.gbPedido.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dvgCarrinho)).EndInit();
             this.pnlBotoes.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -634,7 +660,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtVlrBruto;
         private System.Windows.Forms.Label lblVlrBruto;
-        private System.Windows.Forms.ListBox lbItenPedido;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.ComboBox cbFormaPgto;
         private System.Windows.Forms.Label lblFormaPgto;
@@ -660,9 +685,14 @@
         private System.Windows.Forms.Button btnCancelarVenda;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Panel pnlBotoes;
-        private System.Windows.Forms.Button btnCancelarInsercao;
-        private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button btnInserir;
         private System.Windows.Forms.Button btnAdicinaCliente;
+        private System.Windows.Forms.DataGridView dvgCarrinho;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }

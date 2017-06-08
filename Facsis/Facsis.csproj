@@ -71,6 +71,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="View\frmConProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmConProduto.designer.cs">
+      <DependentUpon>frmConProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frmConFornecedor .cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmConProduto.resx">
+      <DependentUpon>frmConProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmConFornecedor .resx">
       <DependentUpon>frmConFornecedor .cs</DependentUpon>

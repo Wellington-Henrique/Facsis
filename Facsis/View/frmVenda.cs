@@ -7,6 +7,7 @@ namespace Facsis.View
     public partial class frmVenda : Form
     {
         Form buscaPessoa = new frmConPessoa();
+        Form buscaProduto = new frmConProduto();
         VendaDTO dto = new VendaDTO();
         string tipo_op;
 
@@ -48,6 +49,13 @@ namespace Facsis.View
                 ckbVenda.Enabled = false;
                 this.Text = "Orçamento";
             }
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            buscaProduto?.Close();
+            buscaProduto = new frmConProduto(dvgCarrinho, txtVlrBruto);
+            buscaProduto.Show();
         }
     }
 }
