@@ -87,15 +87,22 @@ namespace Facsis.View
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             string nome = txtNomeCon.Text.Trim().ToUpper();
+            int aux;
+
             dto.Nome = nome;
             dto.Tipo = cbPessoa.Text.Trim();
             dto.Email = txtEmail.Text.Trim().ToLower();
             dto.Telefone = txtTelefone.Text.Trim();
             dto.Endereco = txtRua.Text.Trim();
-            dto.NImovel = int.Parse(txtNImovel.Text.Trim());
+
+            if (int.TryParse(txtNImovel.Text.Trim(), out aux))
+                dto.NImovel = int.Parse(txtNImovel.Text.Trim());
+            else
+                txtNImovel.Text = "";
+
             dto.Cidade = txtCidade.Text.Trim();
             dto.UF = txtUf.Text;
-            dto.CPF_CNPJ = txtCpfCnpjCon.Text;
+            dto.CPF_CNPJ = txtCpfCnpj.Text;
 
             dto.Relacao = "CLIENTE";
 
@@ -107,10 +114,12 @@ namespace Facsis.View
             else
             {
                 // Atualiza um cadastro
-                bll.Atualizar(dto);
-                FuncoesControles.limpaCampos(this.pnlDadosUsuario);
+                bll.Atualizar(dto);               
                 btnCadastrar.Text = "Cadastrar";
             }
+
+            FuncoesControles.limpaCampos(this.pnlDadosUsuario);
+
         }
 
         // Consulta pessoa no banco

@@ -27,9 +27,9 @@ namespace Facsis.Model.BLL
                 //Insere dados na tabela pessoa
                 string nome = dto.Nome.Replace("'", "''");
                 string cmd = string.Format("INSERT INTO pessoa(" +
-                    "nome, tipo_pessoa, email, telefone, endereco, numero_imovel, cidade, uf, cpf_cnpj)" +
-                    "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')",
-                    nome, dto.Tipo, dto.Email, dto.Telefone, dto.Endereco, dto.NImovel, dto.Cidade, dto.UF, dto.CPF_CNPJ);
+                    "nome, tipo_pessoa, email, telefone, endereco, numero_imovel, cidade, uf, cpf_cnpj, relacao)" +
+                    "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')",
+                    nome, dto.Tipo, dto.Email, dto.Telefone, dto.Endereco, dto.NImovel, dto.Cidade, dto.UF, dto.CPF_CNPJ, dto.Relacao);
 
                 bd.Conectar();
                 bd.ExecutarComandoSqlRet(cmd);
@@ -60,10 +60,10 @@ namespace Facsis.Model.BLL
                     "nome = '{0}', tipo_pessoa = '{1}', email = '{2}', telefone = '{3}', endereco = '{4}', numero_imovel = '{5}', cidade = '{6}', uf = '{7}', cpf_cnpj = '{8}' WHERE id_pessoa = '{9}'",
                     nome, dto.Tipo, dto.Email, dto.Telefone, dto.Endereco, dto.NImovel, dto.Cidade, dto.UF, dto.CPF_CNPJ, dto.Id);
 
-                
+
                 bd.Conectar();
                 bd.ExecutarComandoSql(cmd);
-                
+
             }
             catch (Exception)
             {
@@ -88,9 +88,9 @@ namespace Facsis.Model.BLL
                 string cmd = "DELETE FROM pessoa WHERE id_login = " + id;
                 bd.Conectar();
                 bd.ExecutarComandoSql(cmd);
-                
+
             }
-            catch (Exception )
+            catch (Exception)
             {
                 Mensagens.cadastroErroExcluir();
             }
@@ -115,7 +115,7 @@ namespace Facsis.Model.BLL
                     busca += "and ";
                 busca += "nome = '" + dto.Nome + "' ";
             }
-                           
+
             if (dto.CPF_CNPJ != "")
             {
                 if (dto.Id > 0 || dto.Nome != "")
@@ -127,7 +127,7 @@ namespace Facsis.Model.BLL
             bd = new AcessoBanco();
 
             try
-            {                
+            {
                 bd.Conectar();
                 dt = bd.RetDataTable("SELECT * FROM pessoa WHERE " + busca + " and relacao = 'CLIENTE'");
             }
