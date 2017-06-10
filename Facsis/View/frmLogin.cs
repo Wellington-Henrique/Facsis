@@ -15,7 +15,6 @@ namespace Facsis.View
         {
             InitializeComponent();
         }
-
         private void btnSair_Click(object sender, EventArgs e)
         {
             Mensagens.fechaAplicao();
