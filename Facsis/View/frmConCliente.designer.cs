@@ -64,11 +64,6 @@
             this.txtIdCon = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.dgvPessoa = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.inserirClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnRemover = new System.Windows.Forms.Button();
-            this.btnInserir = new System.Windows.Forms.Button();
             this.id_pessoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome_pessoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo_pessoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,6 +74,11 @@
             this.numero_imovel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.inserirClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRemover = new System.Windows.Forms.Button();
+            this.btnInserir = new System.Windows.Forms.Button();
             this.R4.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.pnlDadosUsuario.SuspendLayout();
@@ -129,6 +129,7 @@
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnExcluir
             // 
@@ -146,6 +147,7 @@
             this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnCadastrar
             // 
@@ -365,7 +367,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(374, 27);
             this.txtEmail.TabIndex = 5;
-            this.txtEmail.Text = "a";
             // 
             // txtNome
             // 
@@ -514,6 +515,58 @@
             this.dgvPessoa.TabIndex = 3;
             this.dgvPessoa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPessoa_CellContentClick);
             // 
+            // id_pessoa
+            // 
+            this.id_pessoa.HeaderText = "Código";
+            this.id_pessoa.Name = "id_pessoa";
+            this.id_pessoa.Width = 60;
+            // 
+            // nome_pessoa
+            // 
+            this.nome_pessoa.HeaderText = "Nome";
+            this.nome_pessoa.Name = "nome_pessoa";
+            // 
+            // tipo_pessoa
+            // 
+            this.tipo_pessoa.HeaderText = "Tipo pessoa";
+            this.tipo_pessoa.Name = "tipo_pessoa";
+            // 
+            // cpf_cnpj
+            // 
+            this.cpf_cnpj.HeaderText = "CPF/CNPJ";
+            this.cpf_cnpj.Name = "cpf_cnpj";
+            // 
+            // email
+            // 
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            // 
+            // telefone
+            // 
+            this.telefone.HeaderText = "Telefone";
+            this.telefone.Name = "telefone";
+            // 
+            // endereco
+            // 
+            this.endereco.HeaderText = "Endereço";
+            this.endereco.Name = "endereco";
+            // 
+            // numero_imovel
+            // 
+            this.numero_imovel.HeaderText = "Nº";
+            this.numero_imovel.Name = "numero_imovel";
+            // 
+            // cidade
+            // 
+            this.cidade.HeaderText = "Cidade";
+            this.cidade.Name = "cidade";
+            // 
+            // uf
+            // 
+            this.uf.HeaderText = "UF";
+            this.uf.Name = "uf";
+            this.uf.Width = 60;
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -574,58 +627,6 @@
             this.btnInserir.Text = "Inserir";
             this.btnInserir.UseVisualStyleBackColor = false;
             this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
-            // 
-            // id_pessoa
-            // 
-            this.id_pessoa.HeaderText = "Código";
-            this.id_pessoa.Name = "id_pessoa";
-            this.id_pessoa.Width = 60;
-            // 
-            // nome_pessoa
-            // 
-            this.nome_pessoa.HeaderText = "Nome";
-            this.nome_pessoa.Name = "nome_pessoa";
-            // 
-            // tipo_pessoa
-            // 
-            this.tipo_pessoa.HeaderText = "Tipo pessoa";
-            this.tipo_pessoa.Name = "tipo_pessoa";
-            // 
-            // cpf_cnpj
-            // 
-            this.cpf_cnpj.HeaderText = "CPF/CNPJ";
-            this.cpf_cnpj.Name = "cpf_cnpj";
-            // 
-            // email
-            // 
-            this.email.HeaderText = "Email";
-            this.email.Name = "email";
-            // 
-            // telefone
-            // 
-            this.telefone.HeaderText = "Telefone";
-            this.telefone.Name = "telefone";
-            // 
-            // endereco
-            // 
-            this.endereco.HeaderText = "Endereço";
-            this.endereco.Name = "endereco";
-            // 
-            // numero_imovel
-            // 
-            this.numero_imovel.HeaderText = "Nº";
-            this.numero_imovel.Name = "numero_imovel";
-            // 
-            // cidade
-            // 
-            this.cidade.HeaderText = "Cidade";
-            this.cidade.Name = "cidade";
-            // 
-            // uf
-            // 
-            this.uf.HeaderText = "UF";
-            this.uf.Name = "uf";
-            this.uf.Width = 60;
             // 
             // frmConPessoa
             // 

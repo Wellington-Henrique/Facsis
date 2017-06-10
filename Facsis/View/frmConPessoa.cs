@@ -10,7 +10,7 @@ namespace Facsis.View
     public partial class frmConPessoa : Form
     {
         PessoaBLL bll = new PessoaBLL();
-        PessoaDTO dto = new PessoaDTO();
+        PessoaDTO dto;
         string relacao = "CLIENTE";
         string[] pessoa = new string[10];
         DataTable dt;
@@ -70,9 +70,12 @@ namespace Facsis.View
             txtEmail.Text = dgvPessoa.Rows[e.RowIndex].Cells[4].Value.ToString();
             txtTelefone.Text = dgvPessoa.Rows[e.RowIndex].Cells[5].Value.ToString();
             txtRua.Text = dgvPessoa.Rows[e.RowIndex].Cells[6].Value.ToString();
-            txtNome.Text = dgvPessoa.Rows[e.RowIndex].Cells[7].Value.ToString();
+            txtNImovel.Text = dgvPessoa.Rows[e.RowIndex].Cells[7].Value.ToString();
             txtCidade.Text = dgvPessoa.Rows[e.RowIndex].Cells[8].Value.ToString();
             txtUf.Text = dgvPessoa.Rows[e.RowIndex].Cells[9].Value.ToString();
+
+            btnCadastrar.Text = "Atualizar";
+            btnExcluir.Enabled = true;
         }
         
         // Remove a pessoa do carrinho de compras
@@ -86,45 +89,61 @@ namespace Facsis.View
         // Cadastra um cliente no banco
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            string nome = txtNomeCon.Text.Trim().ToUpper();
             int aux;
 
-            dto.Nome = nome;
-            dto.Tipo = cbPessoa.Text.Trim();
-            dto.Email = txtEmail.Text.Trim().ToLower();
-            dto.Telefone = txtTelefone.Text.Trim();
-            dto.Endereco = txtRua.Text.Trim();
-
+            // Verifica se o número do imóvel é inteiro
             if (int.TryParse(txtNImovel.Text.Trim(), out aux))
                 dto.NImovel = int.Parse(txtNImovel.Text.Trim());
             else
                 txtNImovel.Text = "";
 
-            dto.Cidade = txtCidade.Text.Trim();
-            dto.UF = txtUf.Text;
-            dto.CPF_CNPJ = txtCpfCnpj.Text;
-
-            dto.Relacao = "CLIENTE";
-
-            if (txtId.Text == "")
+            // Caso todos os campos sejam preenchidos efetua o cadastro ou atualização
+            if (FuncoesControles.verificaVazio(pnlDadosUsuario) == false)
             {
-                // Efetua um novo cadastro
-                bll.Inserir(dto);
+                dto = new PessoaDTO();
+
+                string nome = txtNomeCon.Text.Trim().ToUpper();
+
+                dto.Nome = nome;
+                dto.Tipo = cbPessoa.Text.Trim();
+                dto.Email = txtEmail.Text.Trim().ToLower();
+                dto.Telefone = txtTelefone.Text.Trim();
+                dto.Endereco = txtRua.Text.Trim();
+
+                dto.Cidade = txtCidade.Text.Trim();
+                dto.UF = txtUf.Text;
+                dto.CPF_CNPJ = txtCpfCnpj.Text;
+
+                dto.Relacao = "CLIENTE";
+
+                if (txtId.Text == "")
+                {
+                    // Efetua um novo cadastro
+                    bll.Inserir(dto);
+                }
+                else
+                {
+                    // Atualiza um cadastro
+                    dto.Id = int.Parse(txtId.Text);
+                    bll.Atualizar(dto);
+                    btnCadastrar.Text = "Cadastrar";
+                }
+
+                FuncoesControles.limpaCampos(this.pnlDadosUsuario);
+                dto = null;
             }
             else
-            {
-                // Atualiza um cadastro
-                bll.Atualizar(dto);               
-                btnCadastrar.Text = "Cadastrar";
-            }
+                Mensagens.camposVarizos();
 
-            FuncoesControles.limpaCampos(this.pnlDadosUsuario);
+            
 
         }
 
         // Consulta pessoa no banco
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            dto = new PessoaDTO();
+
             int id;
 
             if (Int32.TryParse(txtIdCon.Text, out id))
@@ -136,6 +155,8 @@ namespace Facsis.View
             dto.CPF_CNPJ = txtCpfCnpjCon.Text;
 
             CarregarGrid();
+
+            dto = null;
         }
 
         // Faz o SELECT dos clientes no banco
@@ -153,13 +174,26 @@ namespace Facsis.View
                     dt.Rows[i]["tipo_pessoa"].ToString(),
                     dt.Rows[i]["cpf_cnpj"].ToString(),
                     dt.Rows[i]["email"].ToString(), 
-                    dt.Rows[i]["telefone"].ToString(), 
-                    dt.Rows[i]["numero_imovel"].ToString(),
+                    dt.Rows[i]["telefone"].ToString(),                     
                     dt.Rows[i]["endereco"].ToString(),
+                    dt.Rows[i]["numero_imovel"].ToString(),
                     dt.Rows[i]["cidade"].ToString(),
                     dt.Rows[i]["uf"].ToString());
             }
+        }
 
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            bll.Excluir(txtId.Text);
+            btnExcluir.Enabled = false;
+            FuncoesControles.limpaCampos(this.pnlDadosUsuario);
+            dgvPessoa.Rows.Clear();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            FuncoesControles.limpaCampos(this.pnlDadosUsuario);
+            dgvPessoa.Rows.Clear();
         }
     }
 }

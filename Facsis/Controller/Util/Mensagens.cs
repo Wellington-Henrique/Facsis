@@ -41,6 +41,11 @@ namespace Facsis.Controller.Util
                 "Facsis", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 Application.Exit(); //Encerra o sistema
         }
+
+        public static void camposVarizos()
+        {
+            MessageBox.Show("Informe todos os campos!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
     }
 }
 

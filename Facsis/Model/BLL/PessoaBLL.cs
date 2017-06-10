@@ -85,10 +85,10 @@ namespace Facsis.Model.BLL
 
             try
             {
-                string cmd = "DELETE FROM pessoa WHERE id_login = " + id;
+                string cmd = "DELETE FROM pessoa WHERE id_pessoa = " + id;
                 bd.Conectar();
                 bd.ExecutarComandoSql(cmd);
-
+                Mensagens.cadastroExcluir();
             }
             catch (Exception)
             {
