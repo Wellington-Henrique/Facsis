@@ -110,7 +110,6 @@
             this.pnlCadProduto.Controls.Add(this.txtId);
             this.pnlCadProduto.Controls.Add(this.txtNome);
             this.pnlCadProduto.Controls.Add(this.txtDescricao);
-            this.pnlCadProduto.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCadProduto.Location = new System.Drawing.Point(10, 10);
             this.pnlCadProduto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlCadProduto.Name = "pnlCadProduto";

@@ -51,6 +51,7 @@
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.txtCpf_Cnpj = new System.Windows.Forms.MaskedTextBox();
             this.pnlBotoes = new System.Windows.Forms.Panel();
+            this.btnConsultar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
@@ -308,6 +309,7 @@
             // 
             // pnlBotoes
             // 
+            this.pnlBotoes.Controls.Add(this.btnConsultar);
             this.pnlBotoes.Controls.Add(this.btnCancelar);
             this.pnlBotoes.Controls.Add(this.btnExcluir);
             this.pnlBotoes.Controls.Add(this.btnCadastrar);
@@ -316,6 +318,23 @@
             this.pnlBotoes.Name = "pnlBotoes";
             this.pnlBotoes.Size = new System.Drawing.Size(600, 39);
             this.pnlBotoes.TabIndex = 13;
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.BackColor = System.Drawing.Color.DarkGray;
+            this.btnConsultar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnConsultar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnConsultar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnConsultar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultar.Location = new System.Drawing.Point(280, 0);
+            this.btnConsultar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(100, 38);
+            this.btnConsultar.TabIndex = 4;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // btnCancelar
             // 
@@ -342,13 +361,14 @@
             this.btnExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluir.Location = new System.Drawing.Point(390, 1);
+            this.btnExcluir.Location = new System.Drawing.Point(390, 0);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 38);
             this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnCadastrar
             // 
@@ -358,7 +378,7 @@
             this.btnCadastrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnCadastrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrar.Location = new System.Drawing.Point(280, 0);
+            this.btnCadastrar.Location = new System.Drawing.Point(170, 0);
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(100, 38);
@@ -379,7 +399,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmCadPessoa";
-            this.Text = "Cadastro Cliente/Fornecedor";
+            this.Text = "Cadastro Cliente";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -417,5 +437,6 @@
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.MaskedTextBox txtTelefone;
         private System.Windows.Forms.MaskedTextBox txtCpf_Cnpj;
+        private System.Windows.Forms.Button btnConsultar;
     }
 }

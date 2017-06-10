@@ -72,6 +72,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.calculadoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -178,7 +179,7 @@
             // 
             this.tsmNovoOrcamento.Image = ((System.Drawing.Image)(resources.GetObject("tsmNovoOrcamento.Image")));
             this.tsmNovoOrcamento.Name = "tsmNovoOrcamento";
-            this.tsmNovoOrcamento.Size = new System.Drawing.Size(152, 24);
+            this.tsmNovoOrcamento.Size = new System.Drawing.Size(140, 24);
             this.tsmNovoOrcamento.Text = "&Novo";
             this.tsmNovoOrcamento.ToolTipText = "Registrar novo orçamento.";
             this.tsmNovoOrcamento.Click += new System.EventHandler(this.tsmNovoOrcamento_Click);
@@ -187,7 +188,7 @@
             // 
             this.tsmCancelarOrcamento.Image = ((System.Drawing.Image)(resources.GetObject("tsmCancelarOrcamento.Image")));
             this.tsmCancelarOrcamento.Name = "tsmCancelarOrcamento";
-            this.tsmCancelarOrcamento.Size = new System.Drawing.Size(152, 24);
+            this.tsmCancelarOrcamento.Size = new System.Drawing.Size(140, 24);
             this.tsmCancelarOrcamento.Text = "&Pendente";
             this.tsmCancelarOrcamento.ToolTipText = "Cancelar orçamento pendente.";
             // 
@@ -437,6 +438,11 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(153, 26);
+            // 
             // mdiPrincipal
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -456,6 +462,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facsis";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mdiPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.mdiPrincipal_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -512,6 +519,7 @@
         private System.Windows.Forms.ToolStripMenuItem calculadoraToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tsmConsFornecedor;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
     }
 }
 

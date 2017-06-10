@@ -69,7 +69,7 @@ namespace Facsis.View
 
         private void tsmCadCliente_Click(object sender, EventArgs e)
         {
-            iniciaFrmCadPessoa();
+            iniciaFrmCadPessoa("Cliente");
         }
 
         private void tsmCadProduto_Click(object sender, EventArgs e)
@@ -82,7 +82,8 @@ namespace Facsis.View
 
         private void mdiPrincipal_Load(object sender, EventArgs e)
         {
-            carregaDadosUsuario();           
+            carregaDadosUsuario();
+            habilitaCampos();
         }
 
         private void calculadoraToolStripMenuItem_Click(object sender, EventArgs e)
@@ -95,7 +96,7 @@ namespace Facsis.View
             iniciaCalculadora();
         }
 
-        
+
         private void tsmNovaVenda_Click(object sender, EventArgs e)
         {
             venda?.Close();
@@ -114,13 +115,13 @@ namespace Facsis.View
 
         private void tsmCadFornecedor_Click(object sender, EventArgs e)
         {
-            iniciaFrmCadPessoa();
+            iniciaFrmCadPessoa("Fornecedor");
         }
 
-        public void iniciaFrmCadPessoa()
+        public void iniciaFrmCadPessoa(string x)
         {
             cadPessoa?.Close();
-            cadPessoa = new frmCadPessoa();
+            cadPessoa = new frmCadPessoa(x);
             cadPessoa.MdiParent = this;
             cadPessoa.Show();
         }
@@ -143,16 +144,12 @@ namespace Facsis.View
             {
                 this.Show();
                 carregaDadosUsuario();
+                habilitaCampos();
             }
-                
+
         }
 
         private void fecharToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Mensagens.fechaAplicao();
-        }
-
-        private void mdiPrincipal_FormClosing(object sender, FormClosedEventArgs e)
         {
             Mensagens.fechaAplicao();
         }
@@ -166,7 +163,7 @@ namespace Facsis.View
         private void tsmConsFornecedor_Click(object sender, EventArgs e)
         {
             conFornecedor?.Close();
-            conFornecedor = new frmConFornecedor();
+            conFornecedor = new frmConPessoa();
             conFornecedor.MdiParent = this;
             conFornecedor.Show();
         }
@@ -177,6 +174,47 @@ namespace Facsis.View
             orcamento = new frmVenda("Orçamento");
             orcamento.MdiParent = this;
             orcamento.Show();
+        }
+
+        private void mdiPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                if (MessageBox.Show(this, "Você tem certeza que deseja sair?",
+                    "Facsis", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    Application.Exit(); //Encerra o sistema
+                else
+                    e.Cancel = true; //Permanece no sistema
+            }
+        }
+
+        public void habilitaCampos()
+        {
+            if (LoginDTO.Nivel == "Vendedor")
+            {
+                tsmCadProduto.Enabled = false;
+                tsmCadFornecedor.Enabled = false;
+                tsmCadUsuario.Enabled = false;
+                tsmRelatorios.Enabled = false;
+            }
+            else if (LoginDTO.Nivel == "Estoquista")
+            {
+                tsmVendas.Enabled = false;
+                tsmConsultar.Enabled = false;
+                tsmCadUsuario.Enabled = false;
+                tsmCadCliente.Enabled = false;
+                tsmRelatorios.Enabled = false;
+            }
+            else
+            {
+                tsmCadCliente.Enabled = true;
+                tsmCadProduto.Enabled = true;
+                tsmCadFornecedor.Enabled = true;
+                tsmVendas.Enabled = true;
+                tsmConsultar.Enabled = true;
+                tsmCadUsuario.Enabled = true;
+                tsmRelatorios.Enabled = true;
+            }
         }
     }
 }

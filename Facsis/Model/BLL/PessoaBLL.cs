@@ -101,9 +101,9 @@ namespace Facsis.Model.BLL
         }
 
         //======================================================
-        //  Seleciona cadastro no banco pelo nome do usuário
+        //  Seleciona cadastro no banco pelo nome do usuário para cadastro
         //======================================================
-        public DataTable selecionaPessoa(PessoaDTO dto)
+        public DataTable selecionaPessoa(PessoaDTO dto, string relacao)
         {
             string busca = "";
 
@@ -129,7 +129,7 @@ namespace Facsis.Model.BLL
             try
             {                
                 bd.Conectar();
-                dt = bd.RetDataTable("SELECT * FROM pessoa WHERE " + busca);
+                dt = bd.RetDataTable("SELECT * FROM pessoa WHERE " + busca + " and relacao = 'CLIENTE'");
             }
             catch (Exception)
             {

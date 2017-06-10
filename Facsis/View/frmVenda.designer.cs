@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rdBtnCancelar = new System.Windows.Forms.RadioButton();
             this.rdBtnPendente = new System.Windows.Forms.RadioButton();
             this.rdBtnAtualizar = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtValorTotal = new System.Windows.Forms.TextBox();
+            this.txtPorcentagem = new System.Windows.Forms.TextBox();
             this.txtVlrDesconto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblDesconto = new System.Windows.Forms.Label();
@@ -69,8 +70,14 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vlr_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dvgMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.inserirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.limparToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlBotoes = new System.Windows.Forms.Panel();
             this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnRemover = new System.Windows.Forms.Button();
             this.btnInserir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancelarVenda = new System.Windows.Forms.Button();
@@ -81,6 +88,7 @@
             this.panel3.SuspendLayout();
             this.gbPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgCarrinho)).BeginInit();
+            this.dvgMenu.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -138,8 +146,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtValorTotal);
+            this.groupBox1.Controls.Add(this.txtPorcentagem);
             this.groupBox1.Controls.Add(this.txtVlrDesconto);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblDesconto);
@@ -154,25 +162,26 @@
             this.groupBox1.TabIndex = 39;
             this.groupBox1.TabStop = false;
             // 
-            // textBox2
+            // txtValorTotal
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(240, 109);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox2.MaxLength = 3;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(105, 27);
-            this.textBox2.TabIndex = 0;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtValorTotal.Enabled = false;
+            this.txtValorTotal.Location = new System.Drawing.Point(240, 109);
+            this.txtValorTotal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtValorTotal.MaxLength = 3;
+            this.txtValorTotal.Name = "txtValorTotal";
+            this.txtValorTotal.Size = new System.Drawing.Size(105, 27);
+            this.txtValorTotal.TabIndex = 0;
+            this.txtValorTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox1
+            // txtPorcentagem
             // 
-            this.textBox1.Location = new System.Drawing.Point(99, 69);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.MaxLength = 3;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(105, 27);
-            this.textBox1.TabIndex = 0;
+            this.txtPorcentagem.Location = new System.Drawing.Point(99, 69);
+            this.txtPorcentagem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPorcentagem.MaxLength = 3;
+            this.txtPorcentagem.Name = "txtPorcentagem";
+            this.txtPorcentagem.Size = new System.Drawing.Size(105, 27);
+            this.txtPorcentagem.TabIndex = 0;
+            this.txtPorcentagem.TextChanged += new System.EventHandler(this.txtVlrBruto_TextChanged);
             // 
             // txtVlrDesconto
             // 
@@ -487,42 +496,95 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn6});
+            this.dataGridViewTextBoxColumn6,
+            this.vlr_total});
+            this.dvgCarrinho.ContextMenuStrip = this.dvgMenu;
             this.dvgCarrinho.Location = new System.Drawing.Point(9, 21);
             this.dvgCarrinho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dvgCarrinho.Name = "dvgCarrinho";
             this.dvgCarrinho.Size = new System.Drawing.Size(493, 152);
             this.dvgCarrinho.TabIndex = 31;
+            this.dvgCarrinho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgCarrinho_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
+            this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "Código";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Width = 60;
             // 
             // dataGridViewTextBoxColumn2
             // 
+            this.dataGridViewTextBoxColumn2.Frozen = true;
             this.dataGridViewTextBoxColumn2.HeaderText = "Nome";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
+            this.dataGridViewTextBoxColumn4.Frozen = true;
             this.dataGridViewTextBoxColumn4.HeaderText = "Medida";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 60;
             // 
             // dataGridViewTextBoxColumn7
             // 
+            this.dataGridViewTextBoxColumn7.Frozen = true;
             this.dataGridViewTextBoxColumn7.HeaderText = "Qtde";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 60;
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Preço";
+            this.dataGridViewTextBoxColumn6.Frozen = true;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Vlr UN";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // vlr_total
+            // 
+            this.vlr_total.Frozen = true;
+            this.vlr_total.HeaderText = "Total";
+            this.vlr_total.Name = "vlr_total";
+            this.vlr_total.ReadOnly = true;
+            // 
+            // dvgMenu
+            // 
+            this.dvgMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inserirToolStripMenuItem,
+            this.removerToolStripMenuItem,
+            this.limparToolStripMenuItem});
+            this.dvgMenu.Name = "dvgMenu";
+            this.dvgMenu.Size = new System.Drawing.Size(122, 70);
+            // 
+            // inserirToolStripMenuItem
+            // 
+            this.inserirToolStripMenuItem.Name = "inserirToolStripMenuItem";
+            this.inserirToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.inserirToolStripMenuItem.Text = "Inserir";
+            this.inserirToolStripMenuItem.Click += new System.EventHandler(this.inserirToolStripMenuItem_Click);
+            // 
+            // removerToolStripMenuItem
+            // 
+            this.removerToolStripMenuItem.Name = "removerToolStripMenuItem";
+            this.removerToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.removerToolStripMenuItem.Text = "Remover";
+            this.removerToolStripMenuItem.Click += new System.EventHandler(this.removerToolStripMenuItem_Click);
+            // 
+            // limparToolStripMenuItem
+            // 
+            this.limparToolStripMenuItem.Name = "limparToolStripMenuItem";
+            this.limparToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.limparToolStripMenuItem.Text = "Limpar";
+            this.limparToolStripMenuItem.Click += new System.EventHandler(this.limparToolStripMenuItem_Click);
             // 
             // pnlBotoes
             // 
             this.pnlBotoes.Controls.Add(this.btnLimpar);
+            this.pnlBotoes.Controls.Add(this.btnRemover);
             this.pnlBotoes.Controls.Add(this.btnInserir);
             this.pnlBotoes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlBotoes.Location = new System.Drawing.Point(5, 177);
@@ -540,13 +602,31 @@
             this.btnLimpar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnLimpar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpar.Location = new System.Drawing.Point(111, 1);
+            this.btnLimpar.Location = new System.Drawing.Point(221, 1);
             this.btnLimpar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(100, 38);
             this.btnLimpar.TabIndex = 2;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
+            // btnRemover
+            // 
+            this.btnRemover.BackColor = System.Drawing.Color.DarkGray;
+            this.btnRemover.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnRemover.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnRemover.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRemover.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnRemover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemover.Location = new System.Drawing.Point(111, 1);
+            this.btnRemover.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(100, 38);
+            this.btnRemover.TabIndex = 0;
+            this.btnRemover.Text = "Remover";
+            this.btnRemover.UseVisualStyleBackColor = false;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnInserir
             // 
@@ -563,7 +643,7 @@
             this.btnInserir.TabIndex = 0;
             this.btnInserir.Text = "Inserir";
             this.btnInserir.UseVisualStyleBackColor = false;
-            this.btnInserir.Click += new System.EventHandler(this.btnCadastrar_Click);
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
             // panel1
             // 
@@ -625,7 +705,6 @@
             this.Controls.Add(this.gbPedido);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MaximizeBox = false;
             this.Name = "frmVenda";
             this.Text = "Venda";
             this.Load += new System.EventHandler(this.frmVenda_Load);
@@ -639,6 +718,7 @@
             this.panel3.PerformLayout();
             this.gbPedido.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dvgCarrinho)).EndInit();
+            this.dvgMenu.ResumeLayout(false);
             this.pnlBotoes.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -652,8 +732,8 @@
         private System.Windows.Forms.RadioButton rdBtnPendente;
         private System.Windows.Forms.RadioButton rdBtnAtualizar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtValorTotal;
+        private System.Windows.Forms.TextBox txtPorcentagem;
         private System.Windows.Forms.TextBox txtVlrDesconto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblDesconto;
@@ -689,10 +769,16 @@
         private System.Windows.Forms.Button btnInserir;
         private System.Windows.Forms.Button btnAdicinaCliente;
         private System.Windows.Forms.DataGridView dvgCarrinho;
+        private System.Windows.Forms.Button btnRemover;
+        private System.Windows.Forms.ContextMenuStrip dvgMenu;
+        private System.Windows.Forms.ToolStripMenuItem inserirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem limparToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vlr_total;
     }
 }

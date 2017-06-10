@@ -348,8 +348,8 @@
         RF/WBZnFQBrgSi4oKgHSf4DYKCW1OJmBgdEAyM4uLykAijPOAbJFkrLB7A0gdlFIkDOQfQTI5kuHsK+A
         2EkQ9hMQuwjoCSD7C0h9OpjNxAE2B8KWAbFLUitA9jI45xdUFmWmZ5QoGFpaWio4puQnpSoEVxaXpOYW
         K3jmJecXFeQXJZakpgDVQtwHBoIQhaAQ0wBqtNBkoDIAxQOE9TkQHL6MYmcQYgiQXFpUBmUyMhkT5iPM
-        mCPBwOC/lIGB5Q9CzKSXgWGBDgMD/1SEmJohA4OAPgPDvjkAwMZP/eeaqagAAAAJcEhZcwAALiMAAC4j
-        AXilP3YAAGf2SURBVHhe7d1d7H1Xnd93Pxs/Yux4DB4eDIzHM85gjMcwdsYJBBLPGJi6InRoas2oJCh1
+        mCPBwOC/lIGB5Q9CzKSXgWGBDgMD/1SEmJohA4OAPgPDvjkAwMZP/eeaqagAAAAJcEhZcwAALiIAAC4i
+        Aari3ZIAAGf2SURBVHhe7d1d7H1Xnd93Pxs/Yux4DB4eDIzHM85gjMcwdsYJBBLPGJi6InRoas2oJCh1
         26gUkShUcluaNBZSKiRIWzkdkUxjaUSTNk6QeuG5QOLCEhdIubB6gZQLX+QCaS58kQsuuKDfz8+//Wf9
         1/mcsx/Oflhr7ffFS5jz/5191lp77XX256y9177mwx/+8M/Da5f/u4RT2z71b28c+e/c0W088uhv/sy9
         nvvQox99070uQ7dx6u9i+3/mXh/j1DaGl/Gxn7rXZY56xvb/g3t9pFP7eqg5tnHKmO2/Eh4NOtYAAMBG
@@ -796,6 +796,9 @@
         QmCC
 </value>
   </data>
+  <metadata name="contextMenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>479, 17</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>51</value>
   </metadata>

@@ -19,7 +19,7 @@ namespace Facsis.Controller.Util
         {
             MessageBox.Show("Não foi possível alterar o cadastro.", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-        
+
         public static void cadastroExcluir()
         {
             MessageBox.Show("O cadastro foi excluído com sucesso!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -37,12 +37,10 @@ namespace Facsis.Controller.Util
 
         public static void fechaAplicao()
         {
-            if (MessageBox.Show("Você deseja realmente sair?", "Facsis",
-                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
-                 == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
+            if (MessageBox.Show("Você tem certeza que deseja sair?",
+                "Facsis", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                Application.Exit(); //Encerra o sistema
         }
     }
 }
+

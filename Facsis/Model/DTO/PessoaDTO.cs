@@ -13,6 +13,7 @@ namespace Facsis.Model.DTO
         private int numero_imovel;
         private string cidade;
         private string uf;
+        private string relacao;
 
         public int Id { get { return id; } set { id = value; } }
         public string Nome { get { return nome; } set { nome = value; } }
@@ -23,7 +24,8 @@ namespace Facsis.Model.DTO
         public string Endereco { get { return endereco; } set { endereco = value; } }
         public int NImovel { get { return numero_imovel; } set { numero_imovel = value; } }
         public string Cidade { get { return cidade; } set { cidade = value; } }
-        public string UF { get { return uf; } set { uf = value; } }        
+        public string UF { get { return uf; } set { uf = value; } }
+        public string Relacao { get { return relacao; } set { relacao = value; } }
 
     }
 }

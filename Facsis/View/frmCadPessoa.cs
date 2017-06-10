@@ -11,15 +11,25 @@ namespace Facsis.View
     {
         PessoaBLL bll = new PessoaBLL();
         PessoaDTO dto = new PessoaDTO();
+        frmConPessoa conPessoa = new frmConPessoa();
 
         public frmCadPessoa()
         {
             InitializeComponent();
         }
 
+        public frmCadPessoa(string tipo)
+        {
+            InitializeComponent();
+
+            if (tipo == "Fornecedor")
+                this.Text = "Cadastro fornecedor";
+        }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            FuncoesControles.limpaCampos(panel2);
+            FuncoesControles.limpaCampos(panel1);
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -46,6 +56,18 @@ namespace Facsis.View
                 FuncoesControles.limpaCampos(this.panel1);
                 btnCadastrar.Text = "Cadastrar";
             }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            conPessoa?.Close();
+            conPessoa = new frmConPessoa();
+            conPessoa.Show();
         }
     }
 }

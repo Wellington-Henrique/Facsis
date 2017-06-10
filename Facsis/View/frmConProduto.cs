@@ -12,6 +12,7 @@ namespace Facsis.View
     {
         ProdutoBLL bll = new ProdutoBLL();
         ProdutoDTO dto = new ProdutoDTO();
+        DataGridView dgvCarrinho = new DataGridView();
         double total = 0;
         TextBox txtTotal = new TextBox();
 
@@ -30,19 +31,50 @@ namespace Facsis.View
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            int quantidade;
-            
+            int quantidade = 0;
+            int auxQuantidade = 0;
+            int indiceCarrinho = 0;
+            bool noCarrinho = false;
+            total = 0;
 
+            // Verifica se a quantidade é um valor inteiro
             if (int.TryParse(txtQuantidade.Text, out quantidade) && txtId.Text != "")
             {
-                if (dto.Quantidade >= quantidade)
+                quantidade = int.Parse(txtQuantidade.Text);
+                string consultaCarrinho = "";
+                
+                // Verifica se o produto já está no carrinho
+                for (int i = 0; i < dgvCarrinho.Rows.Count; i++)
                 {
-                    quantidade = int.Parse(txtQuantidade.Text);
-                    dgvCarrinho.Rows.Add(dto.Id, dto.Nome, dto.Medida, quantidade, dto.Preco);
+                    consultaCarrinho = Convert.ToString(dgvCarrinho.Rows[i].Cells[0].Value);
 
+                    if (txtId.Text == consultaCarrinho)
+                    {
+                        indiceCarrinho = i;
+                        auxQuantidade = Convert.ToInt32(dgvCarrinho.Rows[indiceCarrinho].Cells[3].Value);
+                        noCarrinho = true;
+                        break;
+                    }
+                }
+
+                quantidade += auxQuantidade;
+                // verifica se existe a quantidade necessária no estoque
+                if (dto.Quantidade >= quantidade)
+                {                    
+                    // Adiciona ao carrinho caso tenha sido adicionado
+                    if (noCarrinho == false)
+                        dgvCarrinho.Rows.Add(dto.Id, dto.Nome, dto.Medida, quantidade, dto.Preco, quantidade * dto.Preco);
+
+                    else
+                    {
+                        dgvCarrinho.Rows[indiceCarrinho].Cells[3].Value = quantidade.ToString();
+                        dgvCarrinho.Rows[indiceCarrinho].Cells[5].Value = quantidade * dto.Preco;
+                    }
+
+                    // Calcula o total do carrinho
                     for (int i = 0; i < dgvCarrinho.Rows.Count; i++)
                     {
-                        total += Convert.ToInt32(dgvCarrinho.Rows[i].Cells[3].Value) * Convert.ToDouble(dgvCarrinho.Rows[i].Cells[4].Value);
+                        total += Convert.ToDouble(dgvCarrinho.Rows[i].Cells[5].Value);
                     }
 
                     txtTotal.Text = total.ToString();
@@ -53,7 +85,7 @@ namespace Facsis.View
             }
             else
                 MessageBox.Show("Informe uma quantidade válida maior que zero!", "Inserir", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-    }
+        }
 
         private void CarregarGrid()
         {
@@ -76,7 +108,7 @@ namespace Facsis.View
 
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    dgvConsulta.Rows.Add(dt.Rows[i]["id_produto"].ToString(), dt.Rows[i]["nome"].ToString(), 
+                    dgvConsulta.Rows.Add(dt.Rows[i]["id_produto"].ToString(), dt.Rows[i]["nome"].ToString(),
                                          dt.Rows[i]["medida"].ToString(), dt.Rows[i]["preco"].ToString(), dt.Rows[i]["quantidade"].ToString());
 
                     barraProgresso.Value = i;
@@ -115,6 +147,11 @@ namespace Facsis.View
 
             txtId.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[0].Value);
             txtNome.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[1].Value);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

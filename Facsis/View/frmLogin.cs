@@ -19,13 +19,6 @@ namespace Facsis.View
         private void btnSair_Click(object sender, EventArgs e)
         {
             Mensagens.fechaAplicao();
-
-            //if (MessageBox.Show("Você deseja realmente sair?", "Facsis",
-            //     MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
-            //     == DialogResult.Yes)
-            //{
-            //    Application.Exit();
-            //}
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)
