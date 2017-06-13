@@ -78,12 +78,6 @@
     <Compile Include="View\frmConProduto.designer.cs">
       <DependentUpon>frmConProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmConPessoa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\frmConCliente.designer.cs">
-      <DependentUpon>frmConPessoa.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\frmCadPessoa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,14 +131,11 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmConPessoa.resx">
-      <DependentUpon>frmConPessoa.cs</DependentUpon>
+    <EmbeddedResource Include="View\frmCadPessoa.resx">
+      <DependentUpon>frmCadPessoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmConProduto.resx">
       <DependentUpon>frmConProduto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\frmCadPessoa.resx">
-      <DependentUpon>frmCadPessoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmCadProduto.resx">
       <DependentUpon>frmCadProduto.cs</DependentUpon>

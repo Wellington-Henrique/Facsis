@@ -8,7 +8,7 @@ namespace Facsis.View
 {
     public partial class frmVenda : Form
     {
-        Form buscaPessoa = new frmConPessoa();
+        Form buscaPessoa = new frmCadPessoa();
         Form buscaProduto = new frmConProduto();
         VendaDTO dto = new VendaDTO();
         VendaBLL bll = new VendaBLL();
@@ -34,7 +34,7 @@ namespace Facsis.View
         private void btnAdicinaCliente_Click(object sender, EventArgs e)
         {
             buscaPessoa?.Close();
-            buscaPessoa = new frmConPessoa(txtIdCli, txtNome);
+            buscaPessoa = new frmCadPessoa(txtIdCli, txtNome);
             buscaPessoa.Show();                        
         }
 

@@ -108,7 +108,7 @@ namespace Facsis.View
         private void tsmConsCliente_Click(object sender, EventArgs e)
         {
             conCliente?.Close();
-            conCliente = new frmConPessoa();
+            conCliente = new frmCadPessoa();
             conCliente.MdiParent = this;
             conCliente.Show();
         }
@@ -121,7 +121,7 @@ namespace Facsis.View
         public void iniciaFrmCadPessoa(string x)
         {
             cadPessoa?.Close();
-            cadPessoa = new frmCadPessoa(x);
+            cadPessoa = new frmCadPessoa();
             cadPessoa.MdiParent = this;
             cadPessoa.Show();
         }
@@ -163,7 +163,7 @@ namespace Facsis.View
         private void tsmConsFornecedor_Click(object sender, EventArgs e)
         {
             conFornecedor?.Close();
-            conFornecedor = new frmConPessoa();
+            conFornecedor = new frmCadPessoa();
             conFornecedor.MdiParent = this;
             conFornecedor.Show();
         }

@@ -101,35 +101,39 @@ namespace Facsis.Model.BLL
         }
 
         //======================================================
-        //  Seleciona cadastro no banco pelo nome do usuário para cadastro
+        //  Seleciona cadastro no banco pelo  e código, nome e cpf/cnp da pessoa
         //======================================================
         public DataTable selecionaPessoa(PessoaDTO dto, string relacao)
         {
-            string busca = "";
-
-            if (dto.Id > 0)
-                busca = "id_pessoa = '" + dto.Id + "' ";
-            if (dto.Nome != "")
-            {
-                if (dto.Id > 0)
-                    busca += "and ";
-                busca += "nome = '" + dto.Nome + "' ";
-            }
-
-            if (dto.CPF_CNPJ != "")
-            {
-                if (dto.Id > 0 || dto.Nome != "")
-                    busca += "and ";
-                busca += "cpf_cnpj = '" + dto.CPF_CNPJ + "'";
-            }
-
             DataTable dt = new DataTable();
             bd = new AcessoBanco();
 
             try
             {
                 bd.Conectar();
-                dt = bd.RetDataTable("SELECT * FROM pessoa WHERE " + busca + " and relacao = 'CLIENTE'");
+                dt = bd.RetDataTable("SELECT * FROM pessoa WHERE id_pessoa = '" + dto.Id  + "' AND nome = '" + dto.Nome + "'AND cpf_cnpj = '" + dto.CPF_CNPJ + "' AND relacao = 'CLIENTE'");              
+            }
+            catch (Exception)
+            {
+                Mensagens.BuscaErro();
+            }
+            finally
+            {
+                bd = null;
+            }
+
+            return dt;
+        }
+
+        public DataTable selecionaPessoa(string nome, string relacao)
+        {
+            DataTable dt = new DataTable();
+            bd = new AcessoBanco();
+
+            try
+            {
+                bd.Conectar();
+                dt = bd.RetDataTable("SELECT * FROM pessoa WHERE nome LIKE ALL(string_to_array('%' || regexp_replace('" + nome + "', '\\s+', '% %', 'g') || '%', ' ')) AND relacao = '" + relacao + "'");
             }
             catch (Exception)
             {
