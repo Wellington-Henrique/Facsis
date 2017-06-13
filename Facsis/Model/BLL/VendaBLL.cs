@@ -10,37 +10,53 @@ using Npgsql;
 
 namespace Facsis.Model.BLL
 {
-    class ProdutoBLL
+    class VendaBLL
     {
         AcessoBanco bd;
 
         //======================================================
-        //  Solicita cadastro no banco
+        //  Solicita registro da venda no banco
         //======================================================
-        public void Inserir(ProdutoDTO dto)
+        public void registrar(VendaDTO dto)
         {
             bd = new AcessoBanco();
+            ProdutoBLL p_dto = new ProdutoBLL();
 
             try
             {
                 // Insere dados na tabela produto
-                string cmd = "INSERT INTO produto(" +
-                    "nome, fornecedor, medida, status, ultima_compra, descricao, preco) VALUES ('" +
-                    dto.Nome + "','" + dto.Fornecedor + "','" + dto.Medida + "','" + dto.Status + "','" + dto.CompraAtual + "','" + dto.Descricao + "','" + dto.Preco + "') returning id_produto";
+                string cmd = "INSERT INTO venda(" +
+                    "id_usuario, id_pessoa, data_nota, data_pedido, status, forma_pagamento) VALUES ('" +
+                    dto.CodVendedor + "','" + dto.CodCliente + "','" + dto.DataNota + "','" + dto.DataPedido + "','" + dto.Status + "','" + dto.FormaPag + "') returning id_venda";
 
                 bd.Conectar();
 
-                // Insere dados na tabela login <Motivo: Chave estrangeira FK>
+                // Insere dados na tabela venda < Motivo: Chave estrangeira FK >
                 int id = bd.ExecutarComandoSqlRet(cmd);
-                bd.Conectar();
-                cmd = "INSERT INTO estoque(id_produto, quantidade, locacao) VALUES ('" + id + "','" + dto.Quantidade + "','" + dto.Locacao + "')";
-                bd.ExecutarComandoSql(cmd);
 
-                Mensagens.cadastroInserir();
+                // Registra os itens da compra
+                for (int i = 0; i < dto.ItensPedido.Rows.Count - 1; i++)
+                {
+                    bd.Conectar();
+
+                    cmd = "INSERT INTO itens_pedido(id_venda, id_produto, quantidade, vlr_unitario) VALUES ('" +
+                            id + "','" +
+                            dto.ItensPedido.Rows[i].Cells[0].Value + "','" +
+                            dto.ItensPedido.Rows[i].Cells[3].Value + "','" +
+                            dto.ItensPedido.Rows[i].Cells[4].Value + "')";
+
+                    bd.ExecutarComandoSql(cmd);
+
+                    // Da baixa no item do estoque
+                    p_dto.DarBaixa(dto.ItensPedido.Rows[i].Cells[0].Value.ToString(), dto.ItensPedido.Rows[i].Cells[3].Value.ToString());
+                }
+
+
+                Mensagens.vendaEfetuada();
             }
             catch (NpgsqlException)
             {
-                MessageBox.Show("Não foi possível efeturar o cadastro\nVerifique se todos os dados foram digitados corretamente.", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Mensagens.vendaErro();
             }
             finally
             {
@@ -49,55 +65,54 @@ namespace Facsis.Model.BLL
         }
 
         //======================================================
-        //  Solicita baixa no banco
+        //  Carrega o número da última venda
         //======================================================
-        public void DarBaixa(string id, string quantidade)
+        public int ultimaVenda()
         {
             bd = new AcessoBanco();
+            int id = 0;
 
             try
             {
                 bd.Conectar();
-                string cmd = string.Format("UPDATE estoque SET quantidade = quantidade - '{0}' WHERE id_produto = '{1}'", quantidade, id);
-                bd.ExecutarComandoSql(cmd);
+                string cmd = "SELECT id_venda FROM venda ORDER BY id_venda DESC LIMIT 1";
+                id = bd.ExecutarComandoSqlRet(cmd);
             }
             catch (NpgsqlException)
             {
-                Mensagens.cadastroErroAlterar();
+                MessageBox.Show("Não foi possível efeturar a venda\nVerifique se todos os dados foram digitados corretamente.", "Venda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            finally
-            {
-                bd = null;
-            }
+
+            return id;
         }
 
         //======================================================
         //  Solicita atualização do cadastro no banco
         //======================================================
-        public void Atualizar(ProdutoDTO dto)
+        public void Atualizar(VendaDTO dto)
         {
-            bd = new AcessoBanco();
+            //bd = new AcessoBanco();
 
-            try
-            {
-                string cmd = string.Format("produto usuario SET nome = '{0}', fornecedor = '{1}', medida = '{2}', status = '{3}', ultima_compra = '{4}' descricao = '{5}', preco = '{6}' WHERE id_produto = '{4}'", dto.Nome, dto.Fornecedor, dto.Medida, dto.Status, dto.CompraAtual, dto.Descricao, dto.Preco, dto.Id);
+            //try
+            //{
+            //    string cmd = string.Format("produto usuario SET nome = '{0}', fornecedor = '{1}', medida = '{2}', status = '{3}', ultima_compra = '{4}' descricao = '{5}', preco = '{6}' WHERE id_produto = '{4}'", dto.Nome, dto.Fornecedor, dto.Medida, dto.Status, dto.CompraAtual, dto.Descricao, dto.Preco, dto.Id);
 
-                bd.Conectar();
-                bd.ExecutarComandoSql(cmd);
+            //    bd.Conectar();
+            //    bd.ExecutarComandoSql(cmd);
 
-                bd.Conectar();
-                cmd = string.Format("UPDATE estoque SET quantidade = '{0}', locacao = '{1}' WHERE id_produto = '{4}'", dto.Quantidade, dto.Locacao, dto.Id);
-                bd.ExecutarComandoSql(cmd);
-                Mensagens.cadastroAlterar();
-            }
-            catch (NpgsqlException)
-            {
-                Mensagens.cadastroErroAlterar();
-            }
-            finally
-            {
-                bd = null;
-            }
+            //    bd.Conectar();
+            //    cmd = string.Format("UPDATE estoque SET quantidade = '{0}', locacao = '{1}' WHERE id_produto = '{4}'", dto.Quantidade, dto.Locacao, dto.Id);
+            //    bd.ExecutarComandoSql(cmd);
+            //    Mensagens.cadastroAlterar();
+            //}
+            //catch (NpgsqlException)
+            //{
+            //    Mensagens.cadastroErroAlterar();
+            //}
+            //finally
+            //{
+            //    bd = null;
+            //}
         }
 
         //======================================================

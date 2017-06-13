@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rdBtnCancelar = new System.Windows.Forms.RadioButton();
-            this.rdBtnPendente = new System.Windows.Forms.RadioButton();
-            this.rdBtnAtualizar = new System.Windows.Forms.RadioButton();
+            this.rdCancelar = new System.Windows.Forms.RadioButton();
+            this.rdPendente = new System.Windows.Forms.RadioButton();
+            this.rdAtualizar = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtValorTotal = new System.Windows.Forms.TextBox();
             this.txtPorcentagem = new System.Windows.Forms.TextBox();
@@ -50,10 +50,10 @@
             this.txtObs = new System.Windows.Forms.TextBox();
             this.lblObs = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtNota = new System.Windows.Forms.DateTimePicker();
+            this.dtPedido = new System.Windows.Forms.DateTimePicker();
             this.btnAdicinaCliente = new System.Windows.Forms.Button();
-            this.txtNVendedor = new System.Windows.Forms.TextBox();
+            this.txtIdVendedor = new System.Windows.Forms.TextBox();
             this.lblLegDataNota = new System.Windows.Forms.Label();
             this.lblLegNomeCli = new System.Windows.Forms.Label();
             this.lblLegNPedido = new System.Windows.Forms.Label();
@@ -61,10 +61,10 @@
             this.lblNVendedor = new System.Windows.Forms.Label();
             this.txtNumPedido = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtCodCli = new System.Windows.Forms.TextBox();
+            this.txtIdCli = new System.Windows.Forms.TextBox();
             this.lblCodCli = new System.Windows.Forms.Label();
             this.gbPedido = new System.Windows.Forms.GroupBox();
-            this.dvgCarrinho = new System.Windows.Forms.DataGridView();
+            this.dgvCarrinho = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,7 +87,7 @@
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.gbPedido.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgCarrinho)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).BeginInit();
             this.dvgMenu.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -96,9 +96,9 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.rdBtnCancelar);
-            this.groupBox2.Controls.Add(this.rdBtnPendente);
-            this.groupBox2.Controls.Add(this.rdBtnAtualizar);
+            this.groupBox2.Controls.Add(this.rdCancelar);
+            this.groupBox2.Controls.Add(this.rdPendente);
+            this.groupBox2.Controls.Add(this.rdAtualizar);
             this.groupBox2.Location = new System.Drawing.Point(537, 184);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
@@ -107,41 +107,41 @@
             this.groupBox2.TabIndex = 38;
             this.groupBox2.TabStop = false;
             // 
-            // rdBtnCancelar
+            // rdCancelar
             // 
-            this.rdBtnCancelar.AutoSize = true;
-            this.rdBtnCancelar.Location = new System.Drawing.Point(13, 105);
-            this.rdBtnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rdBtnCancelar.Name = "rdBtnCancelar";
-            this.rdBtnCancelar.Size = new System.Drawing.Size(84, 24);
-            this.rdBtnCancelar.TabIndex = 33;
-            this.rdBtnCancelar.Text = "Cancelar";
-            this.rdBtnCancelar.UseVisualStyleBackColor = true;
+            this.rdCancelar.AutoSize = true;
+            this.rdCancelar.Location = new System.Drawing.Point(13, 105);
+            this.rdCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdCancelar.Name = "rdCancelar";
+            this.rdCancelar.Size = new System.Drawing.Size(84, 24);
+            this.rdCancelar.TabIndex = 33;
+            this.rdCancelar.Text = "Cancelar";
+            this.rdCancelar.UseVisualStyleBackColor = true;
             // 
-            // rdBtnPendente
+            // rdPendente
             // 
-            this.rdBtnPendente.AutoSize = true;
-            this.rdBtnPendente.Location = new System.Drawing.Point(13, 69);
-            this.rdBtnPendente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rdBtnPendente.Name = "rdBtnPendente";
-            this.rdBtnPendente.Size = new System.Drawing.Size(89, 24);
-            this.rdBtnPendente.TabIndex = 33;
-            this.rdBtnPendente.Text = "Pendente";
-            this.rdBtnPendente.UseVisualStyleBackColor = true;
+            this.rdPendente.AutoSize = true;
+            this.rdPendente.Location = new System.Drawing.Point(13, 69);
+            this.rdPendente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdPendente.Name = "rdPendente";
+            this.rdPendente.Size = new System.Drawing.Size(89, 24);
+            this.rdPendente.TabIndex = 33;
+            this.rdPendente.Text = "Pendente";
+            this.rdPendente.UseVisualStyleBackColor = true;
             // 
-            // rdBtnAtualizar
+            // rdAtualizar
             // 
-            this.rdBtnAtualizar.AutoSize = true;
-            this.rdBtnAtualizar.Checked = true;
-            this.rdBtnAtualizar.Location = new System.Drawing.Point(13, 34);
-            this.rdBtnAtualizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rdBtnAtualizar.Name = "rdBtnAtualizar";
-            this.rdBtnAtualizar.Size = new System.Drawing.Size(86, 24);
-            this.rdBtnAtualizar.TabIndex = 33;
-            this.rdBtnAtualizar.TabStop = true;
-            this.rdBtnAtualizar.Text = "Atualizar";
-            this.rdBtnAtualizar.UseMnemonic = false;
-            this.rdBtnAtualizar.UseVisualStyleBackColor = true;
+            this.rdAtualizar.AutoSize = true;
+            this.rdAtualizar.Checked = true;
+            this.rdAtualizar.Location = new System.Drawing.Point(13, 34);
+            this.rdAtualizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdAtualizar.Name = "rdAtualizar";
+            this.rdAtualizar.Size = new System.Drawing.Size(86, 24);
+            this.rdAtualizar.TabIndex = 33;
+            this.rdAtualizar.TabStop = true;
+            this.rdAtualizar.Text = "Atualizar";
+            this.rdAtualizar.UseMnemonic = false;
+            this.rdAtualizar.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -274,6 +274,11 @@
             // cbFormaPgto
             // 
             this.cbFormaPgto.FormattingEnabled = true;
+            this.cbFormaPgto.Items.AddRange(new object[] {
+            "À vista",
+            "Crédito",
+            "Cheque",
+            "Débito"});
             this.cbFormaPgto.Location = new System.Drawing.Point(18, 34);
             this.cbFormaPgto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbFormaPgto.Name = "cbFormaPgto";
@@ -327,10 +332,10 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.dateTimePicker2);
-            this.panel3.Controls.Add(this.dateTimePicker1);
+            this.panel3.Controls.Add(this.dtNota);
+            this.panel3.Controls.Add(this.dtPedido);
             this.panel3.Controls.Add(this.btnAdicinaCliente);
-            this.panel3.Controls.Add(this.txtNVendedor);
+            this.panel3.Controls.Add(this.txtIdVendedor);
             this.panel3.Controls.Add(this.lblLegDataNota);
             this.panel3.Controls.Add(this.lblLegNomeCli);
             this.panel3.Controls.Add(this.lblLegNPedido);
@@ -338,28 +343,28 @@
             this.panel3.Controls.Add(this.lblNVendedor);
             this.panel3.Controls.Add(this.txtNumPedido);
             this.panel3.Controls.Add(this.txtNome);
-            this.panel3.Controls.Add(this.txtCodCli);
+            this.panel3.Controls.Add(this.txtIdCli);
             this.panel3.Controls.Add(this.lblCodCli);
             this.panel3.Location = new System.Drawing.Point(18, 12);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1000, 76);
             this.panel3.TabIndex = 41;
             // 
-            // dateTimePicker2
+            // dtNota
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(867, 33);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(123, 27);
-            this.dateTimePicker2.TabIndex = 42;
+            this.dtNota.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtNota.Location = new System.Drawing.Point(867, 33);
+            this.dtNota.Name = "dtNota";
+            this.dtNota.Size = new System.Drawing.Size(123, 27);
+            this.dtNota.TabIndex = 42;
             // 
-            // dateTimePicker1
+            // dtPedido
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(743, 33);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(118, 27);
-            this.dateTimePicker1.TabIndex = 43;
+            this.dtPedido.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtPedido.Location = new System.Drawing.Point(743, 33);
+            this.dtPedido.Name = "dtPedido";
+            this.dtPedido.Size = new System.Drawing.Size(118, 27);
+            this.dtPedido.TabIndex = 43;
             // 
             // btnAdicinaCliente
             // 
@@ -378,14 +383,15 @@
             this.btnAdicinaCliente.UseVisualStyleBackColor = false;
             this.btnAdicinaCliente.Click += new System.EventHandler(this.btnAdicinaCliente_Click);
             // 
-            // txtNVendedor
+            // txtIdVendedor
             // 
-            this.txtNVendedor.Location = new System.Drawing.Point(545, 33);
-            this.txtNVendedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtNVendedor.MaxLength = 3;
-            this.txtNVendedor.Name = "txtNVendedor";
-            this.txtNVendedor.Size = new System.Drawing.Size(99, 27);
-            this.txtNVendedor.TabIndex = 35;
+            this.txtIdVendedor.Location = new System.Drawing.Point(545, 33);
+            this.txtIdVendedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtIdVendedor.MaxLength = 3;
+            this.txtIdVendedor.Name = "txtIdVendedor";
+            this.txtIdVendedor.Size = new System.Drawing.Size(99, 27);
+            this.txtIdVendedor.TabIndex = 35;
+            this.txtIdVendedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblLegDataNota
             // 
@@ -439,15 +445,18 @@
             // 
             // txtNumPedido
             // 
+            this.txtNumPedido.Enabled = false;
             this.txtNumPedido.Location = new System.Drawing.Point(652, 33);
             this.txtNumPedido.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNumPedido.MaxLength = 3;
             this.txtNumPedido.Name = "txtNumPedido";
             this.txtNumPedido.Size = new System.Drawing.Size(84, 27);
             this.txtNumPedido.TabIndex = 32;
+            this.txtNumPedido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtNome
             // 
+            this.txtNome.Enabled = false;
             this.txtNome.Location = new System.Drawing.Point(128, 33);
             this.txtNome.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNome.MaxLength = 3;
@@ -455,14 +464,16 @@
             this.txtNome.Size = new System.Drawing.Size(352, 27);
             this.txtNome.TabIndex = 33;
             // 
-            // txtCodCli
+            // txtIdCli
             // 
-            this.txtCodCli.Location = new System.Drawing.Point(18, 33);
-            this.txtCodCli.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtCodCli.MaxLength = 3;
-            this.txtCodCli.Name = "txtCodCli";
-            this.txtCodCli.Size = new System.Drawing.Size(99, 27);
-            this.txtCodCli.TabIndex = 34;
+            this.txtIdCli.Enabled = false;
+            this.txtIdCli.Location = new System.Drawing.Point(18, 33);
+            this.txtIdCli.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtIdCli.MaxLength = 3;
+            this.txtIdCli.Name = "txtIdCli";
+            this.txtIdCli.Size = new System.Drawing.Size(99, 27);
+            this.txtIdCli.TabIndex = 34;
+            this.txtIdCli.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCodCli
             // 
@@ -476,7 +487,7 @@
             // 
             // gbPedido
             // 
-            this.gbPedido.Controls.Add(this.dvgCarrinho);
+            this.gbPedido.Controls.Add(this.dgvCarrinho);
             this.gbPedido.Controls.Add(this.pnlBotoes);
             this.gbPedido.Location = new System.Drawing.Point(18, 184);
             this.gbPedido.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -487,24 +498,25 @@
             this.gbPedido.TabStop = false;
             this.gbPedido.Text = "Itens do pedido";
             // 
-            // dvgCarrinho
+            // dgvCarrinho
             // 
-            this.dvgCarrinho.BackgroundColor = System.Drawing.Color.White;
-            this.dvgCarrinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgCarrinho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCarrinho.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCarrinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCarrinho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn6,
             this.vlr_total});
-            this.dvgCarrinho.ContextMenuStrip = this.dvgMenu;
-            this.dvgCarrinho.Location = new System.Drawing.Point(9, 21);
-            this.dvgCarrinho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dvgCarrinho.Name = "dvgCarrinho";
-            this.dvgCarrinho.Size = new System.Drawing.Size(493, 152);
-            this.dvgCarrinho.TabIndex = 31;
-            this.dvgCarrinho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgCarrinho_CellContentClick);
+            this.dgvCarrinho.ContextMenuStrip = this.dvgMenu;
+            this.dgvCarrinho.Location = new System.Drawing.Point(9, 21);
+            this.dgvCarrinho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvCarrinho.Name = "dgvCarrinho";
+            this.dgvCarrinho.ReadOnly = true;
+            this.dgvCarrinho.Size = new System.Drawing.Size(493, 152);
+            this.dgvCarrinho.TabIndex = 31;
+            this.dgvCarrinho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgCarrinho_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -676,7 +688,6 @@
             // 
             this.btnRegistrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRegistrar.BackColor = System.Drawing.Color.DarkGray;
-            this.btnRegistrar.Enabled = false;
             this.btnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnRegistrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
             this.btnRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -689,6 +700,7 @@
             this.btnRegistrar.TabIndex = 2;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // frmVenda
             // 
@@ -717,7 +729,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.gbPedido.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dvgCarrinho)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).EndInit();
             this.dvgMenu.ResumeLayout(false);
             this.pnlBotoes.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -728,9 +740,9 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton rdBtnCancelar;
-        private System.Windows.Forms.RadioButton rdBtnPendente;
-        private System.Windows.Forms.RadioButton rdBtnAtualizar;
+        private System.Windows.Forms.RadioButton rdCancelar;
+        private System.Windows.Forms.RadioButton rdPendente;
+        private System.Windows.Forms.RadioButton rdAtualizar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtValorTotal;
         private System.Windows.Forms.TextBox txtPorcentagem;
@@ -746,9 +758,9 @@
         private System.Windows.Forms.TextBox txtObs;
         private System.Windows.Forms.Label lblObs;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox txtNVendedor;
+        private System.Windows.Forms.DateTimePicker dtNota;
+        private System.Windows.Forms.DateTimePicker dtPedido;
+        private System.Windows.Forms.TextBox txtIdVendedor;
         private System.Windows.Forms.Label lblLegDataNota;
         private System.Windows.Forms.Label lblLegNomeCli;
         private System.Windows.Forms.Label lblLegNPedido;
@@ -756,7 +768,7 @@
         private System.Windows.Forms.Label lblNVendedor;
         private System.Windows.Forms.TextBox txtNumPedido;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.TextBox txtCodCli;
+        private System.Windows.Forms.TextBox txtIdCli;
         private System.Windows.Forms.Label lblCodCli;
         private System.Windows.Forms.GroupBox gbPedido;
         private System.Windows.Forms.RadioButton ckbOrcamento;
@@ -768,7 +780,7 @@
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnInserir;
         private System.Windows.Forms.Button btnAdicinaCliente;
-        private System.Windows.Forms.DataGridView dvgCarrinho;
+        private System.Windows.Forms.DataGridView dgvCarrinho;
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.ContextMenuStrip dvgMenu;
         private System.Windows.Forms.ToolStripMenuItem inserirToolStripMenuItem;

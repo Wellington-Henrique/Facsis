@@ -93,7 +93,7 @@ namespace Facsis.View
 
             // Verifica se o número do imóvel é inteiro
             if (int.TryParse(txtNImovel.Text.Trim(), out aux))
-                dto.NImovel = int.Parse(txtNImovel.Text.Trim());
+                dto.NImovel = Convert.ToInt32(txtNImovel.Text.Trim());
             else
                 txtNImovel.Text = "";
 
@@ -133,9 +133,7 @@ namespace Facsis.View
                 dto = null;
             }
             else
-                Mensagens.camposVarizos();
-
-            
+                Mensagens.camposVarizos();            
 
         }
 

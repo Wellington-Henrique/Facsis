@@ -5,6 +5,18 @@ namespace Facsis.Controller.Util
 {
     class Mensagens
     {
+
+
+        public static void vendaEfetuada()
+        {
+            MessageBox.Show("Venda efetuada com sucesso!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public static void vendaErro()
+        {
+            MessageBox.Show("Não foi possível efeturar a venda\nVerifique se todos os dados foram digitados corretamente.", "Venda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
         public static void cadastroInserir()
         {
             MessageBox.Show("Cadastro efetuado com sucesso!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -148,6 +148,7 @@
             this.dgvConsulta.Location = new System.Drawing.Point(14, 244);
             this.dgvConsulta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvConsulta.Name = "dgvConsulta";
+            this.dgvConsulta.ReadOnly = true;
             this.dgvConsulta.Size = new System.Drawing.Size(650, 184);
             this.dgvConsulta.TabIndex = 29;
             this.dgvConsulta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsulta_CellContentClick);
@@ -156,26 +157,31 @@
             // 
             this.id_produto.HeaderText = "Código";
             this.id_produto.Name = "id_produto";
+            this.id_produto.ReadOnly = true;
             // 
             // nome
             // 
             this.nome.HeaderText = "Nome";
             this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
             // 
             // medida
             // 
             this.medida.HeaderText = "Medida";
             this.medida.Name = "medida";
+            this.medida.ReadOnly = true;
             // 
             // preco
             // 
             this.preco.HeaderText = "Preço";
             this.preco.Name = "preco";
+            this.preco.ReadOnly = true;
             // 
             // quantidade
             // 
             this.quantidade.HeaderText = "Quantidade";
             this.quantidade.Name = "quantidade";
+            this.quantidade.ReadOnly = true;
             // 
             // statusStrip1
             // 

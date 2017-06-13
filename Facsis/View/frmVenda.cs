@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using Facsis.Model.DTO;
+using Facsis.Model.BLL;
+using Facsis.Controller.Util;
 
 namespace Facsis.View
 {
@@ -9,6 +11,8 @@ namespace Facsis.View
         Form buscaPessoa = new frmConPessoa();
         Form buscaProduto = new frmConProduto();
         VendaDTO dto = new VendaDTO();
+        VendaBLL bll = new VendaBLL();
+        
         int indiceCarrinho = 0;
         string tipo_op;
 
@@ -30,13 +34,13 @@ namespace Facsis.View
         private void btnAdicinaCliente_Click(object sender, EventArgs e)
         {
             buscaPessoa?.Close();
-            buscaPessoa = new frmConPessoa(txtCodCli, txtNome);
+            buscaPessoa = new frmConPessoa(txtIdCli, txtNome);
             buscaPessoa.Show();                        
         }
 
         public void atualizaFormulario()
         {
-            txtCodCli.Text = VendaDTO.IdCliente.ToString();
+            txtIdCli.Text = VendaDTO.IdCliente.ToString();
             txtNome.Text = VendaDTO.NomeCliente;
 
             MessageBox.Show(VendaDTO.IdCliente.ToString());
@@ -50,6 +54,8 @@ namespace Facsis.View
                 ckbVenda.Enabled = false;
                 this.Text = "Orçamento";
             }
+            else
+                txtNumPedido.Text = (bll.ultimaVenda() + 1 ).ToString();
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -59,7 +65,7 @@ namespace Facsis.View
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            dvgCarrinho.Rows.Remove(dvgCarrinho.Rows[indiceCarrinho]);
+            dgvCarrinho.Rows.Remove(dgvCarrinho.Rows[indiceCarrinho]);
         }
 
         private void txtVlrBruto_TextChanged(object sender, EventArgs e)
@@ -79,14 +85,14 @@ namespace Facsis.View
 
         private void dvgCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            indiceCarrinho = dvgCarrinho.Rows[e.RowIndex].Index;
+            indiceCarrinho = dgvCarrinho.Rows[e.RowIndex].Index;
         }
 
 
         public void iniciaBuscaProduto()
         {
             buscaProduto?.Close();
-            buscaProduto = new frmConProduto(dvgCarrinho, txtVlrBruto);
+            buscaProduto = new frmConProduto(dgvCarrinho, txtVlrBruto);
             buscaProduto.Show();
         }
 
@@ -97,7 +103,7 @@ namespace Facsis.View
 
         private void removerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dvgCarrinho.Rows.Remove(dvgCarrinho.Rows[indiceCarrinho]);
+            dgvCarrinho.Rows.Remove(dgvCarrinho.Rows[indiceCarrinho]);
         }
 
         private void limparToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,12 +113,41 @@ namespace Facsis.View
 
         public void limparDataGrid()
         {
-            dvgCarrinho.Rows.Clear();
+            dgvCarrinho.Rows.Clear();
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             limparDataGrid();
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            if (FuncoesControles.verificaVazio(panel3) == false)
+            {
+                dto = new VendaDTO();
+
+                dto.CodCliente = int.Parse(txtIdCli.Text);
+                dto.CodVendedor = int.Parse(txtIdVendedor.Text);
+                dto.DataNota = Convert.ToDateTime(dtNota.Value.ToShortDateString());
+                dto.DataPedido = Convert.ToDateTime(dtPedido.Value.ToShortDateString());
+                dto.TipoOp = ckbVenda.Checked == true ? "Venda" : "Orçamento";
+                dto.FormaPag = cbFormaPgto.Text;
+
+                if (rdAtualizar.Checked == true)
+                    dto.Status = "Atualizar";
+                else if (rdPendente.Checked == true)
+                    dto.Status = "Pendente";
+                else if (rdCancelar.Checked == true)
+                    dto.Status = "Cancelar";
+
+                dto.ItensPedido = dgvCarrinho;
+
+                if (rdCancelar.Checked != true)
+                    bll.registrar(dto);
+            }
+            else
+                Mensagens.camposVarizos(); 
         }
     }
 }

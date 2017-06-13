@@ -56,6 +56,7 @@
     <Compile Include="Controller\Util\Mensagens.cs" />
     <Compile Include="Model\BLL\LoginBLL.cs" />
     <Compile Include="Model\BLL\PessoaBLL.cs" />
+    <Compile Include="Model\BLL\VendaBLL.cs" />
     <Compile Include="Model\BLL\UsuarioBLL.cs" />
     <Compile Include="Model\DAL\AcessoBanco.cs" />
     <Compile Include="Model\DTO\LoginDTO.cs" />

@@ -26,7 +26,7 @@ namespace Facsis
             //}
 
 
-           Application.Run(new frmConPessoa());
+            Application.Run(new frmVenda());
         }
     }
 }
