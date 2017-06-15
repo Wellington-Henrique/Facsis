@@ -60,9 +60,10 @@ namespace Facsis.Model.BLL
                     "nome = '{0}', tipo_pessoa = '{1}', email = '{2}', telefone = '{3}', endereco = '{4}', numero_imovel = '{5}', cidade = '{6}', uf = '{7}', cpf_cnpj = '{8}' WHERE id_pessoa = '{9}'",
                     nome, dto.Tipo, dto.Email, dto.Telefone, dto.Endereco, dto.NImovel, dto.Cidade, dto.UF, dto.CPF_CNPJ, dto.Id);
 
-
                 bd.Conectar();
                 bd.ExecutarComandoSql(cmd);
+
+                Mensagens.cadastroAlterar();
 
             }
             catch (Exception)

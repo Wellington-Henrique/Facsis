@@ -71,12 +71,10 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.calculadoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -425,23 +423,10 @@
             this.calculadoraToolStripMenuItem.Text = "Calculadora";
             this.calculadoraToolStripMenuItem.Click += new System.EventHandler(this.calculadoraToolStripMenuItem_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(572, 486);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 3, 15, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(300, 123);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(153, 26);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
             // mdiPrincipal
             // 
@@ -453,7 +438,6 @@
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
-            this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
@@ -469,7 +453,6 @@
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -518,7 +501,6 @@
         private System.Windows.Forms.ToolStripMenuItem ferramentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem calculadoraToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tsmConsFornecedor;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
     }
 }

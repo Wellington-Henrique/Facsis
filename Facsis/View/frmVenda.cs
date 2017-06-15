@@ -154,7 +154,7 @@ namespace Facsis.View
                 
             }
             else
-                Mensagens.camposVarizos(); 
+                Mensagens.camposVazios(); 
         }
     }
 }

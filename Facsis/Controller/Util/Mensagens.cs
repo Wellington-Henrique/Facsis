@@ -5,7 +5,13 @@ namespace Facsis.Controller.Util
 {
     class Mensagens
     {
+        public static DialogResult perguntaExcluir()
+        {
+            if (MessageBox.Show("Você deseja realmente excluir este cadastro?", "Excluir cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                return DialogResult.Yes;
 
+            return DialogResult.No;
+        }
 
         public static void vendaEfetuada()
         {
@@ -54,7 +60,7 @@ namespace Facsis.Controller.Util
                 Application.Exit(); //Encerra o sistema
         }
 
-        public static void camposVarizos()
+        public static void camposVazios()
         {
             MessageBox.Show("Informe todos os campos!", "Facsis", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }

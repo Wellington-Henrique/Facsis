@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.R4 = new System.Windows.Forms.Panel();
             this.pnlBotoes = new System.Windows.Forms.Panel();
+            this.btnAnterior = new System.Windows.Forms.Button();
+            this.btnProximo = new System.Windows.Forms.Button();
+            this.btnSelecionar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
@@ -47,7 +50,7 @@
             this.lblRua = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbPessoa = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblCpfCnpj = new System.Windows.Forms.Label();
             this.lblPessoa = new System.Windows.Forms.Label();
             this.txtRua = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -58,7 +61,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtCpfCnpjCon = new System.Windows.Forms.MaskedTextBox();
             this.btnConsultar = new System.Windows.Forms.Button();
-            this.lblCpfCnpj = new System.Windows.Forms.Label();
+            this.lblCpfCnpjCon = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
             this.txtNomeCon = new System.Windows.Forms.TextBox();
             this.txtIdCon = new System.Windows.Forms.TextBox();
@@ -76,16 +79,12 @@
             this.uf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.inserirClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnRemover = new System.Windows.Forms.Button();
-            this.btnInserir = new System.Windows.Forms.Button();
             this.R4.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.pnlDadosUsuario.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPessoa)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // R4
@@ -95,24 +94,78 @@
             this.R4.Controls.Add(this.pnlDadosUsuario);
             this.R4.Controls.Add(this.panel2);
             this.R4.Controls.Add(this.dgvPessoa);
-            this.R4.Controls.Add(this.panel1);
             this.R4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.R4.Location = new System.Drawing.Point(0, 0);
             this.R4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.R4.Name = "R4";
-            this.R4.Size = new System.Drawing.Size(825, 572);
-            this.R4.TabIndex = 9;
+            this.R4.Size = new System.Drawing.Size(725, 563);
+            this.R4.TabIndex = 0;
             // 
             // pnlBotoes
             // 
+            this.pnlBotoes.Controls.Add(this.btnAnterior);
+            this.pnlBotoes.Controls.Add(this.btnProximo);
+            this.pnlBotoes.Controls.Add(this.btnSelecionar);
             this.pnlBotoes.Controls.Add(this.btnCancelar);
             this.pnlBotoes.Controls.Add(this.btnExcluir);
             this.pnlBotoes.Controls.Add(this.btnCadastrar);
-            this.pnlBotoes.Location = new System.Drawing.Point(216, 218);
+            this.pnlBotoes.Location = new System.Drawing.Point(13, 222);
             this.pnlBotoes.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.pnlBotoes.Name = "pnlBotoes";
-            this.pnlBotoes.Size = new System.Drawing.Size(600, 39);
-            this.pnlBotoes.TabIndex = 14;
+            this.pnlBotoes.Size = new System.Drawing.Size(699, 39);
+            this.pnlBotoes.TabIndex = 0;
+            // 
+            // btnAnterior
+            // 
+            this.btnAnterior.BackColor = System.Drawing.Color.DarkGray;
+            this.btnAnterior.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAnterior.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnAnterior.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnAnterior.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnterior.Location = new System.Drawing.Point(283, 1);
+            this.btnAnterior.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(38, 38);
+            this.btnAnterior.TabIndex = 4;
+            this.btnAnterior.Text = "<";
+            this.btnAnterior.UseVisualStyleBackColor = false;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+            // 
+            // btnProximo
+            // 
+            this.btnProximo.BackColor = System.Drawing.Color.DarkGray;
+            this.btnProximo.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnProximo.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnProximo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnProximo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnProximo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProximo.Location = new System.Drawing.Point(331, 1);
+            this.btnProximo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnProximo.Name = "btnProximo";
+            this.btnProximo.Size = new System.Drawing.Size(38, 38);
+            this.btnProximo.TabIndex = 3;
+            this.btnProximo.Text = ">";
+            this.btnProximo.UseVisualStyleBackColor = false;
+            this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
+            // 
+            // btnSelecionar
+            // 
+            this.btnSelecionar.BackColor = System.Drawing.Color.DarkGray;
+            this.btnSelecionar.Enabled = false;
+            this.btnSelecionar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSelecionar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnSelecionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnSelecionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnSelecionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelecionar.Location = new System.Drawing.Point(0, 1);
+            this.btnSelecionar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnSelecionar.Name = "btnSelecionar";
+            this.btnSelecionar.Size = new System.Drawing.Size(100, 38);
+            this.btnSelecionar.TabIndex = 5;
+            this.btnSelecionar.Text = "Selecionar";
+            this.btnSelecionar.UseVisualStyleBackColor = false;
+            this.btnSelecionar.Click += new System.EventHandler(this.btnInserir_Click);
             // 
             // btnCancelar
             // 
@@ -122,11 +175,11 @@
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Location = new System.Drawing.Point(500, 0);
+            this.btnCancelar.Location = new System.Drawing.Point(599, 1);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 38);
-            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -140,11 +193,11 @@
             this.btnExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluir.Location = new System.Drawing.Point(390, 0);
+            this.btnExcluir.Location = new System.Drawing.Point(489, 1);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 38);
-            this.btnExcluir.TabIndex = 2;
+            this.btnExcluir.TabIndex = 1;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -157,7 +210,7 @@
             this.btnCadastrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnCadastrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrar.Location = new System.Drawing.Point(280, 1);
+            this.btnCadastrar.Location = new System.Drawing.Point(379, 1);
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(100, 38);
@@ -182,7 +235,7 @@
             this.pnlDadosUsuario.Controls.Add(this.lblRua);
             this.pnlDadosUsuario.Controls.Add(this.label1);
             this.pnlDadosUsuario.Controls.Add(this.cbPessoa);
-            this.pnlDadosUsuario.Controls.Add(this.label2);
+            this.pnlDadosUsuario.Controls.Add(this.lblCpfCnpj);
             this.pnlDadosUsuario.Controls.Add(this.lblPessoa);
             this.pnlDadosUsuario.Controls.Add(this.txtRua);
             this.pnlDadosUsuario.Controls.Add(this.label3);
@@ -190,7 +243,7 @@
             this.pnlDadosUsuario.Controls.Add(this.txtNome);
             this.pnlDadosUsuario.Controls.Add(this.lblEmail);
             this.pnlDadosUsuario.Controls.Add(this.lblTelefone1);
-            this.pnlDadosUsuario.Location = new System.Drawing.Point(117, 9);
+            this.pnlDadosUsuario.Location = new System.Drawing.Point(13, 13);
             this.pnlDadosUsuario.Name = "pnlDadosUsuario";
             this.pnlDadosUsuario.Size = new System.Drawing.Size(699, 205);
             this.pnlDadosUsuario.TabIndex = 13;
@@ -211,8 +264,8 @@
             this.txtUf.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtUf.MaxLength = 2;
             this.txtUf.Name = "txtUf";
-            this.txtUf.Size = new System.Drawing.Size(52, 27);
-            this.txtUf.TabIndex = 16;
+            this.txtUf.Size = new System.Drawing.Size(54, 27);
+            this.txtUf.TabIndex = 9;
             this.txtUf.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCidade
@@ -238,24 +291,23 @@
             // txtTelefone
             // 
             this.txtTelefone.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.txtTelefone.Location = new System.Drawing.Point(19, 98);
+            this.txtTelefone.Location = new System.Drawing.Point(162, 96);
             this.txtTelefone.Mask = "(99) 09999 - 9999";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(126, 27);
-            this.txtTelefone.TabIndex = 19;
+            this.txtTelefone.TabIndex = 4;
             this.txtTelefone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // txtCpfCnpj
             // 
             this.txtCpfCnpj.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.txtCpfCnpj.Location = new System.Drawing.Point(545, 41);
-            this.txtCpfCnpj.Mask = "009,999,999,90";
+            this.txtCpfCnpj.Location = new System.Drawing.Point(19, 96);
             this.txtCpfCnpj.Name = "txtCpfCnpj";
-            this.txtCpfCnpj.Size = new System.Drawing.Size(138, 27);
-            this.txtCpfCnpj.TabIndex = 19;
-            this.txtCpfCnpj.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCpfCnpj.Size = new System.Drawing.Size(137, 27);
+            this.txtCpfCnpj.TabIndex = 3;
             this.txtCpfCnpj.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtCpfCnpj.DragOver += new System.Windows.Forms.DragEventHandler(this.txtCpfCnpj_DragOver);
             // 
             // txtNImovel
             // 
@@ -264,7 +316,7 @@
             this.txtNImovel.MaxLength = 5;
             this.txtNImovel.Name = "txtNImovel";
             this.txtNImovel.Size = new System.Drawing.Size(52, 27);
-            this.txtNImovel.TabIndex = 17;
+            this.txtNImovel.TabIndex = 7;
             this.txtNImovel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtId
@@ -285,7 +337,7 @@
             this.txtCidade.MaxLength = 50;
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(273, 27);
-            this.txtCidade.TabIndex = 18;
+            this.txtCidade.TabIndex = 8;
             // 
             // lblRua
             // 
@@ -314,26 +366,27 @@
             this.cbPessoa.Items.AddRange(new object[] {
             "Física",
             "Jurídica"});
-            this.cbPessoa.Location = new System.Drawing.Point(545, 97);
+            this.cbPessoa.Location = new System.Drawing.Point(547, 42);
             this.cbPessoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbPessoa.Name = "cbPessoa";
             this.cbPessoa.Size = new System.Drawing.Size(138, 28);
             this.cbPessoa.TabIndex = 2;
+            this.cbPessoa.TextChanged += new System.EventHandler(this.cbPessoa_TextChanged);
             // 
-            // label2
+            // lblCpfCnpj
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(541, 18);
-            this.label2.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "CPF / CNPJ";
+            this.lblCpfCnpj.AutoSize = true;
+            this.lblCpfCnpj.Location = new System.Drawing.Point(15, 73);
+            this.lblCpfCnpj.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
+            this.lblCpfCnpj.Name = "lblCpfCnpj";
+            this.lblCpfCnpj.Size = new System.Drawing.Size(80, 20);
+            this.lblCpfCnpj.TabIndex = 5;
+            this.lblCpfCnpj.Text = "CPF / CNPJ";
             // 
             // lblPessoa
             // 
             this.lblPessoa.AutoSize = true;
-            this.lblPessoa.Location = new System.Drawing.Point(541, 72);
+            this.lblPessoa.Location = new System.Drawing.Point(543, 17);
             this.lblPessoa.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
             this.lblPessoa.Name = "lblPessoa";
             this.lblPessoa.Size = new System.Drawing.Size(110, 20);
@@ -347,7 +400,7 @@
             this.txtRua.MaxLength = 50;
             this.txtRua.Name = "txtRua";
             this.txtRua.Size = new System.Drawing.Size(263, 27);
-            this.txtRua.TabIndex = 15;
+            this.txtRua.TabIndex = 6;
             // 
             // label3
             // 
@@ -361,11 +414,11 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(163, 98);
+            this.txtEmail.Location = new System.Drawing.Point(295, 96);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtEmail.MaxLength = 50;
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(374, 27);
+            this.txtEmail.Size = new System.Drawing.Size(390, 27);
             this.txtEmail.TabIndex = 5;
             // 
             // txtNome
@@ -375,12 +428,12 @@
             this.txtNome.MaxLength = 50;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(428, 27);
-            this.txtNome.TabIndex = 3;
+            this.txtNome.TabIndex = 1;
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(159, 74);
+            this.lblEmail.Location = new System.Drawing.Point(291, 72);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(52, 20);
@@ -390,7 +443,7 @@
             // lblTelefone1
             // 
             this.lblTelefone1.AutoSize = true;
-            this.lblTelefone1.Location = new System.Drawing.Point(13, 75);
+            this.lblTelefone1.Location = new System.Drawing.Point(156, 73);
             this.lblTelefone1.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
             this.lblTelefone1.Name = "lblTelefone1";
             this.lblTelefone1.Size = new System.Drawing.Size(67, 20);
@@ -403,24 +456,23 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.txtCpfCnpjCon);
             this.panel2.Controls.Add(this.btnConsultar);
-            this.panel2.Controls.Add(this.lblCpfCnpj);
+            this.panel2.Controls.Add(this.lblCpfCnpjCon);
             this.panel2.Controls.Add(this.lblNome);
             this.panel2.Controls.Add(this.txtNomeCon);
             this.panel2.Controls.Add(this.txtIdCon);
             this.panel2.Controls.Add(this.lblCodigo);
-            this.panel2.Location = new System.Drawing.Point(117, 260);
+            this.panel2.Location = new System.Drawing.Point(13, 264);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(708, 88);
-            this.panel2.TabIndex = 10;
+            this.panel2.Size = new System.Drawing.Size(699, 65);
+            this.panel2.TabIndex = 1;
             // 
             // txtCpfCnpjCon
             // 
             this.txtCpfCnpjCon.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.txtCpfCnpjCon.Location = new System.Drawing.Point(437, 38);
-            this.txtCpfCnpjCon.Mask = "009,999,999,90";
+            this.txtCpfCnpjCon.Location = new System.Drawing.Point(441, 24);
             this.txtCpfCnpjCon.Name = "txtCpfCnpjCon";
             this.txtCpfCnpjCon.Size = new System.Drawing.Size(126, 27);
-            this.txtCpfCnpjCon.TabIndex = 26;
+            this.txtCpfCnpjCon.TabIndex = 2;
             this.txtCpfCnpjCon.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCpfCnpjCon.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
@@ -432,60 +484,63 @@
             this.btnConsultar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnConsultar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultar.Location = new System.Drawing.Point(571, 32);
+            this.btnConsultar.Location = new System.Drawing.Point(592, 18);
             this.btnConsultar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(100, 38);
-            this.btnConsultar.TabIndex = 20;
+            this.btnConsultar.TabIndex = 3;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
-            // lblCpfCnpj
+            // lblCpfCnpjCon
             // 
-            this.lblCpfCnpj.AutoSize = true;
-            this.lblCpfCnpj.ForeColor = System.Drawing.Color.White;
-            this.lblCpfCnpj.Location = new System.Drawing.Point(437, 14);
-            this.lblCpfCnpj.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
-            this.lblCpfCnpj.Name = "lblCpfCnpj";
-            this.lblCpfCnpj.Size = new System.Drawing.Size(80, 20);
-            this.lblCpfCnpj.TabIndex = 23;
-            this.lblCpfCnpj.Text = "CPF / CNPJ";
+            this.lblCpfCnpjCon.AutoSize = true;
+            this.lblCpfCnpjCon.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCpfCnpjCon.ForeColor = System.Drawing.Color.White;
+            this.lblCpfCnpjCon.Location = new System.Drawing.Point(437, 1);
+            this.lblCpfCnpjCon.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
+            this.lblCpfCnpjCon.Name = "lblCpfCnpjCon";
+            this.lblCpfCnpjCon.Size = new System.Drawing.Size(87, 20);
+            this.lblCpfCnpjCon.TabIndex = 23;
+            this.lblCpfCnpjCon.Text = "CPF / CNPJ";
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
+            this.lblNome.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome.ForeColor = System.Drawing.Color.White;
-            this.lblNome.Location = new System.Drawing.Point(124, 14);
+            this.lblNome.Location = new System.Drawing.Point(124, 0);
             this.lblNome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(50, 20);
+            this.lblNome.Size = new System.Drawing.Size(52, 20);
             this.lblNome.TabIndex = 24;
             this.lblNome.Text = "Nome";
             // 
             // txtNomeCon
             // 
-            this.txtNomeCon.Location = new System.Drawing.Point(127, 38);
+            this.txtNomeCon.Location = new System.Drawing.Point(127, 24);
             this.txtNomeCon.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNomeCon.MaxLength = 50;
             this.txtNomeCon.Name = "txtNomeCon";
             this.txtNomeCon.Size = new System.Drawing.Size(305, 27);
-            this.txtNomeCon.TabIndex = 21;
+            this.txtNomeCon.TabIndex = 1;
             // 
             // txtIdCon
             // 
-            this.txtIdCon.Location = new System.Drawing.Point(17, 38);
+            this.txtIdCon.Location = new System.Drawing.Point(17, 24);
             this.txtIdCon.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtIdCon.MaxLength = 3;
             this.txtIdCon.Name = "txtIdCon";
             this.txtIdCon.Size = new System.Drawing.Size(97, 27);
-            this.txtIdCon.TabIndex = 19;
+            this.txtIdCon.TabIndex = 0;
             // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigo.ForeColor = System.Drawing.Color.White;
-            this.lblCodigo.Location = new System.Drawing.Point(13, 14);
+            this.lblCodigo.Location = new System.Drawing.Point(13, 0);
             this.lblCodigo.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(58, 20);
@@ -508,9 +563,11 @@
             this.cidade,
             this.uf});
             this.dgvPessoa.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvPessoa.Location = new System.Drawing.Point(117, 356);
+            this.dgvPessoa.Location = new System.Drawing.Point(13, 339);
             this.dgvPessoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvPessoa.Name = "dgvPessoa";
+            this.dgvPessoa.ReadOnly = true;
+            this.dgvPessoa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPessoa.Size = new System.Drawing.Size(699, 211);
             this.dgvPessoa.TabIndex = 3;
             this.dgvPessoa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPessoa_CellContentClick);
@@ -519,52 +576,62 @@
             // 
             this.id_pessoa.HeaderText = "Código";
             this.id_pessoa.Name = "id_pessoa";
+            this.id_pessoa.ReadOnly = true;
             this.id_pessoa.Width = 60;
             // 
             // nome_pessoa
             // 
             this.nome_pessoa.HeaderText = "Nome";
             this.nome_pessoa.Name = "nome_pessoa";
+            this.nome_pessoa.ReadOnly = true;
             // 
             // tipo_pessoa
             // 
             this.tipo_pessoa.HeaderText = "Tipo pessoa";
             this.tipo_pessoa.Name = "tipo_pessoa";
+            this.tipo_pessoa.ReadOnly = true;
             // 
             // cpf_cnpj
             // 
             this.cpf_cnpj.HeaderText = "CPF/CNPJ";
             this.cpf_cnpj.Name = "cpf_cnpj";
+            this.cpf_cnpj.ReadOnly = true;
             // 
             // email
             // 
             this.email.HeaderText = "Email";
             this.email.Name = "email";
+            this.email.ReadOnly = true;
             // 
             // telefone
             // 
             this.telefone.HeaderText = "Telefone";
             this.telefone.Name = "telefone";
+            this.telefone.ReadOnly = true;
             // 
             // endereco
             // 
             this.endereco.HeaderText = "Endereço";
             this.endereco.Name = "endereco";
+            this.endereco.ReadOnly = true;
             // 
             // numero_imovel
             // 
             this.numero_imovel.HeaderText = "Nº";
             this.numero_imovel.Name = "numero_imovel";
+            this.numero_imovel.ReadOnly = true;
             // 
             // cidade
             // 
             this.cidade.HeaderText = "Cidade";
             this.cidade.Name = "cidade";
+            this.cidade.ReadOnly = true;
             // 
             // uf
             // 
             this.uf.HeaderText = "UF";
             this.uf.Name = "uf";
+            this.uf.ReadOnly = true;
             this.uf.Width = 60;
             // 
             // contextMenuStrip1
@@ -581,69 +648,23 @@
             this.inserirClienteToolStripMenuItem.Text = "Inserir cliente";
             this.inserirClienteToolStripMenuItem.Click += new System.EventHandler(this.inserirClienteToolStripMenuItem_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnRemover);
-            this.panel1.Controls.Add(this.btnInserir);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(117, 572);
-            this.panel1.TabIndex = 0;
-            // 
-            // btnRemover
-            // 
-            this.btnRemover.BackColor = System.Drawing.Color.DarkGray;
-            this.btnRemover.Enabled = false;
-            this.btnRemover.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnRemover.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.btnRemover.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnRemover.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnRemover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemover.Location = new System.Drawing.Point(8, 57);
-            this.btnRemover.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(100, 38);
-            this.btnRemover.TabIndex = 3;
-            this.btnRemover.Text = "Remover";
-            this.btnRemover.UseVisualStyleBackColor = false;
-            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
-            // 
-            // btnInserir
-            // 
-            this.btnInserir.BackColor = System.Drawing.Color.DarkGray;
-            this.btnInserir.Enabled = false;
-            this.btnInserir.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnInserir.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.btnInserir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnInserir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInserir.Location = new System.Drawing.Point(8, 9);
-            this.btnInserir.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnInserir.Name = "btnInserir";
-            this.btnInserir.Size = new System.Drawing.Size(100, 38);
-            this.btnInserir.TabIndex = 1;
-            this.btnInserir.Text = "Inserir";
-            this.btnInserir.UseVisualStyleBackColor = false;
-            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
-            // 
-            // frmConPessoa
+            // frmCadPessoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(825, 582);
+            this.ClientSize = new System.Drawing.Size(725, 573);
             this.Controls.Add(this.R4);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.Name = "frmConPessoa";
+            this.Name = "frmCadPessoa";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta de pessoa";
+            this.Load += new System.EventHandler(this.frmCadPessoa_Load);
             this.R4.ResumeLayout(false);
             this.pnlBotoes.ResumeLayout(false);
             this.pnlDadosUsuario.ResumeLayout(false);
@@ -652,7 +673,6 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPessoa)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -660,13 +680,11 @@
         #endregion
 
         private System.Windows.Forms.Panel R4;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnRemover;
-        private System.Windows.Forms.Button btnInserir;
+        private System.Windows.Forms.Button btnSelecionar;
         private System.Windows.Forms.DataGridView dgvPessoa;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnConsultar;
-        private System.Windows.Forms.Label lblCpfCnpj;
+        private System.Windows.Forms.Label lblCpfCnpjCon;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.TextBox txtNomeCon;
         private System.Windows.Forms.TextBox txtIdCon;
@@ -687,7 +705,7 @@
         private System.Windows.Forms.Label lblRua;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbPessoa;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblCpfCnpj;
         private System.Windows.Forms.Label lblPessoa;
         private System.Windows.Forms.TextBox txtRua;
         private System.Windows.Forms.Label label3;
@@ -709,5 +727,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn numero_imovel;
         private System.Windows.Forms.DataGridViewTextBoxColumn cidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn uf;
+        private System.Windows.Forms.Button btnAnterior;
+        private System.Windows.Forms.Button btnProximo;
     }
 }
