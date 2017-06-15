@@ -11,6 +11,7 @@ namespace Facsis.View
     {
         UsuarioBLL bll = new UsuarioBLL();        
         UsuarioDTO dto = new UsuarioDTO();
+        int indice = 0;
 
         public frmCadUsuario()
         {
@@ -38,6 +39,9 @@ namespace Facsis.View
                 bll.Atualizar(dto);
                 btnCadastrar.Text = "Cadastrar";
             }
+
+            FuncoesControles.limpaCampos(pnlUsuario);
+            dgvConsulta.Rows.Clear();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -65,18 +69,8 @@ namespace Facsis.View
         }
 
         private void dgvConsulta_Click(object sender, DataGridViewCellEventArgs e)
-        {
-            //CarregarGrid();           
-
-            txtId.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[0].Value);
-            txtNome.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[1].Value);
-            txtEmail.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[2].Value);
-            txtTelefone.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[3].Value);
-            cbNivel.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[4].Value);
-            txtLogin.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[5].Value);
-            txtSenha.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[6].Value);
-            btnExcluir.Enabled = true;
-            btnCadastrar.Text = "Atualizar";
+        {         
+            visualizarDadosUsuario(e.RowIndex);
         }
 
         private void CarregarGrid()
@@ -96,21 +90,12 @@ namespace Facsis.View
                 string nome = txtConsulta.Text;
                 DataTable dt = bll.selecionaUsuario(nome.ToUpper());
 
-                barraProgresso.Visible = true;
-
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     dgvConsulta.Rows.Add(dt.Rows[i]["id_usuario"].ToString(), dt.Rows[i]["nome"].ToString(), dt.Rows[i]["email"].ToString(),
                                          dt.Rows[i]["telefone"].ToString(), dt.Rows[i]["nivel"].ToString(), dt.Rows[i]["login_usuario"].ToString(),
                                          dt.Rows[i]["senha"].ToString());
-
-                    barraProgresso.Value = i;
                 }
-
-                barraProgresso.Visible = false;
-
-                //dgvConsulta = DataGridFuncoes.carregaDV(dt, barraProgresso);
-
             }            
         }      
 
@@ -121,15 +106,35 @@ namespace Facsis.View
             this.Width = 805;
         }
 
-        private void frmCadUsuario_Load(object sender, EventArgs e)
+        private void btnAnterior_Click(object sender, EventArgs e)
         {
-            //dgvConsulta.Columns[0].HeaderText = "Código";
-            //dgvConsulta.Columns[1].HeaderText = "Nome";
-            //dgvConsulta.Columns[2].HeaderText = "Email";
-            //dgvConsulta.Columns[3].HeaderText = "Telefone";
-            //dgvConsulta.Columns[4].HeaderText = "Nível";
-            //dgvConsulta.Columns[5].HeaderText = "Login";
-            //dgvConsulta.Columns[6].HeaderText = "Senha";
+            if (indice > 0 && dgvConsulta.Rows.Count > 0)
+            {
+                indice--;
+                visualizarDadosUsuario(indice);
+            }
+        }
+
+        private void visualizarDadosUsuario(int indice)
+        {
+            txtId.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[0].Value);
+            txtNome.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[1].Value);
+            txtEmail.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[2].Value);
+            txtTelefone.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[3].Value);
+            cbNivel.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[4].Value);
+            txtLogin.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[5].Value);
+            txtSenha.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[6].Value);
+            btnExcluir.Enabled = true;
+            btnCadastrar.Text = "Atualizar";
+        }
+
+        private void btnProximo_Click(object sender, EventArgs e)
+        {
+            if (indice < dgvConsulta.Rows.Count - 2 && dgvConsulta.Rows.Count > 0)
+            {
+                indice++;
+                visualizarDadosUsuario(indice);
+            }
         }
     }
 }

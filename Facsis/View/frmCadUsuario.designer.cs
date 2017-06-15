@@ -46,8 +46,8 @@
             this.txtConsulta = new System.Windows.Forms.TextBox();
             this.lblConsultar = new System.Windows.Forms.Label();
             this.pnlBotoes = new System.Windows.Forms.Panel();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.barraProgresso = new System.Windows.Forms.ToolStripProgressBar();
+            this.btnAnterior = new System.Windows.Forms.Button();
+            this.btnProximo = new System.Windows.Forms.Button();
             this.pnlUsuario = new System.Windows.Forms.Panel();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.lblId = new System.Windows.Forms.Label();
@@ -68,7 +68,6 @@
             this.restaurarTamanhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlPesquisa.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -264,6 +263,8 @@
             // 
             // pnlBotoes
             // 
+            this.pnlBotoes.Controls.Add(this.btnAnterior);
+            this.pnlBotoes.Controls.Add(this.btnProximo);
             this.pnlBotoes.Controls.Add(this.btnCancelar);
             this.pnlBotoes.Controls.Add(this.btnExcluir);
             this.pnlBotoes.Controls.Add(this.btnCadastrar);
@@ -273,23 +274,39 @@
             this.pnlBotoes.Size = new System.Drawing.Size(724, 39);
             this.pnlBotoes.TabIndex = 4;
             // 
-            // statusStrip1
+            // btnAnterior
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.barraProgresso});
-            this.statusStrip1.Location = new System.Drawing.Point(10, 450);
-            this.statusStrip1.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(729, 22);
-            this.statusStrip1.TabIndex = 29;
-            this.statusStrip1.Text = "statusStrip1";
+            this.btnAnterior.BackColor = System.Drawing.Color.DarkGray;
+            this.btnAnterior.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAnterior.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnAnterior.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnAnterior.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnterior.Location = new System.Drawing.Point(311, 0);
+            this.btnAnterior.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(38, 38);
+            this.btnAnterior.TabIndex = 5;
+            this.btnAnterior.Text = "<";
+            this.btnAnterior.UseVisualStyleBackColor = false;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
-            // barraProgresso
+            // btnProximo
             // 
-            this.barraProgresso.Name = "barraProgresso";
-            this.barraProgresso.Size = new System.Drawing.Size(133, 25);
-            this.barraProgresso.Visible = false;
+            this.btnProximo.BackColor = System.Drawing.Color.DarkGray;
+            this.btnProximo.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnProximo.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnProximo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnProximo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnProximo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProximo.Location = new System.Drawing.Point(357, 0);
+            this.btnProximo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnProximo.Name = "btnProximo";
+            this.btnProximo.Size = new System.Drawing.Size(38, 38);
+            this.btnProximo.TabIndex = 4;
+            this.btnProximo.Text = ">";
+            this.btnProximo.UseVisualStyleBackColor = false;
+            this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
             // 
             // pnlUsuario
             // 
@@ -378,6 +395,8 @@
             // 
             this.dgvConsulta.BackgroundColor = System.Drawing.Color.White;
             this.dgvConsulta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvConsulta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.dgvConsulta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsulta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_usuario,
@@ -391,7 +410,8 @@
             this.dgvConsulta.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.dgvConsulta.Name = "dgvConsulta";
             this.dgvConsulta.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dgvConsulta.Size = new System.Drawing.Size(727, 118);
+            this.dgvConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvConsulta.Size = new System.Drawing.Size(727, 142);
             this.dgvConsulta.TabIndex = 31;
             this.dgvConsulta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsulta_Click);
             // 
@@ -458,7 +478,6 @@
             this.ClientSize = new System.Drawing.Size(749, 482);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.dgvConsulta);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.pnlPesquisa);
             this.Controls.Add(this.pnlBotoes);
             this.Controls.Add(this.pnlUsuario);
@@ -469,18 +488,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cadastro de usuário";
             this.toolTip.SetToolTip(this, "Informe o código ou nome do usuário.");
-            this.Load += new System.EventHandler(this.frmCadUsuario_Load);
             this.pnlPesquisa.ResumeLayout(false);
             this.pnlPesquisa.PerformLayout();
             this.pnlBotoes.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.pnlUsuario.ResumeLayout(false);
             this.pnlUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -502,8 +517,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripProgressBar barraProgresso;
         private System.Windows.Forms.Panel pnlUsuario;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.TextBox txtId;
@@ -522,5 +535,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nivel;
         private System.Windows.Forms.DataGridViewTextBoxColumn login_usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn senha;
+        private System.Windows.Forms.Button btnAnterior;
+        private System.Windows.Forms.Button btnProximo;
     }
 }
