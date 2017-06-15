@@ -15,6 +15,7 @@ namespace Facsis.View
         DataGridView dgvCarrinho = new DataGridView();
         double total = 0;
         TextBox txtTotal = new TextBox();
+        int indice = 0;
 
         public frmConProduto()
         {
@@ -123,20 +124,6 @@ namespace Facsis.View
             CarregarGrid();
         }
 
-        private void frmCadProduto_Load(object sender, EventArgs e)
-        {
-            //dgvConsulta.Columns[0].HeaderText = "Código";
-            //dgvConsulta.Columns[1].HeaderText = "Nome";
-            //dgvConsulta.Columns[2].HeaderText = "Fornecedor";
-            //dgvConsulta.Columns[3].HeaderText = "Medida";
-            //dgvConsulta.Columns[4].HeaderText = "Status";
-            //dgvConsulta.Columns[5].HeaderText = "Última compra";
-            //dgvConsulta.Columns[6].HeaderText = "Descrição";
-            //dgvConsulta.Columns[7].HeaderText = "Preço";
-            //dgvConsulta.Columns[8].HeaderText = "Qtde";
-            //dgvConsulta.Columns[9].HeaderText = "Locação";
-        }
-
         private void dgvConsulta_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dto.Id = Convert.ToInt32(dgvConsulta.Rows[e.RowIndex].Cells[0].Value);
@@ -146,13 +133,36 @@ namespace Facsis.View
             dto.Preco = Convert.ToDouble(dgvConsulta.Rows[e.RowIndex].Cells[4].Value);
             dto.Quantidade = Convert.ToInt32(dgvConsulta.Rows[e.RowIndex].Cells[5].Value);
 
-            txtId.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[0].Value);
-            txtNome.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[1].Value);
+            visualizarDadosProduto(e.RowIndex);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            if (indice > 0 && dgvConsulta.Rows.Count > 0)
+            {
+                indice--;
+                visualizarDadosProduto(indice);
+            }
+        }
+
+        private void btnProximo_Click(object sender, EventArgs e)
+        {
+            if (indice < dgvConsulta.Rows.Count - 2 && dgvConsulta.Rows.Count > 0)
+            {
+                indice++;
+                visualizarDadosProduto(indice);
+            }
+        }
+
+        private void visualizarDadosProduto(int indice)
+        {
+            txtId.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[0].Value);
+            txtNome.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[1].Value);
         }
     }
 }
