@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVenda));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rdCancelar = new System.Windows.Forms.RadioButton();
             this.rdPendente = new System.Windows.Forms.RadioButton();
@@ -42,23 +43,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtVlrBruto = new System.Windows.Forms.TextBox();
             this.lblVlrBruto = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.ckbOrcamento = new System.Windows.Forms.RadioButton();
-            this.cbFormaPgto = new System.Windows.Forms.ComboBox();
-            this.ckbVenda = new System.Windows.Forms.RadioButton();
-            this.lblFormaPgto = new System.Windows.Forms.Label();
-            this.txtObs = new System.Windows.Forms.TextBox();
-            this.lblObs = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtNota = new System.Windows.Forms.DateTimePicker();
             this.dtPedido = new System.Windows.Forms.DateTimePicker();
-            this.btnAdicinaCliente = new System.Windows.Forms.Button();
             this.txtIdVendedor = new System.Windows.Forms.TextBox();
+            this.btnAdicinaCliente = new System.Windows.Forms.Button();
+            this.lblNVendedor = new System.Windows.Forms.Label();
             this.lblLegDataNota = new System.Windows.Forms.Label();
             this.lblLegNomeCli = new System.Windows.Forms.Label();
             this.lblLegNPedido = new System.Windows.Forms.Label();
             this.lblLegDataPed = new System.Windows.Forms.Label();
-            this.lblNVendedor = new System.Windows.Forms.Label();
             this.txtNumPedido = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtIdCli = new System.Windows.Forms.TextBox();
@@ -67,6 +61,7 @@
             this.dgvCarrinho = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,15 +77,20 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancelarVenda = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblFormaPgto = new System.Windows.Forms.Label();
+            this.ckbVenda = new System.Windows.Forms.RadioButton();
+            this.ckbOrcamento = new System.Windows.Forms.RadioButton();
+            this.cbFormaPgto = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.gbPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).BeginInit();
             this.dvgMenu.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -99,7 +99,7 @@
             this.groupBox2.Controls.Add(this.rdCancelar);
             this.groupBox2.Controls.Add(this.rdPendente);
             this.groupBox2.Controls.Add(this.rdAtualizar);
-            this.groupBox2.Location = new System.Drawing.Point(537, 184);
+            this.groupBox2.Location = new System.Drawing.Point(508, 369);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -154,7 +154,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtVlrBruto);
             this.groupBox1.Controls.Add(this.lblVlrBruto);
-            this.groupBox1.Location = new System.Drawing.Point(657, 184);
+            this.groupBox1.Location = new System.Drawing.Point(647, 369);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -245,115 +245,36 @@
             this.lblVlrBruto.TabIndex = 18;
             this.lblVlrBruto.Text = "Valor Bruto";
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.ckbOrcamento);
-            this.panel5.Controls.Add(this.cbFormaPgto);
-            this.panel5.Controls.Add(this.ckbVenda);
-            this.panel5.Controls.Add(this.lblFormaPgto);
-            this.panel5.Controls.Add(this.txtObs);
-            this.panel5.Controls.Add(this.lblObs);
-            this.panel5.Location = new System.Drawing.Point(18, 95);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1000, 81);
-            this.panel5.TabIndex = 42;
-            // 
-            // ckbOrcamento
-            // 
-            this.ckbOrcamento.AutoSize = true;
-            this.ckbOrcamento.Location = new System.Drawing.Point(889, 35);
-            this.ckbOrcamento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ckbOrcamento.Name = "ckbOrcamento";
-            this.ckbOrcamento.Size = new System.Drawing.Size(101, 24);
-            this.ckbOrcamento.TabIndex = 33;
-            this.ckbOrcamento.Text = "Orçamento";
-            this.ckbOrcamento.UseVisualStyleBackColor = true;
-            // 
-            // cbFormaPgto
-            // 
-            this.cbFormaPgto.FormattingEnabled = true;
-            this.cbFormaPgto.Items.AddRange(new object[] {
-            "À vista",
-            "Crédito",
-            "Cheque",
-            "Débito"});
-            this.cbFormaPgto.Location = new System.Drawing.Point(18, 34);
-            this.cbFormaPgto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cbFormaPgto.Name = "cbFormaPgto";
-            this.cbFormaPgto.Size = new System.Drawing.Size(160, 28);
-            this.cbFormaPgto.TabIndex = 27;
-            // 
-            // ckbVenda
-            // 
-            this.ckbVenda.AutoSize = true;
-            this.ckbVenda.Checked = true;
-            this.ckbVenda.Location = new System.Drawing.Point(812, 35);
-            this.ckbVenda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ckbVenda.Name = "ckbVenda";
-            this.ckbVenda.Size = new System.Drawing.Size(69, 24);
-            this.ckbVenda.TabIndex = 33;
-            this.ckbVenda.TabStop = true;
-            this.ckbVenda.Text = "Venda";
-            this.ckbVenda.UseMnemonic = false;
-            this.ckbVenda.UseVisualStyleBackColor = true;
-            // 
-            // lblFormaPgto
-            // 
-            this.lblFormaPgto.AutoSize = true;
-            this.lblFormaPgto.Location = new System.Drawing.Point(14, 9);
-            this.lblFormaPgto.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
-            this.lblFormaPgto.Name = "lblFormaPgto";
-            this.lblFormaPgto.Size = new System.Drawing.Size(153, 20);
-            this.lblFormaPgto.TabIndex = 25;
-            this.lblFormaPgto.Text = "Forma de pagamento";
-            // 
-            // txtObs
-            // 
-            this.txtObs.Location = new System.Drawing.Point(186, 35);
-            this.txtObs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtObs.MaxLength = 3;
-            this.txtObs.Name = "txtObs";
-            this.txtObs.Size = new System.Drawing.Size(618, 27);
-            this.txtObs.TabIndex = 24;
-            // 
-            // lblObs
-            // 
-            this.lblObs.AutoSize = true;
-            this.lblObs.Location = new System.Drawing.Point(182, 10);
-            this.lblObs.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
-            this.lblObs.Name = "lblObs";
-            this.lblObs.Size = new System.Drawing.Size(87, 20);
-            this.lblObs.TabIndex = 26;
-            this.lblObs.Text = "Observação";
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.lblFormaPgto);
+            this.panel3.Controls.Add(this.ckbVenda);
+            this.panel3.Controls.Add(this.ckbOrcamento);
+            this.panel3.Controls.Add(this.cbFormaPgto);
             this.panel3.Controls.Add(this.dtNota);
             this.panel3.Controls.Add(this.dtPedido);
-            this.panel3.Controls.Add(this.btnAdicinaCliente);
             this.panel3.Controls.Add(this.txtIdVendedor);
+            this.panel3.Controls.Add(this.btnAdicinaCliente);
+            this.panel3.Controls.Add(this.lblNVendedor);
             this.panel3.Controls.Add(this.lblLegDataNota);
             this.panel3.Controls.Add(this.lblLegNomeCli);
             this.panel3.Controls.Add(this.lblLegNPedido);
             this.panel3.Controls.Add(this.lblLegDataPed);
-            this.panel3.Controls.Add(this.lblNVendedor);
             this.panel3.Controls.Add(this.txtNumPedido);
             this.panel3.Controls.Add(this.txtNome);
             this.panel3.Controls.Add(this.txtIdCli);
             this.panel3.Controls.Add(this.lblCodCli);
             this.panel3.Location = new System.Drawing.Point(18, 12);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1000, 76);
+            this.panel3.Size = new System.Drawing.Size(990, 123);
             this.panel3.TabIndex = 41;
             // 
             // dtNota
             // 
             this.dtNota.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtNota.Location = new System.Drawing.Point(867, 33);
+            this.dtNota.Location = new System.Drawing.Point(747, 33);
             this.dtNota.Name = "dtNota";
             this.dtNota.Size = new System.Drawing.Size(123, 27);
             this.dtNota.TabIndex = 42;
@@ -361,10 +282,21 @@
             // dtPedido
             // 
             this.dtPedido.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtPedido.Location = new System.Drawing.Point(743, 33);
+            this.dtPedido.Location = new System.Drawing.Point(623, 33);
             this.dtPedido.Name = "dtPedido";
             this.dtPedido.Size = new System.Drawing.Size(118, 27);
             this.dtPedido.TabIndex = 43;
+            // 
+            // txtIdVendedor
+            // 
+            this.txtIdVendedor.Enabled = false;
+            this.txtIdVendedor.Location = new System.Drawing.Point(877, 33);
+            this.txtIdVendedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtIdVendedor.MaxLength = 3;
+            this.txtIdVendedor.Name = "txtIdVendedor";
+            this.txtIdVendedor.Size = new System.Drawing.Size(99, 27);
+            this.txtIdVendedor.TabIndex = 35;
+            this.txtIdVendedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnAdicinaCliente
             // 
@@ -383,20 +315,20 @@
             this.btnAdicinaCliente.UseVisualStyleBackColor = false;
             this.btnAdicinaCliente.Click += new System.EventHandler(this.btnAdicinaCliente_Click);
             // 
-            // txtIdVendedor
+            // lblNVendedor
             // 
-            this.txtIdVendedor.Location = new System.Drawing.Point(545, 33);
-            this.txtIdVendedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtIdVendedor.MaxLength = 3;
-            this.txtIdVendedor.Name = "txtIdVendedor";
-            this.txtIdVendedor.Size = new System.Drawing.Size(99, 27);
-            this.txtIdVendedor.TabIndex = 35;
-            this.txtIdVendedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lblNVendedor.AutoSize = true;
+            this.lblNVendedor.Location = new System.Drawing.Point(873, 8);
+            this.lblNVendedor.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
+            this.lblNVendedor.Name = "lblNVendedor";
+            this.lblNVendedor.Size = new System.Drawing.Size(108, 20);
+            this.lblNVendedor.TabIndex = 40;
+            this.lblNVendedor.Text = "Cód. Vendedor";
             // 
             // lblLegDataNota
             // 
             this.lblLegDataNota.AutoSize = true;
-            this.lblLegDataNota.Location = new System.Drawing.Point(863, 8);
+            this.lblLegDataNota.Location = new System.Drawing.Point(743, 10);
             this.lblLegDataNota.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
             this.lblLegDataNota.Name = "lblLegDataNota";
             this.lblLegDataNota.Size = new System.Drawing.Size(65, 20);
@@ -416,7 +348,7 @@
             // lblLegNPedido
             // 
             this.lblLegNPedido.AutoSize = true;
-            this.lblLegNPedido.Location = new System.Drawing.Point(648, 8);
+            this.lblLegNPedido.Location = new System.Drawing.Point(528, 8);
             this.lblLegNPedido.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
             this.lblLegNPedido.Name = "lblLegNPedido";
             this.lblLegNPedido.Size = new System.Drawing.Size(77, 20);
@@ -426,27 +358,17 @@
             // lblLegDataPed
             // 
             this.lblLegDataPed.AutoSize = true;
-            this.lblLegDataPed.Location = new System.Drawing.Point(739, 8);
+            this.lblLegDataPed.Location = new System.Drawing.Point(619, 8);
             this.lblLegDataPed.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
             this.lblLegDataPed.Name = "lblLegDataPed";
             this.lblLegDataPed.Size = new System.Drawing.Size(79, 20);
             this.lblLegDataPed.TabIndex = 39;
             this.lblLegDataPed.Text = "Dt. Pedido";
             // 
-            // lblNVendedor
-            // 
-            this.lblNVendedor.AutoSize = true;
-            this.lblNVendedor.Location = new System.Drawing.Point(541, 8);
-            this.lblNVendedor.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
-            this.lblNVendedor.Name = "lblNVendedor";
-            this.lblNVendedor.Size = new System.Drawing.Size(108, 20);
-            this.lblNVendedor.TabIndex = 40;
-            this.lblNVendedor.Text = "Cód. Vendedor";
-            // 
             // txtNumPedido
             // 
             this.txtNumPedido.Enabled = false;
-            this.txtNumPedido.Location = new System.Drawing.Point(652, 33);
+            this.txtNumPedido.Location = new System.Drawing.Point(532, 33);
             this.txtNumPedido.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNumPedido.MaxLength = 3;
             this.txtNumPedido.Name = "txtNumPedido";
@@ -489,11 +411,11 @@
             // 
             this.gbPedido.Controls.Add(this.dgvCarrinho);
             this.gbPedido.Controls.Add(this.pnlBotoes);
-            this.gbPedido.Location = new System.Drawing.Point(18, 184);
+            this.gbPedido.Location = new System.Drawing.Point(18, 136);
             this.gbPedido.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbPedido.Name = "gbPedido";
-            this.gbPedido.Padding = new System.Windows.Forms.Padding(5);
-            this.gbPedido.Size = new System.Drawing.Size(511, 221);
+            this.gbPedido.Padding = new System.Windows.Forms.Padding(0);
+            this.gbPedido.Size = new System.Drawing.Size(990, 233);
             this.gbPedido.TabIndex = 40;
             this.gbPedido.TabStop = false;
             this.gbPedido.Text = "Itens do pedido";
@@ -505,16 +427,18 @@
             this.dgvCarrinho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
+            this.descricao,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn6,
             this.vlr_total});
             this.dgvCarrinho.ContextMenuStrip = this.dvgMenu;
-            this.dgvCarrinho.Location = new System.Drawing.Point(9, 21);
+            this.dgvCarrinho.Location = new System.Drawing.Point(5, 64);
             this.dgvCarrinho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvCarrinho.Name = "dgvCarrinho";
             this.dgvCarrinho.ReadOnly = true;
-            this.dgvCarrinho.Size = new System.Drawing.Size(493, 152);
+            this.dgvCarrinho.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCarrinho.Size = new System.Drawing.Size(980, 164);
             this.dgvCarrinho.TabIndex = 31;
             this.dgvCarrinho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgCarrinho_CellContentClick);
             // 
@@ -524,7 +448,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Código";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 60;
+            this.dataGridViewTextBoxColumn1.Width = 80;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -532,6 +456,15 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Nome";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 250;
+            // 
+            // descricao
+            // 
+            this.descricao.Frozen = true;
+            this.descricao.HeaderText = "Descrição";
+            this.descricao.Name = "descricao";
+            this.descricao.ReadOnly = true;
+            this.descricao.Width = 270;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -539,7 +472,7 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Medida";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 60;
+            this.dataGridViewTextBoxColumn4.Width = 70;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -598,23 +531,21 @@
             this.pnlBotoes.Controls.Add(this.btnLimpar);
             this.pnlBotoes.Controls.Add(this.btnRemover);
             this.pnlBotoes.Controls.Add(this.btnInserir);
-            this.pnlBotoes.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBotoes.Location = new System.Drawing.Point(5, 177);
+            this.pnlBotoes.Location = new System.Drawing.Point(5, 19);
             this.pnlBotoes.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.pnlBotoes.Name = "pnlBotoes";
-            this.pnlBotoes.Size = new System.Drawing.Size(501, 39);
+            this.pnlBotoes.Size = new System.Drawing.Size(980, 39);
             this.pnlBotoes.TabIndex = 45;
             // 
             // btnLimpar
             // 
             this.btnLimpar.BackColor = System.Drawing.Color.DarkGray;
-            this.btnLimpar.Enabled = false;
             this.btnLimpar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnLimpar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
             this.btnLimpar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnLimpar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpar.Location = new System.Drawing.Point(221, 1);
+            this.btnLimpar.Location = new System.Drawing.Point(880, 0);
             this.btnLimpar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(100, 38);
@@ -631,7 +562,7 @@
             this.btnRemover.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnRemover.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnRemover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemover.Location = new System.Drawing.Point(111, 1);
+            this.btnRemover.Location = new System.Drawing.Point(770, 0);
             this.btnRemover.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(100, 38);
@@ -648,7 +579,7 @@
             this.btnInserir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnInserir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInserir.Location = new System.Drawing.Point(1, 1);
+            this.btnInserir.Location = new System.Drawing.Point(660, 0);
             this.btnInserir.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(100, 38);
@@ -659,24 +590,25 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.DimGray;
             this.panel1.Controls.Add(this.btnCancelarVenda);
             this.panel1.Controls.Add(this.btnRegistrar);
-            this.panel1.Location = new System.Drawing.Point(537, 360);
+            this.panel1.Location = new System.Drawing.Point(1, 540);
             this.panel1.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(481, 40);
+            this.panel1.Size = new System.Drawing.Size(1023, 51);
             this.panel1.TabIndex = 44;
             // 
             // btnCancelarVenda
             // 
-            this.btnCancelarVenda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelarVenda.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCancelarVenda.BackColor = System.Drawing.Color.DarkGray;
             this.btnCancelarVenda.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnCancelarVenda.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
             this.btnCancelarVenda.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnCancelarVenda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnCancelarVenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarVenda.Location = new System.Drawing.Point(381, 1);
+            this.btnCancelarVenda.Location = new System.Drawing.Point(909, 6);
             this.btnCancelarVenda.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnCancelarVenda.Name = "btnCancelarVenda";
             this.btnCancelarVenda.Size = new System.Drawing.Size(100, 38);
@@ -686,14 +618,14 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRegistrar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnRegistrar.BackColor = System.Drawing.Color.DarkGray;
             this.btnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnRegistrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
             this.btnRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrar.Location = new System.Drawing.Point(271, 1);
+            this.btnRegistrar.Location = new System.Drawing.Point(799, 6);
             this.btnRegistrar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(100, 38);
@@ -702,17 +634,77 @@
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(18, 377);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(369, 154);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 49;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblFormaPgto
+            // 
+            this.lblFormaPgto.AutoSize = true;
+            this.lblFormaPgto.Location = new System.Drawing.Point(14, 78);
+            this.lblFormaPgto.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
+            this.lblFormaPgto.Name = "lblFormaPgto";
+            this.lblFormaPgto.Size = new System.Drawing.Size(153, 20);
+            this.lblFormaPgto.TabIndex = 48;
+            this.lblFormaPgto.Text = "Forma de pagamento";
+            // 
+            // ckbVenda
+            // 
+            this.ckbVenda.AutoSize = true;
+            this.ckbVenda.Checked = true;
+            this.ckbVenda.Location = new System.Drawing.Point(467, 79);
+            this.ckbVenda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ckbVenda.Name = "ckbVenda";
+            this.ckbVenda.Size = new System.Drawing.Size(69, 24);
+            this.ckbVenda.TabIndex = 51;
+            this.ckbVenda.TabStop = true;
+            this.ckbVenda.Text = "Venda";
+            this.ckbVenda.UseMnemonic = false;
+            this.ckbVenda.UseVisualStyleBackColor = true;
+            // 
+            // ckbOrcamento
+            // 
+            this.ckbOrcamento.AutoSize = true;
+            this.ckbOrcamento.Location = new System.Drawing.Point(358, 79);
+            this.ckbOrcamento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ckbOrcamento.Name = "ckbOrcamento";
+            this.ckbOrcamento.Size = new System.Drawing.Size(101, 24);
+            this.ckbOrcamento.TabIndex = 50;
+            this.ckbOrcamento.Text = "Orçamento";
+            this.ckbOrcamento.UseVisualStyleBackColor = true;
+            // 
+            // cbFormaPgto
+            // 
+            this.cbFormaPgto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFormaPgto.FormattingEnabled = true;
+            this.cbFormaPgto.Items.AddRange(new object[] {
+            "À vista",
+            "Crédito",
+            "Cheque",
+            "Débito"});
+            this.cbFormaPgto.Location = new System.Drawing.Point(175, 78);
+            this.cbFormaPgto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbFormaPgto.Name = "cbFormaPgto";
+            this.cbFormaPgto.Size = new System.Drawing.Size(160, 28);
+            this.cbFormaPgto.TabIndex = 49;
+            // 
             // frmVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1034, 420);
+            this.ClientSize = new System.Drawing.Size(1024, 589);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.gbPedido);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -724,8 +716,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.gbPedido.ResumeLayout(false);
@@ -733,6 +723,7 @@
             this.dvgMenu.ResumeLayout(false);
             this.pnlBotoes.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -752,11 +743,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtVlrBruto;
         private System.Windows.Forms.Label lblVlrBruto;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.ComboBox cbFormaPgto;
-        private System.Windows.Forms.Label lblFormaPgto;
-        private System.Windows.Forms.TextBox txtObs;
-        private System.Windows.Forms.Label lblObs;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DateTimePicker dtNota;
         private System.Windows.Forms.DateTimePicker dtPedido;
@@ -771,8 +757,6 @@
         private System.Windows.Forms.TextBox txtIdCli;
         private System.Windows.Forms.Label lblCodCli;
         private System.Windows.Forms.GroupBox gbPedido;
-        private System.Windows.Forms.RadioButton ckbOrcamento;
-        private System.Windows.Forms.RadioButton ckbVenda;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCancelarVenda;
         private System.Windows.Forms.Button btnRegistrar;
@@ -786,11 +770,17 @@
         private System.Windows.Forms.ToolStripMenuItem inserirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem limparToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn vlr_total;
+        private System.Windows.Forms.Label lblFormaPgto;
+        private System.Windows.Forms.RadioButton ckbVenda;
+        private System.Windows.Forms.RadioButton ckbOrcamento;
+        private System.Windows.Forms.ComboBox cbFormaPgto;
     }
 }

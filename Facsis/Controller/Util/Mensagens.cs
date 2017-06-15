@@ -9,7 +9,7 @@ namespace Facsis.Controller.Util
 
         public static void vendaEfetuada()
         {
-            MessageBox.Show("Venda efetuada com sucesso!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Venda efetuada com sucesso!", "Venda", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public static void vendaErro()
@@ -56,7 +56,7 @@ namespace Facsis.Controller.Util
 
         public static void camposVarizos()
         {
-            MessageBox.Show("Informe todos os campos!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show("Informe todos os campos!", "Facsis", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

@@ -51,7 +51,7 @@ namespace Facsis.View
                     if (txtId.Text == consultaCarrinho)
                     {
                         indiceCarrinho = i;
-                        auxQuantidade = Convert.ToInt32(dgvCarrinho.Rows[indiceCarrinho].Cells[3].Value);
+                        auxQuantidade = Convert.ToInt32(dgvCarrinho.Rows[indiceCarrinho].Cells[4].Value);
                         noCarrinho = true;
                         break;
                     }
@@ -63,21 +63,21 @@ namespace Facsis.View
                 {                    
                     // Adiciona ao carrinho caso tenha sido adicionado
                     if (noCarrinho == false)
-                        dgvCarrinho.Rows.Add(dto.Id, dto.Nome, dto.Medida, quantidade, dto.Preco, quantidade * dto.Preco);
+                        dgvCarrinho.Rows.Add(dto.Id, dto.Nome, dto.Descricao, dto.Medida, quantidade, dto.Preco, quantidade * dto.Preco);
 
                     else
                     {
-                        dgvCarrinho.Rows[indiceCarrinho].Cells[3].Value = quantidade.ToString();
-                        dgvCarrinho.Rows[indiceCarrinho].Cells[5].Value = quantidade * dto.Preco;
+                        dgvCarrinho.Rows[indiceCarrinho].Cells[4].Value = quantidade.ToString();
+                        dgvCarrinho.Rows[indiceCarrinho].Cells[6].Value = quantidade * dto.Preco;
                     }
 
                     // Calcula o total do carrinho
                     for (int i = 0; i < dgvCarrinho.Rows.Count; i++)
                     {
-                        total += Convert.ToDouble(dgvCarrinho.Rows[i].Cells[5].Value);
+                        total += Convert.ToDouble(dgvCarrinho.Rows[i].Cells[6].Value);
                     }
 
-                    txtTotal.Text = total.ToString();
+                    txtTotal.Text = string.Format("{0:N2}", total);
                 }
                 else
                     MessageBox.Show("Quantidade insuficiente no estoque.", "Inserir", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -108,7 +108,7 @@ namespace Facsis.View
 
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    dgvConsulta.Rows.Add(dt.Rows[i]["id_produto"].ToString(), dt.Rows[i]["nome"].ToString(),
+                    dgvConsulta.Rows.Add(dt.Rows[i]["id_produto"].ToString(), dt.Rows[i]["nome"].ToString(), dt.Rows[i]["descricao"].ToString(),
                                          dt.Rows[i]["medida"].ToString(), dt.Rows[i]["preco"].ToString(), dt.Rows[i]["quantidade"].ToString());
 
                     barraProgresso.Value = i;
@@ -142,8 +142,9 @@ namespace Facsis.View
             dto.Id = Convert.ToInt32(dgvConsulta.Rows[e.RowIndex].Cells[0].Value);
             dto.Nome = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[1].Value);
             dto.Medida = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[2].Value);
-            dto.Preco = Convert.ToDouble(dgvConsulta.Rows[e.RowIndex].Cells[3].Value);
-            dto.Quantidade = Convert.ToInt32(dgvConsulta.Rows[e.RowIndex].Cells[4].Value);
+            dto.Descricao = dgvConsulta.Rows[e.RowIndex].Cells[3].Value.ToString();
+            dto.Preco = Convert.ToDouble(dgvConsulta.Rows[e.RowIndex].Cells[4].Value);
+            dto.Quantidade = Convert.ToInt32(dgvConsulta.Rows[e.RowIndex].Cells[5].Value);
 
             txtId.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[0].Value);
             txtNome.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[1].Value);

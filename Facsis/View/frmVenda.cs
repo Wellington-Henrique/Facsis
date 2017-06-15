@@ -26,10 +26,6 @@ namespace Facsis.View
             InitializeComponent();
             this.tipo_op = tipo_op;
         }
-        private void rdBtnCancelar_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnAdicinaCliente_Click(object sender, EventArgs e)
         {
@@ -55,7 +51,11 @@ namespace Facsis.View
                 this.Text = "Orçamento";
             }
             else
-                txtNumPedido.Text = (bll.ultimaVenda() + 1 ).ToString();
+            {
+                txtNumPedido.Text = (bll.ultimaVenda() + 1).ToString();
+                txtIdVendedor.Text = LoginDTO.Id.ToString();
+            }
+                
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -118,7 +118,8 @@ namespace Facsis.View
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-            limparDataGrid();
+            if (MessageBox.Show("Deseja realmente limpar o carrinho?", "Venda", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                limparDataGrid();
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
@@ -144,7 +145,13 @@ namespace Facsis.View
                 dto.ItensPedido = dgvCarrinho;
 
                 if (rdCancelar.Checked != true)
+                {
                     bll.registrar(dto);
+                    //FuncoesControles.limpaCampos(panel3);
+                    //dgvCarrinho.Rows.Clear();
+                }
+                    
+                
             }
             else
                 Mensagens.camposVarizos(); 

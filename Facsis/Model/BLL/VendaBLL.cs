@@ -22,12 +22,11 @@ namespace Facsis.Model.BLL
             bd = new AcessoBanco();
             ProdutoBLL p_dto = new ProdutoBLL();
 
-            try
-            {
+            //try
+            //{
                 // Insere dados na tabela produto
-                string cmd = "INSERT INTO venda(" +
-                    "id_usuario, id_pessoa, data_nota, data_pedido, status, forma_pagamento) VALUES ('" +
-                    dto.CodVendedor + "','" + dto.CodCliente + "','" + dto.DataNota + "','" + dto.DataPedido + "','" + dto.Status + "','" + dto.FormaPag + "') returning id_venda";
+                string cmd = "INSERT INTO venda(id_usuario, id_pessoa, data_nota, data_pedido, status, forma_pagamento)" +
+                         "VALUES ('" + dto.CodVendedor + "','" + dto.CodCliente + "','" + dto.DataNota + "','" + dto.DataPedido + "','" + dto.Status + "','" + dto.FormaPag + "') returning id_venda";
 
                 bd.Conectar();
 
@@ -39,29 +38,29 @@ namespace Facsis.Model.BLL
                 {
                     bd.Conectar();
 
-                    cmd = "INSERT INTO itens_pedido(id_venda, id_produto, quantidade, vlr_unitario) VALUES ('" +
-                            id + "','" +
-                            dto.ItensPedido.Rows[i].Cells[0].Value + "','" +
-                            dto.ItensPedido.Rows[i].Cells[3].Value + "','" +
-                            dto.ItensPedido.Rows[i].Cells[4].Value + "')";
+                    cmd = string.Format("INSERT INTO itens_pedido(id_venda, id_produto, quantidade, vlr_unitario) VALUES ('{0}', '{1}', '{2}', '{3}')",
+                            id,
+                            dto.ItensPedido.Rows[i].Cells[0].Value,
+                            dto.ItensPedido.Rows[i].Cells[4].Value,
+                            dto.ItensPedido.Rows[i].Cells[5].Value.ToString().Replace(",", "."));
 
                     bd.ExecutarComandoSql(cmd);
 
                     // Da baixa no item do estoque
-                    p_dto.DarBaixa(dto.ItensPedido.Rows[i].Cells[0].Value.ToString(), dto.ItensPedido.Rows[i].Cells[3].Value.ToString());
+                    p_dto.DarBaixa(dto.ItensPedido.Rows[i].Cells[0].Value.ToString(), dto.ItensPedido.Rows[i].Cells[4].Value.ToString());
                 }
 
 
                 Mensagens.vendaEfetuada();
-            }
-            catch (NpgsqlException)
-            {
-                Mensagens.vendaErro();
-            }
-            finally
-            {
-                bd = null;
-            }
+            //}
+            //catch (NpgsqlException)
+            //{
+            //    Mensagens.vendaErro();
+            //}
+            //finally
+            //{
+            //    bd = null;
+            //}
         }
 
         //======================================================

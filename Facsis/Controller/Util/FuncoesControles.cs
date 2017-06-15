@@ -21,7 +21,7 @@ namespace Facsis.Controller.Util
         {
             foreach (Control item in x.Controls)
             {
-                if (item is TextBox || item is ComboBox || item is MaskedTextBox)
+                if (item is TextBox || item is ComboBox || item is MaskedTextBox && item.Enabled == true)
                 {
                     item.Text = "";
                 }
