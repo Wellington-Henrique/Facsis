@@ -98,7 +98,7 @@
             this.R4.Location = new System.Drawing.Point(0, 0);
             this.R4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.R4.Name = "R4";
-            this.R4.Size = new System.Drawing.Size(725, 563);
+            this.R4.Size = new System.Drawing.Size(725, 562);
             this.R4.TabIndex = 0;
             // 
             // pnlBotoes
@@ -549,7 +549,10 @@
             // 
             // dgvPessoa
             // 
+            this.dgvPessoa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvPessoa.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvPessoa.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.dgvPessoa.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvPessoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPessoa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_pessoa,
@@ -577,62 +580,70 @@
             this.id_pessoa.HeaderText = "Código";
             this.id_pessoa.Name = "id_pessoa";
             this.id_pessoa.ReadOnly = true;
-            this.id_pessoa.Width = 60;
+            this.id_pessoa.Width = 83;
             // 
             // nome_pessoa
             // 
             this.nome_pessoa.HeaderText = "Nome";
             this.nome_pessoa.Name = "nome_pessoa";
             this.nome_pessoa.ReadOnly = true;
+            this.nome_pessoa.Width = 75;
             // 
             // tipo_pessoa
             // 
             this.tipo_pessoa.HeaderText = "Tipo pessoa";
             this.tipo_pessoa.Name = "tipo_pessoa";
             this.tipo_pessoa.ReadOnly = true;
+            this.tipo_pessoa.Width = 105;
             // 
             // cpf_cnpj
             // 
             this.cpf_cnpj.HeaderText = "CPF/CNPJ";
             this.cpf_cnpj.Name = "cpf_cnpj";
             this.cpf_cnpj.ReadOnly = true;
+            this.cpf_cnpj.Width = 97;
             // 
             // email
             // 
             this.email.HeaderText = "Email";
             this.email.Name = "email";
             this.email.ReadOnly = true;
+            this.email.Width = 71;
             // 
             // telefone
             // 
             this.telefone.HeaderText = "Telefone";
             this.telefone.Name = "telefone";
             this.telefone.ReadOnly = true;
+            this.telefone.Width = 92;
             // 
             // endereco
             // 
             this.endereco.HeaderText = "Endereço";
             this.endereco.Name = "endereco";
             this.endereco.ReadOnly = true;
+            this.endereco.Width = 96;
             // 
             // numero_imovel
             // 
             this.numero_imovel.HeaderText = "Nº";
             this.numero_imovel.Name = "numero_imovel";
             this.numero_imovel.ReadOnly = true;
+            this.numero_imovel.Width = 51;
             // 
             // cidade
             // 
             this.cidade.HeaderText = "Cidade";
             this.cidade.Name = "cidade";
             this.cidade.ReadOnly = true;
+            this.cidade.Width = 81;
             // 
             // uf
             // 
             this.uf.HeaderText = "UF";
             this.uf.Name = "uf";
             this.uf.ReadOnly = true;
-            this.uf.Width = 60;
+            this.uf.Width = 51;
             // 
             // contextMenuStrip1
             // 
@@ -653,14 +664,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(725, 573);
+            this.ClientSize = new System.Drawing.Size(725, 562);
             this.Controls.Add(this.R4);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "frmCadPessoa";
-            this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta de pessoa";

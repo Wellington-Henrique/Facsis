@@ -35,9 +35,9 @@
             this.lblDataCompra = new System.Windows.Forms.Label();
             this.lblQtdCompra = new System.Windows.Forms.Label();
             this.txtQtdeCompra = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtUltimaCompra = new System.Windows.Forms.DateTimePicker();
             this.cbLocacao = new System.Windows.Forms.ComboBox();
-            this.txtUltimaCompra = new System.Windows.Forms.Label();
+            this.lblUltimaCompra = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,7 +48,6 @@
             this.lblNivel = new System.Windows.Forms.Label();
             this.lblQtdDisponivel = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.txtPreco = new System.Windows.Forms.TextBox();
             this.txtQtdeDisponivel = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
@@ -66,21 +65,23 @@
             this.preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.locacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.barraProgresso = new System.Windows.Forms.ToolStripProgressBar();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlPesquisa = new System.Windows.Forms.Panel();
             this.btnConsultar = new System.Windows.Forms.Button();
-            this.txtConsulta = new System.Windows.Forms.TextBox();
+            this.txtIdCon = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtNomeCon = new System.Windows.Forms.TextBox();
             this.lblConsultar = new System.Windows.Forms.Label();
             this.pnlBotoes = new System.Windows.Forms.Panel();
+            this.btnAnterior = new System.Windows.Forms.Button();
+            this.btnProximo = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
+            this.txtPreco = new System.Windows.Forms.TextBox();
             this.pnlCadProduto.SuspendLayout();
             this.gbEstoque.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
-            this.statusStrip1.SuspendLayout();
             this.pnlPesquisa.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.SuspendLayout();
@@ -90,9 +91,9 @@
             this.pnlCadProduto.BackColor = System.Drawing.Color.White;
             this.pnlCadProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlCadProduto.Controls.Add(this.gbEstoque);
-            this.pnlCadProduto.Controls.Add(this.dateTimePicker1);
-            this.pnlCadProduto.Controls.Add(this.cbLocacao);
             this.pnlCadProduto.Controls.Add(this.txtUltimaCompra);
+            this.pnlCadProduto.Controls.Add(this.cbLocacao);
+            this.pnlCadProduto.Controls.Add(this.lblUltimaCompra);
             this.pnlCadProduto.Controls.Add(this.label3);
             this.pnlCadProduto.Controls.Add(this.cbStatus);
             this.pnlCadProduto.Controls.Add(this.label2);
@@ -173,21 +174,22 @@
             this.txtQtdeCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.txtQtdeCompra, "Quantidade a ser adicionada ao estoque.");
             // 
-            // dateTimePicker1
+            // txtUltimaCompra
             // 
-            this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(10, 101);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
-            this.dateTimePicker1.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dateTimePicker1.Size = new System.Drawing.Size(98, 27);
-            this.dateTimePicker1.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.dateTimePicker1, "Data da última compra.");
+            this.txtUltimaCompra.Enabled = false;
+            this.txtUltimaCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtUltimaCompra.Location = new System.Drawing.Point(10, 101);
+            this.txtUltimaCompra.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
+            this.txtUltimaCompra.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.txtUltimaCompra.Name = "txtUltimaCompra";
+            this.txtUltimaCompra.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtUltimaCompra.Size = new System.Drawing.Size(98, 27);
+            this.txtUltimaCompra.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.txtUltimaCompra, "Data da última compra.");
             // 
             // cbLocacao
             // 
+            this.cbLocacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLocacao.FormattingEnabled = true;
             this.cbLocacao.Items.AddRange(new object[] {
             "Prateleira 01",
@@ -207,15 +209,15 @@
             this.cbLocacao.TabIndex = 4;
             this.toolTip1.SetToolTip(this.cbLocacao, "Local de armazenamento.");
             // 
-            // txtUltimaCompra
+            // lblUltimaCompra
             // 
-            this.txtUltimaCompra.AutoSize = true;
-            this.txtUltimaCompra.Location = new System.Drawing.Point(6, 76);
-            this.txtUltimaCompra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.txtUltimaCompra.Name = "txtUltimaCompra";
-            this.txtUltimaCompra.Size = new System.Drawing.Size(108, 20);
-            this.txtUltimaCompra.TabIndex = 29;
-            this.txtUltimaCompra.Text = "Última compra";
+            this.lblUltimaCompra.AutoSize = true;
+            this.lblUltimaCompra.Location = new System.Drawing.Point(6, 76);
+            this.lblUltimaCompra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUltimaCompra.Name = "lblUltimaCompra";
+            this.lblUltimaCompra.Size = new System.Drawing.Size(108, 20);
+            this.lblUltimaCompra.TabIndex = 29;
+            this.lblUltimaCompra.Text = "Última compra";
             // 
             // label3
             // 
@@ -229,18 +231,22 @@
             // 
             // cbStatus
             // 
+            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(574, 34);
+            this.cbStatus.Items.AddRange(new object[] {
+            "ATIVO",
+            "INATIVO"});
+            this.cbStatus.Location = new System.Drawing.Point(538, 34);
             this.cbStatus.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(67, 28);
+            this.cbStatus.Size = new System.Drawing.Size(103, 28);
             this.cbStatus.TabIndex = 2;
             this.toolTip1.SetToolTip(this.cbStatus, "Disponibilidade em estoque.");
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(570, 9);
+            this.label2.Location = new System.Drawing.Point(536, 9);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 20);
@@ -249,13 +255,8 @@
             // 
             // cbFornecedor
             // 
+            this.cbFornecedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFornecedor.FormattingEnabled = true;
-            this.cbFornecedor.Items.AddRange(new object[] {
-            "KG",
-            "UN",
-            "M",
-            "CM",
-            "MM"});
             this.cbFornecedor.Location = new System.Drawing.Point(10, 235);
             this.cbFornecedor.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
             this.cbFornecedor.Name = "cbFornecedor";
@@ -330,16 +331,6 @@
             this.lblCodigo.TabIndex = 0;
             this.lblCodigo.Text = "Código";
             // 
-            // txtPreco
-            // 
-            this.txtPreco.Location = new System.Drawing.Point(574, 101);
-            this.txtPreco.Margin = new System.Windows.Forms.Padding(4, 5, 4, 15);
-            this.txtPreco.Name = "txtPreco";
-            this.txtPreco.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtPreco.Size = new System.Drawing.Size(67, 27);
-            this.txtPreco.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.txtPreco, "Preço do produto.");
-            // 
             // txtQtdeDisponivel
             // 
             this.txtQtdeDisponivel.Enabled = false;
@@ -387,7 +378,7 @@
             this.txtNome.Location = new System.Drawing.Point(83, 34);
             this.txtNome.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(477, 27);
+            this.txtNome.Size = new System.Drawing.Size(448, 27);
             this.txtNome.TabIndex = 1;
             this.toolTip1.SetToolTip(this.txtNome, "Nome do produto.");
             // 
@@ -402,7 +393,11 @@
             // 
             // dgvConsulta
             // 
+            this.dgvConsulta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvConsulta.BackgroundColor = System.Drawing.Color.White;
+            this.dgvConsulta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvConsulta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.dgvConsulta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsulta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_produto,
@@ -418,7 +413,9 @@
             this.dgvConsulta.Location = new System.Drawing.Point(10, 426);
             this.dgvConsulta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvConsulta.Name = "dgvConsulta";
-            this.dgvConsulta.Size = new System.Drawing.Size(650, 141);
+            this.dgvConsulta.ReadOnly = true;
+            this.dgvConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvConsulta.Size = new System.Drawing.Size(650, 159);
             this.dgvConsulta.TabIndex = 29;
             this.dgvConsulta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsulta_CellContentClick);
             // 
@@ -426,80 +423,85 @@
             // 
             this.id_produto.HeaderText = "Código";
             this.id_produto.Name = "id_produto";
+            this.id_produto.ReadOnly = true;
+            this.id_produto.Width = 83;
             // 
             // nome
             // 
             this.nome.HeaderText = "Nome";
             this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            this.nome.Width = 75;
             // 
             // fornecedor
             // 
             this.fornecedor.HeaderText = "Fornecedor";
             this.fornecedor.Name = "fornecedor";
+            this.fornecedor.ReadOnly = true;
+            this.fornecedor.Width = 109;
             // 
             // medida
             // 
             this.medida.HeaderText = "Medida";
             this.medida.Name = "medida";
+            this.medida.ReadOnly = true;
+            this.medida.Width = 85;
             // 
             // status
             // 
             this.status.HeaderText = "Status";
             this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Width = 74;
             // 
             // ultima_compra
             // 
             this.ultima_compra.HeaderText = "Última compra";
             this.ultima_compra.Name = "ultima_compra";
+            this.ultima_compra.ReadOnly = true;
+            this.ultima_compra.Width = 133;
             // 
             // descricao
             // 
             this.descricao.HeaderText = "Descricão";
             this.descricao.Name = "descricao";
+            this.descricao.ReadOnly = true;
+            this.descricao.Width = 99;
             // 
             // preco
             // 
             this.preco.HeaderText = "Preço";
             this.preco.Name = "preco";
+            this.preco.ReadOnly = true;
+            this.preco.Width = 71;
             // 
             // quantidade
             // 
             this.quantidade.HeaderText = "Quantidade";
             this.quantidade.Name = "quantidade";
+            this.quantidade.ReadOnly = true;
+            this.quantidade.Width = 112;
             // 
             // locacao
             // 
             this.locacao.HeaderText = "Locação";
             this.locacao.Name = "locacao";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.barraProgresso});
-            this.statusStrip1.Location = new System.Drawing.Point(10, 572);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(650, 22);
-            this.statusStrip1.TabIndex = 30;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // barraProgresso
-            // 
-            this.barraProgresso.Name = "barraProgresso";
-            this.barraProgresso.Size = new System.Drawing.Size(133, 25);
-            this.barraProgresso.Visible = false;
+            this.locacao.ReadOnly = true;
+            this.locacao.Width = 89;
             // 
             // pnlPesquisa
             // 
             this.pnlPesquisa.BackColor = System.Drawing.Color.DimGray;
             this.pnlPesquisa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlPesquisa.Controls.Add(this.btnConsultar);
-            this.pnlPesquisa.Controls.Add(this.txtConsulta);
+            this.pnlPesquisa.Controls.Add(this.txtIdCon);
+            this.pnlPesquisa.Controls.Add(this.label1);
+            this.pnlPesquisa.Controls.Add(this.txtNomeCon);
             this.pnlPesquisa.Controls.Add(this.lblConsultar);
-            this.pnlPesquisa.Location = new System.Drawing.Point(10, 368);
+            this.pnlPesquisa.Location = new System.Drawing.Point(10, 363);
             this.pnlPesquisa.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.pnlPesquisa.Name = "pnlPesquisa";
-            this.pnlPesquisa.Size = new System.Drawing.Size(650, 48);
+            this.pnlPesquisa.Size = new System.Drawing.Size(650, 62);
             this.pnlPesquisa.TabIndex = 32;
             // 
             // btnConsultar
@@ -510,7 +512,7 @@
             this.btnConsultar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnConsultar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultar.Location = new System.Drawing.Point(586, 3);
+            this.btnConsultar.Location = new System.Drawing.Point(586, 18);
             this.btnConsultar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(39, 38);
@@ -519,36 +521,93 @@
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
-            // txtConsulta
+            // txtIdCon
             // 
-            this.txtConsulta.Location = new System.Drawing.Point(164, 10);
-            this.txtConsulta.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
-            this.txtConsulta.Name = "txtConsulta";
-            this.txtConsulta.Size = new System.Drawing.Size(410, 27);
-            this.txtConsulta.TabIndex = 0;
+            this.txtIdCon.Location = new System.Drawing.Point(13, 24);
+            this.txtIdCon.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
+            this.txtIdCon.Name = "txtIdCon";
+            this.txtIdCon.Size = new System.Drawing.Size(80, 27);
+            this.txtIdCon.TabIndex = 0;
+            this.txtIdCon.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(9, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 20);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Código";
+            // 
+            // txtNomeCon
+            // 
+            this.txtNomeCon.Location = new System.Drawing.Point(100, 24);
+            this.txtNomeCon.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
+            this.txtNomeCon.Name = "txtNomeCon";
+            this.txtNomeCon.Size = new System.Drawing.Size(478, 27);
+            this.txtNomeCon.TabIndex = 0;
             // 
             // lblConsultar
             // 
             this.lblConsultar.AutoSize = true;
-            this.lblConsultar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lblConsultar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConsultar.ForeColor = System.Drawing.Color.White;
-            this.lblConsultar.Location = new System.Drawing.Point(14, 12);
+            this.lblConsultar.Location = new System.Drawing.Point(96, 0);
             this.lblConsultar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblConsultar.Name = "lblConsultar";
-            this.lblConsultar.Size = new System.Drawing.Size(137, 21);
+            this.lblConsultar.Size = new System.Drawing.Size(135, 20);
             this.lblConsultar.TabIndex = 35;
-            this.lblConsultar.Text = "Consultar produto";
+            this.lblConsultar.Text = "Nome do produto";
             // 
             // pnlBotoes
             // 
+            this.pnlBotoes.Controls.Add(this.btnAnterior);
+            this.pnlBotoes.Controls.Add(this.btnProximo);
             this.pnlBotoes.Controls.Add(this.btnCancelar);
             this.pnlBotoes.Controls.Add(this.btnExcluir);
             this.pnlBotoes.Controls.Add(this.btnCadastrar);
-            this.pnlBotoes.Location = new System.Drawing.Point(10, 320);
+            this.pnlBotoes.Location = new System.Drawing.Point(10, 315);
             this.pnlBotoes.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.pnlBotoes.Name = "pnlBotoes";
             this.pnlBotoes.Size = new System.Drawing.Size(650, 39);
             this.pnlBotoes.TabIndex = 31;
+            // 
+            // btnAnterior
+            // 
+            this.btnAnterior.BackColor = System.Drawing.Color.DarkGray;
+            this.btnAnterior.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAnterior.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnAnterior.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnAnterior.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnterior.Location = new System.Drawing.Point(234, 0);
+            this.btnAnterior.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(38, 38);
+            this.btnAnterior.TabIndex = 5;
+            this.btnAnterior.Text = "<";
+            this.btnAnterior.UseVisualStyleBackColor = false;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+            // 
+            // btnProximo
+            // 
+            this.btnProximo.BackColor = System.Drawing.Color.DarkGray;
+            this.btnProximo.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnProximo.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnProximo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnProximo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnProximo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProximo.Location = new System.Drawing.Point(282, 0);
+            this.btnProximo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnProximo.Name = "btnProximo";
+            this.btnProximo.Size = new System.Drawing.Size(38, 38);
+            this.btnProximo.TabIndex = 4;
+            this.btnProximo.Text = ">";
+            this.btnProximo.UseVisualStyleBackColor = false;
+            this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
             // 
             // btnCancelar
             // 
@@ -575,7 +634,7 @@
             this.btnExcluir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnExcluir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluir.Location = new System.Drawing.Point(440, 1);
+            this.btnExcluir.Location = new System.Drawing.Point(440, 0);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 38);
@@ -600,15 +659,23 @@
             this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
+            // txtPreco
+            // 
+            this.txtPreco.Location = new System.Drawing.Point(574, 101);
+            this.txtPreco.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
+            this.txtPreco.Name = "txtPreco";
+            this.txtPreco.Size = new System.Drawing.Size(67, 27);
+            this.txtPreco.TabIndex = 2;
+            this.txtPreco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // frmCadProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(670, 594);
+            this.ClientSize = new System.Drawing.Size(670, 600);
             this.Controls.Add(this.pnlPesquisa);
             this.Controls.Add(this.pnlBotoes);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.dgvConsulta);
             this.Controls.Add(this.pnlCadProduto);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -623,13 +690,10 @@
             this.gbEstoque.ResumeLayout(false);
             this.gbEstoque.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).EndInit();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.pnlPesquisa.ResumeLayout(false);
             this.pnlPesquisa.PerformLayout();
             this.pnlBotoes.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -646,27 +710,24 @@
         private System.Windows.Forms.Label lblNivel;
         private System.Windows.Forms.Label lblQtdDisponivel;
         private System.Windows.Forms.Label lblCodigo;
-        private System.Windows.Forms.TextBox txtPreco;
         private System.Windows.Forms.TextBox txtQtdeDisponivel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtDescricao;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label txtUltimaCompra;
+        private System.Windows.Forms.DateTimePicker txtUltimaCompra;
+        private System.Windows.Forms.Label lblUltimaCompra;
         private System.Windows.Forms.DataGridView dgvConsulta;
         private System.Windows.Forms.GroupBox gbEstoque;
         private System.Windows.Forms.DateTimePicker txtDataCompraAtual;
         private System.Windows.Forms.Label lblDataCompra;
         private System.Windows.Forms.Label lblQtdCompra;
         private System.Windows.Forms.TextBox txtQtdeCompra;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripProgressBar barraProgresso;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Panel pnlPesquisa;
         private System.Windows.Forms.Button btnConsultar;
-        private System.Windows.Forms.TextBox txtConsulta;
+        private System.Windows.Forms.TextBox txtNomeCon;
         private System.Windows.Forms.Label lblConsultar;
         private System.Windows.Forms.Panel pnlBotoes;
         private System.Windows.Forms.Button btnCancelar;
@@ -682,5 +743,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn preco;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn locacao;
+        private System.Windows.Forms.Button btnAnterior;
+        private System.Windows.Forms.Button btnProximo;
+        private System.Windows.Forms.TextBox txtIdCon;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtPreco;
     }
 }

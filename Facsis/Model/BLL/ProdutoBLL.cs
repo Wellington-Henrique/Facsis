@@ -26,7 +26,7 @@ namespace Facsis.Model.BLL
                 // Insere dados na tabela produto
                 string cmd = "INSERT INTO produto(" +
                     "nome, fornecedor, medida, status, ultima_compra, descricao, preco) VALUES ('" +
-                    dto.Nome + "','" + dto.Fornecedor + "','" + dto.Medida + "','" + dto.Status + "','" + dto.CompraAtual + "','" + dto.Descricao + "','" + dto.Preco + "') returning id_produto";
+                    dto.Nome + "','" + dto.Fornecedor + "','" + dto.Medida + "','" + dto.Status + "','" + dto.CompraAtual + "','" + dto.Descricao + "','" + dto.Preco.ToString().Replace(",", ".") + "') returning id_produto";
 
                 bd.Conectar();
 

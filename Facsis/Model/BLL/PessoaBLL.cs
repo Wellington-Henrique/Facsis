@@ -126,6 +126,31 @@ namespace Facsis.Model.BLL
             return dt;
         }
 
+        //======================================================
+        //  Seleciona cadastro de fornecedor no banco pelo 
+        //======================================================
+        public DataTable selecionaFornecedor()
+        {
+            DataTable dt = new DataTable();
+            bd = new AcessoBanco();
+
+            try
+            {
+                bd.Conectar();
+                dt = bd.RetDataTable("SELECT nome FROM pessoa WHERE relacao = 'FORNECEDOR'");
+            }
+            catch (Exception)
+            {
+                Mensagens.BuscaErro();
+            }
+            finally
+            {
+                bd = null;
+            }
+
+            return dt;
+        }
+
         public DataTable selecionaPessoa(string nome, string relacao)
         {
             DataTable dt = new DataTable();

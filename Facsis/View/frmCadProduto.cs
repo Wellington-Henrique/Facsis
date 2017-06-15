@@ -12,6 +12,7 @@ namespace Facsis.View
     {
         ProdutoBLL bll = new ProdutoBLL();
         ProdutoDTO dto = new ProdutoDTO();
+        int indice = 0;
 
         public frmCadProduto()
         {
@@ -22,9 +23,11 @@ namespace Facsis.View
         {
             bool invalido = false;
 
+            txtPreco.Text = txtPreco.Text;
+
             try
             {
-                dto.Preco = double.Parse(txtPreco.Text.Trim());
+                dto.Preco = double.Parse(txtPreco.Text);
             }
             catch (Exception)
             {
@@ -33,7 +36,6 @@ namespace Facsis.View
 
                 invalido = true;
             }
-
 
             try
             {
@@ -54,20 +56,22 @@ namespace Facsis.View
                 dto.Medida = cbUnidade.Text;
                 dto.Status = cbStatus.Text;
                 dto.CompraAtual = Convert.ToDateTime((txtDataCompraAtual.Value).ToShortDateString());
-                dto.Descricao = txtDescricao.Text.Trim();
+                dto.Descricao = txtDescricao.Text.Trim().ToUpper();
+                dto.Locacao = cbLocacao.Text;
 
                 if (txtId.Text == "")
                 {
                     bll.Inserir(dto);
-                    //CarregarGrid();
                 }
                 else
                 {
-                    dgvConsulta.Refresh();
                     dto.Id = int.Parse(txtId.Text);
                     bll.Atualizar(dto);
                     btnCadastrar.Text = "Cadastrar";
                 }
+
+                //dgvConsulta.Rows.Clear();
+                //FuncoesControles.limpaCampos(this.pnlCadProduto);
             }
             else
             {
@@ -84,30 +88,23 @@ namespace Facsis.View
             if (txtId.Text != "")
                 btnCadastrar.Text = "Atualizar";
 
-            if (Int32.TryParse(txtConsulta.Text, out id))
+            if (Int32.TryParse(txtNomeCon.Text, out id))
             {
-                dgvConsulta.DataSource = bll.selecionaProduto(Convert.ToInt32(txtConsulta.Text));
+                dgvConsulta.DataSource = bll.selecionaProduto(Convert.ToInt32(txtNomeCon.Text));
             }
             else
             {
-                string nome = txtConsulta.Text;
+                string nome = txtNomeCon.Text;
                 DataTable dt = bll.selecionaProduto(nome.ToUpper().Trim());
-
-                barraProgresso.Visible = true;
 
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
+                    string aux = Convert.ToDateTime(dt.Rows[i]["ultima_compra"].ToString()).ToShortDateString();
+
                     dgvConsulta.Rows.Add(dt.Rows[i]["id_produto"].ToString(), dt.Rows[i]["nome"].ToString(), dt.Rows[i]["fornecedor"].ToString(),
-                                         dt.Rows[i]["medida"].ToString(), dt.Rows[i]["status"].ToString(), dt.Rows[i]["ultima_compra"].ToString(),
-                                         dt.Rows[i]["descricao"].ToString(), dt.Rows[i]["preco"].ToString());
-
-                    barraProgresso.Value = i;
+                                         dt.Rows[i]["medida"].ToString(), dt.Rows[i]["status"].ToString(), aux, dt.Rows[i]["descricao"].ToString(), 
+                                         dt.Rows[i]["preco"].ToString(), dt.Rows[i]["quantidade"].ToString(), dt.Rows[i]["locacao"].ToString());
                 }
-
-                barraProgresso.Visible = false;
-
-                //dgvConsulta = DataGridFuncoes.carregaDV(dt, barraProgresso);
-
             }
         }
 
@@ -118,27 +115,52 @@ namespace Facsis.View
 
         private void frmCadProduto_Load(object sender, EventArgs e)
         {
-            //dgvConsulta.Columns[0].HeaderText = "Código";
-            //dgvConsulta.Columns[1].HeaderText = "Nome";
-            //dgvConsulta.Columns[2].HeaderText = "Fornecedor";
-            //dgvConsulta.Columns[3].HeaderText = "Medida";
-            //dgvConsulta.Columns[4].HeaderText = "Status";
-            //dgvConsulta.Columns[5].HeaderText = "Última compra";
-            //dgvConsulta.Columns[6].HeaderText = "Descrição";
-            //dgvConsulta.Columns[7].HeaderText = "Preço";
-            //dgvConsulta.Columns[8].HeaderText = "Qtde";
-            //dgvConsulta.Columns[9].HeaderText = "Locação";
+            PessoaBLL bll = new PessoaBLL();
+            DataTable dt = bll.selecionaFornecedor();
+
+            // Carrega fornecedores na combobox
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cbFornecedor.Items.Add(dt.Rows[i]["nome"].ToString());
+            }            
         }
 
         private void dgvConsulta_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //txtId.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[0].Value);
-            //txtNome.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[1].Value);
-            //txtEmail.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[2].Value);
-            //txtTelefone.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[3].Value);
-            //cbNivel.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[4].Value);
-            //txtLogin.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[5].Value);
-            //txtSenha.Text = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[6].Value);
+            indice = e.RowIndex;
+            visualizarDadosProduto(indice);
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            if (indice > 0 && dgvConsulta.Rows.Count > 0)
+            {
+                indice--;
+                visualizarDadosProduto(indice);
+            }
+        }
+
+        private void btnProximo_Click(object sender, EventArgs e)
+        {
+            if (indice < dgvConsulta.Rows.Count - 2 && dgvConsulta.Rows.Count > 0)
+            {
+                indice++;
+                visualizarDadosProduto(indice);
+            }
+        }
+
+        public void visualizarDadosProduto(int indice)
+        {
+            txtId.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[0].Value);
+            txtNome.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[1].Value);
+            cbFornecedor.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[2].Value);
+            cbUnidade.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[3].Value);
+            cbStatus.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[4].Value);
+            txtUltimaCompra.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[5].Value);
+            txtDescricao.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[6].Value);
+            txtPreco.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[7].Value);
+            txtQtdeDisponivel.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[8].Value);
+            cbLocacao.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[9].Value);
         }
     }
 }

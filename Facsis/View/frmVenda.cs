@@ -147,11 +147,9 @@ namespace Facsis.View
                 if (rdCancelar.Checked != true)
                 {
                     bll.registrar(dto);
-                    //FuncoesControles.limpaCampos(panel3);
-                    //dgvCarrinho.Rows.Clear();
-                }
-                    
-                
+                    FuncoesControles.limpaCampos(panel3);
+                    dgvCarrinho.Rows.Clear();
+                }                         
             }
             else
                 Mensagens.camposVazios(); 
