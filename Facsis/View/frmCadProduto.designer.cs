@@ -48,6 +48,7 @@
             this.lblNivel = new System.Windows.Forms.Label();
             this.lblQtdDisponivel = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
+            this.txtPreco = new System.Windows.Forms.TextBox();
             this.txtQtdeDisponivel = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
@@ -77,8 +78,7 @@
             this.btnProximo = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnCadastrar = new System.Windows.Forms.Button();
-            this.txtPreco = new System.Windows.Forms.TextBox();
+            this.btnCadastrarAtualizar = new System.Windows.Forms.Button();
             this.pnlCadProduto.SuspendLayout();
             this.gbEstoque.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
@@ -141,7 +141,7 @@
             this.txtDataCompraAtual.Name = "txtDataCompraAtual";
             this.txtDataCompraAtual.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDataCompraAtual.Size = new System.Drawing.Size(128, 27);
-            this.txtDataCompraAtual.TabIndex = 2;
+            this.txtDataCompraAtual.TabIndex = 1;
             this.toolTip1.SetToolTip(this.txtDataCompraAtual, "Data da compra atual.");
             // 
             // lblDataCompra
@@ -170,7 +170,7 @@
             this.txtQtdeCompra.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
             this.txtQtdeCompra.Name = "txtQtdeCompra";
             this.txtQtdeCompra.Size = new System.Drawing.Size(56, 27);
-            this.txtQtdeCompra.TabIndex = 1;
+            this.txtQtdeCompra.TabIndex = 0;
             this.txtQtdeCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.txtQtdeCompra, "Quantidade a ser adicionada ao estoque.");
             // 
@@ -192,15 +192,15 @@
             this.cbLocacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLocacao.FormattingEnabled = true;
             this.cbLocacao.Items.AddRange(new object[] {
-            "Prateleira 01",
-            "Prateleira 02",
-            "Prateleira 03",
-            "Prateleira 04",
-            "Prateleira 05",
-            "Prateleira 06",
-            "Prateleira 07",
-            "Prateleira 08",
-            "Prateleira 09",
+            "Prateleira 1",
+            "Prateleira 2",
+            "Prateleira 3",
+            "Prateleira 4",
+            "Prateleira 5",
+            "Prateleira 6",
+            "Prateleira 7",
+            "Prateleira 8",
+            "Prateleira 9",
             "Prateleira 10"});
             this.cbLocacao.Location = new System.Drawing.Point(125, 100);
             this.cbLocacao.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
@@ -261,7 +261,7 @@
             this.cbFornecedor.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
             this.cbFornecedor.Name = "cbFornecedor";
             this.cbFornecedor.Size = new System.Drawing.Size(446, 28);
-            this.cbFornecedor.TabIndex = 8;
+            this.cbFornecedor.TabIndex = 9;
             this.toolTip1.SetToolTip(this.cbFornecedor, "Fornecedor do produto.");
             // 
             // lblPreco
@@ -298,7 +298,7 @@
             this.cbUnidade.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
             this.cbUnidade.Name = "cbUnidade";
             this.cbUnidade.Size = new System.Drawing.Size(77, 28);
-            this.cbUnidade.TabIndex = 5;
+            this.cbUnidade.TabIndex = 6;
             this.toolTip1.SetToolTip(this.cbUnidade, "Unidade de medida.");
             // 
             // lblNivel
@@ -331,6 +331,15 @@
             this.lblCodigo.TabIndex = 0;
             this.lblCodigo.Text = "Código";
             // 
+            // txtPreco
+            // 
+            this.txtPreco.Location = new System.Drawing.Point(574, 101);
+            this.txtPreco.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
+            this.txtPreco.Name = "txtPreco";
+            this.txtPreco.Size = new System.Drawing.Size(67, 27);
+            this.txtPreco.TabIndex = 7;
+            this.txtPreco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // txtQtdeDisponivel
             // 
             this.txtQtdeDisponivel.Enabled = false;
@@ -338,7 +347,7 @@
             this.txtQtdeDisponivel.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
             this.txtQtdeDisponivel.Name = "txtQtdeDisponivel";
             this.txtQtdeDisponivel.Size = new System.Drawing.Size(56, 27);
-            this.txtQtdeDisponivel.TabIndex = 2;
+            this.txtQtdeDisponivel.TabIndex = 5;
             this.txtQtdeDisponivel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.txtQtdeDisponivel, "Quantidade disponível em estoque.");
             // 
@@ -388,7 +397,7 @@
             this.txtDescricao.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(446, 27);
-            this.txtDescricao.TabIndex = 7;
+            this.txtDescricao.TabIndex = 8;
             this.toolTip1.SetToolTip(this.txtDescricao, "Descrição do produto.");
             // 
             // dgvConsulta
@@ -414,9 +423,10 @@
             this.dgvConsulta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvConsulta.Name = "dgvConsulta";
             this.dgvConsulta.ReadOnly = true;
+            this.dgvConsulta.RowHeadersVisible = false;
             this.dgvConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvConsulta.Size = new System.Drawing.Size(650, 159);
-            this.dgvConsulta.TabIndex = 29;
+            this.dgvConsulta.TabIndex = 3;
             this.dgvConsulta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsulta_CellContentClick);
             // 
             // id_produto
@@ -502,7 +512,7 @@
             this.pnlPesquisa.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.pnlPesquisa.Name = "pnlPesquisa";
             this.pnlPesquisa.Size = new System.Drawing.Size(650, 62);
-            this.pnlPesquisa.TabIndex = 32;
+            this.pnlPesquisa.TabIndex = 2;
             // 
             // btnConsultar
             // 
@@ -516,7 +526,7 @@
             this.btnConsultar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(39, 38);
-            this.btnConsultar.TabIndex = 1;
+            this.btnConsultar.TabIndex = 2;
             this.btnConsultar.Text = ">";
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
@@ -548,7 +558,7 @@
             this.txtNomeCon.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
             this.txtNomeCon.Name = "txtNomeCon";
             this.txtNomeCon.Size = new System.Drawing.Size(478, 27);
-            this.txtNomeCon.TabIndex = 0;
+            this.txtNomeCon.TabIndex = 1;
             // 
             // lblConsultar
             // 
@@ -568,12 +578,12 @@
             this.pnlBotoes.Controls.Add(this.btnProximo);
             this.pnlBotoes.Controls.Add(this.btnCancelar);
             this.pnlBotoes.Controls.Add(this.btnExcluir);
-            this.pnlBotoes.Controls.Add(this.btnCadastrar);
+            this.pnlBotoes.Controls.Add(this.btnCadastrarAtualizar);
             this.pnlBotoes.Location = new System.Drawing.Point(10, 315);
             this.pnlBotoes.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.pnlBotoes.Name = "pnlBotoes";
             this.pnlBotoes.Size = new System.Drawing.Size(650, 39);
-            this.pnlBotoes.TabIndex = 31;
+            this.pnlBotoes.TabIndex = 1;
             // 
             // btnAnterior
             // 
@@ -587,7 +597,7 @@
             this.btnAnterior.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(38, 38);
-            this.btnAnterior.TabIndex = 5;
+            this.btnAnterior.TabIndex = 3;
             this.btnAnterior.Text = "<";
             this.btnAnterior.UseVisualStyleBackColor = false;
             this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
@@ -621,7 +631,7 @@
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 38);
-            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
@@ -638,35 +648,27 @@
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 38);
-            this.btnExcluir.TabIndex = 2;
+            this.btnExcluir.TabIndex = 1;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
-            // btnCadastrar
+            // btnCadastrarAtualizar
             // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.DarkGray;
-            this.btnCadastrar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnCadastrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.btnCadastrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnCadastrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrar.Location = new System.Drawing.Point(330, 0);
-            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(100, 38);
-            this.btnCadastrar.TabIndex = 0;
-            this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = false;
-            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
-            // 
-            // txtPreco
-            // 
-            this.txtPreco.Location = new System.Drawing.Point(574, 101);
-            this.txtPreco.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
-            this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(67, 27);
-            this.txtPreco.TabIndex = 2;
-            this.txtPreco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnCadastrarAtualizar.BackColor = System.Drawing.Color.DarkGray;
+            this.btnCadastrarAtualizar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCadastrarAtualizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnCadastrarAtualizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnCadastrarAtualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnCadastrarAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrarAtualizar.Location = new System.Drawing.Point(330, 0);
+            this.btnCadastrarAtualizar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnCadastrarAtualizar.Name = "btnCadastrarAtualizar";
+            this.btnCadastrarAtualizar.Size = new System.Drawing.Size(100, 38);
+            this.btnCadastrarAtualizar.TabIndex = 0;
+            this.btnCadastrarAtualizar.Text = "Cadastrar";
+            this.btnCadastrarAtualizar.UseVisualStyleBackColor = false;
+            this.btnCadastrarAtualizar.Click += new System.EventHandler(this.btnCadastrarAtualizar_Click);
             // 
             // frmCadProduto
             // 
@@ -732,7 +734,7 @@
         private System.Windows.Forms.Panel pnlBotoes;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Button btnCadastrarAtualizar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn fornecedor;

@@ -25,8 +25,8 @@ namespace Facsis
             //        Application.Run(new mdiPrincipal());
             //}
 
-
             Application.Run(new frmConProduto());
         }
     }
 }
+

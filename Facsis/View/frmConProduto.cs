@@ -30,95 +30,9 @@ namespace Facsis.View
             txtTotal = vlrBruto;
         }
 
-        private void btnCadastrar_Click(object sender, EventArgs e)
-        {
-            int quantidade = 0;
-            int auxQuantidade = 0;
-            int indiceCarrinho = 0;
-            bool noCarrinho = false;
-            total = 0;
-
-            // Verifica se a quantidade é um valor inteiro
-            if (int.TryParse(txtQuantidade.Text, out quantidade) && txtId.Text != "")
-            {
-                quantidade = int.Parse(txtQuantidade.Text);
-                string consultaCarrinho = "";
-                
-                // Verifica se o produto já está no carrinho
-                for (int i = 0; i < dgvCarrinho.Rows.Count; i++)
-                {
-                    consultaCarrinho = Convert.ToString(dgvCarrinho.Rows[i].Cells[0].Value);
-
-                    if (txtId.Text == consultaCarrinho)
-                    {
-                        indiceCarrinho = i;
-                        auxQuantidade = Convert.ToInt32(dgvCarrinho.Rows[indiceCarrinho].Cells[4].Value);
-                        noCarrinho = true;
-                        break;
-                    }
-                }
-
-                quantidade += auxQuantidade;
-                // verifica se existe a quantidade necessária no estoque
-                if (dto.Quantidade >= quantidade)
-                {                    
-                    // Adiciona ao carrinho caso tenha sido adicionado
-                    if (noCarrinho == false)
-                        dgvCarrinho.Rows.Add(dto.Id, dto.Nome, dto.Descricao, dto.Medida, quantidade, dto.Preco, quantidade * dto.Preco);
-
-                    else
-                    {
-                        dgvCarrinho.Rows[indiceCarrinho].Cells[4].Value = quantidade.ToString();
-                        dgvCarrinho.Rows[indiceCarrinho].Cells[6].Value = quantidade * dto.Preco;
-                    }
-
-                    // Calcula o total do carrinho
-                    for (int i = 0; i < dgvCarrinho.Rows.Count; i++)
-                    {
-                        total += Convert.ToDouble(dgvCarrinho.Rows[i].Cells[6].Value);
-                    }
-
-                    txtTotal.Text = string.Format("{0:N2}", total);
-                }
-                else
-                    MessageBox.Show("Quantidade insuficiente no estoque.", "Inserir", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            }
-            else
-                MessageBox.Show("Informe uma quantidade válida maior que zero!", "Inserir", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-        private void CarregarGrid()
-        {
-            int id;
-            dgvConsulta.Rows.Clear();
-
-            if (txtId.Text != "")
-                btnInserir.Text = "Atualizar";
-
-            if (Int32.TryParse(txtConsulta.Text, out id))
-            {
-                dgvConsulta.DataSource = bll.selecionaProduto(Convert.ToInt32(txtConsulta.Text));
-            }
-            else
-            {
-                string nome = txtConsulta.Text;
-                DataTable dt = bll.selecionaProduto(nome.ToUpper().Trim());
-
-                barraProgresso.Visible = true;
-
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    dgvConsulta.Rows.Add(dt.Rows[i]["id_produto"].ToString(), dt.Rows[i]["nome"].ToString(), dt.Rows[i]["descricao"].ToString(),
-                                         dt.Rows[i]["medida"].ToString(), dt.Rows[i]["preco"].ToString(), dt.Rows[i]["quantidade"].ToString());
-
-                    barraProgresso.Value = i;
-                }
-
-                barraProgresso.Visible = false;
-            }
-        }
-
+        // ==========================================================================================
+        // SELECT
+        // ==========================================================================================
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             CarregarGrid();
@@ -141,6 +55,9 @@ namespace Facsis.View
             this.Close();
         }
 
+        // ==========================================================================================
+        // Botões de navegação
+        // ==========================================================================================
         private void btnAnterior_Click(object sender, EventArgs e)
         {
             if (indice > 0 && dgvConsulta.Rows.Count > 0)
@@ -156,6 +73,44 @@ namespace Facsis.View
             {
                 indice++;
                 visualizarDadosProduto(indice);
+            }
+        }
+
+
+        // ==========================================================================================
+        // DataGridView
+        // ==========================================================================================
+        private void CarregarGrid()
+        {
+            int id;
+            DataTable dt = new DataTable();
+            dgvConsulta.Rows.Clear();
+
+            if (txtId.Text != "")
+                btnInserir.Text = "Atualizar";
+
+            if (Int32.TryParse(txtIdCon.Text, out id))
+            {
+                dt = bll.selecionaProduto(Convert.ToInt32(txtIdCon.Text), "Venda");
+                auxCarregarGrid(dt);
+            }
+            else
+            {
+                dt = bll.selecionaProduto(txtNomeCon.Text.ToUpper().Trim(), "Venda");
+                auxCarregarGrid(dt);
+            }
+        }
+
+        public void auxCarregarGrid(DataTable dt)
+        {
+            dgvConsulta.Rows.Clear();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string aux = Convert.ToDateTime(dt.Rows[i]["ultima_compra"].ToString()).ToShortDateString();
+
+                dgvConsulta.Rows.Add(dt.Rows[i]["id_produto"].ToString(), dt.Rows[i]["nome"].ToString(), dt.Rows[i]["descricao"].ToString(),
+                                         dt.Rows[i]["medida"].ToString(), dt.Rows[i]["preco"].ToString(), dt.Rows[i]["quantidade"].ToString());
             }
         }
 

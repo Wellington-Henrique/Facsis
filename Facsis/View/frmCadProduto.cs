@@ -19,11 +19,12 @@ namespace Facsis.View
             InitializeComponent();
         }
 
-        private void btnCadastrar_Click(object sender, EventArgs e)
+        // ==========================================================================================
+        // SELECT, INSERT, UPDATE, DELETE
+        // ==========================================================================================
+        private void btnCadastrarAtualizar_Click(object sender, EventArgs e)
         {
             bool invalido = false;
-
-            txtPreco.Text = txtPreco.Text;
 
             try
             {
@@ -39,7 +40,7 @@ namespace Facsis.View
 
             try
             {
-                dto.Quantidade = int.Parse(txtQtdeCompra.Text);
+                dto.Quantidade = txtQtdeCompra.Text == "" ? 0 : int.Parse(txtQtdeCompra.Text);
             }
             catch (Exception)
             {
@@ -67,11 +68,12 @@ namespace Facsis.View
                 {
                     dto.Id = int.Parse(txtId.Text);
                     bll.Atualizar(dto);
-                    btnCadastrar.Text = "Cadastrar";
+                    btnCadastrarAtualizar.Text = "Cadastrar";
                 }
 
-                //dgvConsulta.Rows.Clear();
-                //FuncoesControles.limpaCampos(this.pnlCadProduto);
+                dgvConsulta.Rows.Clear();
+                FuncoesControles.limpaCampos(this.pnlCadProduto);
+                txtNome.Focus();
             }
             else
             {
@@ -80,57 +82,22 @@ namespace Facsis.View
             
         }
 
-        private void CarregarGrid()
-        {
-            int id;
-            dgvConsulta.Rows.Clear();
-
-            if (txtId.Text != "")
-                btnCadastrar.Text = "Atualizar";
-
-            if (Int32.TryParse(txtNomeCon.Text, out id))
-            {
-                dgvConsulta.DataSource = bll.selecionaProduto(Convert.ToInt32(txtNomeCon.Text));
-            }
-            else
-            {
-                string nome = txtNomeCon.Text;
-                DataTable dt = bll.selecionaProduto(nome.ToUpper().Trim());
-
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    string aux = Convert.ToDateTime(dt.Rows[i]["ultima_compra"].ToString()).ToShortDateString();
-
-                    dgvConsulta.Rows.Add(dt.Rows[i]["id_produto"].ToString(), dt.Rows[i]["nome"].ToString(), dt.Rows[i]["fornecedor"].ToString(),
-                                         dt.Rows[i]["medida"].ToString(), dt.Rows[i]["status"].ToString(), aux, dt.Rows[i]["descricao"].ToString(), 
-                                         dt.Rows[i]["preco"].ToString(), dt.Rows[i]["quantidade"].ToString(), dt.Rows[i]["locacao"].ToString());
-                }
-            }
-        }
-
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             CarregarGrid();
         }
 
-        private void frmCadProduto_Load(object sender, EventArgs e)
+        private void btnExcluir_Click(object sender, EventArgs e)
         {
-            PessoaBLL bll = new PessoaBLL();
-            DataTable dt = bll.selecionaFornecedor();
-
-            // Carrega fornecedores na combobox
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                cbFornecedor.Items.Add(dt.Rows[i]["nome"].ToString());
-            }            
+            bll.Excluir(txtId.Text);
+            FuncoesControles.limpaCampos(this.pnlCadProduto);
+            btnExcluir.Enabled = false;
+            btnCadastrarAtualizar.Text = "Cadastrar";
         }
 
-        private void dgvConsulta_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            indice = e.RowIndex;
-            visualizarDadosProduto(indice);
-        }
-
+        // ==========================================================================================
+        // Botões de navegação
+        // ==========================================================================================
         private void btnAnterior_Click(object sender, EventArgs e)
         {
             if (indice > 0 && dgvConsulta.Rows.Count > 0)
@@ -149,18 +116,84 @@ namespace Facsis.View
             }
         }
 
+        // ==========================================================================================
+        // DataGridView
+        // ==========================================================================================
+        private void dgvConsulta_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                indice = e.RowIndex;
+                visualizarDadosProduto(indice);
+            }
+        }
+
+        private void CarregarGrid()
+        {
+            int id;
+            DataTable dt = new DataTable();
+
+            dgvConsulta.Refresh();
+
+            if (txtId.Text != "")
+                btnCadastrarAtualizar.Text = "Atualizar";                 
+
+            if (int.TryParse(txtIdCon.Text, out id))
+            {
+                dt = bll.selecionaProduto(id, "");
+                auxCarregarGrid(dt);
+            }
+            else
+            {
+                dt = bll.selecionaProduto(txtNomeCon.Text.ToUpper().Trim(), "");
+                auxCarregarGrid(dt);
+            }
+        }
+
+        public void auxCarregarGrid(DataTable dt)
+        {
+            dgvConsulta.Rows.Clear();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string aux = Convert.ToDateTime(dt.Rows[i]["ultima_compra"].ToString()).ToShortDateString();
+
+                dgvConsulta.Rows.Add(dt.Rows[i]["id_produto"].ToString(), dt.Rows[i]["nome"].ToString(), dt.Rows[i]["fornecedor"].ToString(),
+                                     dt.Rows[i]["medida"].ToString(), dt.Rows[i]["status"].ToString(), aux, dt.Rows[i]["descricao"].ToString(),
+                                     dt.Rows[i]["preco"].ToString(), dt.Rows[i]["quantidade"].ToString(), dt.Rows[i]["locacao"].ToString());
+            }
+        }
+
         public void visualizarDadosProduto(int indice)
         {
-            txtId.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[0].Value);
-            txtNome.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[1].Value);
-            cbFornecedor.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[2].Value);
-            cbUnidade.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[3].Value);
-            cbStatus.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[4].Value);
-            txtUltimaCompra.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[5].Value);
-            txtDescricao.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[6].Value);
-            txtPreco.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[7].Value);
-            txtQtdeDisponivel.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[8].Value);
-            cbLocacao.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[9].Value);
+            txtId.Text =dgvConsulta.Rows[indice].Cells[0].Value.ToString();
+            txtNome.Text = dgvConsulta.Rows[indice].Cells[1].Value.ToString();
+            cbFornecedor.Text = dgvConsulta.Rows[indice].Cells[2].Value.ToString();
+            cbUnidade.Text = dgvConsulta.Rows[indice].Cells[3].Value.ToString();
+            cbStatus.Text = dgvConsulta.Rows[indice].Cells[4].Value.ToString();
+            txtUltimaCompra.Text = dgvConsulta.Rows[indice].Cells[5].Value.ToString();
+            txtDescricao.Text = dgvConsulta.Rows[indice].Cells[6].Value.ToString();
+            txtPreco.Text = dgvConsulta.Rows[indice].Cells[7].Value.ToString();
+            txtQtdeDisponivel.Text = dgvConsulta.Rows[indice].Cells[8].Value.ToString();
+            cbLocacao.Text = dgvConsulta.Rows[indice].Cells[9].Value.ToString();
+           
+            btnCadastrarAtualizar.Text = "Atualizar";
+            btnExcluir.Enabled = true;
+        }
+
+        // ==========================================================================================
+        // Inicialização do UserForm
+        // ==========================================================================================
+        private void frmCadProduto_Load(object sender, EventArgs e)
+        {
+            PessoaBLL bll = new PessoaBLL();
+            DataTable dt = bll.selecionaFornecedor();
+
+            // Carrega fornecedores na combobox
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cbFornecedor.Items.Add(dt.Rows[i]["nome"].ToString());
+            }
         }
     }
 }

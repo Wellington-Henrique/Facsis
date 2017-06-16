@@ -14,9 +14,9 @@ namespace Facsis.Model.BLL
     {
         AcessoBanco bd;
 
-        //======================================================
-        //  Solicita cadastro no banco
-        //======================================================
+        // ==========================================================================================
+        // SELECT, INSERT, UPDATE, DELETE
+        // ==========================================================================================
         public void Inserir(ProdutoDTO dto)
         {
             bd = new AcessoBanco();
@@ -48,9 +48,6 @@ namespace Facsis.Model.BLL
             }
         }
 
-        //======================================================
-        //  Solicita baixa no banco
-        //======================================================
         public void DarBaixa(string id, string quantidade)
         {
             bd = new AcessoBanco();
@@ -71,22 +68,19 @@ namespace Facsis.Model.BLL
             }
         }
 
-        //======================================================
-        //  Solicita atualização do cadastro no banco
-        //======================================================
         public void Atualizar(ProdutoDTO dto)
         {
             bd = new AcessoBanco();
 
             try
             {
-                string cmd = string.Format("produto usuario SET nome = '{0}', fornecedor = '{1}', medida = '{2}', status = '{3}', ultima_compra = '{4}' descricao = '{5}', preco = '{6}' WHERE id_produto = '{4}'", dto.Nome, dto.Fornecedor, dto.Medida, dto.Status, dto.CompraAtual, dto.Descricao, dto.Preco, dto.Id);
+                string cmd = string.Format("UPDATE produto SET nome = '{0}', fornecedor = '{1}', medida = '{2}', status = '{3}', ultima_compra = '{4}', descricao = '{5}', preco = '{6}' WHERE id_produto = '{7}'", dto.Nome, dto.Fornecedor, dto.Medida, dto.Status, dto.CompraAtual, dto.Descricao, dto.Preco.ToString().Replace(",", "."), dto.Id);
 
                 bd.Conectar();
                 bd.ExecutarComandoSql(cmd);
 
                 bd.Conectar();
-                cmd = string.Format("UPDATE estoque SET quantidade = '{0}', locacao = '{1}' WHERE id_produto = '{4}'", dto.Quantidade, dto.Locacao, dto.Id);
+                cmd = string.Format("UPDATE estoque SET quantidade = quantidade + '{0}', locacao = '{1}' WHERE id_produto = '{2}'", dto.Quantidade, dto.Locacao, dto.Id);
                 bd.ExecutarComandoSql(cmd);
                 Mensagens.cadastroAlterar();
             }
@@ -100,9 +94,6 @@ namespace Facsis.Model.BLL
             }
         }
 
-        //======================================================
-        //  Solicita exclusão do cadastro no banco
-        //======================================================
         public void Excluir(string id)
         {
             bd = new AcessoBanco();
@@ -129,18 +120,20 @@ namespace Facsis.Model.BLL
             }
         }
 
-        //======================================================
-        //  Seleciona cadastro no banco pelo nome do usuário
-        //======================================================
-        public DataTable selecionaProduto(string nome)
+        public DataTable selecionaProduto(string nome, string tipoConsulta)
         {
             DataTable dt = new DataTable();
             bd = new AcessoBanco();
 
             try
             {
+                string cmd = "SELECT * FROM produto p JOIN estoque e on p.id_produto = e.id_produto and p.nome = '" + nome + "'";
+
+                if (tipoConsulta == "Venda")
+                    cmd += " and p.status = 'ATIVO'";
+
                 bd.Conectar();
-                dt = bd.RetDataTable("SELECT * FROM produto u JOIN estoque a on u.id_produto = a.id_produto and u.nome = '" + nome + "'");
+                dt = bd.RetDataTable(cmd);
             }
             catch (NpgsqlException)
             {
@@ -154,18 +147,20 @@ namespace Facsis.Model.BLL
             return dt;
         }
 
-        //======================================================
-        //  Seleciona cadastro no banco pelo id do usuário
-        //======================================================
-        public DataTable selecionaProduto(int id)
+        public DataTable selecionaProduto(int id, string tipoConsulta)
         {
             DataTable dt = new DataTable();
             bd = new AcessoBanco();
 
             try
             {
+                string cmd = "SELECT * FROM produto p JOIN estoque e on p.id_produto = e.id_produto and p.id_produto = '" + id + "'";
+
+                if (tipoConsulta == "Venda")
+                    cmd += " and p.status = 'ATIVO'";
+
                 bd.Conectar();
-                dt = bd.RetDataTable(string.Format("SELECT * FROM produto u JOIN estoque a on u.id_produto = a.id_produto and u.id_produto = '" + id + "'"));
+                dt = bd.RetDataTable(cmd);
             }
             catch (NpgsqlException)
             {
