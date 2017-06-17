@@ -10,7 +10,9 @@ namespace Facsis.Model.DAL
         AcessoBanco bd;
         DataTable dt;
 
-        // Verifica acesso do usuário e retorna as informações se válido.
+        // ==========================================================================================
+        // SELECT
+        // ==========================================================================================
         public DataTable selecionaDadosUsuario(string login, string senha)
         {
             dt = new DataTable();

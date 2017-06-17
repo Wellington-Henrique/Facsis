@@ -14,9 +14,9 @@ namespace Facsis.Model.BLL
     {
         AcessoBanco bd;
 
-        //======================================================
-        //  Solicita cadastro no banco
-        //======================================================
+        // ==========================================================================================
+        // SELECT, INSERT, UPDATE, DELETE
+        // ==========================================================================================
         public void Inserir(UsuarioDTO dto)
         {
             bd = new AcessoBanco();
@@ -50,9 +50,6 @@ namespace Facsis.Model.BLL
             }
         }
 
-        //======================================================
-        //  Solicita atualização do cadastro no banco
-        //======================================================
         public void Atualizar(UsuarioDTO dto)
         {
             bd = new AcessoBanco();
@@ -81,9 +78,6 @@ namespace Facsis.Model.BLL
             }
         }
 
-        //======================================================
-        //  Solicita exclusão do cadastro no banco
-        //======================================================
         public void Excluir(string id)
         {
             bd = new AcessoBanco();
@@ -110,9 +104,6 @@ namespace Facsis.Model.BLL
             }
         }
 
-        //======================================================
-        //  Seleciona cadastro no banco pelo nome do usuário
-        //======================================================
         public DataTable selecionaUsuario(string nome)
         {
             DataTable dt = new DataTable();
@@ -135,9 +126,6 @@ namespace Facsis.Model.BLL
             return dt;
         }
 
-        //======================================================
-        //  Seleciona cadastro no banco pelo id do usuário
-        //======================================================
         public DataTable selecionaUsuario(int id)
         {
             DataTable dt = new DataTable();

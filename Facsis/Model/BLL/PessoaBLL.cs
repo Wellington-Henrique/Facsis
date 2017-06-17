@@ -15,9 +15,9 @@ namespace Facsis.Model.BLL
     {
         AcessoBanco bd;
 
-        //======================================================
-        //  Solicita cadastro no banco
-        //======================================================
+        // ==========================================================================================
+        // SELECT, INSERT, UPDATE, DELETE
+        // ==========================================================================================
         public void Inserir(PessoaDTO dto)
         {
             bd = new AcessoBanco();
@@ -46,9 +46,6 @@ namespace Facsis.Model.BLL
             }
         }
 
-        //======================================================
-        //  Solicita atualização do cadastro no banco
-        //======================================================
         public void Atualizar(PessoaDTO dto)
         {
             bd = new AcessoBanco();
@@ -76,9 +73,6 @@ namespace Facsis.Model.BLL
             }
         }
 
-        //======================================================
-        //  Solicita exclusão do cadastro no banco
-        //======================================================
         public void Excluir(string id)
         {
 
@@ -101,9 +95,6 @@ namespace Facsis.Model.BLL
             }
         }
 
-        //======================================================
-        //  Seleciona cadastro no banco pelo  e código, nome e cpf/cnp da pessoa
-        //======================================================
         public DataTable selecionaPessoa(PessoaDTO dto, string relacao)
         {
             DataTable dt = new DataTable();
@@ -126,9 +117,6 @@ namespace Facsis.Model.BLL
             return dt;
         }
 
-        //======================================================
-        //  Seleciona cadastro de fornecedor no banco pelo 
-        //======================================================
         public DataTable selecionaFornecedor()
         {
             DataTable dt = new DataTable();

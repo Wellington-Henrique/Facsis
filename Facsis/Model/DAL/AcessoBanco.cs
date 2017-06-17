@@ -19,6 +19,9 @@ namespace Facsis.Model.DAL
         private String password = "postgres";
         private String database = "dbfacsis";
 
+        // ==========================================================================================
+        // Conexão com banco
+        // ==========================================================================================
         public void Conectar()
         {
             string connStr = String.Format("server = {0}; user = {1}; password = {2}; database = {3}; pooling = false", server, user, password, database);
@@ -63,14 +66,6 @@ namespace Facsis.Model.DAL
             da.Fill(data);
 
             return data;
-        }
-
-        public NpgsqlDataReader RetDataReader(string sql)
-        {
-            NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
-            NpgsqlDataReader dr = cmd.ExecuteReader();
-            dr.Read();
-            return dr;
         }
     }
 }
