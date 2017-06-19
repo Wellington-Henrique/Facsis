@@ -67,18 +67,18 @@
             this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.locacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pnlPesquisa = new System.Windows.Forms.Panel();
-            this.btnConsultar = new System.Windows.Forms.Button();
             this.txtIdCon = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtNomeCon = new System.Windows.Forms.TextBox();
-            this.lblConsultar = new System.Windows.Forms.Label();
-            this.pnlBotoes = new System.Windows.Forms.Panel();
             this.btnAnterior = new System.Windows.Forms.Button();
             this.btnProximo = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnCadastrarAtualizar = new System.Windows.Forms.Button();
+            this.pnlPesquisa = new System.Windows.Forms.Panel();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblConsultar = new System.Windows.Forms.Label();
+            this.pnlBotoes = new System.Windows.Forms.Panel();
             this.pnlCadProduto.SuspendLayout();
             this.gbEstoque.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
@@ -89,7 +89,7 @@
             // pnlCadProduto
             // 
             this.pnlCadProduto.BackColor = System.Drawing.Color.White;
-            this.pnlCadProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlCadProduto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlCadProduto.Controls.Add(this.gbEstoque);
             this.pnlCadProduto.Controls.Add(this.txtUltimaCompra);
             this.pnlCadProduto.Controls.Add(this.cbLocacao);
@@ -406,7 +406,6 @@
             this.dgvConsulta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvConsulta.BackgroundColor = System.Drawing.Color.White;
             this.dgvConsulta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvConsulta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvConsulta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsulta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -501,38 +500,6 @@
             this.locacao.ReadOnly = true;
             this.locacao.Width = 89;
             // 
-            // pnlPesquisa
-            // 
-            this.pnlPesquisa.BackColor = System.Drawing.Color.DimGray;
-            this.pnlPesquisa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlPesquisa.Controls.Add(this.btnConsultar);
-            this.pnlPesquisa.Controls.Add(this.txtIdCon);
-            this.pnlPesquisa.Controls.Add(this.label1);
-            this.pnlPesquisa.Controls.Add(this.txtNomeCon);
-            this.pnlPesquisa.Controls.Add(this.lblConsultar);
-            this.pnlPesquisa.Location = new System.Drawing.Point(10, 363);
-            this.pnlPesquisa.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
-            this.pnlPesquisa.Name = "pnlPesquisa";
-            this.pnlPesquisa.Size = new System.Drawing.Size(650, 62);
-            this.pnlPesquisa.TabIndex = 2;
-            // 
-            // btnConsultar
-            // 
-            this.btnConsultar.BackColor = System.Drawing.Color.DarkGray;
-            this.btnConsultar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnConsultar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.btnConsultar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnConsultar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultar.Location = new System.Drawing.Point(586, 18);
-            this.btnConsultar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(39, 38);
-            this.btnConsultar.TabIndex = 2;
-            this.btnConsultar.Text = ">";
-            this.btnConsultar.UseVisualStyleBackColor = false;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
-            // 
             // txtIdCon
             // 
             this.txtIdCon.Location = new System.Drawing.Point(13, 24);
@@ -543,18 +510,6 @@
             this.txtIdCon.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.txtIdCon, "Informe o código para consulta.");
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(9, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 20);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "Código";
-            // 
             // txtNomeCon
             // 
             this.txtNomeCon.Location = new System.Drawing.Point(100, 24);
@@ -563,31 +518,6 @@
             this.txtNomeCon.Size = new System.Drawing.Size(478, 27);
             this.txtNomeCon.TabIndex = 1;
             this.toolTip1.SetToolTip(this.txtNomeCon, "Informe o nome para consulta.");
-            // 
-            // lblConsultar
-            // 
-            this.lblConsultar.AutoSize = true;
-            this.lblConsultar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConsultar.ForeColor = System.Drawing.Color.White;
-            this.lblConsultar.Location = new System.Drawing.Point(96, 0);
-            this.lblConsultar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblConsultar.Name = "lblConsultar";
-            this.lblConsultar.Size = new System.Drawing.Size(135, 20);
-            this.lblConsultar.TabIndex = 35;
-            this.lblConsultar.Text = "Nome do produto";
-            // 
-            // pnlBotoes
-            // 
-            this.pnlBotoes.Controls.Add(this.btnAnterior);
-            this.pnlBotoes.Controls.Add(this.btnProximo);
-            this.pnlBotoes.Controls.Add(this.btnCancelar);
-            this.pnlBotoes.Controls.Add(this.btnExcluir);
-            this.pnlBotoes.Controls.Add(this.btnCadastrarAtualizar);
-            this.pnlBotoes.Location = new System.Drawing.Point(10, 315);
-            this.pnlBotoes.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
-            this.pnlBotoes.Name = "pnlBotoes";
-            this.pnlBotoes.Size = new System.Drawing.Size(650, 39);
-            this.pnlBotoes.TabIndex = 1;
             // 
             // btnAnterior
             // 
@@ -678,6 +608,75 @@
             this.toolTip1.SetToolTip(this.btnCadastrarAtualizar, "Clique aqui para efetuar o cadastro.");
             this.btnCadastrarAtualizar.UseVisualStyleBackColor = false;
             this.btnCadastrarAtualizar.Click += new System.EventHandler(this.btnCadastrarAtualizar_Click);
+            // 
+            // pnlPesquisa
+            // 
+            this.pnlPesquisa.BackColor = System.Drawing.Color.DimGray;
+            this.pnlPesquisa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlPesquisa.Controls.Add(this.btnConsultar);
+            this.pnlPesquisa.Controls.Add(this.txtIdCon);
+            this.pnlPesquisa.Controls.Add(this.label1);
+            this.pnlPesquisa.Controls.Add(this.txtNomeCon);
+            this.pnlPesquisa.Controls.Add(this.lblConsultar);
+            this.pnlPesquisa.Location = new System.Drawing.Point(10, 363);
+            this.pnlPesquisa.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
+            this.pnlPesquisa.Name = "pnlPesquisa";
+            this.pnlPesquisa.Size = new System.Drawing.Size(650, 62);
+            this.pnlPesquisa.TabIndex = 2;
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.BackColor = System.Drawing.Color.DarkGray;
+            this.btnConsultar.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnConsultar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnConsultar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnConsultar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultar.Location = new System.Drawing.Point(586, 18);
+            this.btnConsultar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(39, 38);
+            this.btnConsultar.TabIndex = 2;
+            this.btnConsultar.Text = ">";
+            this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(9, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 20);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Código";
+            // 
+            // lblConsultar
+            // 
+            this.lblConsultar.AutoSize = true;
+            this.lblConsultar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConsultar.ForeColor = System.Drawing.Color.White;
+            this.lblConsultar.Location = new System.Drawing.Point(96, 0);
+            this.lblConsultar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblConsultar.Name = "lblConsultar";
+            this.lblConsultar.Size = new System.Drawing.Size(135, 20);
+            this.lblConsultar.TabIndex = 35;
+            this.lblConsultar.Text = "Nome do produto";
+            // 
+            // pnlBotoes
+            // 
+            this.pnlBotoes.Controls.Add(this.btnAnterior);
+            this.pnlBotoes.Controls.Add(this.btnProximo);
+            this.pnlBotoes.Controls.Add(this.btnCancelar);
+            this.pnlBotoes.Controls.Add(this.btnExcluir);
+            this.pnlBotoes.Controls.Add(this.btnCadastrarAtualizar);
+            this.pnlBotoes.Location = new System.Drawing.Point(10, 315);
+            this.pnlBotoes.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
+            this.pnlBotoes.Name = "pnlBotoes";
+            this.pnlBotoes.Size = new System.Drawing.Size(650, 39);
+            this.pnlBotoes.TabIndex = 1;
             // 
             // frmCadProduto
             // 

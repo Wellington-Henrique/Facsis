@@ -37,9 +37,9 @@ namespace Facsis.View
             rdPendente.Checked = true;
             cbFormaPgto.Text = dgvVenda[7].ToString(); // Forma pgto
             statusVenda = "Pendente";
-            btnInserir.Enabled = false;
-
-            //dgvCarrinho = VendaDTO.DvgConsulta;
+            pnlBotoes.Enabled = false;
+            dgvMenu.Enabled = false;
+            dgvCarrinho.Enabled = false;
         }
 
         // ==========================================================================================
@@ -50,7 +50,7 @@ namespace Facsis.View
             if (FuncoesControles.verificaVazio(panel3) == false && txtIdCli.Text != "")
             {
                 dto = new VendaDTO();
-
+                dto.NumPedido = int.Parse(txtNumPedido.Text);
                 dto.CodCliente = int.Parse(txtIdCli.Text);
                 dto.CodVendedor = int.Parse(txtIdVendedor.Text);
                 dto.DataNota = Convert.ToDateTime(dtNota.Value.ToShortDateString());
@@ -72,22 +72,37 @@ namespace Facsis.View
                 }
 
                 double aux;
-
-                if (double.TryParse(txtValorTotal.Text , out aux))
+                bool vendaEfetuada = false;
+                if (double.TryParse(txtValorTotal.Text, out aux) && txtValorTotal.Text != "")
                 {
                     dto.Total = Convert.ToDouble(txtValorTotal.Text);
                     if (statusVenda == "Faturada")
+                    {
                         bll.registrar(dto);
+                        vendaEfetuada = true;
+                    }
+
                     else
+                    {
                         bll.Atualizar(dto);
+                        vendaEfetuada = true;
+                    }
                 }
 
-                //FuncoesControles.limpaCampos(panel3);
-                //FuncoesControles.limpaCampos(groupBox1);
-                //txtIdVendedor.Text = LoginDTO.Id.ToString();
-                nVendaAtual++;
-                //txtNumPedido.Text = nVendaAtual.ToString();
-                //dgvCarrinho.Rows.Clear();
+                if (vendaEfetuada == true)
+                {
+                    FuncoesControles.limpaCampos(panel3);
+                    FuncoesControles.limpaCampos(groupBox1);
+                    txtIdVendedor.Text = LoginDTO.Id.ToString();
+                    nVendaAtual++;
+                    
+                    dgvCarrinho.Rows.Clear();
+                    nVendaAtual = bll.ultimaVenda() + 1;
+                    txtNumPedido.Text = nVendaAtual.ToString();
+                }
+                else
+                    MessageBox.Show("A venda não pode ser faturada\nVerfifique se todos os campos necessários foram informados e que o carrinho não está vazio", "Venda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
             else
                 Mensagens.camposVazios();
@@ -119,7 +134,7 @@ namespace Facsis.View
                 DataTable aux = VendaDTO.Dt;
                 double total = 0;
 
-                for (int i =0; i < aux.Rows.Count; i++)
+                for (int i = 0; i < aux.Rows.Count; i++)
                 {
                     dtoProd.Id = int.Parse(aux.Rows[i][9].ToString());
                     dtoProd.Nome = aux.Rows[i][10].ToString();
@@ -185,7 +200,7 @@ namespace Facsis.View
         private void dvgCarrinho_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvCarrinho.Rows[e.RowIndex].Index >= 0)
-                indiceCarrinho = dgvCarrinho.Rows[e.RowIndex].Index ;
+                indiceCarrinho = dgvCarrinho.Rows[e.RowIndex].Index;
         }
 
         public void limparDataGrid()
@@ -196,13 +211,18 @@ namespace Facsis.View
         private void txtVlrBruto_TextChanged(object sender, EventArgs e)
         {
             double porcentagem;
+            double vlrBruto;
 
             if (double.TryParse(txtPorcentagem.Text, out porcentagem))
                 porcentagem = Convert.ToDouble(txtPorcentagem.Text) / 100;
             else
                 porcentagem = 0;
 
-            double vlrBruto = Convert.ToDouble(txtVlrBruto.Text);
+            if (double.TryParse(txtVlrBruto.Text, out vlrBruto))
+                vlrBruto = Convert.ToDouble(txtVlrBruto.Text);
+            else
+                vlrBruto = 0;
+                
             double totalLiquido = 0;
 
             totalLiquido = vlrBruto - (vlrBruto * porcentagem);

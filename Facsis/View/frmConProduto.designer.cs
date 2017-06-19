@@ -64,7 +64,7 @@
             // pnlCadProduto
             // 
             this.pnlCadProduto.BackColor = System.Drawing.Color.White;
-            this.pnlCadProduto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlCadProduto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlCadProduto.Controls.Add(this.label1);
             this.pnlCadProduto.Controls.Add(this.lblCodigo);
             this.pnlCadProduto.Controls.Add(this.lblNome);
@@ -297,7 +297,6 @@
             this.dgvConsulta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvConsulta.BackgroundColor = System.Drawing.Color.White;
             this.dgvConsulta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvConsulta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvConsulta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsulta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

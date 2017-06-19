@@ -68,7 +68,7 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vlr_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dvgMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.dgvMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.inserirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.limparToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,7 +85,7 @@
             this.panel3.SuspendLayout();
             this.gbPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).BeginInit();
-            this.dvgMenu.SuspendLayout();
+            this.dgvMenu.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -457,7 +457,7 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn6,
             this.vlr_total});
-            this.dgvCarrinho.ContextMenuStrip = this.dvgMenu;
+            this.dgvCarrinho.ContextMenuStrip = this.dgvMenu;
             this.dgvCarrinho.Location = new System.Drawing.Point(5, 64);
             this.dgvCarrinho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvCarrinho.Name = "dgvCarrinho";
@@ -522,33 +522,33 @@
             this.vlr_total.Name = "vlr_total";
             this.vlr_total.ReadOnly = true;
             // 
-            // dvgMenu
+            // dgvMenu
             // 
-            this.dvgMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dgvMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inserirToolStripMenuItem,
             this.removerToolStripMenuItem,
             this.limparToolStripMenuItem});
-            this.dvgMenu.Name = "dvgMenu";
-            this.dvgMenu.Size = new System.Drawing.Size(122, 70);
+            this.dgvMenu.Name = "dvgMenu";
+            this.dgvMenu.Size = new System.Drawing.Size(153, 92);
             // 
             // inserirToolStripMenuItem
             // 
             this.inserirToolStripMenuItem.Name = "inserirToolStripMenuItem";
-            this.inserirToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.inserirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.inserirToolStripMenuItem.Text = "Inserir";
             this.inserirToolStripMenuItem.Click += new System.EventHandler(this.inserirToolStripMenuItem_Click);
             // 
             // removerToolStripMenuItem
             // 
             this.removerToolStripMenuItem.Name = "removerToolStripMenuItem";
-            this.removerToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.removerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.removerToolStripMenuItem.Text = "Remover";
             this.removerToolStripMenuItem.Click += new System.EventHandler(this.removerToolStripMenuItem_Click);
             // 
             // limparToolStripMenuItem
             // 
             this.limparToolStripMenuItem.Name = "limparToolStripMenuItem";
-            this.limparToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.limparToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.limparToolStripMenuItem.Text = "Limpar";
             this.limparToolStripMenuItem.Click += new System.EventHandler(this.limparToolStripMenuItem_Click);
             // 
@@ -696,7 +696,7 @@
             this.panel3.PerformLayout();
             this.gbPedido.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinho)).EndInit();
-            this.dvgMenu.ResumeLayout(false);
+            this.dgvMenu.ResumeLayout(false);
             this.pnlBotoes.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -742,7 +742,7 @@
         private System.Windows.Forms.Button btnAdicinaCliente;
         private System.Windows.Forms.DataGridView dgvCarrinho;
         private System.Windows.Forms.Button btnRemover;
-        private System.Windows.Forms.ContextMenuStrip dvgMenu;
+        private System.Windows.Forms.ContextMenuStrip dgvMenu;
         private System.Windows.Forms.ToolStripMenuItem inserirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem limparToolStripMenuItem;

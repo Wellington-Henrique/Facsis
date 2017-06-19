@@ -207,7 +207,6 @@ namespace Facsis.View
             tsmVendas.Enabled = true;
             tsmConsultar.Enabled = true;
             tsmCadUsuario.Enabled = true;
-            tsmRelatorios.Enabled = true;
 
             if (LoginDTO.Nivel == "Vendedor")
             {
@@ -215,7 +214,6 @@ namespace Facsis.View
                 tsmCadFornecedor.Enabled = false;
                 tsmConsFornecedor.Enabled = false;
                 tsmCadUsuario.Enabled = false;
-                tsmRelatorios.Enabled = false;
             }
 
             else if (LoginDTO.Nivel == "Estoquista")
@@ -224,21 +222,13 @@ namespace Facsis.View
                 tsmConsultar.Enabled = false;
                 tsmCadUsuario.Enabled = false;
                 tsmCadCliente.Enabled = false;
-                tsmRelatorios.Enabled = false;
             }
         }
 
         private void tsmVendaPendente_Click(object sender, EventArgs e)
         {
             DataTable dtCarrinho = new DataTable();
-            vetVenda = new string[8];
-
-            //dvgCarrinho.Columns.Add("id_produto", "Cód");
-            //dvgCarrinho.Columns.Add("nome", "Nome");
-            //dvgCarrinho.Columns.Add("descricao", "Descricao");
-            //dvgCarrinho.Columns.Add("medida", "UN");
-            //dvgCarrinho.Columns.Add("quantidade", "Qtde");
-            //dvgCarrinho.Columns.Add("vlr_unitario", "Vlr UN");            
+            vetVenda = new string[8];           
                         
             conVenda?.Close();
             conVenda = new frmConVenda(vetVenda);

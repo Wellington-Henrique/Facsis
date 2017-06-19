@@ -48,6 +48,13 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.dgvConsulta = new System.Windows.Forms.DataGridView();
+            this.id_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.login_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.senha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlPesquisa = new System.Windows.Forms.Panel();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.lblConsultar = new System.Windows.Forms.Label();
@@ -59,13 +66,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.restaurarTamanhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.id_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.login_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.senha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
             this.pnlPesquisa.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
@@ -292,7 +292,6 @@
             this.dgvConsulta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvConsulta.BackgroundColor = System.Drawing.Color.White;
             this.dgvConsulta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvConsulta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvConsulta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsulta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -306,6 +305,7 @@
             this.dgvConsulta.Location = new System.Drawing.Point(9, 332);
             this.dgvConsulta.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.dgvConsulta.Name = "dgvConsulta";
+            this.dgvConsulta.ReadOnly = true;
             this.dgvConsulta.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dgvConsulta.RowHeadersVisible = false;
             this.dgvConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -313,6 +313,55 @@
             this.dgvConsulta.TabIndex = 31;
             this.toolTip.SetToolTip(this.dgvConsulta, "Usuários cadastrados.");
             this.dgvConsulta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsulta_Click);
+            // 
+            // id_usuario
+            // 
+            this.id_usuario.HeaderText = "Código";
+            this.id_usuario.Name = "id_usuario";
+            this.id_usuario.ReadOnly = true;
+            this.id_usuario.Width = 83;
+            // 
+            // nome
+            // 
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            this.nome.Width = 75;
+            // 
+            // email
+            // 
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            this.email.Width = 71;
+            // 
+            // telefone
+            // 
+            this.telefone.HeaderText = "Telefone";
+            this.telefone.Name = "telefone";
+            this.telefone.ReadOnly = true;
+            this.telefone.Width = 92;
+            // 
+            // nivel
+            // 
+            this.nivel.HeaderText = "Nível";
+            this.nivel.Name = "nivel";
+            this.nivel.ReadOnly = true;
+            this.nivel.Width = 68;
+            // 
+            // login_usuario
+            // 
+            this.login_usuario.HeaderText = "Login";
+            this.login_usuario.Name = "login_usuario";
+            this.login_usuario.ReadOnly = true;
+            this.login_usuario.Width = 71;
+            // 
+            // senha
+            // 
+            this.senha.HeaderText = "Senha";
+            this.senha.Name = "senha";
+            this.senha.ReadOnly = true;
+            this.senha.Width = 74;
             // 
             // pnlPesquisa
             // 
@@ -372,7 +421,7 @@
             // pnlUsuario
             // 
             this.pnlUsuario.BackColor = System.Drawing.Color.White;
-            this.pnlUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlUsuario.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlUsuario.Controls.Add(this.txtTelefone);
             this.pnlUsuario.Controls.Add(this.cbNivel);
             this.pnlUsuario.Controls.Add(this.lblNivel);
@@ -443,48 +492,6 @@
             this.restaurarTamanhoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.restaurarTamanhoToolStripMenuItem.Text = "Restaurar tamanho";
             this.restaurarTamanhoToolStripMenuItem.Click += new System.EventHandler(this.restaurarTamanhoToolStripMenuItem_Click);
-            // 
-            // id_usuario
-            // 
-            this.id_usuario.HeaderText = "Código";
-            this.id_usuario.Name = "id_usuario";
-            this.id_usuario.Width = 83;
-            // 
-            // nome
-            // 
-            this.nome.HeaderText = "Nome";
-            this.nome.Name = "nome";
-            this.nome.Width = 75;
-            // 
-            // email
-            // 
-            this.email.HeaderText = "Email";
-            this.email.Name = "email";
-            this.email.Width = 71;
-            // 
-            // telefone
-            // 
-            this.telefone.HeaderText = "Telefone";
-            this.telefone.Name = "telefone";
-            this.telefone.Width = 92;
-            // 
-            // nivel
-            // 
-            this.nivel.HeaderText = "Nível";
-            this.nivel.Name = "nivel";
-            this.nivel.Width = 68;
-            // 
-            // login_usuario
-            // 
-            this.login_usuario.HeaderText = "Login";
-            this.login_usuario.Name = "login_usuario";
-            this.login_usuario.Width = 71;
-            // 
-            // senha
-            // 
-            this.senha.HeaderText = "Senha";
-            this.senha.Name = "senha";
-            this.senha.Width = 74;
             // 
             // frmCadUsuario
             // 

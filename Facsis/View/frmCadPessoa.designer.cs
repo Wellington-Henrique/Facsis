@@ -229,7 +229,7 @@
             // pnlDadosUsuario
             // 
             this.pnlDadosUsuario.BackColor = System.Drawing.Color.White;
-            this.pnlDadosUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlDadosUsuario.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlDadosUsuario.Controls.Add(this.lblUf);
             this.pnlDadosUsuario.Controls.Add(this.txtUf);
             this.pnlDadosUsuario.Controls.Add(this.lblCidade);
@@ -571,7 +571,6 @@
             this.dgvPessoa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvPessoa.BackgroundColor = System.Drawing.Color.White;
             this.dgvPessoa.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvPessoa.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvPessoa.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvPessoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPessoa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

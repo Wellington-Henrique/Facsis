@@ -96,13 +96,11 @@ namespace Facsis.Model.BLL
 
             try
             {
-                //string cmd = string.Format("UPDATE venda SET id_usuario = '{0}', id_pessoa = '{1}', data_nota = '{2}', data_pedido = '{3}', status = '{4}', forma_pagamento = '{5}', valor_total = '{6}' WHERE id_venda = '{7}'" +
-                //                           dto.CodVendedor, dto.CodCliente, dto.DataNota, dto.DataPedido, dto.Status, dto.FormaPag, dto.Total.ToString().Replace(",", "."), dto.NumPedido);
-
-                string cmd = "UPDATE venda SET id_usuario = '" + dto.CodVendedor + "', " +
+                string cmd = "UPDATE venda SET " +
+                                              "id_usuario = '" + dto.CodVendedor + "', " +
                                               "id_pessoa = '" + dto.CodCliente + "', " +
                                               "data_nota = '" + dto.DataNota + "', " +
-                                              "data_pedido = '" + dto.DataPedido + "', " + 
+                                              "data_pedido = '" + dto.DataPedido + "', " +
                                               "status = '" + dto.Status + "', " +
                                               "forma_pagamento = '" + dto.FormaPag + "', " +
                                               "valor_total = '" + dto.Total.ToString().Replace(",", ".") + "' " +
@@ -116,7 +114,7 @@ namespace Facsis.Model.BLL
                 {
                     bd.Conectar();
                     bd.ExecutarComandoSql(cmd);
-               
+
                     // Da baixa no item do estoque
                     if (dto.Status == "Faturada")
                         p_bll.DarBaixa(dto.ItensPedido.Rows[i].Cells[0].Value.ToString(), dto.ItensPedido.Rows[i].Cells[4].Value.ToString());
