@@ -15,10 +15,6 @@ namespace Facsis.View
         {
             InitializeComponent();
         }
-        private void btnSair_Click(object sender, EventArgs e)
-        {
-            Mensagens.fechaAplicao();
-        }
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
@@ -39,6 +35,11 @@ namespace Facsis.View
             }
             else
                 this.lblMsg.Visible = true;
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Mensagens.fechaAplicao();
         }
     }
 }

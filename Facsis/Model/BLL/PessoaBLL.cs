@@ -160,5 +160,28 @@ namespace Facsis.Model.BLL
 
             return dt;
         }
+
+        public string selecionaPessoaNome(string id, string relacao)
+        {
+            string nomePessoa = "";
+
+            bd = new AcessoBanco();
+
+            try
+            {
+                bd.Conectar();
+                nomePessoa = bd.ExecutarComandoSqlRetString("SELECT nome FROM pessoa WHERE id_pessoa = '" + id + "' and relacao = '" + relacao + "'");
+            }
+            catch (Exception)
+            {
+                Mensagens.BuscaErro();
+            }
+            finally
+            {
+                bd = null;
+            }
+
+            return nomePessoa;
+        }
     }
 }

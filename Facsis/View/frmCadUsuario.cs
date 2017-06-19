@@ -18,6 +18,9 @@ namespace Facsis.View
             InitializeComponent();
         }
 
+        // ==========================================================================================
+        // SELECT, INSER, UPDATE, DELETE
+        // ==========================================================================================
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             dto.Nome = txtNome.Text.Trim().ToUpper();
@@ -68,9 +71,16 @@ namespace Facsis.View
             CarregarGrid();
         }
 
+        // ==========================================================================================
+        // DataGridView
+        // ==========================================================================================
         private void dgvConsulta_Click(object sender, DataGridViewCellEventArgs e)
-        {         
-            visualizarDadosUsuario(e.RowIndex);
+        {
+            if (e.RowIndex >= 0)
+            {
+                indice = e.RowIndex;
+                visualizarDadosUsuario(indice);
+            }
         }
 
         private void CarregarGrid()
@@ -106,15 +116,6 @@ namespace Facsis.View
             this.Width = 805;
         }
 
-        private void btnAnterior_Click(object sender, EventArgs e)
-        {
-            if (indice > 0 && dgvConsulta.Rows.Count > 0)
-            {
-                indice--;
-                visualizarDadosUsuario(indice);
-            }
-        }
-
         private void visualizarDadosUsuario(int indice)
         {
             txtId.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[0].Value);
@@ -126,6 +127,18 @@ namespace Facsis.View
             txtSenha.Text = Convert.ToString(dgvConsulta.Rows[indice].Cells[6].Value);
             btnExcluir.Enabled = true;
             btnCadastrar.Text = "Atualizar";
+        }
+
+        // ==========================================================================================
+        // Botões de navegação
+        // ==========================================================================================
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            if (indice > 0 && dgvConsulta.Rows.Count > 0)
+            {
+                indice--;
+                visualizarDadosUsuario(indice);
+            }
         }
 
         private void btnProximo_Click(object sender, EventArgs e)

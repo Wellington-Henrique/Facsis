@@ -173,5 +173,28 @@ namespace Facsis.Model.BLL
 
             return dt;
         }
+
+        public DataTable selecionaNomeDescricaoProduto(string id)
+        {
+            DataTable dt = new DataTable();
+
+            bd = new AcessoBanco();
+
+            try
+            {
+                bd.Conectar();
+                dt = bd.RetDataTable("SELECT nome, medida, descricao FROM produto WHERE id_produto = '" + id + "'");
+            }
+            catch (NpgsqlException)
+            {
+                Mensagens.BuscaErro();
+            }
+            finally
+            {
+                bd = null;
+            }
+
+            return dt;
+        }
     }
 }

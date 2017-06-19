@@ -58,6 +58,16 @@ namespace Facsis.Model.DAL
             return id;
         }
 
+        public string ExecutarComandoSqlRetString(string comando)
+        {
+            string nome = "";
+
+            NpgsqlCommand cmd = new NpgsqlCommand(comando, conn);
+            nome = Convert.ToString(cmd.ExecuteScalar());
+
+            return nome;
+        }
+
         public DataTable RetDataTable(string sql)
         {
             data = new DataTable();

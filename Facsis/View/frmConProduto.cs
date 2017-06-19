@@ -28,6 +28,9 @@ namespace Facsis.View
 
             dgvCarrinho = dgv;
             txtTotal = vlrBruto;
+
+            btnSelecionar.Enabled = true;
+            btnCancelar.Enabled = true;
         }
 
         // ==========================================================================================
@@ -41,7 +44,7 @@ namespace Facsis.View
         // ==========================================================================================
         // Botões do carrinho de compras
         // ==========================================================================================
-        private void btnInserir_Click(object sender, EventArgs e)
+        private void btnSelecionar_Click(object sender, EventArgs e)
         {
             int quantidade = 0;
             int auxQuantidade = 0;
@@ -63,7 +66,7 @@ namespace Facsis.View
                     if (txtId.Text == consultaCarrinho)
                     {
                         indiceCarrinho = i;
-                        auxQuantidade = Convert.ToInt32(dgvCarrinho.Rows[indiceCarrinho].Cells[3].Value);
+                        auxQuantidade = Convert.ToInt32(dgvCarrinho.Rows[indiceCarrinho].Cells[4].Value);
                         noCarrinho = true;
                         break;
                     }
@@ -75,18 +78,18 @@ namespace Facsis.View
                 {
                     // Adiciona ao carrinho caso tenha sido adicionado
                     if (noCarrinho == false)
-                        dgvCarrinho.Rows.Add(dto.Id, dto.Nome, dto.Medida, quantidade, dto.Preco, quantidade * dto.Preco);
+                        dgvCarrinho.Rows.Add(dto.Id, dto.Nome, dto.Descricao, dto.Medida, quantidade, dto.Preco, quantidade * dto.Preco);
 
                     else
                     {
-                        dgvCarrinho.Rows[indiceCarrinho].Cells[3].Value = quantidade.ToString();
-                        dgvCarrinho.Rows[indiceCarrinho].Cells[5].Value = quantidade * dto.Preco;
+                        dgvCarrinho.Rows[indiceCarrinho].Cells[4].Value = quantidade.ToString();
+                        dgvCarrinho.Rows[indiceCarrinho].Cells[6].Value = quantidade * dto.Preco;
                     }
 
                     // Calcula o total do carrinho
                     for (int i = 0; i < dgvCarrinho.Rows.Count; i++)
                     {
-                        total += Convert.ToDouble(dgvCarrinho.Rows[i].Cells[5].Value);
+                        total += Convert.ToDouble(dgvCarrinho.Rows[i].Cells[6].Value);
                     }
 
                     txtTotal.Text = total.ToString();
@@ -133,8 +136,8 @@ namespace Facsis.View
         {
             dto.Id = Convert.ToInt32(dgvConsulta.Rows[e.RowIndex].Cells[0].Value);
             dto.Nome = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[1].Value);
-            dto.Medida = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[2].Value);
-            dto.Descricao = dgvConsulta.Rows[e.RowIndex].Cells[3].Value.ToString();
+            dto.Descricao = dgvConsulta.Rows[e.RowIndex].Cells[2].Value.ToString();
+            dto.Medida = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[3].Value);
             dto.Preco = Convert.ToDouble(dgvConsulta.Rows[e.RowIndex].Cells[4].Value);
             dto.Quantidade = Convert.ToInt32(dgvConsulta.Rows[e.RowIndex].Cells[5].Value);
 

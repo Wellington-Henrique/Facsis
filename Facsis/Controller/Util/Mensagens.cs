@@ -55,6 +55,7 @@ namespace Facsis.Controller.Util
 
         public static void fechaAplicao()
         {
+
             if (MessageBox.Show("Você tem certeza que deseja sair?",
                 "Facsis", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 Application.Exit(); //Encerra o sistema

@@ -37,10 +37,7 @@
             this.tsmVendas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmRegistro = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmNovaVenda = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmCancelarVenda = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmOrcamento = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmNovoOrcamento = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmCancelarOrcamento = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmVendaPendente = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmCadastro = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmCadCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmCadFornecedor = new System.Windows.Forms.ToolStripMenuItem();
@@ -129,8 +126,7 @@
             // tsmVendas
             // 
             this.tsmVendas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmRegistro,
-            this.tsmOrcamento});
+            this.tsmRegistro});
             this.tsmVendas.Name = "tsmVendas";
             this.tsmVendas.Size = new System.Drawing.Size(69, 24);
             this.tsmVendas.Text = "&Vendas";
@@ -139,7 +135,7 @@
             // 
             this.tsmRegistro.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmNovaVenda,
-            this.tsmCancelarVenda});
+            this.tsmVendaPendente});
             this.tsmRegistro.Image = ((System.Drawing.Image)(resources.GetObject("tsmRegistro.Image")));
             this.tsmRegistro.Name = "tsmRegistro";
             this.tsmRegistro.Size = new System.Drawing.Size(204, 24);
@@ -149,46 +145,19 @@
             // 
             this.tsmNovaVenda.Image = ((System.Drawing.Image)(resources.GetObject("tsmNovaVenda.Image")));
             this.tsmNovaVenda.Name = "tsmNovaVenda";
-            this.tsmNovaVenda.Size = new System.Drawing.Size(140, 24);
+            this.tsmNovaVenda.Size = new System.Drawing.Size(152, 24);
             this.tsmNovaVenda.Text = "&Nova";
             this.tsmNovaVenda.ToolTipText = "Registrar nova venda.";
             this.tsmNovaVenda.Click += new System.EventHandler(this.tsmNovaVenda_Click);
             // 
-            // tsmCancelarVenda
+            // tsmVendaPendente
             // 
-            this.tsmCancelarVenda.Image = ((System.Drawing.Image)(resources.GetObject("tsmCancelarVenda.Image")));
-            this.tsmCancelarVenda.Name = "tsmCancelarVenda";
-            this.tsmCancelarVenda.Size = new System.Drawing.Size(140, 24);
-            this.tsmCancelarVenda.Text = "&Pendente";
-            this.tsmCancelarVenda.ToolTipText = "Cancelar venda pendente.";
-            // 
-            // tsmOrcamento
-            // 
-            this.tsmOrcamento.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmNovoOrcamento,
-            this.tsmCancelarOrcamento});
-            this.tsmOrcamento.Image = ((System.Drawing.Image)(resources.GetObject("tsmOrcamento.Image")));
-            this.tsmOrcamento.Name = "tsmOrcamento";
-            this.tsmOrcamento.Size = new System.Drawing.Size(204, 24);
-            this.tsmOrcamento.Text = "&Orçamento";
-            this.tsmOrcamento.Click += new System.EventHandler(this.tsmOrcamento_Click);
-            // 
-            // tsmNovoOrcamento
-            // 
-            this.tsmNovoOrcamento.Image = ((System.Drawing.Image)(resources.GetObject("tsmNovoOrcamento.Image")));
-            this.tsmNovoOrcamento.Name = "tsmNovoOrcamento";
-            this.tsmNovoOrcamento.Size = new System.Drawing.Size(140, 24);
-            this.tsmNovoOrcamento.Text = "&Novo";
-            this.tsmNovoOrcamento.ToolTipText = "Registrar novo orçamento.";
-            this.tsmNovoOrcamento.Click += new System.EventHandler(this.tsmNovoOrcamento_Click);
-            // 
-            // tsmCancelarOrcamento
-            // 
-            this.tsmCancelarOrcamento.Image = ((System.Drawing.Image)(resources.GetObject("tsmCancelarOrcamento.Image")));
-            this.tsmCancelarOrcamento.Name = "tsmCancelarOrcamento";
-            this.tsmCancelarOrcamento.Size = new System.Drawing.Size(140, 24);
-            this.tsmCancelarOrcamento.Text = "&Pendente";
-            this.tsmCancelarOrcamento.ToolTipText = "Cancelar orçamento pendente.";
+            this.tsmVendaPendente.Image = ((System.Drawing.Image)(resources.GetObject("tsmVendaPendente.Image")));
+            this.tsmVendaPendente.Name = "tsmVendaPendente";
+            this.tsmVendaPendente.Size = new System.Drawing.Size(152, 24);
+            this.tsmVendaPendente.Text = "&Pendente";
+            this.tsmVendaPendente.ToolTipText = "Cancelar venda pendente.";
+            this.tsmVendaPendente.Click += new System.EventHandler(this.tsmVendaPendente_Click);
             // 
             // tsmCadastro
             // 
@@ -258,6 +227,7 @@
             this.tsmConsProduto.Name = "tsmConsProduto";
             this.tsmConsProduto.Size = new System.Drawing.Size(153, 24);
             this.tsmConsProduto.Text = "&Produto";
+            this.tsmConsProduto.Click += new System.EventHandler(this.tsmConsProduto_Click);
             // 
             // tsmRelatorios
             // 
@@ -390,7 +360,7 @@
             this.calculadoraToolStripMenuItem1.Size = new System.Drawing.Size(157, 24);
             this.calculadoraToolStripMenuItem1.Text = "Calculadora";
             this.calculadoraToolStripMenuItem1.ToolTipText = "Abrir uma calculadora.";
-            this.calculadoraToolStripMenuItem1.Click += new System.EventHandler(this.calculadoraToolStripMenuItem1_Click);
+            this.calculadoraToolStripMenuItem1.Click += new System.EventHandler(this.calculadoraToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -484,10 +454,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmRelatorios;
         private System.Windows.Forms.ToolStripMenuItem tsmRegistro;
         private System.Windows.Forms.ToolStripMenuItem tsmNovaVenda;
-        private System.Windows.Forms.ToolStripMenuItem tsmCancelarVenda;
-        private System.Windows.Forms.ToolStripMenuItem tsmOrcamento;
-        private System.Windows.Forms.ToolStripMenuItem tsmNovoOrcamento;
-        private System.Windows.Forms.ToolStripMenuItem tsmCancelarOrcamento;
+        private System.Windows.Forms.ToolStripMenuItem tsmVendaPendente;
         private System.Windows.Forms.ToolStripMenuItem tsmRelatorioVenda;
         private System.Windows.Forms.ToolStripMenuItem tsmLogUsuario;
         private System.Windows.Forms.ToolStripMenuItem efetuadasToolStripMenuItem;

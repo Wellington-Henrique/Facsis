@@ -41,21 +41,24 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.pnlPesquisa = new System.Windows.Forms.Panel();
-            this.btnConsultar = new System.Windows.Forms.Button();
             this.txtConsulta = new System.Windows.Forms.TextBox();
-            this.lblConsultar = new System.Windows.Forms.Label();
-            this.pnlBotoes = new System.Windows.Forms.Panel();
             this.btnAnterior = new System.Windows.Forms.Button();
             this.btnProximo = new System.Windows.Forms.Button();
-            this.pnlUsuario = new System.Windows.Forms.Panel();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
-            this.lblId = new System.Windows.Forms.Label();
-            this.lblTelefone = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.dgvConsulta = new System.Windows.Forms.DataGridView();
+            this.pnlPesquisa = new System.Windows.Forms.Panel();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.lblConsultar = new System.Windows.Forms.Label();
+            this.pnlBotoes = new System.Windows.Forms.Panel();
+            this.pnlUsuario = new System.Windows.Forms.Panel();
+            this.lblId = new System.Windows.Forms.Label();
+            this.lblTelefone = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.restaurarTamanhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.id_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,13 +66,10 @@
             this.nivel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.login_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.senha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.restaurarTamanhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
             this.pnlPesquisa.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.pnlUsuario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -211,6 +211,109 @@
             this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
+            // txtConsulta
+            // 
+            this.txtConsulta.Location = new System.Drawing.Point(164, 10);
+            this.txtConsulta.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
+            this.txtConsulta.Name = "txtConsulta";
+            this.txtConsulta.Size = new System.Drawing.Size(444, 27);
+            this.txtConsulta.TabIndex = 0;
+            this.toolTip.SetToolTip(this.txtConsulta, "Informe um nome para a consulta.");
+            // 
+            // btnAnterior
+            // 
+            this.btnAnterior.BackColor = System.Drawing.Color.DarkGray;
+            this.btnAnterior.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAnterior.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnAnterior.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnAnterior.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnterior.Location = new System.Drawing.Point(311, 0);
+            this.btnAnterior.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(38, 38);
+            this.btnAnterior.TabIndex = 5;
+            this.btnAnterior.Text = "<";
+            this.toolTip.SetToolTip(this.btnAnterior, "Selecionar anterior.");
+            this.btnAnterior.UseVisualStyleBackColor = false;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+            // 
+            // btnProximo
+            // 
+            this.btnProximo.BackColor = System.Drawing.Color.DarkGray;
+            this.btnProximo.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnProximo.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnProximo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnProximo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnProximo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProximo.Location = new System.Drawing.Point(357, 0);
+            this.btnProximo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnProximo.Name = "btnProximo";
+            this.btnProximo.Size = new System.Drawing.Size(38, 38);
+            this.btnProximo.TabIndex = 4;
+            this.btnProximo.Text = ">";
+            this.toolTip.SetToolTip(this.btnProximo, "Selecionar próximo.");
+            this.btnProximo.UseVisualStyleBackColor = false;
+            this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
+            // 
+            // txtTelefone
+            // 
+            this.txtTelefone.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtTelefone.Location = new System.Drawing.Point(368, 112);
+            this.txtTelefone.Mask = "(99) 99999 - 9999";
+            this.txtTelefone.Name = "txtTelefone";
+            this.txtTelefone.Size = new System.Drawing.Size(126, 27);
+            this.txtTelefone.TabIndex = 3;
+            this.txtTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.toolTip.SetToolTip(this.txtTelefone, "Informe o número de telefone do usuário.");
+            // 
+            // txtId
+            // 
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(22, 45);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(79, 27);
+            this.txtId.TabIndex = 0;
+            this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip.SetToolTip(this.txtId, "Código do usuário.");
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(24, 112);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(332, 27);
+            this.txtEmail.TabIndex = 0;
+            this.toolTip.SetToolTip(this.txtEmail, "Informe o email do usuário.");
+            // 
+            // dgvConsulta
+            // 
+            this.dgvConsulta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvConsulta.BackgroundColor = System.Drawing.Color.White;
+            this.dgvConsulta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvConsulta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.dgvConsulta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConsulta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_usuario,
+            this.nome,
+            this.email,
+            this.telefone,
+            this.nivel,
+            this.login_usuario,
+            this.senha});
+            this.dgvConsulta.Location = new System.Drawing.Point(9, 332);
+            this.dgvConsulta.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
+            this.dgvConsulta.Name = "dgvConsulta";
+            this.dgvConsulta.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dgvConsulta.RowHeadersVisible = false;
+            this.dgvConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvConsulta.Size = new System.Drawing.Size(727, 142);
+            this.dgvConsulta.TabIndex = 31;
+            this.toolTip.SetToolTip(this.dgvConsulta, "Usuários cadastrados.");
+            this.dgvConsulta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsulta_Click);
+            // 
             // pnlPesquisa
             // 
             this.pnlPesquisa.BackColor = System.Drawing.Color.DimGray;
@@ -241,23 +344,15 @@
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
-            // txtConsulta
-            // 
-            this.txtConsulta.Location = new System.Drawing.Point(164, 10);
-            this.txtConsulta.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
-            this.txtConsulta.Name = "txtConsulta";
-            this.txtConsulta.Size = new System.Drawing.Size(444, 27);
-            this.txtConsulta.TabIndex = 0;
-            // 
             // lblConsultar
             // 
             this.lblConsultar.AutoSize = true;
-            this.lblConsultar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lblConsultar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConsultar.ForeColor = System.Drawing.Color.White;
             this.lblConsultar.Location = new System.Drawing.Point(14, 12);
             this.lblConsultar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblConsultar.Name = "lblConsultar";
-            this.lblConsultar.Size = new System.Drawing.Size(133, 21);
+            this.lblConsultar.Size = new System.Drawing.Size(144, 21);
             this.lblConsultar.TabIndex = 35;
             this.lblConsultar.Text = "Consultar usuário";
             // 
@@ -273,40 +368,6 @@
             this.pnlBotoes.Name = "pnlBotoes";
             this.pnlBotoes.Size = new System.Drawing.Size(724, 39);
             this.pnlBotoes.TabIndex = 4;
-            // 
-            // btnAnterior
-            // 
-            this.btnAnterior.BackColor = System.Drawing.Color.DarkGray;
-            this.btnAnterior.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnAnterior.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.btnAnterior.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnAnterior.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnterior.Location = new System.Drawing.Point(311, 0);
-            this.btnAnterior.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.Size = new System.Drawing.Size(38, 38);
-            this.btnAnterior.TabIndex = 5;
-            this.btnAnterior.Text = "<";
-            this.btnAnterior.UseVisualStyleBackColor = false;
-            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
-            // 
-            // btnProximo
-            // 
-            this.btnProximo.BackColor = System.Drawing.Color.DarkGray;
-            this.btnProximo.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnProximo.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.btnProximo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnProximo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnProximo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProximo.Location = new System.Drawing.Point(357, 0);
-            this.btnProximo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnProximo.Name = "btnProximo";
-            this.btnProximo.Size = new System.Drawing.Size(38, 38);
-            this.btnProximo.TabIndex = 4;
-            this.btnProximo.Text = ">";
-            this.btnProximo.UseVisualStyleBackColor = false;
-            this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
             // 
             // pnlUsuario
             // 
@@ -332,16 +393,6 @@
             this.pnlUsuario.Padding = new System.Windows.Forms.Padding(10);
             this.pnlUsuario.Size = new System.Drawing.Size(724, 208);
             this.pnlUsuario.TabIndex = 30;
-            // 
-            // txtTelefone
-            // 
-            this.txtTelefone.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.txtTelefone.Location = new System.Drawing.Point(368, 112);
-            this.txtTelefone.Mask = "(99) 99999 - 9999";
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(126, 27);
-            this.txtTelefone.TabIndex = 3;
-            this.txtTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // lblId
             // 
@@ -373,83 +424,6 @@
             this.lblEmail.TabIndex = 1;
             this.lblEmail.Text = "Email";
             // 
-            // txtId
-            // 
-            this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(22, 45);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(79, 27);
-            this.txtId.TabIndex = 0;
-            this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(24, 112);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(332, 27);
-            this.txtEmail.TabIndex = 0;
-            // 
-            // dgvConsulta
-            // 
-            this.dgvConsulta.BackgroundColor = System.Drawing.Color.White;
-            this.dgvConsulta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvConsulta.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            this.dgvConsulta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvConsulta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_usuario,
-            this.nome,
-            this.email,
-            this.telefone,
-            this.nivel,
-            this.login_usuario,
-            this.senha});
-            this.dgvConsulta.Location = new System.Drawing.Point(12, 330);
-            this.dgvConsulta.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
-            this.dgvConsulta.Name = "dgvConsulta";
-            this.dgvConsulta.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dgvConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvConsulta.Size = new System.Drawing.Size(727, 142);
-            this.dgvConsulta.TabIndex = 31;
-            this.dgvConsulta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsulta_Click);
-            // 
-            // id_usuario
-            // 
-            this.id_usuario.HeaderText = "Código";
-            this.id_usuario.Name = "id_usuario";
-            // 
-            // nome
-            // 
-            this.nome.HeaderText = "Nome";
-            this.nome.Name = "nome";
-            // 
-            // email
-            // 
-            this.email.HeaderText = "Email";
-            this.email.Name = "email";
-            // 
-            // telefone
-            // 
-            this.telefone.HeaderText = "Telefone";
-            this.telefone.Name = "telefone";
-            // 
-            // nivel
-            // 
-            this.nivel.HeaderText = "Nível";
-            this.nivel.Name = "nivel";
-            // 
-            // login_usuario
-            // 
-            this.login_usuario.HeaderText = "Login";
-            this.login_usuario.Name = "login_usuario";
-            // 
-            // senha
-            // 
-            this.senha.HeaderText = "Senha";
-            this.senha.Name = "senha";
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -470,6 +444,48 @@
             this.restaurarTamanhoToolStripMenuItem.Text = "Restaurar tamanho";
             this.restaurarTamanhoToolStripMenuItem.Click += new System.EventHandler(this.restaurarTamanhoToolStripMenuItem_Click);
             // 
+            // id_usuario
+            // 
+            this.id_usuario.HeaderText = "Código";
+            this.id_usuario.Name = "id_usuario";
+            this.id_usuario.Width = 83;
+            // 
+            // nome
+            // 
+            this.nome.HeaderText = "Nome";
+            this.nome.Name = "nome";
+            this.nome.Width = 75;
+            // 
+            // email
+            // 
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.Width = 71;
+            // 
+            // telefone
+            // 
+            this.telefone.HeaderText = "Telefone";
+            this.telefone.Name = "telefone";
+            this.telefone.Width = 92;
+            // 
+            // nivel
+            // 
+            this.nivel.HeaderText = "Nível";
+            this.nivel.Name = "nivel";
+            this.nivel.Width = 68;
+            // 
+            // login_usuario
+            // 
+            this.login_usuario.HeaderText = "Login";
+            this.login_usuario.Name = "login_usuario";
+            this.login_usuario.Width = 71;
+            // 
+            // senha
+            // 
+            this.senha.HeaderText = "Senha";
+            this.senha.Name = "senha";
+            this.senha.Width = 74;
+            // 
             // frmCadUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -488,12 +504,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cadastro de usuário";
             this.toolTip.SetToolTip(this, "Informe o código ou nome do usuário.");
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).EndInit();
             this.pnlPesquisa.ResumeLayout(false);
             this.pnlPesquisa.PerformLayout();
             this.pnlBotoes.ResumeLayout(false);
             this.pnlUsuario.ResumeLayout(false);
             this.pnlUsuario.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -528,6 +544,8 @@
         private System.Windows.Forms.Label lblTelefone;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Button btnAnterior;
+        private System.Windows.Forms.Button btnProximo;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
@@ -535,7 +553,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nivel;
         private System.Windows.Forms.DataGridViewTextBoxColumn login_usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn senha;
-        private System.Windows.Forms.Button btnAnterior;
-        private System.Windows.Forms.Button btnProximo;
     }
 }

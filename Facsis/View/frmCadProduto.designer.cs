@@ -289,11 +289,11 @@
             this.cbUnidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbUnidade.FormattingEnabled = true;
             this.cbUnidade.Items.AddRange(new object[] {
-            "KG",
-            "UN",
-            "M",
             "CM",
-            "MM"});
+            "KG",
+            "M",
+            "UN",
+            ""});
             this.cbUnidade.Location = new System.Drawing.Point(483, 101);
             this.cbUnidade.Margin = new System.Windows.Forms.Padding(13, 5, 4, 15);
             this.cbUnidade.Name = "cbUnidade";
@@ -339,6 +339,7 @@
             this.txtPreco.Size = new System.Drawing.Size(67, 27);
             this.txtPreco.TabIndex = 7;
             this.txtPreco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.txtPreco, "Preço do produto.");
             // 
             // txtQtdeDisponivel
             // 
@@ -427,6 +428,7 @@
             this.dgvConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvConsulta.Size = new System.Drawing.Size(650, 159);
             this.dgvConsulta.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.dgvConsulta, "Produtos  cadastrados.");
             this.dgvConsulta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsulta_CellContentClick);
             // 
             // id_produto
@@ -539,6 +541,7 @@
             this.txtIdCon.Size = new System.Drawing.Size(80, 27);
             this.txtIdCon.TabIndex = 0;
             this.txtIdCon.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.txtIdCon, "Informe o código para consulta.");
             // 
             // label1
             // 
@@ -559,6 +562,7 @@
             this.txtNomeCon.Name = "txtNomeCon";
             this.txtNomeCon.Size = new System.Drawing.Size(478, 27);
             this.txtNomeCon.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtNomeCon, "Informe o nome para consulta.");
             // 
             // lblConsultar
             // 
@@ -599,6 +603,7 @@
             this.btnAnterior.Size = new System.Drawing.Size(38, 38);
             this.btnAnterior.TabIndex = 3;
             this.btnAnterior.Text = "<";
+            this.toolTip1.SetToolTip(this.btnAnterior, "Selecionar anterior");
             this.btnAnterior.UseVisualStyleBackColor = false;
             this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
@@ -616,6 +621,7 @@
             this.btnProximo.Size = new System.Drawing.Size(38, 38);
             this.btnProximo.TabIndex = 4;
             this.btnProximo.Text = ">";
+            this.toolTip1.SetToolTip(this.btnProximo, "Selecionar próximo.");
             this.btnProximo.UseVisualStyleBackColor = false;
             this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
             // 
@@ -633,6 +639,7 @@
             this.btnCancelar.Size = new System.Drawing.Size(100, 38);
             this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
+            this.toolTip1.SetToolTip(this.btnCancelar, "Clieque aqui para cancelar o cadastro.");
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // btnExcluir
@@ -650,6 +657,7 @@
             this.btnExcluir.Size = new System.Drawing.Size(100, 38);
             this.btnExcluir.TabIndex = 1;
             this.btnExcluir.Text = "Excluir";
+            this.toolTip1.SetToolTip(this.btnExcluir, "Clique aqui para excluir o cadastro.");
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
@@ -667,6 +675,7 @@
             this.btnCadastrarAtualizar.Size = new System.Drawing.Size(100, 38);
             this.btnCadastrarAtualizar.TabIndex = 0;
             this.btnCadastrarAtualizar.Text = "Cadastrar";
+            this.toolTip1.SetToolTip(this.btnCadastrarAtualizar, "Clique aqui para efetuar o cadastro.");
             this.btnCadastrarAtualizar.UseVisualStyleBackColor = false;
             this.btnCadastrarAtualizar.Click += new System.EventHandler(this.btnCadastrarAtualizar_Click);
             // 

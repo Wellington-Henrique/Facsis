@@ -79,6 +79,7 @@
             this.uf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.inserirClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.R4.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.pnlDadosUsuario.SuspendLayout();
@@ -129,6 +130,7 @@
             this.btnAnterior.Size = new System.Drawing.Size(38, 38);
             this.btnAnterior.TabIndex = 4;
             this.btnAnterior.Text = "<";
+            this.toolTip1.SetToolTip(this.btnAnterior, "Selecionar anterior.");
             this.btnAnterior.UseVisualStyleBackColor = false;
             this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
@@ -146,6 +148,7 @@
             this.btnProximo.Size = new System.Drawing.Size(38, 38);
             this.btnProximo.TabIndex = 3;
             this.btnProximo.Text = ">";
+            this.toolTip1.SetToolTip(this.btnProximo, "Selecionar próximo.");
             this.btnProximo.UseVisualStyleBackColor = false;
             this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
             // 
@@ -164,6 +167,7 @@
             this.btnSelecionar.Size = new System.Drawing.Size(100, 38);
             this.btnSelecionar.TabIndex = 5;
             this.btnSelecionar.Text = "Selecionar";
+            this.toolTip1.SetToolTip(this.btnSelecionar, "Selecione o cadastro para a venda.");
             this.btnSelecionar.UseVisualStyleBackColor = false;
             this.btnSelecionar.Click += new System.EventHandler(this.btnInserir_Click);
             // 
@@ -181,6 +185,7 @@
             this.btnCancelar.Size = new System.Drawing.Size(100, 38);
             this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
+            this.toolTip1.SetToolTip(this.btnCancelar, "Clique aqui para cancelar o cadastro.");
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -199,6 +204,7 @@
             this.btnExcluir.Size = new System.Drawing.Size(100, 38);
             this.btnExcluir.TabIndex = 1;
             this.btnExcluir.Text = "Excluir";
+            this.toolTip1.SetToolTip(this.btnExcluir, "Clique aqui para excluir o cadastro.");
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
@@ -216,6 +222,7 @@
             this.btnCadastrar.Size = new System.Drawing.Size(100, 38);
             this.btnCadastrar.TabIndex = 0;
             this.btnCadastrar.Text = "Cadastrar";
+            this.toolTip1.SetToolTip(this.btnCadastrar, "Clique aqui para efetuar o cadastro.");
             this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
@@ -267,6 +274,7 @@
             this.txtUf.Size = new System.Drawing.Size(54, 27);
             this.txtUf.TabIndex = 9;
             this.txtUf.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.txtUf, "Informe a UF.");
             // 
             // lblCidade
             // 
@@ -298,6 +306,7 @@
             this.txtTelefone.TabIndex = 4;
             this.txtTelefone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.toolTip1.SetToolTip(this.txtTelefone, "Informe o telefone de contato.");
             // 
             // txtCpfCnpj
             // 
@@ -307,7 +316,7 @@
             this.txtCpfCnpj.Size = new System.Drawing.Size(137, 27);
             this.txtCpfCnpj.TabIndex = 3;
             this.txtCpfCnpj.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.txtCpfCnpj.DragOver += new System.Windows.Forms.DragEventHandler(this.txtCpfCnpj_DragOver);
+            this.toolTip1.SetToolTip(this.txtCpfCnpj, "Informe o CPF/CNJP.");
             // 
             // txtNImovel
             // 
@@ -318,6 +327,7 @@
             this.txtNImovel.Size = new System.Drawing.Size(52, 27);
             this.txtNImovel.TabIndex = 7;
             this.txtNImovel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.txtNImovel, "Informe o número do imóvel.");
             // 
             // txtId
             // 
@@ -329,6 +339,7 @@
             this.txtId.Size = new System.Drawing.Size(74, 27);
             this.txtId.TabIndex = 0;
             this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.txtId, "Código do cadastro.");
             // 
             // txtCidade
             // 
@@ -338,6 +349,7 @@
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(273, 27);
             this.txtCidade.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.txtCidade, "Informe a cidade.");
             // 
             // lblRua
             // 
@@ -371,6 +383,7 @@
             this.cbPessoa.Name = "cbPessoa";
             this.cbPessoa.Size = new System.Drawing.Size(138, 28);
             this.cbPessoa.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.cbPessoa, "Escolha o tipo de pessoa.");
             this.cbPessoa.TextChanged += new System.EventHandler(this.cbPessoa_TextChanged);
             // 
             // lblCpfCnpj
@@ -401,6 +414,7 @@
             this.txtRua.Name = "txtRua";
             this.txtRua.Size = new System.Drawing.Size(263, 27);
             this.txtRua.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.txtRua, "Informe o endereço.");
             // 
             // label3
             // 
@@ -420,6 +434,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(390, 27);
             this.txtEmail.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.txtEmail, "Informe o email.");
             // 
             // txtNome
             // 
@@ -429,6 +444,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(428, 27);
             this.txtNome.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtNome, "Informe do cliente/fornecedor.");
             // 
             // lblEmail
             // 
@@ -475,6 +491,7 @@
             this.txtCpfCnpjCon.TabIndex = 2;
             this.txtCpfCnpjCon.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCpfCnpjCon.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.toolTip1.SetToolTip(this.txtCpfCnpjCon, "Informe o CPF/CNPJ para consulta.");
             // 
             // btnConsultar
             // 
@@ -525,6 +542,7 @@
             this.txtNomeCon.Name = "txtNomeCon";
             this.txtNomeCon.Size = new System.Drawing.Size(305, 27);
             this.txtNomeCon.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtNomeCon, "Informe o nome para  consulta.");
             // 
             // txtIdCon
             // 
@@ -534,6 +552,7 @@
             this.txtIdCon.Name = "txtIdCon";
             this.txtIdCon.Size = new System.Drawing.Size(97, 27);
             this.txtIdCon.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.txtIdCon, "Informe o código para a consulta.");
             // 
             // lblCodigo
             // 
@@ -550,7 +569,8 @@
             // dgvPessoa
             // 
             this.dgvPessoa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvPessoa.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvPessoa.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPessoa.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvPessoa.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dgvPessoa.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvPessoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -570,9 +590,11 @@
             this.dgvPessoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvPessoa.Name = "dgvPessoa";
             this.dgvPessoa.ReadOnly = true;
+            this.dgvPessoa.RowHeadersVisible = false;
             this.dgvPessoa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPessoa.Size = new System.Drawing.Size(699, 211);
             this.dgvPessoa.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.dgvPessoa, "Cadastros disponíveis.");
             this.dgvPessoa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPessoa_CellContentClick);
             // 
             // id_pessoa
@@ -594,7 +616,7 @@
             this.tipo_pessoa.HeaderText = "Tipo pessoa";
             this.tipo_pessoa.Name = "tipo_pessoa";
             this.tipo_pessoa.ReadOnly = true;
-            this.tipo_pessoa.Width = 105;
+            this.tipo_pessoa.Width = 114;
             // 
             // cpf_cnpj
             // 
@@ -739,5 +761,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn uf;
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnProximo;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

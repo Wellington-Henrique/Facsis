@@ -33,7 +33,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rdCancelar = new System.Windows.Forms.RadioButton();
             this.rdPendente = new System.Windows.Forms.RadioButton();
-            this.rdAtualizar = new System.Windows.Forms.RadioButton();
+            this.rdFaturar = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtValorTotal = new System.Windows.Forms.TextBox();
             this.txtPorcentagem = new System.Windows.Forms.TextBox();
@@ -44,6 +44,8 @@
             this.txtVlrBruto = new System.Windows.Forms.TextBox();
             this.lblVlrBruto = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblFormaPgto = new System.Windows.Forms.Label();
+            this.cbFormaPgto = new System.Windows.Forms.ComboBox();
             this.dtNota = new System.Windows.Forms.DateTimePicker();
             this.dtPedido = new System.Windows.Forms.DateTimePicker();
             this.txtIdVendedor = new System.Windows.Forms.TextBox();
@@ -78,10 +80,6 @@
             this.btnCancelarVenda = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblFormaPgto = new System.Windows.Forms.Label();
-            this.ckbVenda = new System.Windows.Forms.RadioButton();
-            this.ckbOrcamento = new System.Windows.Forms.RadioButton();
-            this.cbFormaPgto = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -98,7 +96,7 @@
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.rdCancelar);
             this.groupBox2.Controls.Add(this.rdPendente);
-            this.groupBox2.Controls.Add(this.rdAtualizar);
+            this.groupBox2.Controls.Add(this.rdFaturar);
             this.groupBox2.Location = new System.Drawing.Point(508, 369);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
@@ -129,19 +127,19 @@
             this.rdPendente.Text = "Pendente";
             this.rdPendente.UseVisualStyleBackColor = true;
             // 
-            // rdAtualizar
+            // rdFaturar
             // 
-            this.rdAtualizar.AutoSize = true;
-            this.rdAtualizar.Checked = true;
-            this.rdAtualizar.Location = new System.Drawing.Point(13, 34);
-            this.rdAtualizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rdAtualizar.Name = "rdAtualizar";
-            this.rdAtualizar.Size = new System.Drawing.Size(86, 24);
-            this.rdAtualizar.TabIndex = 33;
-            this.rdAtualizar.TabStop = true;
-            this.rdAtualizar.Text = "Atualizar";
-            this.rdAtualizar.UseMnemonic = false;
-            this.rdAtualizar.UseVisualStyleBackColor = true;
+            this.rdFaturar.AutoSize = true;
+            this.rdFaturar.Checked = true;
+            this.rdFaturar.Location = new System.Drawing.Point(13, 34);
+            this.rdFaturar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdFaturar.Name = "rdFaturar";
+            this.rdFaturar.Size = new System.Drawing.Size(73, 24);
+            this.rdFaturar.TabIndex = 33;
+            this.rdFaturar.TabStop = true;
+            this.rdFaturar.Text = "Faturar";
+            this.rdFaturar.UseMnemonic = false;
+            this.rdFaturar.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -234,6 +232,7 @@
             this.txtVlrBruto.Size = new System.Drawing.Size(105, 27);
             this.txtVlrBruto.TabIndex = 0;
             this.txtVlrBruto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtVlrBruto.TextChanged += new System.EventHandler(this.txtVlrBruto_TextChanged);
             // 
             // lblVlrBruto
             // 
@@ -248,10 +247,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.lblFormaPgto);
-            this.panel3.Controls.Add(this.ckbVenda);
-            this.panel3.Controls.Add(this.ckbOrcamento);
             this.panel3.Controls.Add(this.cbFormaPgto);
             this.panel3.Controls.Add(this.dtNota);
             this.panel3.Controls.Add(this.dtPedido);
@@ -271,6 +268,31 @@
             this.panel3.Size = new System.Drawing.Size(990, 123);
             this.panel3.TabIndex = 41;
             // 
+            // lblFormaPgto
+            // 
+            this.lblFormaPgto.AutoSize = true;
+            this.lblFormaPgto.Location = new System.Drawing.Point(14, 78);
+            this.lblFormaPgto.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
+            this.lblFormaPgto.Name = "lblFormaPgto";
+            this.lblFormaPgto.Size = new System.Drawing.Size(153, 20);
+            this.lblFormaPgto.TabIndex = 48;
+            this.lblFormaPgto.Text = "Forma de pagamento";
+            // 
+            // cbFormaPgto
+            // 
+            this.cbFormaPgto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFormaPgto.FormattingEnabled = true;
+            this.cbFormaPgto.Items.AddRange(new object[] {
+            "À vista",
+            "Crédito",
+            "Cheque",
+            "Débito"});
+            this.cbFormaPgto.Location = new System.Drawing.Point(175, 78);
+            this.cbFormaPgto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbFormaPgto.Name = "cbFormaPgto";
+            this.cbFormaPgto.Size = new System.Drawing.Size(160, 28);
+            this.cbFormaPgto.TabIndex = 49;
+            // 
             // dtNota
             // 
             this.dtNota.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -281,6 +303,7 @@
             // 
             // dtPedido
             // 
+            this.dtPedido.Enabled = false;
             this.dtPedido.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtPedido.Location = new System.Drawing.Point(623, 33);
             this.dtPedido.Name = "dtPedido";
@@ -423,6 +446,8 @@
             // dgvCarrinho
             // 
             this.dgvCarrinho.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCarrinho.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvCarrinho.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvCarrinho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarrinho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -437,6 +462,7 @@
             this.dgvCarrinho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvCarrinho.Name = "dgvCarrinho";
             this.dgvCarrinho.ReadOnly = true;
+            this.dgvCarrinho.RowHeadersVisible = false;
             this.dgvCarrinho.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCarrinho.Size = new System.Drawing.Size(980, 164);
             this.dgvCarrinho.TabIndex = 31;
@@ -637,62 +663,12 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(18, 377);
+            this.pictureBox1.Location = new System.Drawing.Point(67, 377);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(369, 154);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 49;
             this.pictureBox1.TabStop = false;
-            // 
-            // lblFormaPgto
-            // 
-            this.lblFormaPgto.AutoSize = true;
-            this.lblFormaPgto.Location = new System.Drawing.Point(14, 78);
-            this.lblFormaPgto.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
-            this.lblFormaPgto.Name = "lblFormaPgto";
-            this.lblFormaPgto.Size = new System.Drawing.Size(153, 20);
-            this.lblFormaPgto.TabIndex = 48;
-            this.lblFormaPgto.Text = "Forma de pagamento";
-            // 
-            // ckbVenda
-            // 
-            this.ckbVenda.AutoSize = true;
-            this.ckbVenda.Checked = true;
-            this.ckbVenda.Location = new System.Drawing.Point(467, 79);
-            this.ckbVenda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ckbVenda.Name = "ckbVenda";
-            this.ckbVenda.Size = new System.Drawing.Size(69, 24);
-            this.ckbVenda.TabIndex = 51;
-            this.ckbVenda.TabStop = true;
-            this.ckbVenda.Text = "Venda";
-            this.ckbVenda.UseMnemonic = false;
-            this.ckbVenda.UseVisualStyleBackColor = true;
-            // 
-            // ckbOrcamento
-            // 
-            this.ckbOrcamento.AutoSize = true;
-            this.ckbOrcamento.Location = new System.Drawing.Point(358, 79);
-            this.ckbOrcamento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ckbOrcamento.Name = "ckbOrcamento";
-            this.ckbOrcamento.Size = new System.Drawing.Size(101, 24);
-            this.ckbOrcamento.TabIndex = 50;
-            this.ckbOrcamento.Text = "Orçamento";
-            this.ckbOrcamento.UseVisualStyleBackColor = true;
-            // 
-            // cbFormaPgto
-            // 
-            this.cbFormaPgto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFormaPgto.FormattingEnabled = true;
-            this.cbFormaPgto.Items.AddRange(new object[] {
-            "À vista",
-            "Crédito",
-            "Cheque",
-            "Débito"});
-            this.cbFormaPgto.Location = new System.Drawing.Point(175, 78);
-            this.cbFormaPgto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cbFormaPgto.Name = "cbFormaPgto";
-            this.cbFormaPgto.Size = new System.Drawing.Size(160, 28);
-            this.cbFormaPgto.TabIndex = 49;
             // 
             // frmVenda
             // 
@@ -733,7 +709,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rdCancelar;
         private System.Windows.Forms.RadioButton rdPendente;
-        private System.Windows.Forms.RadioButton rdAtualizar;
+        private System.Windows.Forms.RadioButton rdFaturar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtValorTotal;
         private System.Windows.Forms.TextBox txtPorcentagem;
@@ -779,8 +755,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn vlr_total;
         private System.Windows.Forms.Label lblFormaPgto;
-        private System.Windows.Forms.RadioButton ckbVenda;
-        private System.Windows.Forms.RadioButton ckbOrcamento;
         private System.Windows.Forms.ComboBox cbFormaPgto;
     }
 }

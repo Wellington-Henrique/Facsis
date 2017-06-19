@@ -11,23 +11,43 @@ namespace Facsis.View
     {
         PessoaBLL bll = new PessoaBLL();
         PessoaDTO dto;
-        string relacao = "CLIENTE";
+        string relacao;
 
         TextBox id;
         TextBox nome;
 
         int indice = 0;
 
+        // ==========================================================================================
+        // Inicia o UserForm
+        // ==========================================================================================
         // Inicializa o Form normalmente
         public frmCadPessoa()
         {
             InitializeComponent();
         }
 
+        public frmCadPessoa(string tipo)
+        {
+            InitializeComponent();
+
+            if (tipo == "Fornecedor")
+            {
+                this.Text = "Cadastro fornecedor";
+                relacao = "FORNECEDOR";
+            }
+            else
+            {
+                this.Text = "Cadastro cliente";
+                relacao = "CLIENTE";
+            }
+        }
+
         // Inicializa o Form para consulta do Form Venda
         public frmCadPessoa(TextBox id, TextBox nome)
         {
             InitializeComponent();
+
             btnSelecionar.Enabled = true;
 
             this.id = id;
@@ -37,44 +57,16 @@ namespace Facsis.View
             relacao = "CLIENTE";
         }
 
-        // Insere pessoa no carrinho de compra
-        private void btnInserir_Click(object sender, EventArgs e)
-        {
-            selecionaCliente();
-        }
 
-        private void inserirClienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            selecionaCliente();
-        }
-
-        // Adiciona o cliente a tela de venda
-        public void selecionaCliente()
-        {
-            if (txtId.Text != "")
-            {
-                btnSelecionar.Text = btnSelecionar.Text == "Selecionar" ? "Alterar" : "Selecionar";
-
-                id.Text = txtId.Text;
-                nome.Text = txtNome.Text;
-            }
-            else
-                Mensagens.camposVazios();
-        }
-
-        // Seleciona linha do grid e preenche os campos para edição ou seleção
-        private void dgvPessoa_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            indice = e.RowIndex;
-            visualizarDadosPessoa(indice);
-        }      
-
+        // ==========================================================================================
+        // SELECT, INSER, UPDATE, DELETE
+        // ==========================================================================================
         // Cadastra um cliente no banco
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             int aux;
 
-            dto = new PessoaDTO();            
+            dto = new PessoaDTO();
 
             // Verifica se o número do imóvel é inteiro
             if (int.TryParse(txtNImovel.Text.Trim(), out aux))
@@ -106,7 +98,7 @@ namespace Facsis.View
                 {
                     // Atualiza um cadastro
                     dto.Id = int.Parse(txtId.Text);
-                    bll.Atualizar(dto);                    
+                    bll.Atualizar(dto);
                     btnCadastrar.Text = "Cadastrar";
                 }
 
@@ -116,7 +108,7 @@ namespace Facsis.View
             else
                 Mensagens.camposVazios();
 
-            dto = null;    
+            dto = null;
         }
 
         // Consulta pessoa no banco
@@ -139,34 +131,6 @@ namespace Facsis.View
             dto = null;
         }
 
-        // Faz o SELECT dos clientes no banco
-        private void CarregarGrid()
-        {
-            dgvPessoa.Rows?.Clear();
-
-            DataTable dt = new DataTable();
-            
-            if (dto.Id != 0 && dto.Nome != "" && dto.CPF_CNPJ != "")
-                dt = bll.selecionaPessoa(dto, relacao);
-            else if (dto.Nome != "")
-                dt = bll.selecionaPessoa(dto.Nome, relacao);
-
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                dgvPessoa.Rows.Add(
-                    dt.Rows[i]["id_pessoa"].ToString(), 
-                    dt.Rows[i]["nome"].ToString(), 
-                    dt.Rows[i]["tipo_pessoa"].ToString(),
-                    dt.Rows[i]["cpf_cnpj"].ToString(),
-                    dt.Rows[i]["email"].ToString(), 
-                    dt.Rows[i]["telefone"].ToString(),                     
-                    dt.Rows[i]["endereco"].ToString(),
-                    dt.Rows[i]["numero_imovel"].ToString(),
-                    dt.Rows[i]["cidade"].ToString(),
-                    dt.Rows[i]["uf"].ToString());
-            }
-        }
-
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             if (Mensagens.perguntaExcluir() == DialogResult.Yes)
@@ -178,21 +142,81 @@ namespace Facsis.View
             }
         }
 
+        // ==========================================================================================
+        // Seleciona cliente
+        // ==========================================================================================
+        // Insere pessoa no registro da venda
+        private void btnInserir_Click(object sender, EventArgs e)
+        {
+            selecionaCliente();
+        }
+
+        private void inserirClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            selecionaCliente();
+        }
+        // Cancela a busca de pessoa
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             FuncoesControles.limpaCampos(this.pnlDadosUsuario);
             dgvPessoa.Rows.Clear();
         }
 
-        private void btnProximo_Click(object sender, EventArgs e)
+        // Adiciona o cliente a tela de venda
+        public void selecionaCliente()
         {
-            if (indice < dgvPessoa.Rows.Count - 2 && dgvPessoa.Rows.Count > 0)
+            if (txtId.Text != "")
             {
-                indice++;
-                visualizarDadosPessoa(indice);
-            }               
+                id.Text = txtId.Text;
+                nome.Text = txtNome.Text;
+                this.Close();
+            }
+            else
+                Mensagens.camposVazios();
         }
 
+        // ==========================================================================================
+        // DataGridView
+        // ==========================================================================================
+        // Seleciona linha do grid e preenche os campos para edição ou seleção
+        private void dgvPessoa_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                indice = e.RowIndex;
+                visualizarDadosPessoa(indice);
+            }
+        }
+
+        // Faz o SELECT dos clientes no banco
+        private void CarregarGrid()
+        {
+            dgvPessoa.Rows?.Clear();
+
+            DataTable dt = new DataTable();
+
+            if (dto.Id != 0 && dto.Nome != "" && dto.CPF_CNPJ != "")
+                dt = bll.selecionaPessoa(dto, relacao);
+            else if (dto.Nome != "")
+                dt = bll.selecionaPessoa(dto.Nome, relacao);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                dgvPessoa.Rows.Add(
+                    dt.Rows[i]["id_pessoa"].ToString(),
+                    dt.Rows[i]["nome"].ToString(),
+                    dt.Rows[i]["tipo_pessoa"].ToString(),
+                    dt.Rows[i]["cpf_cnpj"].ToString(),
+                    dt.Rows[i]["email"].ToString(),
+                    dt.Rows[i]["telefone"].ToString(),
+                    dt.Rows[i]["endereco"].ToString(),
+                    dt.Rows[i]["numero_imovel"].ToString(),
+                    dt.Rows[i]["cidade"].ToString(),
+                    dt.Rows[i]["uf"].ToString());
+            }
+        }
+
+        // Carrega dados da pessoa para a edição ou seleção
         public void visualizarDadosPessoa(int indice)
         {
             txtId.Text = dgvPessoa.Rows[indice].Cells[0].Value.ToString();
@@ -210,6 +234,19 @@ namespace Facsis.View
             btnExcluir.Enabled = true;
         }
 
+        // ==========================================================================================
+        // Botões de navegação
+        // ==========================================================================================
+
+        private void btnProximo_Click(object sender, EventArgs e)
+        {
+            if (indice < dgvPessoa.Rows.Count - 2 && dgvPessoa.Rows.Count > 0)
+            {
+                indice++;
+                visualizarDadosPessoa(indice);
+            }
+        }
+
         private void btnAnterior_Click(object sender, EventArgs e)
         {
             if (indice > 0 && dgvPessoa.Rows.Count > 0)
@@ -219,18 +256,13 @@ namespace Facsis.View
             }
         }
 
-        private void txtCpfCnpj_DragOver(object sender, DragEventArgs e)
-        {
-
-        }
-
         private void cbPessoa_TextChanged(object sender, EventArgs e)
         {
             if (cbPessoa.Text == "Jurídica")
             {
                 txtCpfCnpj.Mask = "99,999,999 / 9999 - 99";
                 lblCpfCnpj.Text = "CNPJ";
-            }                
+            }
             else if (cbPessoa.Text == "Física")
             {
                 txtCpfCnpj.Mask = "099,999,999 - 99";

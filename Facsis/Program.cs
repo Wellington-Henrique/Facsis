@@ -22,10 +22,10 @@ namespace Facsis
             //    janela = new frmLogin();
 
             //    if (janela.ShowDialog() == DialogResult.OK)
-            //        Application.Run(new mdiPrincipal());
+                    Application.Run(new mdiPrincipal());
             //}
 
-            Application.Run(new frmConProduto());
+            //Application.Run(new frmConVenda());
         }
     }
 }
