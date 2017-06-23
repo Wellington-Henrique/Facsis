@@ -195,7 +195,7 @@ namespace Facsis.View
 
             DataTable dt = new DataTable();
 
-            if (dto.Id != 0 && dto.Nome != "" && dto.CPF_CNPJ != "")
+            if (dto.Id != 0 || dto.CPF_CNPJ != "")
                 dt = bll.selecionaPessoa(dto, relacao);
             else if (dto.Nome != "")
                 dt = bll.selecionaPessoa(dto.Nome, relacao);

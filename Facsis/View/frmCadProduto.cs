@@ -89,10 +89,13 @@ namespace Facsis.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            bll.Excluir(txtId.Text);
-            FuncoesControles.limpaCampos(this.pnlCadProduto);
-            btnExcluir.Enabled = false;
-            btnCadastrarAtualizar.Text = "Cadastrar";
+            if (Mensagens.perguntaExcluir() == DialogResult.Yes)
+            {
+                bll.Excluir(txtId.Text);
+                FuncoesControles.limpaCampos(this.pnlCadProduto);
+                btnExcluir.Enabled = false;
+                btnCadastrarAtualizar.Text = "Cadastrar";
+            }
         }
 
         // ==========================================================================================
@@ -194,6 +197,12 @@ namespace Facsis.View
             {
                 cbFornecedor.Items.Add(dt.Rows[i]["nome"].ToString());
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            FuncoesControles.limpaCampos(this.pnlCadProduto);
+            dgvConsulta.Rows.Clear();
         }
     }
 }

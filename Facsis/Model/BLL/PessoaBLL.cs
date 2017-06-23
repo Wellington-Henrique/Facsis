@@ -98,12 +98,31 @@ namespace Facsis.Model.BLL
         public DataTable selecionaPessoa(PessoaDTO dto, string relacao)
         {
             DataTable dt = new DataTable();
+            string cmd = "";
             bd = new AcessoBanco();
+
+            if (dto.Id != 0)
+                cmd = "id_pessoa = '" + dto.Id + "'";
+            if (dto.Nome != "")
+            {
+                if (dto.Id != 0)
+                    cmd += " and ";
+
+                cmd += "nome = '" + dto.Nome + "'";
+            }
+
+            if (dto.CPF_CNPJ != "")
+            {
+                if (dto.Id != 0 || dto.Nome != "")
+                    cmd += " and ";
+
+                cmd += "cpf_cnpj = '" + dto.CPF_CNPJ + "'";
+            }
 
             try
             {
                 bd.Conectar();
-                dt = bd.RetDataTable("SELECT * FROM pessoa WHERE id_pessoa = '" + dto.Id  + "' AND nome = '" + dto.Nome + "'AND cpf_cnpj = '" + dto.CPF_CNPJ + "' AND relacao = 'CLIENTE'");              
+                dt = bd.RetDataTable("SELECT * FROM pessoa WHERE " + cmd + " AND relacao = '" + relacao +"'"); 
             }
             catch (Exception)
             {
@@ -183,5 +202,6 @@ namespace Facsis.Model.BLL
 
             return nomePessoa;
         }
+
     }
 }

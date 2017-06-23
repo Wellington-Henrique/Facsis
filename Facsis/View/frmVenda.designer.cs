@@ -61,13 +61,6 @@
             this.lblCodCli = new System.Windows.Forms.Label();
             this.gbPedido = new System.Windows.Forms.GroupBox();
             this.dgvCarrinho = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vlr_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.inserirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,6 +73,13 @@
             this.btnCancelarVenda = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vlr_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -122,7 +122,7 @@
             this.rdPendente.Location = new System.Drawing.Point(13, 69);
             this.rdPendente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rdPendente.Name = "rdPendente";
-            this.rdPendente.Size = new System.Drawing.Size(89, 24);
+            this.rdPendente.Size = new System.Drawing.Size(88, 24);
             this.rdPendente.TabIndex = 33;
             this.rdPendente.Text = "Pendente";
             this.rdPendente.UseVisualStyleBackColor = true;
@@ -134,7 +134,7 @@
             this.rdFaturar.Location = new System.Drawing.Point(13, 34);
             this.rdFaturar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rdFaturar.Name = "rdFaturar";
-            this.rdFaturar.Size = new System.Drawing.Size(73, 24);
+            this.rdFaturar.Size = new System.Drawing.Size(72, 24);
             this.rdFaturar.TabIndex = 33;
             this.rdFaturar.TabStop = true;
             this.rdFaturar.Text = "Faturar";
@@ -198,7 +198,7 @@
             this.label2.Location = new System.Drawing.Point(160, 114);
             this.label2.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 20);
+            this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 18;
             this.label2.Text = "Valor total";
             // 
@@ -240,7 +240,7 @@
             this.lblVlrBruto.Location = new System.Drawing.Point(153, 34);
             this.lblVlrBruto.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
             this.lblVlrBruto.Name = "lblVlrBruto";
-            this.lblVlrBruto.Size = new System.Drawing.Size(84, 20);
+            this.lblVlrBruto.Size = new System.Drawing.Size(83, 20);
             this.lblVlrBruto.TabIndex = 18;
             this.lblVlrBruto.Text = "Valor Bruto";
             // 
@@ -344,7 +344,7 @@
             this.lblNVendedor.Location = new System.Drawing.Point(873, 8);
             this.lblNVendedor.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
             this.lblNVendedor.Name = "lblNVendedor";
-            this.lblNVendedor.Size = new System.Drawing.Size(108, 20);
+            this.lblNVendedor.Size = new System.Drawing.Size(107, 20);
             this.lblNVendedor.TabIndex = 40;
             this.lblNVendedor.Text = "Cód. Vendedor";
             // 
@@ -374,7 +374,7 @@
             this.lblLegNPedido.Location = new System.Drawing.Point(528, 8);
             this.lblLegNPedido.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
             this.lblLegNPedido.Name = "lblLegNPedido";
-            this.lblLegNPedido.Size = new System.Drawing.Size(77, 20);
+            this.lblLegNPedido.Size = new System.Drawing.Size(76, 20);
             this.lblLegNPedido.TabIndex = 38;
             this.lblLegNPedido.Text = "Nº Pedido";
             // 
@@ -384,7 +384,7 @@
             this.lblLegDataPed.Location = new System.Drawing.Point(619, 8);
             this.lblLegDataPed.Margin = new System.Windows.Forms.Padding(13, 0, 4, 0);
             this.lblLegDataPed.Name = "lblLegDataPed";
-            this.lblLegDataPed.Size = new System.Drawing.Size(79, 20);
+            this.lblLegDataPed.Size = new System.Drawing.Size(78, 20);
             this.lblLegDataPed.TabIndex = 39;
             this.lblLegDataPed.Text = "Dt. Pedido";
             // 
@@ -468,60 +468,6 @@
             this.dgvCarrinho.TabIndex = 31;
             this.dgvCarrinho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgCarrinho_CellContentClick);
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.Frozen = true;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Código";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.Frozen = true;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nome";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 250;
-            // 
-            // descricao
-            // 
-            this.descricao.Frozen = true;
-            this.descricao.HeaderText = "Descrição";
-            this.descricao.Name = "descricao";
-            this.descricao.ReadOnly = true;
-            this.descricao.Width = 270;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.Frozen = true;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Medida";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.Frozen = true;
-            this.dataGridViewTextBoxColumn7.HeaderText = "Qtde";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.Frozen = true;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Vlr UN";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // vlr_total
-            // 
-            this.vlr_total.Frozen = true;
-            this.vlr_total.HeaderText = "Total";
-            this.vlr_total.Name = "vlr_total";
-            this.vlr_total.ReadOnly = true;
-            // 
             // dgvMenu
             // 
             this.dgvMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -529,26 +475,26 @@
             this.removerToolStripMenuItem,
             this.limparToolStripMenuItem});
             this.dgvMenu.Name = "dvgMenu";
-            this.dgvMenu.Size = new System.Drawing.Size(153, 92);
+            this.dgvMenu.Size = new System.Drawing.Size(122, 70);
             // 
             // inserirToolStripMenuItem
             // 
             this.inserirToolStripMenuItem.Name = "inserirToolStripMenuItem";
-            this.inserirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.inserirToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.inserirToolStripMenuItem.Text = "Inserir";
             this.inserirToolStripMenuItem.Click += new System.EventHandler(this.inserirToolStripMenuItem_Click);
             // 
             // removerToolStripMenuItem
             // 
             this.removerToolStripMenuItem.Name = "removerToolStripMenuItem";
-            this.removerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.removerToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.removerToolStripMenuItem.Text = "Remover";
             this.removerToolStripMenuItem.Click += new System.EventHandler(this.removerToolStripMenuItem_Click);
             // 
             // limparToolStripMenuItem
             // 
             this.limparToolStripMenuItem.Name = "limparToolStripMenuItem";
-            this.limparToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.limparToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.limparToolStripMenuItem.Text = "Limpar";
             this.limparToolStripMenuItem.Click += new System.EventHandler(this.limparToolStripMenuItem_Click);
             // 
@@ -670,6 +616,60 @@
             this.pictureBox1.TabIndex = 49;
             this.pictureBox1.TabStop = false;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.Frozen = true;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Código";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.Frozen = true;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nome";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 250;
+            // 
+            // descricao
+            // 
+            this.descricao.Frozen = true;
+            this.descricao.HeaderText = "Descrição";
+            this.descricao.Name = "descricao";
+            this.descricao.ReadOnly = true;
+            this.descricao.Width = 270;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.Frozen = true;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Medida";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.Frozen = true;
+            this.dataGridViewTextBoxColumn7.HeaderText = "Qtde";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.Frozen = true;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Vlr UN";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // vlr_total
+            // 
+            this.vlr_total.Frozen = true;
+            this.vlr_total.HeaderText = "Total";
+            this.vlr_total.Name = "vlr_total";
+            this.vlr_total.ReadOnly = true;
+            // 
             // frmVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -747,6 +747,8 @@
         private System.Windows.Forms.ToolStripMenuItem removerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem limparToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblFormaPgto;
+        private System.Windows.Forms.ComboBox cbFormaPgto;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
@@ -754,7 +756,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn vlr_total;
-        private System.Windows.Forms.Label lblFormaPgto;
-        private System.Windows.Forms.ComboBox cbFormaPgto;
     }
 }

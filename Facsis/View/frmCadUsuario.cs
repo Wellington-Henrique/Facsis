@@ -49,13 +49,16 @@ namespace Facsis.View
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            dgvConsulta.Refresh();
-            bll.Excluir(txtId.Text);
-            FuncoesControles.limpaCampos(this.pnlUsuario);
-            btnCadastrar.Text = "Cadastrar";
-            txtConsulta.Text = "";
-            txtTelefone.Text = "";
-            dgvConsulta.DataSource = null;
+            if (Mensagens.perguntaExcluir() == DialogResult.Yes)
+            {
+                dgvConsulta.Rows.Clear();
+                bll.Excluir(txtId.Text);
+                FuncoesControles.limpaCampos(this.pnlUsuario);
+                btnCadastrar.Text = "Cadastrar";
+                txtConsulta.Text = "";
+                txtTelefone.Text = "";
+                dgvConsulta.DataSource = null;
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

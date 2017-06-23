@@ -138,8 +138,8 @@ namespace Facsis.View
             dto.Nome = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[1].Value);
             dto.Descricao = dgvConsulta.Rows[e.RowIndex].Cells[2].Value.ToString();
             dto.Medida = Convert.ToString(dgvConsulta.Rows[e.RowIndex].Cells[3].Value);
-            dto.Preco = Convert.ToDouble(dgvConsulta.Rows[e.RowIndex].Cells[4].Value);
-            dto.Quantidade = Convert.ToInt32(dgvConsulta.Rows[e.RowIndex].Cells[5].Value);
+            dto.Quantidade = Convert.ToInt32(dgvConsulta.Rows[e.RowIndex].Cells[4].Value);
+            dto.Preco = Convert.ToDouble(dgvConsulta.Rows[e.RowIndex].Cells[5].Value);
 
             if (e.RowIndex >= 0)
             {
@@ -176,7 +176,7 @@ namespace Facsis.View
                 string aux = Convert.ToDateTime(dt.Rows[i]["ultima_compra"].ToString()).ToShortDateString();
 
                 dgvConsulta.Rows.Add(dt.Rows[i]["id_produto"].ToString(), dt.Rows[i]["nome"].ToString(), dt.Rows[i]["descricao"].ToString(),
-                                         dt.Rows[i]["medida"].ToString(), dt.Rows[i]["preco"].ToString(), dt.Rows[i]["quantidade"].ToString());
+                                         dt.Rows[i]["medida"].ToString(), dt.Rows[i]["quantidade"].ToString(), dt.Rows[i]["preco"].ToString());
             }
         }
 

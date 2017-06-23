@@ -571,6 +571,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.toolTip1.SetToolTip(this.btnCancelar, "Clieque aqui para cancelar o cadastro.");
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnExcluir
             // 

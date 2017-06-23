@@ -164,6 +164,11 @@ namespace Facsis.View
         // ==========================================================================================
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            foreach (Form childForm in MdiChildren)
+            {
+                childForm.Close();
+            }
+
             login?.Close();
             //this.Hide();
             this.Enabled = false;
